@@ -56,6 +56,12 @@ Toàn bộ truyền thông giữa **PLC1** và **PLC2** đã được chuyển �
   * Server (PLC2) phát hiện `CmdSeq` thay đổi, tạo xung lệnh hiệu dụng 1 scan cho các biến nội bộ, sau đó phản hồi lại số thứ tự lệnh qua `AckSeq = CmdSeq`.
   * Khi Client nhận được `AckSeq == CmdSeq`, nó tự động xóa các cờ chốt lệnh gửi, kết thúc chu trình bắt tay an toàn.
 * **Cấu hình động:** Toàn bộ thông số cấu hình của struct `TCON_IP_v4` được gán động bằng lệnh `MOVE` trong mạng khởi tạo (`AI_FirstScan`) của cả hai PLC để đảm bảo tính an toàn của cấu trúc XML khi import vào TIA Portal.
+* **Định kiểu So sánh Handshake (Sửa lỗi Type-Mismatch):** Tích hợp từ khóa `"Seq"` vào bộ nhận diện kiểu của thư viện sinh Ladder `Agent_LAD_Library.py`. Nhờ đó, các phép so sánh handshake như `AckSeq == CmdSeq` và `CmdSeq <> Last_CmdSeq` được xuất dưới dạng `SrcType` là `Int` thay vì `Real`, đảm bảo biên dịch chính xác 100%.
+* **Định kiểu Hằng số MB_CLIENT (Sửa lỗi Type Constant):** Cập nhật ánh xạ chân hằng số cho khối `MB_CLIENT` trong thư viện sinh mã. Các hằng số điều khiển giờ đây được định kiểu chuẩn xác:
+  * `MB_MODE` sử dụng kiểu `USInt` (ví dụ: `0`, `1`).
+  * `MB_DATA_ADDR` sử dụng kiểu `UDInt` (ví dụ: `40001`, `40004`).
+  * `MB_DATA_LEN` sử dụng kiểu `UInt` (ví dụ: `3`, `10`).
+  * Triệt tiêu hoàn toàn cảnh báo ép kiểu hằng số khi biên dịch khối.
 
 ---
 
