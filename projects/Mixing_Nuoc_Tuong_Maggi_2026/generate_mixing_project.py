@@ -2422,6 +2422,9 @@ def generate_standard_db_xml(db_name: str, db_number: int, members: list[tuple[s
 
 
 def main() -> None:
+    import shutil
+    if OUTPUT_DIR.exists():
+        shutil.rmtree(OUTPUT_DIR)
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     reset_generation_state()
     define_tags()
