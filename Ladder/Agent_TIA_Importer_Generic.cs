@@ -8,32 +8,47 @@ using Siemens.Engineering.HW.Features;
 using Siemens.Engineering.SW;
 using Siemens.Engineering.SW.Blocks;
 using Siemens.Engineering.SW.Tags;
+using Siemens.Engineering.SW.Types;
 using Siemens.Engineering.Hmi;
 using Siemens.Engineering.Hmi.TextGraphicList;
+using Siemens.Engineering.Compiler;
 
 class AgentTIAImporterGeneric
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("========================================");
-        Console.WriteLine(" GENERIC TIA PORTAL OPENNESS IMPORTER");
-        Console.WriteLine("========================================");
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.WriteLine("=================================================");
+        Console.WriteLine(" UPGRADED TIA PORTAL OPENNESS IMPORTER");
+        Console.WriteLine("=================================================");
 
         string inFolder = AppDomain.CurrentDomain.BaseDirectory;
-        if (args.Length > 0)
-        {
-            inFolder = args[0];
-        }
+        string targetPlcName = "";
+        bool runCompile = false;
 
-        if (!Directory.Exists(inFolder))
+        foreach (string arg in args)
         {
-            Console.WriteLine(string.Format("Error: Directory '{0}' does not exist.", inFolder));
-            return;
+            if (arg.Equals("compile", StringComparison.OrdinalIgnoreCase))
+            {
+                runCompile = true;
+            }
+            else if (Directory.Exists(arg))
+            {
+                inFolder = Path.GetFullPath(arg);
+            }
+            else
+            {
+                targetPlcName = arg;
+            }
         }
 
         Console.WriteLine(string.Format("Target Folder: {0}", inFolder));
+        if (!string.IsNullOrEmpty(targetPlcName))
+        {
+            Console.WriteLine(string.Format("Explicit PLC Selection: {0}", targetPlcName));
+        }
 
-        // 2. NGĂN CHẶN SỬ DỤNG SCL LOGIC NGAY TỪ ĐẦU (LADDER-ONLY POLICY)
+        // 1. NGĂN CHẶN SỬ DỤNG SCL LOGIC (LADDER-ONLY POLICY)
         string[] sclFiles = Directory.GetFiles(inFolder, "*.scl", SearchOption.AllDirectories);
         if (sclFiles.Length > 0)
         {
@@ -57,20 +72,67 @@ class AgentTIAImporterGeneric
                 return;
             }
 
-            Console.WriteLine("Attaching to TIA Portal...");
-            var tia = procList[0].Attach();
-            var proj = tia.Projects[0];
+            Console.WriteLine(string.Format("Running TIA Portal processes found: {0}", procList.Count));
+            TiaPortal tia = null;
+            Project proj = null;
+
+            // Search for the process containing the target PLC name or project
+            for (int i = 0; i < procList.Count; i++)
+            {
+                try
+                {
+                    var candidateTia = procList[i].Attach();
+                    foreach (Project p in candidateTia.Projects)
+                    {
+                        Console.WriteLine(string.Format("  Process #{0} has open project: {1}", i + 1, p.Name));
+                        if (proj == null)
+                        {
+                            tia = candidateTia;
+                            proj = p;
+                        }
+
+                        if (!string.IsNullOrEmpty(targetPlcName))
+                        {
+                            List<Device> devs = new List<Device>();
+                            GetDevicesRecursive(p, devs);
+                            foreach (var d in devs)
+                            {
+                                if (d.Name.IndexOf(targetPlcName, StringComparison.OrdinalIgnoreCase) >= 0)
+                                {
+                                    tia = candidateTia;
+                                    proj = p;
+                                    Console.WriteLine(string.Format("    Matched TIA process #{0} containing PLC: {1}", i + 1, d.Name));
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception attachEx)
+                {
+                    Console.WriteLine(string.Format("  Attach failed for TIA process #{0}: {1}", i + 1, attachEx.Message));
+                }
+            }
+
+            if (proj == null)
+            {
+                Console.WriteLine("Error: No open projects found in any running TIA Portal instance!");
+                return;
+            }
             Console.WriteLine(string.Format("Attached to Project: {0}", proj.Name));
 
             PlcSoftware plcSoftware = null;
-            string plcSearchName = "";
-            if (inFolder.Contains("01_PLC_1") || inFolder.Contains("PLC_1"))
+            string plcSearchName = targetPlcName;
+            if (string.IsNullOrEmpty(plcSearchName))
             {
-                plcSearchName = "PLC_1";
-            }
-            else if (inFolder.Contains("02_PLC_2") || inFolder.Contains("PLC_2"))
-            {
-                plcSearchName = "PLC_2";
+                if (inFolder.Contains("01_PLC_1") || inFolder.Contains("PLC_1"))
+                {
+                    plcSearchName = "PLC_1";
+                }
+                else if (inFolder.Contains("02_PLC_2") || inFolder.Contains("PLC_2"))
+                {
+                    plcSearchName = "PLC_2";
+                }
             }
 
             List<Device> allDevices = new List<Device>();
@@ -108,7 +170,7 @@ class AgentTIAImporterGeneric
             }
             Console.WriteLine(string.Format("PLC Software Container: {0}", plcSoftware.Name));
 
-            // 0.5. CREATE PID TECHNOLOGY OBJECTS IF NEEDED
+            // Create PID Technological Object if needed
             try
             {
                 var techGroup = plcSoftware.TechnologicalObjectGroup;
@@ -160,9 +222,9 @@ class AgentTIAImporterGeneric
                 Console.WriteLine("Warning: Failed to process Technology Objects: " + ex.Message);
             }
 
-            // 1. IMPORT TAG TABLES
-            Console.WriteLine("\n--- 1. IMPORTING PLC TAG TABLES ---");
+            // Classify files for stable import order
             string[] xmlFiles = Directory.GetFiles(inFolder, "*.xml", SearchOption.AllDirectories);
+            var typeFiles = new List<string>();
             var tagFiles = new List<string>();
             var blockFiles = new List<string>();
             var hmiTextListFiles = new List<string>();
@@ -179,6 +241,10 @@ class AgentTIAImporterGeneric
                 {
                     hmiGraphicListFiles.Add(file);
                 }
+                else if (content.Contains("<SW.Types.PlcStruct") || content.Contains("<SW.Types.PlcUserType"))
+                {
+                    typeFiles.Add(file);
+                }
                 else if (file.IndexOf("Tag", StringComparison.OrdinalIgnoreCase) >= 0 || content.Contains("SW.Tags.PlcTagTable"))
                 {
                     tagFiles.Add(file);
@@ -189,25 +255,70 @@ class AgentTIAImporterGeneric
                 }
             }
 
-            foreach (string tagFile in tagFiles)
+            // 1. IMPORT UDTs (Types)
+            if (typeFiles.Count > 0)
             {
-                string tableName = Path.GetFileNameWithoutExtension(tagFile);
-                Console.WriteLine(string.Format("Importing Tag Table: {0} ...", tableName));
-                try
+                Console.WriteLine("\n--- 1. IMPORTING UDTs (PLC DATA TYPES) ---");
+                foreach (string typeFile in typeFiles)
                 {
-                    plcSoftware.TagTableGroup.TagTables.Import(new FileInfo(tagFile), ImportOptions.Override);
-                    Console.WriteLine("  SUCCESS!");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(string.Format("  FAILED! {0}", ex.Message));
+                    string typeName = Path.GetFileNameWithoutExtension(typeFile);
+                    Console.WriteLine(string.Format("Importing UDT: {0} ...", typeName));
+                    try
+                    {
+                        plcSoftware.TypeGroup.Types.Import(new FileInfo(typeFile), ImportOptions.Override);
+                        Console.WriteLine("  SUCCESS!");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(string.Format("  FAILED! {0}", ex.Message));
+                    }
                 }
             }
 
-            // 1.5. IMPORT HMI TEXT AND GRAPHIC LISTS
+            // 2. IMPORT TAG TABLES
+            if (tagFiles.Count > 0)
+            {
+                Console.WriteLine("\n--- 2. IMPORTING PLC TAG TABLES ---");
+                foreach (string tagFile in tagFiles)
+                {
+                    string tableName = Path.GetFileNameWithoutExtension(tagFile);
+                    Console.WriteLine(string.Format("Importing Tag Table: {0} ...", tableName));
+                    try
+                    {
+                        plcSoftware.TagTableGroup.TagTables.Import(new FileInfo(tagFile), ImportOptions.Override);
+                        Console.WriteLine("  SUCCESS!");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(string.Format("  FAILED! {0}", ex.Message));
+                    }
+                }
+            }
+
+            // 3. IMPORT BLOCKS
+            if (blockFiles.Count > 0)
+            {
+                Console.WriteLine("\n--- 3. IMPORTING BLOCK XMLs ---");
+                foreach (string blockFile in blockFiles)
+                {
+                    string blockName = Path.GetFileNameWithoutExtension(blockFile);
+                    Console.WriteLine(string.Format("Importing Block: {0} ...", blockName));
+                    try
+                    {
+                        plcSoftware.BlockGroup.Blocks.Import(new FileInfo(blockFile), ImportOptions.Override);
+                        Console.WriteLine("  SUCCESS!");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(string.Format("  FAILED! {0}", ex.Message));
+                    }
+                }
+            }
+
+            // 3.5. IMPORT HMI TEXT AND GRAPHIC LISTS
             if (hmiTextListFiles.Count > 0 || hmiGraphicListFiles.Count > 0)
             {
-                Console.WriteLine("\n--- 1.5. IMPORTING HMI TEXT & GRAPHIC LISTS ---");
+                Console.WriteLine("\n--- 3.5. IMPORTING HMI TEXT & GRAPHIC LISTS ---");
                 List<HmiTarget> hmiTargets = new List<HmiTarget>();
                 foreach (var dev in proj.Devices)
                 {
@@ -262,20 +373,43 @@ class AgentTIAImporterGeneric
                 }
             }
 
-            // 3. IMPORT BLOCKS
-            Console.WriteLine("\n--- 3. IMPORTING BLOCK XMLs ---");
-            foreach (string blockFile in blockFiles)
+            // 4. COMPILATION
+            if (runCompile)
             {
-                string blockName = Path.GetFileNameWithoutExtension(blockFile);
-                Console.WriteLine(string.Format("Importing Block: {0} ...", blockName));
-                try
+                Console.WriteLine("\n--- 4. COMPILING PLC SOFTWARE ---");
+                ICompilable compilable = plcSoftware.GetService<ICompilable>();
+                if (compilable == null)
                 {
-                    plcSoftware.BlockGroup.Blocks.Import(new FileInfo(blockFile), ImportOptions.Override);
-                    Console.WriteLine("  SUCCESS!");
+                    Console.WriteLine("Error: PLC software container does not support compilation.");
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine(string.Format("  FAILED! {0}", ex.Message));
+                    Console.WriteLine("Compiling project software, please wait...");
+                    CompilerResult result = compilable.Compile();
+                    Console.WriteLine(string.Format("Compilation finished with state: {0}", result.State));
+                    Console.WriteLine(string.Format("Total messages: {0}", result.Messages.Count));
+
+                    int errors = 0;
+                    int warnings = 0;
+                    foreach (var msg in result.Messages)
+                    {
+                        string stateStr = msg.State.ToString();
+                        if (stateStr.Contains("Error"))
+                        {
+                            errors++;
+                            Console.WriteLine(string.Format("  [ERROR] {0}: {1}", msg.Path, msg.Description));
+                        }
+                        else if (stateStr.Contains("Warning"))
+                        {
+                            warnings++;
+                            Console.WriteLine(string.Format("  [WARNING] {0}: {1}", msg.Path, msg.Description));
+                        }
+                        else
+                        {
+                            Console.WriteLine(string.Format("  [INFO] {0} [{1}]: {2}", msg.Path, stateStr, msg.Description));
+                        }
+                    }
+                    Console.WriteLine(string.Format("Compilation summary: {0} Errors, {1} Warnings", errors, warnings));
                 }
             }
 
