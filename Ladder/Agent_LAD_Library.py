@@ -41,8 +41,11 @@ class TIALadderBuilder:
             "BAUD": "UDInt",
             "MB_ADDR": "UInt",
             "MODE": "USInt",
+            "MB_MODE": "USInt",
             "DATA_ADDR": "UDInt",
+            "MB_DATA_ADDR": "UDInt",
             "DATA_LEN": "UInt",
+            "MB_DATA_LEN": "UInt",
             "PARITY": "UInt",
         }
         if pin_name in pin_types:
@@ -238,7 +241,7 @@ class TIALadderBuilder:
                     type_str = "DWord"
                 elif "Time" in in1_tag:
                     type_str = "Time"
-                elif "iStep" in in1_tag or "State" in in1_tag or "Heartbeat" in in1_tag or "Status" in in1_tag or "Counter" in in1_tag or "Round" in in1_tag:
+                elif "iStep" in in1_tag or "State" in in1_tag or "Heartbeat" in in1_tag or "Status" in in1_tag or "Counter" in in1_tag or "Round" in in1_tag or "Seq" in in1_tag:
                     type_str = "Int"
                 else:
                     type_str = "Real"
