@@ -79,3 +79,6 @@ Sau khi sinh lại code và phân phối import sets, chúng tôi đã tiến h�
    * Thư mục CPU-level `PLC_1_Mixing_Import`: **QA PASS 100%**
    * Thư mục CPU-level `PLC_2_Mixing_Import`: **QA PASS 100%**
    * Toàn bộ cấu trúc XML đều hợp lệ, không có tag chưa khai báo, đảm bảo an toàn tín hiệu I/O và tính duy nhất của ID/UId.
+4. **Dọn dẹp tệp tin dư thừa & tệp tạm:**
+   * Đã tích hợp thư viện `shutil` vào phương thức khởi tạo dự án trong `generate_mixing_project.py` để tự động dọn sạch thư mục `output` trước mỗi lần tạo mới. Điều này loại bỏ hoàn toàn các tệp tin dư thừa của cơ chế GET/PUT cũ (`DB_PLC2_Recv_From_PLC1.xml` và `DB_PLC2_Send_To_PLC1.xml`).
+   * Xóa bỏ tệp tin tạm không liên quan `scratch/search_exe_calls.py` để giữ trạng thái Git Repo sạch sẽ (Working Tree Clean).
