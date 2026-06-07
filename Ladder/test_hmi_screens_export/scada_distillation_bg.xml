@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-06-03T07:40:00Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+  </DocumentInfo>
+  <Hmi.Globalization.MultiLingualGraphic ID="0">
+    <AttributeList>
+      <DefaultDithering>false</DefaultDithering>
+      <DefaultImageStream external="path">scada_distillation_bg files\DefaultImageStream.png</DefaultImageStream>
+      <DefaultSmoothness>false</DefaultSmoothness>
+      <Name>scada_distillation_bg</Name>
+    </AttributeList>
+  </Hmi.Globalization.MultiLingualGraphic>
+</Document>

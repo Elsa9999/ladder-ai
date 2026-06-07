@@ -1,0 +1,20 @@
+# Compiled python files
+__pycache__/
+*.pyc
+
+# Built binaries
+*.exe
+*.pdb
+*.dll
+*.user
+
+# Log files
+*.txt
+*.log
+
+# TIA Portal temporary and generated folders
+projects/*/output/
+projects/*/tia_import/
+projects/*/tia_current_export/
+projects/*/tia_check_export/
+projects/*/tia_check_export_after_fix/

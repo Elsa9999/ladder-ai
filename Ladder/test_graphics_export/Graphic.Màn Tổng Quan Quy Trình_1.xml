@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-06-03T07:40:42.8947796Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Professional</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <Hmi.Globalization.MultiLingualGraphic ID="0">
+    <AttributeList>
+      <DefaultDithering>false</DefaultDithering>
+      <DefaultImageStream external="path">Graphic.Màn Tổng Quan Quy Trình_1 files\DefaultImageStream.png</DefaultImageStream>
+      <DefaultSmoothness>false</DefaultSmoothness>
+      <Name>Màn Tổng Quan Quy Trình_1</Name>
+    </AttributeList>
+    <ObjectList>
+      <Hmi.Globalization.GraphicItem ID="1" CompositionName="Items">
+        <AttributeList>
+          <Culture>en-US</Culture>
+          <Dithering>false</Dithering>
+          <ImageStream external="path">Graphic.Màn Tổng Quan Quy Trình_1 files\ImageStream.png</ImageStream>
+          <Smoothness>false</Smoothness>
+        </AttributeList>
+      </Hmi.Globalization.GraphicItem>
+    </ObjectList>
+  </Hmi.Globalization.MultiLingualGraphic>
+</Document>

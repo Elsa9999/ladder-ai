@@ -1,0 +1,412 @@
+{
+    "S_Move": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "Card",
+            "SrcType"
+        ],
+        "Pins": [
+            "en",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "out1",
+            "pre"
+        ]
+    },
+    "Convert": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType",
+            "DestType"
+        ],
+        "Pins": [
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "out1"
+        ]
+    },
+    "Div": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType"
+        ],
+        "Pins": [
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "in3",
+            "in4",
+            "operand",
+            "out",
+            "out1",
+            "pre"
+        ]
+    },
+    "RT_INFO": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "src_type",
+            "dest_type"
+        ],
+        "Pins": [
+            "INFO",
+            "MODE",
+            "OB",
+            "Ret_Val",
+            "en",
+            "eno",
+            "in",
+            "operand"
+        ]
+    },
+    "RD_LOC_T": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "date_type"
+        ],
+        "Pins": [
+            "IN",
+            "OUT",
+            "RET_VAL",
+            "en",
+            "eno",
+            "in",
+            "operand",
+            "out"
+        ]
+    },
+    "Eq": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType"
+        ],
+        "Pins": [
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "out1",
+            "pre"
+        ]
+    },
+    "Move": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "Card"
+        ],
+        "Pins": [
+            "bit",
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "in3",
+            "operand",
+            "out",
+            "out1",
+            "pre"
+        ]
+    },
+    "Le": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType"
+        ],
+        "Pins": [
+            "bit",
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "in3",
+            "operand",
+            "out",
+            "out1",
+            "pre"
+        ]
+    },
+    "PContact": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "Card"
+        ],
+        "Pins": [
+            "bit",
+            "en",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "out1",
+            "pre"
+        ]
+    },
+    "Lt": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType"
+        ],
+        "Pins": [
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "out1",
+            "pre"
+        ]
+    },
+    "Sub": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType"
+        ],
+        "Pins": [
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "in3",
+            "operand",
+            "out",
+            "out1",
+            "pre"
+        ]
+    },
+    "Mul": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "Card",
+            "SrcType"
+        ],
+        "Pins": [
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "in3",
+            "operand",
+            "out",
+            "out1",
+            "pre"
+        ]
+    },
+    "Add": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "Card",
+            "SrcType"
+        ],
+        "Pins": [
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "out1",
+            "pre"
+        ]
+    },
+    "Gt": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType"
+        ],
+        "Pins": [
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "in3",
+            "operand",
+            "out",
+            "out1",
+            "pre"
+        ]
+    },
+    "Ge": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType"
+        ],
+        "Pins": [
+            "IN",
+            "OUT",
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "pre"
+        ]
+    },
+    "NContact": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "Card"
+        ],
+        "Pins": [
+            "bit",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "pre"
+        ]
+    },
+    "Ne": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType"
+        ],
+        "Pins": [
+            "bit",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "pre"
+        ]
+    },
+    "T_CONV": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "src_type",
+            "dest_type"
+        ],
+        "Pins": [
+            "IN",
+            "OUT",
+            "RET_VAL",
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "pre"
+        ]
+    },
+    "ReturnValue": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "date_type",
+            "Card"
+        ],
+        "Pins": [
+            "en",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "out1",
+            "pre"
+        ]
+    },
+    "T_DIFF": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "date_type",
+            "time_type"
+        ],
+        "Pins": [
+            "IN1",
+            "IN2",
+            "OUT",
+            "en",
+            "in",
+            "operand",
+            "out"
+        ]
+    },
+    "Exp": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType"
+        ],
+        "Pins": [
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "out1"
+        ]
+    },
+    "Sqrt": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType"
+        ],
+        "Pins": [
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "out",
+            "out1"
+        ]
+    },
+    "Cos": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType"
+        ],
+        "Pins": [
+            "en",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out",
+            "out1"
+        ]
+    },
+    "Sin": {
+        "RequiresInstanceDB": false,
+        "TemplateValues": [
+            "SrcType"
+        ],
+        "Pins": [
+            "en",
+            "eno",
+            "in",
+            "in1",
+            "in2",
+            "operand",
+            "out"
+        ]
+    }
+}
