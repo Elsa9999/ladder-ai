@@ -14,7 +14,7 @@ Tài liệu này đặc tả cấu trúc phân bổ khối (OB, FB, FC, DB) cho 
 | **FB10** | `FB_Mixing_Branch` | SCL | Hàm chức năng | Chứa logic chạy tuần tự (CASE) cho một nhánh (Bồn A + Bồn B). Dùng chung instance cho Nhánh 1 và Nhánh 2. |
 | **FB20** | `FB_Storage_Filter` | SCL | Hàm chức năng | Quản lý phân xử quyền sở hữu bồn chứa, logic giải nhiệt, bơm chuyển qua màng lọc và chiết rót. |
 | **FC30** | `FC_Modbus_ATV12` | SCL | Hàm chức năng | Chạy State Machine điều khiển tuần tự Modbus RTU ghi Control Word/Tần số và đọc Status Word từ ATV12. |
-| **FC40** | `FC_Sensor_Simulation`| SCL | Hàm chức năng | Giả lập dâng mức, tăng nhiệt bồn dựa trên trạng thái van/bơm/gia nhiệt để test offline. |
+| **FC40** | `FC_Sensor_Sim` | SCL | Hàm chức năng | **Chỉ dùng cho bản mô phỏng 1 PLC:** Giả lập dâng/hạ mức dịch theo trạng thái van/bơm. **KHÔNG tự viết thuật toán PID.** Nhiệt độ bồn mô phỏng qua PID_Compact_2 chạy trong OB31 với PV từ tag nội bộ thay thế cảm biến thật. |
 | **DB10** | `Inst_Mixing_Branch_1`| DB | Instance DB | Dữ liệu làm việc cho Nhánh 1 (PLC1). |
 | **DB11** | `Inst_Mixing_Branch_2`| DB | Instance DB | Dữ liệu làm việc cho Nhánh 2 (PLC2 hoặc truyền thông nội bộ). |
 | **DB20** | `Inst_Storage_Filter` | DB | Instance DB | Dữ liệu làm việc cho cụm bồn chứa thành phẩm. |
@@ -27,44 +27,67 @@ Tài liệu này đặc tả cấu trúc phân bổ khối (OB, FB, FC, DB) cho 
 
 Các khối điều khiển công nghệ đặc thù của Siemens sẽ không được viết lại bằng SCL mà được gọi (Call) trực tiếp dưới dạng **Technology Object** hoặc các khối thư viện hệ thống đóng gói sẵn:
 
-1.  **`PID_Compact` (Version 1.2):** Khối điều khiển PID nhiệt độ hệ thống cấp hơi Bồn 2 và Bồn 4.
+1.  **`PID_Compact` (Version 1.2) — Bồn 2 và Bồn 4:**
+    *   **`PID_Compact_1` (PLC1/OB30, chu kỳ 100ms):** PV = `TT3208_Bon2_Eff` (hoặc tag nhiệt độ hiệu dụng Bồn 2); SP = `HMI_SP_PLC1_Nhiet_Do_Bon2`; Output = `CV3206_Hoi_Bon2`.
+    *   **`PID_Compact_2` (PLC2/OB31, chu kỳ 100ms):** PV = `TT3219_Bon4_Eff` (nhiệt độ hiệu dụng Bồn 4 — có thể là cảm biến thật hoặc tag mô phỏng offline); SP = `HMI_SP_PLC2_Nhiet_Do_Bon4`; Output = `CV3216_Hoi_Bon4`.
+    *   **Quy tắc bắt buộc:** SCL chỉ gọi và điều phối `PID_Compact`, **không được tự viết thuật toán PID riêng**.
 2.  **`Modbus_Comm_Load` (Version 2.1) & `Modbus_Master` (Version 2.2):** Các khối thư viện phục vụ truyền thông Modbus RTU điều khiển biến tần ATV12.
 3.  **`MB_CLIENT` (Version 3.1) & `MB_SERVER` (Version 3.1):** Các khối thư viện phục vụ truyền thông Modbus TCP trao đổi dữ liệu giữa PLC1 và PLC2.
 
 ---
 
-## 3. Cú Pháp Gọi PID_Compact trong SCL
+## 3. Yêu Cầu Bắt Buộc Trước Khi Viết SCL Gọi PID_Compact
 
-Để tránh lỗi mode-locking (PID bị kẹt ở chế độ không mong muốn khi khởi động/lỗi), cú pháp gọi `PID_Compact` trong SCL phải tuân thủ nghiêm ngặt việc cập nhật biến InOut `sRet.i_Mode`:
+> [!CAUTION]
+> **NGHIÊM CẤM** viết SCL call PID_Compact cho đến khi đã:
+> 1. Export readback Technology Object `PID_Compact_1` và `PID_Compact_2` thực tế từ TIA Portal V18.
+> 2. Lập đầy đủ bảng chân (I/O pin table) thực tế của PID_Compact V1.2 từ dữ liệu readback XML.
+> 3. Xác nhận tên chính xác của từng chân (ví dụ: chân Output có thể là `Output`, `OutputValue`, hay cấu trúc khác — **không được bịa đặt**).
+
+### 3.1. Cấu Hình PID Bồn 2 (PLC1 / OB30 / chu kỳ 100ms)
+
+| Chân PID_Compact | Nguồn dữ liệu | Ghi chú |
+| :--- | :--- | :--- |
+| `Setpoint` (IN, Real) | `HMI_SP_PLC1_Nhiet_Do_Bon2` | Setpoint nhiệt độ Bồn 2 từ HMI |
+| `Input` (IN, Real) | `TT3208_Bon2_Eff` | Nhiệt độ hiệu dụng Bồn 2 |
+| `Reset` (IN, Bool) | Cờ reset hệ thống | Xóa trạng thái PID khi reset |
+| `sRet.i_Mode` (InOut, Int) | Ghi `3` khi Enable / `0` khi Disable | **Bắt buộc** — chống mode-locking |
+| `Output` / chân CV (OUT) | → `CV3206_Hoi_Bon2` | **Tên chân cần xác nhận từ readback TIA** |
+
+### 3.2. Cấu Hình PID Bồn 4 (PLC2 / OB31 / chu kỳ 100ms)
+
+| Chân PID_Compact | Nguồn dữ liệu | Ghi chú |
+| :--- | :--- | :--- |
+| `Setpoint` (IN, Real) | `HMI_SP_PLC2_Nhiet_Do_Bon4` | Setpoint nhiệt độ Bồn 4 từ HMI |
+| `Input` (IN, Real) | `TT3219_Bon4_Eff` | Nhiệt độ hiệu dụng Bồn 4 (cảm biến thật hoặc tag mô phỏng offline) |
+| `Reset` (IN, Bool) | Cờ reset hệ thống | Xóa trạng thái PID khi reset |
+| `sRet.i_Mode` (InOut, Int) | Ghi `3` khi Enable / `0` khi Disable | **Bắt buộc** — chống mode-locking |
+| `Output` / chân CV (OUT) | → `CV3216_Hoi_Bon4` | **Tên chân cần xác nhận từ readback TIA** |
+
+### 3.3. Mẫu Cú Pháp SCL (DRAFT — chưa compile-ready)
+
+> [!WARNING]
+> Đoạn code dưới đây là **mẫu tham khảo ý định gọi**, **CHƯA được xác nhận compile trong TIA Portal**. Các tên chân như `Output`, `Input`, `Reset` có thể sai so với chân thực tế của PID_Compact V1.2. Phải thay bằng tên chính xác lấy từ readback XML.
 
 ```scl
-// Gán chân đầu vào hiệu dụng cho bộ PID Bồn 2
-"Inst_PID_Bon2".Setpoint := "DB_HMI_Data".Setpoint.NhietDo_Bon2;
-"Inst_PID_Bon2".Input := "DB_Operation_Data".Bon2.NhietDo_Eff;
-"Inst_PID_Bon2".Reset := "DB_Operation_Data".Sys.Reset_Active;
-
-// Xử lý cờ cho phép PID hoạt động
-IF "DB_Operation_Data".Bon2.PID_Enable THEN
-    // MOVE 3 (Auto Mode) vào i_Mode để kích hoạt bộ PID
-    "Inst_PID_Bon2".sRet.i_Mode := 3;
-    "Inst_PID_Bon2".ManualEnable := FALSE;
+// === OB30 — PID Bồn 2 (PLC1) ===
+// Bước 1: Điều phối chế độ PID (MOVE 3/0 vào sRet.i_Mode)
+IF PID_Bon2_Enable THEN
+    "Inst_PID_Compact_1".sRet.i_Mode := 3;   // Auto
 ELSE
-    // MOVE 0 (Inactive Mode) vào i_Mode để tắt bộ PID an toàn
-    "Inst_PID_Bon2".sRet.i_Mode := 0;
-    "Inst_PID_Bon2".ManualEnable := FALSE;
+    "Inst_PID_Compact_1".sRet.i_Mode := 0;   // Inactive
 END_IF;
 
-// Thực hiện gọi khối PID_Compact (OB30 quét định kỳ 100ms)
-"Inst_PID_Bon2"(
-    Setpoint := "Inst_PID_Bon2".Setpoint,
-    Input := "Inst_PID_Bon2".Input,
-    Reset := "Inst_PID_Bon2".Reset,
-    ManualEnable := "Inst_PID_Bon2".ManualEnable,
-    OutputValue => "DB_Operation_Data".Bon2.PID_CV
-);
+// Bước 2: Gọi khối PID_Compact (tên chân cần xác nhận từ TIA readback)
+// "Inst_PID_Compact_1"(
+//     Setpoint := HMI_SP_PLC1_Nhiet_Do_Bon2,
+//     Input    := TT3208_Bon2_Eff,
+//     Reset    := Reset_Active,
+//     <Output_pin_confirmed_from_readback> => PID_Bon2_CV
+// );
 
-// Gán ngõ ra PID điều khiển van hơi gia nhiệt
-"CV3206_Hoi_Bon2" := "DB_Operation_Data".Bon2.PID_CV;
+// Bước 3: Gán ngõ ra (sau khi xác nhận tên chân)
+// CV3206_Hoi_Bon2 := PID_Bon2_CV;
 ```
 
 ---

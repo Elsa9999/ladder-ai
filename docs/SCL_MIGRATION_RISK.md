@@ -11,10 +11,13 @@ Khi chuyển dịch chương trình sang ngôn ngữ SCL, các thành phần đ�
 1.  **Vận hành Biến tần ATV12 (Modbus RTU):**
     *   *Yêu cầu hành vi:* Trình tự bật Contactor nguồn động cơ $\rightarrow$ trễ khởi động VFD $\rightarrow$ gửi Control Word bắt tay chạy thuận/chạy ngược $\rightarrow$ tăng tốc theo tần số đặt $\rightarrow$ ngắt Contactor khi lỗi/dừng.
     *   *Mục tiêu SCL:* FC điều khiển biến tần ATV12 phải kế thừa đúng sơ đồ trạng thái (State Sequencer) và thời gian trễ này từ bản LAD cũ.
-2.  **Bộ PID Bồn 2 điều khiển van hơi thật:**
-    *   *Yêu cầu hành vi:* Đọc nhiệt độ thực tế từ cảm biến `%ID112` $\rightarrow$ xử lý PID $\rightarrow$ xuất giá trị CV điều khiển van hơi tuyến tính `%QD108`.
-    *   *Mục tiêu SCL:* Thuật toán PID_Compact phải được cấu hình chạy trong khối ngắt chu kỳ OB30 định kỳ 100ms, đảm bảo thời gian lấy mẫu (Sampling Time) không bị trôi lệch.
-3.  **Giao diện HMI Screen_1 (Màn hình tổng quan):**
+2.  **Bộ PID Bồn 2 điều khiển van hơi thật (PID_Compact_1 / PLC1 / OB30):**
+    *   *Yêu cầu hành vi:* Đọc nhiệt độ thực tế từ cảm biến `%ID112` $\rightarrow$ xử lý PID qua `PID_Compact_1` chuẩn Siemens $\rightarrow$ xuất giá trị CV điều khiển van hơi tuyến tính `%QD108`.
+    *   *Mục tiêu SCL:* `PID_Compact_1` được gọi trong OB30 định kỳ 100ms. SCL chỉ điều phối gọi khối, **không tự viết thuật toán PID**.
+3.  **Bộ PID Bồn 4 điều khiển van hơi (PID_Compact_2 / PLC2 / OB31):**
+    *   *Yêu cầu hành vi:* Đọc nhiệt độ Bồn 4 (cảm biến thật hoặc tag nội bộ mô phỏng) $\rightarrow$ xử lý qua `PID_Compact_2` $\rightarrow$ xuất CV điều khiển `CV3216_Hoi_Bon4`.
+    *   *Mục tiêu SCL:* `PID_Compact_2` chạy trong OB31 định kỳ 100ms. Cùng quy tắc `sRet.i_Mode` như Bồn 2. **Không dùng PID mô phỏng tự viết**.
+4.  **Giao diện HMI Screen_1 (Màn hình tổng quan):**
     *   *Yêu cầu hành vi:* Các biểu tượng van, bơm, cánh khuấy đổi màu động theo trạng thái, các ô IO Field cập nhật đúng giá trị đo lường và setpoint.
     *   *Mục tiêu SCL:* Hệ thống SCL mới phải cung cấp các tag tương ứng với cùng kiểu dữ liệu để HMI liên kết mà không bị vỡ giao diện (HMI Screen_1 tuyệt đối không được sửa thủ công).
 
@@ -46,3 +49,10 @@ Khi chuyển dịch chương trình sang ngôn ngữ SCL, các thành phần đ�
     *   Đồng bộ hóa mô hình giả lập của `test_plc_logic.py` để phản ánh đúng cấu trúc biến trong các khối DB mới của SCL.
     *   Chạy test runner liên tục sau mỗi thay đổi kiến trúc nhỏ.
     *   Sử dụng cờ kiểm tra tĩnh XML để xác nhận không có logic SCL nào bị trôi hoặc thiếu trong các import set.
+
+### E. Rủi ro tên chân PID_Compact không khớp thực tế TIA V18
+*   **Chi tiết rủi ro:** Tên chân của `PID_Compact` V1.2 trong TIA Portal V18 có thể khác với tài liệu cũ hoặc giả định trong code draft. Ví dụ: chân xuất CV có thể là `Output` hoặc cấu trúc khác — nếu viết sai thì TIA Portal báo lỗi compile ngay, không được bế qua.
+*   **Giải pháp phòng ngừa:**
+    *   **Bắt buộc export readback** Technology Object `PID_Compact_1` và `PID_Compact_2` từ TIA Portal V18 thực tế bằng Openness API trước khi viết bất kỳ dòng SCL call nào.
+    *   Lập bảng chân đầy đủ (I/O pin table) dựa trên dữ liệu readback XML, ghi vào một bảng xác nhận riêng trước khi cấp phép viết SCL compile-ready.
+    *   **Không viết SCL call PID_Compact cho đến khi bảng chân được xác nhận bởi kiểm thực TIA Portal.**

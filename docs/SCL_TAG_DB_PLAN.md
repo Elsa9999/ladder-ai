@@ -33,7 +33,8 @@ Chứa tất cả các tag tương tác trực tiếp với giao diện SCADA/HM
 *   **Struct `Setpoint`:**
     *   `sp_nuoc_bon1` : Real (Lượng nước dosing Bồn 1, đơn vị L)
     *   `sp_nuoc_bon2` : Real (Lượng nước dosing bổ sung Bồn 2, đơn vị L)
-    *   `sp_nhiet_do_bon2` : Real (Setpoint nhiệt độ Bồn 2, đơn vị °C)
+    *   `sp_nhiet_do_bon2` : Real (Setpoint nhiệt độ Bồn 2, đơn vị °C) — két nối `HMI_SP_PLC1_Nhiet_Do_Bon2`
+    *   `sp_nhiet_do_bon4` : Real (Setpoint nhiệt độ Bồn 4, đơn vị °C) — két nối `HMI_SP_PLC2_Nhiet_Do_Bon4`
     *   `sp_toc_do_bon2` : Real (Setpoint tốc độ khuấy Bồn 2, đơn vị Hz)
     *   `sp_time_khuay_bon1` : Time (Thời gian khuấy Bồn 1)
     *   `sp_time_thanh_trung_bon2` : Time (Thời gian giữ nhiệt Bồn 2)
@@ -48,13 +49,18 @@ Chứa các biến trạng thái, bước tuần tự và các cờ nhớ liên 
     *   `estop_latch` : Bool (Chốt trạng thái dừng khẩn cấp)
     *   `loi_tong` : Bool (Lỗi tổng khóa hệ thống)
     *   `loi_dry_run` : Bool (Bơm chạy khô)
-*   **Struct `Bon1` & `Bon2`:**
+*   **Struct `Bon1`, `Bon2` & `Bon4`:**
     *   `state` : Int (Bước chu trình hiện tại: 0 = Idle, 10 = Dosing, 20 = Mixing, 30 = Heating, 40 = Sterilizing, 50 = Discharging)
-    *   `temp_eff` : Real (Nhiệt độ hiệu dụng)
+    *   `temp_eff` : Real (Nhiệt độ hiệu dụng — `TT3208_Bon2_Eff` cho Bồn 2, `TT3219_Bon4_Eff` cho Bồn 4)
     *   `flow_eff` : Real (Lưu lượng hiệu dụng)
     *   `volume_eff` : Real (Thể tích tích lũy hiệu dụng)
     *   `dosing_active` : Bool (Đang trong bước nạp nước)
     *   `discharge_active` : Bool (Đang trong bước xả đáy)
+    *   `pid_enable` : Bool (Cho phép bộ PID_Compact hoạt động)
+    *   `pid_cv` : Real (Giá trị CV xuất ra từ PID_Compact — gán vào `CV3206_Hoi_Bon2` hoặc `CV3216_Hoi_Bon4`)
+
+> [!CAUTION]
+> Tên chân chính xác của PID_Compact V1.2 để đọc `pid_cv` (chân Output/CV) **phải được xác nhận bằng readback XML từ TIA Portal V18** trước khi điền vào code SCL compile-ready. Không tự điền tên chân theo giả định.
 
 ### C. Khối dữ liệu Công thức (`DB_RecipeData` - DB102)
 Lưu trữ các bộ thông số cài đặt mặc định (Default Recipes) được load tự động khi First Scan hoặc khi người dùng nhấn nút Reset trên HMI:
