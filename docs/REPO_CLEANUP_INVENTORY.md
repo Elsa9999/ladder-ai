@@ -67,4 +67,4 @@ Dưới đây là các tệp tin và thư mục tạm thực sự an toàn, có 
 > [!CAUTION]
 > **Các rủi ro nghiêm trọng cần tránh:**
 > 1. **Rủi ro mất thư viện DLL:** Tuyệt đối không xóa các tệp `Siemens.Engineering.dll` và `Siemens.Engineering.Hmi.dll` trong `scratch/` vì chúng không đi kèm bộ cài Python hay OS mà được sao chép trực tiếp từ bộ cài TIA Portal. Xóa đi sẽ phá hủy toàn bộ hệ thống Openness Tooling.
-> 2. **Rủi ro mất file XML HMI Patched:** Một số file màn hình như `Screen_1_patched.xml` hoặc `Screen_1_readback.xml` trong `scratch/` tuy nằm trong danh sách Delete Candidate nhưng thực tế là bản lưu vết của giao diện WinCC đã được sửa lỗi căn lề IO Field. Cần kiểm tra xem các tệp này đã được import thành công và lưu trong dự án TIA Portal `.ap18` chưa trước khi xóa.
+> 2. **Rủi ro mất file XML HMI Patched:** `Screen_1_patched.xml` hoặc `Screen_1_readback.xml` hiện được phân loại KEEP_EVIDENCE/ARCHIVE và tuyệt đối không xóa trực tiếp. Chỉ được archive/move sau khi đã xác nhận TIA Portal lưu thành công và có bản backup Git/tag.
