@@ -8,9 +8,9 @@ Tài liệu này phân tích các thành phần cốt lõi cần bảo toàn hà
 
 Khi chuyển dịch chương trình sang ngôn ngữ SCL, các thành phần đã được thử nghiệm thực tế và vận hành trơn tru ở bản cũ **bắt buộc phải được tái hiện chính xác hành vi**:
 
-1.  **Vận hành Biến tần ATV12 (Modbus RTU):**
+1.  **Vận hành Biến tần ATV12 (Modbus RTU — FB30 `FB_VFD_ATV12_ModbusRTU`):**
     *   *Yêu cầu hành vi:* Trình tự bật Contactor nguồn động cơ $\rightarrow$ trễ khởi động VFD $\rightarrow$ gửi Control Word bắt tay chạy thuận/chạy ngược $\rightarrow$ tăng tốc theo tần số đặt $\rightarrow$ ngắt Contactor khi lỗi/dừng.
-    *   *Mục tiêu SCL:* FC điều khiển biến tần ATV12 phải kế thừa đúng sơ đồ trạng thái (State Sequencer) và thời gian trễ này từ bản LAD cũ.
+    *   *Mục tiêu SCL:* **FB30** (`FB_VFD_ATV12_ModbusRTU` + Instance DB30) phải kế thừa đúng sơ đồ trạng thái (State Sequencer) và thời gian trễ này từ bản LAD cũ. Không dùng FC vì FC không có Static Variables.
 2.  **Bộ PID Bồn 2 điều khiển van hơi thật (PID_Compact_1 / PLC1 / OB30):**
     *   *Yêu cầu hành vi:* Đọc nhiệt độ thực tế từ cảm biến `%ID112` $\rightarrow$ xử lý PID qua `PID_Compact_1` chuẩn Siemens $\rightarrow$ xuất giá trị CV điều khiển van hơi tuyến tính `%QD108`.
     *   *Mục tiêu SCL:* `PID_Compact_1` được gọi trong OB30 định kỳ 100ms. SCL chỉ điều phối gọi khối, **không tự viết thuật toán PID**.
@@ -26,10 +26,10 @@ Khi chuyển dịch chương trình sang ngôn ngữ SCL, các thành phần đ�
 ## 2. Các Rủi Ro Kỹ Thuật Chính & Giải Pháp Khắc Phục (Risks & Mitigations)
 
 ### A. Rủi ro về giao thức con trỏ Modbus (`DATA_PTR` / `Variant` Pointer)
-*   **Chi tiết rủi ro:** Trong SCL, việc truyền tham số con trỏ vùng nhớ đệm dữ liệu vào chân `DATA_PTR` của khối `Modbus_Master` hoặc `MB_CLIENT` rất dễ xảy ra lỗi kiểu dữ liệu (Type Mismatch) tại TIA Portal compile time, do SCL kiểm soát kiểu dữ liệu nghiêm ngặt hơn LAD.
+*   **Chi tiết rủi ro:** Trong SCL, việc truyền tham số con trỏ vùng nhớ đệm vào chân `DATA_PTR` của `Modbus_Master` (gọi trong FB30) rất dễ xảy ra lỗi kiểu dữ liệu (Type Mismatch) tại TIA Portal compile time.
 *   **Giải pháp phòng ngừa:** 
-    *   Định nghĩa rõ vùng đệm truyền thông là một mảng Array cố định (`Array[0..10] of Word`) nằm trong một DB không tối ưu (Standard DB - Disable Optimized Block Access).
-    *   Khi gọi khối, sử dụng cú pháp chỉ định con trỏ tường minh: `DATA_PTR := "DB_CommsData".ATV12.MB_Buffer`.
+    *   Định nghĩa rõ vùng đệm Modbus RTU là `Array[0..3] of Word` nằm trong **Instance DB30** (Static Variable của FB30) — Standard DB (Disable Optimized Block Access).
+    *   Khi gọi Modbus_Master bên trong FB30, sử dụng cú pháp chỉ định con trỏ tường minh: `DATA_PTR := #MB_Buffer`.
 
 ### B. Rủi ro Mode-Locking của Technology Object `PID_Compact`
 *   **Chi tiết rủi ro:** Cú pháp SCL gọi bộ PID nếu không kiểm soát việc gán chế độ `sRet.i_Mode` đúng chu kỳ quét có thể làm bộ PID tự động chuyển về chế độ Inactive (0) hoặc Manual (4) khi CPU khởi động lại hoặc khi có xung cạnh lên lỗi, khiến người vận hành không thể kích hoạt lại từ HMI.

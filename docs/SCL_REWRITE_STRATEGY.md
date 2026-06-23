@@ -26,19 +26,20 @@ Bản LAD đồ họa hiện tại đã hoạt động ổn định và được
 
 Để phục vụ tốt nhất cho hai mục đích sử dụng khác nhau (thi cử tự động hóa và đấu nối vận hành thực tế), dự án SCL mới sẽ được thiết kế mô-đun hóa để có thể cấu hình linh hoạt thành hai phiên bản:
 
-### A. Bản Cuộc Thi Tự Động Hóa (Automation Competition - Mô phỏng 1 PLC)
-*   **Mục tiêu:** Ưu tiên tính độc lập, dễ dàng chạy mô phỏng hoàn toàn (Offline) trên PLC Sim (chỉ cần 1 CPU S7-1200 ảo) mà không cần kết nối phần cứng thật.
+### A. Bản Cuộc Thi Tự Động Hóa (Automation Competition — 1 PLC duy nhất)
+*   **Mục tiêu:** Ưu tiên chạy toàn bộ trên 1 CPU S7-1200 (ảo hoặc thật), không phụ thuộc PLC2 hay Modbus TCP.
 *   **Kiến trúc:**
-    *   Tích hợp toàn bộ logic của cả 4 bồn trộn (Bồn 1, 2, 3, 4) và cụm bồn chứa/lọc vào chung **một CPU PLC duy nhất (PLC1)**.
-    *   **Truyền thông nội bộ ảo:** Các lệnh bắt tay, đồng bộ bước và trạng thái giữa hai nhánh thay vì gửi qua Modbus TCP thật sẽ được liên kết trực tiếp qua các cấu trúc dữ liệu nội bộ (Internal Structs) trong DB truyền thông ảo.
-    *   **Mô phỏng mức dịch (FC_Sensor_Sim):** Tự động sinh dữ liệu mức dịch dâng/hạ theo trạng thái van/bơm để chu trình tự động chuyển bước mà không cần tác động thủ công.
-    *   **Điều khiển nhiệt độ mô phỏng:** Sử dụng `PID_Compact_1` (OB30) và `PID_Compact_2` (OB31) chuẩn Siemens, với PV từ tag nhiệt độ nội bộ thay thế cảm biến thật. **Không tự viết thuật toán PID.**
+    *   **Khối logic:** Tích hợp toàn bộ Bồn 1, 2, 3, 4 và cụm bồn chứa/lọc vào **một CPU PLC1 duy nhất**.
+    *   **`PID_Compact_1` (OB30 trên PLC1):** Điều khiển nhiệt độ Bồn 2, PV từ `TT3208_Bon2_Eff`.
+    *   **`PID_Compact_2` (OB31 trên PLC1):** Điều khiển nhiệt độ Bồn 4, PV từ tag nội bộ mô phỏng quá trình (thay cảm biến thật). Cả hai OB30/OB31 đều nằm trên PLC1.
+    *   **`FB_VFD_ATV12_ModbusRTU` (FB30, Instance DB30):** Điều khiển biến tần ATV12 qua Modbus RTU (chỉ dùng nếu có phần cứng ATV12; có thể tắt trong bản mô phỏng thuần).
+    *   **Truyền thông nội bộ:** Hai nhánh trao đổi dữ liệu qua Internal Struct trong DB nội bộ — **không dùng Modbus TCP**.
+    *   **Mô phỏng mức dịch:** `FC_Sensor_Sim` (FC40) sinh dữ liệu mức dịch theo trạng thái van/bơm. PV nhiệt độ bồn 4 là tag nội bộ; `PID_Compact_2` vẫn là bộ điều khiển chuẩn Siemens sinh CV — **không tự viết thuật toán PID**.
 
-### B. Bản Đấu Nối Thực Tế (Real Wiring - 2 PLC + Modbus TCP + Modbus RTU ATV12)
+### B. Bản Đấu Nối Thực Tế (Real Wiring — 2 PLC + Modbus TCP + Modbus RTU ATV12)
 *   **Mục tiêu:** Vận hành trên tủ điện thật với đầy đủ thiết bị ngoại vi và truyền thông phân tán.
 *   **Kiến trúc:**
-    *   Phân chia tải logic về đúng 2 CPU vật lý riêng biệt:
-        *   `PLC1`: Quản lý nhánh 1 (Bồn 1, 2) + Cụm bồn chứa & lọc thành phẩm + Modbus RTU Master điều khiển biến tần ATV12 thật.
-        *   `PLC2`: Quản lý nhánh 2 (Bồn 3, 4) + Modbus TCP Server phản hồi dữ liệu.
-    *   **Truyền thông Modbus TCP:** Sử dụng `MB_CLIENT` (tại PLC1) và `MB_SERVER` (tại PLC2) phiên bản V3.1 để trao đổi dữ liệu mẻ, lệnh vận hành từ xa và đồng bộ hóa trạng thái sở hữu bồn chứa.
-    *   **Truyền thông Modbus RTU:** `PLC1` gọi khối `Modbus_Master` tuần tự để đọc/ghi các thanh ghi trạng thái, tần số đặt của biến tần ATV12 điều khiển động cơ khuấy Bồn 2.
+    *   **PLC1:** Bồn 1, 2 + `PID_Compact_1` (OB30) + `FB_VFD_ATV12_ModbusRTU` (FB30) điều khiển ATV12 qua Modbus RTU + Modbus TCP Client (`MB_CLIENT` V3.1).
+    *   **PLC2:** Bồn 3, 4 + `PID_Compact_2` (OB31) + Modbus TCP Server (`MB_SERVER` V3.1) phản hồi dữ liệu.
+    *   **Truyền thông Modbus TCP:** Chỉ bật ở bản B. PLC1 đọc/ghi dữ liệu Bồn 3–4 và đồng bộ lệnh với PLC2.
+    *   **Truyền thông Modbus RTU:** PLC1 gọi `FB_VFD_ATV12_ModbusRTU` tuần tự để đọc/ghi thanh ghi trạng thái, tần số đặt của ATV12.
