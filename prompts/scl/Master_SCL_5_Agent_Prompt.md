@@ -25,7 +25,7 @@ Hệ thống SCL mới được phát triển song song hai Variant:
 *   **Variant B (Đấu nối thực tế - 2 PLC):**
     *   **PLC_1 (Client):** Điều khiển Bồn 1-2, giao tiếp điều khiển biến tần cánh khuấy ATV12 thực tế qua Modbus RTU.
     *   **PLC_2 (Server):** Điều khiển Bồn 3-4.
-    *   **Truyền thông chéo (Modbus TCP V3.1):** PLC_1 làm Client kết nối với PLC_2 làm Server. TCON cấu hình kết nối phải được gán động ở `FirstScan` (OB100). Sử dụng cơ chế bắt tay bằng các tag kiểu `Int` (`CmdSeq` và `AckSeq`).
+    *   **Truyền thông chéo (Modbus TCP V3.1):** PLC_1 làm Client kết nối với PLC_2 làm Server. Giao tiếp qua khối kết nối kiểu `TCON_IP_v4` tường minh (giống bài mẫu Siemens/bài 4). Chân `CONNECT` của `MB_CLIENT`/`MB_SERVER` phải trỏ vào DB `TCON_IP_v4`. Các thông số IP, Port, Connection ID có thể được cấu hình trực tiếp qua Start Value trong DB hoặc khởi tạo ở `OB100`/`FirstScan`, đảm bảo biên dịch (compile) và readback từ TIA Portal khớp chính xác (không dùng các shortcut CONNECT_ID/IP_OCTET mơ hồ). Sử dụng cơ chế bắt tay bằng các tag kiểu `Int` (`CmdSeq` và `AckSeq`). Giao tiếp S7 GET/PUT bị nghiêm cấm hoàn toàn.
 
 ---
 

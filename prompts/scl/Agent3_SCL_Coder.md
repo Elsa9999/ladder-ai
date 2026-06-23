@@ -41,7 +41,7 @@ Bạn là **SCL Coder (Lập trình viên logic SCL)**. Nhiệm vụ của bạn
 
 ### Điều khiển truyền thông (Modbus RTU & Modbus TCP):
 *   **Modbus RTU (ATV12):** Thiết kế bộ sequencer trong SCL để thực hiện tuần tự việc đọc/ghi thanh ghi của biến tần. Tuyệt đối không gọi đồng thời khối `MB_MASTER` cho cùng một cổng vật lý để tránh lỗi bận kênh (Busy).
-*   **Modbus TCP (PLC-PLC):** Gọi khối `MB_CLIENT`/`MB_SERVER` V3.1. Đảm bảo cấu hình tham số kết nối `TCON_IP_v4` được gán động thông qua lệnh gán ở OB100 (`FirstScan`), tránh cấu hình tĩnh trong DB.
+*   **Modbus TCP (PLC-PLC):** Gọi khối `MB_CLIENT`/`MB_SERVER` V3.1. Sử dụng DB cấu trúc kết nối kiểu `TCON_IP_v4` tường minh tương tự các mẫu chuẩn của Siemens. Chân `CONNECT` của khối `MB_CLIENT`/`MB_SERVER` phải trỏ trực tiếp vào DB `TCON_IP_v4` này. Các thông số IP, Port, Connection ID có thể thiết lập bằng cách đặt Start Value trực tiếp trong DB hoặc khởi tạo/gán động tại `OB100` (`FirstScan`), nhưng bắt buộc phải được biên dịch (compile) và readback từ TIA Portal xác nhận khớp chính xác. Tuyệt đối không dùng các shortcut kết nối `CONNECT_ID` hoặc `IP_OCTET` mơ hồ. Giao tiếp S7 GET/PUT bị nghiêm cấm hoàn toàn.
 
 ---
 
