@@ -47,7 +47,7 @@ Logic SCL mới sẽ chuyển toàn bộ dữ liệu nội bộ và dữ liệu 
 Đây là các tín hiệu đấu dây thực tế với tủ điều khiển. Chúng được khai báo địa chỉ `%I` / `%Q` hoặc bản đồ thanh ghi truyền thông:
 *   **Truyền thông Biến tần (Modbus RTU RS485):** Các thanh ghi lệnh (`Control Word`, `Frequency Setpoint`) và thanh ghi trạng thái (`Status Word`, `Frequency Feedback`) kết nối qua mạng RS485 với ATV12.
 *   **Nút nhấn vật lý (nếu có):** Nút nhấn Start (`%I0.0`), Stop (`%I0.1`), Reset (`%I0.2`), và Emergency Stop (`%I0.3`) nếu được đấu nối thật vào ngõ vào số của PLC1.
-*   **Ngõ ra điều khiển động cơ (contactor):** Ngõ ra kích khởi động từ động cơ cánh khuấy Bồn 4 (`%Q0.0`) hoặc rơ-le trung gian điều khiển chạy biến tần nếu có đấu nối thật.
+*   **Ngõ ra điều khiển contactor (contactor):** Contactor cấp nguồn/enable cho biến tần ATV12 Bồn 2 (`VFD_Bon2_Contactor`, địa chỉ `%Q0.0`). Tín hiệu này chỉ được coi là Real_IO của Variant B nếu tủ đấu nối thật sử dụng contactor cấp nguồn/enable cho ATV12 Bồn 2. Tuyệt đối không gán contactor thật cho Bồn 4 nếu không có bảng đấu nối xác nhận.
 
 ### B. Nhóm Sim_IO (I/O mô phỏng)
 Mặc định, các tín hiệu van, cảm biến mức, cảm biến nhiệt độ và cảm biến lưu lượng **không có thiết bị vật lý thật tương ứng trong tủ điện đấu nối của Variant B**.

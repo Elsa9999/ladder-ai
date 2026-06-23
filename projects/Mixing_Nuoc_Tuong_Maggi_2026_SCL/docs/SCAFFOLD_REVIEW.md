@@ -37,7 +37,7 @@ Trong quá trình rà soát, chúng tôi phát hiện và đã tiến hành sử
 
 1.  **Phân định Real_IO vs. Sim_IO:**
     *   *Mâu thuẫn cũ:* Trong `TAG_PLAN.md`, các cảm biến mức và van xả/van cấp của bồn được liệt kê dưới dạng "I/O vật lý bắt buộc giữ nguyên `%I` / `%Q`".
-    *   *Chỉnh sửa:* Đã viết lại mục 3 của `TAG_PLAN.md` để phân biệt rõ: Các van, cảm biến mức, nhiệt độ và lưu lượng là **Sim_IO** (mô phỏng ảo qua DB/HMI), cấm tự ý gán địa chỉ `%I`/`%Q` vật lý. Nhóm **Real_IO** (đấu dây thật) chỉ bao gồm cổng RS485 biến tần ATV12, contactor động cơ, và nút nhấn Start/Stop/Reset/E-Stop vật lý (nếu có).
+    *   *Chỉnh sửa:* Đã viết lại mục 3 của `TAG_PLAN.md` để phân biệt rõ: Các van, cảm biến mức, nhiệt độ và lưu lượng là **Sim_IO** (mô phỏng ảo qua DB/HMI), cấm tự ý gán địa chỉ `%I`/`%Q` vật lý. Nhóm **Real_IO** (đấu dây thật) chỉ bao gồm cổng RS485 biến tần ATV12, contactor cấp nguồn VFD Bồn 2 (`%Q0.0`), và nút nhấn Start/Stop/Reset/E-Stop vật lý (nếu có).
 2.  **Cấu hình kết nối Modbus TCP (TCON_IP_v4):**
     *   *Mâu thuẫn cũ:* Tài liệu yêu cầu "TCON cấu hình kết nối bắt buộc phải được gán động ở `FirstScan` (OB100)".
     *   *Chỉnh sửa:* Đã cập nhật `VARIANT_SCOPE.md` và `BLOCK_MAP.md` để linh hoạt hơn: Yêu cầu chân `CONNECT` của khối Modbus TCP Client/Server trỏ vào DB kết nối kiểu `TCON_IP_v4` tường minh. Các thông số IP, Port, Connection ID có thể cấu hình thông qua Start Value của DB hoặc gán tại `OB100`/`FirstScan`, miễn là biên dịch đạt 0 Errors và được kiểm chứng qua readback (không bắt buộc duy nhất việc gán ở OB100).
