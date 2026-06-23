@@ -1,5 +1,10 @@
 # TIÊU CHÍ NGHIỆM THU TIA PORTAL (TIA PORTAL ACCEPTANCE CRITERIA)
 
+> [!NOTE]
+> **TÀI LIỆU LỊCH SỬ / LEGACY REFERENCE:**
+> Tài liệu này liệt kê các tiêu chí nghiệm thu của phiên bản đồ họa Ladder (LAD) cũ.
+> Hiện tại, repository đã chuyển sang chiến lược phát triển **SCL-first**. Quy tắc "Lập trình 100% Ladder" dưới đây chỉ dùng để đối chiếu khi cần thiết và **không còn hiệu lực** đối với logic PLC mới.
+
 Tài liệu này liệt kê các tiêu chuẩn kỹ thuật bắt buộc mà dự án PLC sinh ra phải đáp ứng để vượt qua các bộ kiểm duyệt tự động và được chấp nhận tích hợp vào phần mềm TIA Portal V18.
 
 ---

@@ -1,23 +1,23 @@
-# AI Agent Guidance & Repository Rules (LAD-Only)
+# AI Agent Guidance & Repository Rules (SCL-First)
 
-This repository is a framework for generating Siemens TIA Portal V18 PLC projects using 100% graphical Ladder XML (LAD).
+This repository is a framework for generating Siemens TIA Portal V18 PLC projects focusing on Structured Control Language (SCL).
 
 ## 1. Core Rules
-- **LAD ONLY**: All PLC program blocks (OBs, FBs, FCs) must be 100% Ladder XML. Absolutely no SCL code (no SCL blocks, SCL networks, or .scl source files) is allowed in PLC logic. Python/C# are only used for tooling/generation.
+- **SCL FIRST**: New PLC program blocks (OBs, FBs, FCs) must be written in Structured Control Language (SCL) and be importable into TIA Portal. Legacy Ladder XML (LAD) program blocks are strictly kept as reference/legacy or for rollback options. Tooling, validators, and HMI code generation scripts are in Python/C#.
 - **NO GET/PUT**: S7 GET/PUT communication is prohibited. Use Modbus TCP for PLC-to-PLC communication.
-- **PID Compact**: Use PID_Compact Version 1.2. Always write/move 3 (Auto) to sRet.i_Mode when enabled, and move 0 (Inactive) when disabled to prevent mode-locking.
+- **PID Compact**: Use Siemens PID_Compact Version 1.2. Always write/move 3 (Auto) to `sRet.i_Mode` when enabled, and move 0 (Inactive) when disabled to prevent mode-locking. SCL should directly call and coordinate PID_Compact, never write custom simulation PID algorithms.
 - **Modbus TCP**: Use MB_CLIENT / MB_SERVER Version 3.1 for S7-1200 V4.5.
-- **Quality Gates**: Always validate XML, backup/export before TIA import, and ensure 0 errors on compile.
+- **Quality Gates**: Always validate XML/SCL sources, backup/export before TIA import, and ensure 0 errors on compile.
 
 ## 2. Naming & Language Conventions
-- **Variable/Tag Names, DB Names, HMI Tags**: Vietnamese WITHOUT accents (ASCII-only, A-Z, a-z, 0-9, underscores). Must start with "AI_" prefix (e.g., Nut_Khoi_Dong).
-- **Network Titles, Comments, Descriptions**: UTF-8 Vietnamese WITH accents (Tieng Viet co dau) for operator understanding.
+- **Variable/Tag Names, DB Names, HMI Tags**: Vietnamese WITHOUT accents (ASCII-only, A-Z, a-z, 0-9, underscores). Must NOT use the "AI_" prefix for new tags. The "AI_" prefix is historical (pre-migration) and must never be reused.
+- **Network Titles, Comments, Descriptions**: UTF-8 Vietnamese WITH accents (Tiếng Việt có dấu) for operator understanding.
 - **Documentation (.md, .json, .csv)**: UTF-8 Vietnamese WITH accents.
 
 ## 3. Directory Layout
 - **docs/**: Project map, acceptance criteria, and CLI commands documentation.
-- **Ladder/**: Python libraries (Agent_LAD_Library.py) and compiled Openness C# utilities.
-- **projects/**: Code generation projects (e.g., Mixing_Nuoc_Tuong_Maggi_2026).
+- **Ladder/**: Python libraries and compiled Openness C# utilities (still used for HMI XML patching/binding).
+- **projects/**: Code generation projects (e.g., `projects/Mixing_Nuoc_Tuong_Maggi_2026_SCL` for the new SCL variant, and legacy folders as reference).
 - **scratch/**: Temporary test scripts and offline verification codes.
 - **prompts/**: Prompt specifications for Agent roles (Analyst, Tag Builder, Coder, QA, SCADA).
 

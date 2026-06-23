@@ -1,14 +1,18 @@
 # QUY TRÌNH CHUYÊN MÔN PLC SIEMENS, MODBUS TCP, PID & TIA OPENNESS
 
+> [!NOTE]
+> **THỜI ĐIỂM CHUYỂN DỊCH SCL-FIRST:**
+> Kể từ mốc `lad-cleaned-before-scl-20260623`, repository chính thức chuyển sang chế độ **SCL-first**. Quy trình lập trình đồ họa Ladder XML cũ bên dưới chỉ đóng vai trò tham khảo lịch sử (legacy reference). Logic điều khiển mới sẽ ưu tiên viết bằng SCL.
+
 Tài liệu này cung cấp các nguyên tắc nghiệp vụ kỹ thuật cốt lõi và hướng dẫn vận hành cho các AI Agent thực hiện lập trình, tích hợp và kiểm thử hệ thống PLC Siemens S7-1200 thông qua TIA Portal V18 Openness.
 
 ---
 
-## 1. Nguyên Tắc Lập Trình Đồ Họa Ladder XML (LAD Only)
-- **Ladder-only Policy:** 100% logic điều khiển trên PLC phải dùng Ladder. Không được chứa mã SCL (Structured Control Language) trong bất kỳ khối chương trình hay mạng logic nào.
+## 1. Nguyên Tắc Lập Trình Đồ Họa Ladder XML (LAD Only - Legacy Reference)
+- **Ladder-only Policy (Lịch sử):** 100% logic điều khiển trên PLC của bản cũ dùng Ladder. Đối với bản phát triển mới, quy tắc này không còn hiệu lực.
 - **Tính toàn vẹn tham chiếu:** Mọi tag I/O vật lý `%I`/`%Q` và tag nội bộ `%M` phải được khai báo đầy đủ trong Tag Table trước khi import khối logic.
-- **Tiêu chuẩn đặt tên & ngôn ngữ:**
-  - **Tên biến/DB/UDT:** Tiếng Việt KHÔNG DẤU, bắt đầu bằng tiền tố `AI_` (ví dụ: `AI_VFD_Bon2_Toc_Do_AO`).
+- **Tiêu chuẩn đặt tên & ngôn ngữ (Lịch sử):**
+  - **Tên biến/DB/UDT:** Tiếng Việt KHÔNG DẤU. Các tag mới **không sử dụng tiền tố `AI_`** (tiền tố `AI_` là lịch sử trước migration).
   - **Chú thích/Mô tả/Tiêu đề mạng:** Tiếng Việt CÓ DẤU Unicode UTF-8 để người vận hành hiểu rõ trên HMI WinCC.
 
 ---

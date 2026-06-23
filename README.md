@@ -1,13 +1,23 @@
-# AI Agent PLC Ladder Only Workspace
+# AI Agent PLC SCL-First Workspace (Legacy Ladder Reference)
 
-Workspace này là framework chuyên biệt dùng để thiết kế và sinh tự động dự án PLC Siemens TIA Portal V18 bằng **100% đồ họa Ladder XML**.
+> [!NOTE]
+> **THAY ĐỔI ĐỊNH HƯỚNG DỰ ÁN (SCL-FIRST):**
+> Kể từ mốc `lad-cleaned-before-scl-20260623`, repository này đã chuyển dịch sang chiến lược phát triển **SCL-first** (logic PLC mới ưu tiên viết bằng ngôn ngữ SCL source/import được vào TIA Portal).
+> Các quy tắc Ladder-only cũ bên dưới được giữ lại làm **Legacy Reference (Tham khảo lịch sử)** phục vụ đối chiếu và rollback.
+> Quy tắc đặt tên tag mới: **KHÔNG dùng tiền tố `AI_`** (tiền tố `AI_` chỉ là tên lịch sử trước migration).
 
-## Mục tiêu chính của Framework
+Workspace này là framework chuyên biệt dùng để thiết kế và sinh tự động dự án PLC Siemens TIA Portal V18.
 
-- Tự động hóa việc sinh cấu trúc dự án PLC hoàn chỉnh từ mô tả công nghệ thực tế bằng ngôn ngữ tự nhiên.
-- Vận hành chuỗi liên kết phối hợp nhịp nhàng giữa 5 AI Agent như quy trình trước đây.
-- Xuất bản bảng tag biểu diễn biến, khối tổ chức OB1, và các khối hàm chức năng FB/FC hoàn toàn bằng định dạng đồ họa Ladder XML.
-- Tuyệt đối tuân thủ chính sách **Ladder-only**: không sinh bất kỳ dạng logic SCL nào làm chương trình chạy trên PLC CPU.
+## Mục tiêu chính của Framework (Chiến lược mới)
+
+- Tự động hóa việc sinh cấu trúc dự án PLC bằng ngôn ngữ SCL sạch, cấu trúc hóa, dễ bảo trì.
+- Các khối hàm tổ chức OB, FB, FC mới ưu tiên viết bằng ngôn ngữ SCL.
+- Bản Ladder đồ họa (LAD) cũ được lưu giữ làm legacy để đối chiếu hoặc rollback khi cần.
+- Vẫn duy trì các bộ công cụ nạp TIA Portal Openness API, HMI XML patcher và validators để hỗ trợ triển khai.
+- Tuyệt đối cấm sử dụng lệnh truyền thông S7 GET/PUT, sử dụng Modbus TCP/RTU làm giải pháp truyền thông chính thức.
+- Sử dụng Siemens PID_Compact Version 1.2 chuẩn cho các bồn nhiệt độ, không tự viết PID giả lập.
+- Quy tắc đặt tên biến mới: sử dụng ký tự ASCII tiếng Việt không dấu, không dùng tiền tố `AI_`. Tiền tố `AI_` chỉ là lịch sử trước migration.
+- HMI Styling & Formatting giữ nguyên các quy chuẩn hiển thị số thực, căn giữa và khoảng cách nhãn đơn vị.
 
 ## Cấu trúc thư mục chi tiết
 

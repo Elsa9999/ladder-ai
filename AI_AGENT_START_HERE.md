@@ -1,21 +1,27 @@
-# ĐIỂM BẮT ĐẦU CHO AI AGENT (AI AGENT START HERE) - LADDER ONLY
+# ĐIỂM BẮT ĐẦU CHO AI AGENT (AI AGENT START HERE) - SCL FIRST (LEGACY LADDER REFERENCE)
+
+> [!NOTE]
+> **THAY ĐỔI ĐỊNH HƯỚNG DỰ ÁN (SCL-FIRST):**
+> Kể từ mốc `lad-cleaned-before-scl-20260623`, repository này đã chuyển dịch sang chiến lược phát triển **SCL-first** (logic PLC mới ưu tiên viết bằng ngôn ngữ SCL source/import được vào TIA Portal).
+> Bộ tài liệu hướng dẫn Ladder-only dưới đây được đánh dấu là **Legacy Reference (Tham khảo lịch sử)**, dùng để đối chiếu logic đã test hoặc phục vụ rollback.
+> Quy tắc đặt tên tag mới: **KHÔNG dùng tiền tố `AI_`** (tiền tố `AI_` chỉ là tên lịch sử trước migration).
 
 Tài liệu này là chỉ dẫn nhập môn bắt buộc đối với bất kỳ AI Agent nào được giao nhiệm vụ thực hiện dự án sinh hệ thống điều khiển PLC Siemens TIA Portal V18 trong workspace `D:\AI_Agent_PLC_LADDER_ONLY`.
 
-Trước khi bắt đầu bất kỳ hành động nào, hãy chắc chắn bạn đã đọc kỹ tài liệu này, sau đó nghiên cứu [README.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/README.md) và [Master_Ladder_Only_5_Agent_Prompt.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/prompts/Master_Ladder_Only_5_Agent_Prompt.md).
-
 ---
 
-## 1. Mục tiêu và giới hạn kỹ thuật của Workspace
+## 1. Mục tiêu và giới hạn kỹ thuật của Workspace (Legacy LAD / New SCL Strategy)
 
-Mục tiêu duy nhất của workspace này là xây dựng dự án PLC Siemens TIA Portal V18 bằng **100% đồ họa Ladder XML**.
+Mục tiêu mới của workspace này là xây dựng dự án PLC Siemens TIA Portal V18 bằng ngôn ngữ **SCL (Structured Control Language)** làm chủ đạo.
 
-### Yêu cầu bắt buộc:
-- Toàn bộ thuật toán điều khiển của PLC CPU phải được lập trình hoàn toàn bằng đồ họa Ladder XML và có khả năng import thành công qua Openness.
-- Các khối hàm tổ chức chính OB1, khối chức năng FB, khối FC đều phải định dạng là Ladder (`LAD`).
-- Tuyệt đối không sinh bất kỳ dạng logic SCL nào (SCL block, SCL network hoặc file nguồn `.scl`) để lập trình trên PLC.
-- Các chương trình Python và C# trong workspace chỉ đóng vai trò làm công cụ tự động hóa sinh XML, kiểm duyệt và hỗ trợ nạp, tuyệt đối không chứa thuật toán điều khiển PLC bên trong.
-- Đối với khối điều khiển PID (`PID_Compact`), bắt buộc luôn sử dụng phiên bản 1.2 (`Version="1.2"`). Đồng thời, bắt buộc phải thiết kế mạng chuyển đổi chế độ (`sRet.i_Mode`) thông qua bit Enable: khi chạy MOVE 3 (Auto), khi dừng/không chạy MOVE 0 (Inactive) vào `sRet.i_Mode` (sử dụng hàm `builder.add_pid_mode_network(...)` trong thư viện) để tránh lỗi kẹt chế độ PID khi khởi động PLC hoặc dừng chu trình.
+### Yêu cầu bắt buộc mới (SCL-First):
+- Logic PLC mới phải được phát triển trực tiếp bằng mã SCL sạch, cấu trúc hóa, dễ bảo trì và có khả năng biên dịch đạt 0 Errors.
+- Toàn bộ các tag mới **không sử dụng tiền tố `AI_`**. Tiền tố `AI_` là lịch sử trước migration và không được dùng lại.
+- Bộ điều khiển nhiệt độ bắt buộc sử dụng khối công nghệ **PID_Compact Version 1.2** chuẩn của Siemens. SCL trực tiếp gọi và điều phối khối này (ghi `3` vào `sRet.i_Mode` để chạy Auto và ghi `0` để dừng/Inactive), không tự viết giải thuật PID giả lập.
+- Các công cụ tích hợp TIA Portal Openness API, vá XML màn hình HMI, và bind tag WinCC vẫn được giữ nguyên hoạt động để hỗ trợ triển khai dự án SCL mới.
+
+### Yêu cầu của bản Ladder XML cũ (Legacy Reference):
+- Thuật toán cũ của bản LAD đồ họa được lưu vết để làm đối chứng. Không sửa đè hoặc thay đổi code bản LAD cũ.
 
 ---
 
