@@ -12,65 +12,70 @@ chủ yếu phục vụ **Variant B (2 PLC đấu nối thực tế)**.
 
 ## 1. Ánh Xạ Khối Chương Trình LAD → SCL
 
-| Khối LAD Cũ | Ngôn ngữ | Vai trò | Khối SCL Mới | Ghi chú |
+| Khối LAD Hiện Hữu (Sau Migration) | Ngôn ngữ | Vai trò | Khối SCL Mới | Ghi chú |
 | :--- | :--- | :--- | :--- | :--- |
 | `OB1 Main` | LAD | Điều phối chính | `OB1 Main` (SCL) | Gọi FB10, FB20, FB30, safety |
 | `OB30 PID_Cycle` | LAD | OB ngắt PID Bồn 2 | `OB30 PID_Loop_Bon2` (SCL) | Giữ nguyên OB number |
 | `FB_Mixing` | LAD | Sequencer nhánh | `FB10 FB_MixingBranch` (SCL) | Gom cả 2 nhánh vào 1 FB |
 | `FC_VFD_Control` | LAD | Điều khiển ATV12 | `FB30 FB_VFD_ATV12_ModbusRTU` (SCL) | **FC → FB** vì cần Static Var |
 | `FC_Safety` | LAD | An toàn, E-Stop | Logic inline trong `OB1` (SCL) | Đơn giản hóa, không cần FC riêng |
-| `DB_Global` (M-area) | — | Biến M-area toàn cục | `DB100–DB103` (SCL DB) | **Dứt khoát xóa M-area** |
+| `DB_Global` (M-area) | — | Biến M-area toàn cục | `DB100–DB103` (SCL DB) | Logic SCL mới ưu tiên DB có cấu trúc; M-area cũ chỉ giữ làm tương thích (compatibility) nếu HMI, watch table hoặc legacy cần. Chỉ loại bỏ M-area sau khi có mapping CSV, thực hiện patch HMI, và biên dịch/đọc ngược thành công. |
 | `Inst_PID_Bon2` | — | Instance PID | `Inst_PID_Compact_1` (trong TIA TO) | Giữ nguyên cấu hình PID |
 
 ---
 
 ## 2. Ánh Xạ Tag/Biến LAD → SCL (Bảng Đầy Đủ)
 
+> [!WARNING]
+> **Lưu ý về tiền tố lịch sử:**
+> Toàn bộ các tag trong bản thiết kế và logic của dự án hiện hữu đã được migration để loại bỏ tiền tố `AI_` (theo [migration_map.csv](file:///d:/AI_Agent_PLC_LADDER_ONLY/projects/Mixing_Nuoc_Tuong_Maggi_2026/migration_map.csv) và readback `PLC_Tags.xml`).
+> Các tên tag có tiền tố `AI_` (như `AI_Nut_Khoi_Dong`, `AI_Auto_Enable`) là tên lịch sử trước khi migration và **TUYỆT ĐỐI KHÔNG được sử dụng lại** trong logic SCL mới.
+
 ### 2.1. Biến I/O Vật Lý — Giữ Nguyên Địa Chỉ
 
-| Tag LAD Cũ | Địa chỉ | Tag SCL Mới | Địa chỉ | Ghi chú |
+| Tag LAD Hiện Hữu (Sau Migration) | Địa chỉ | Tag SCL Mới | Địa chỉ | Ghi chú |
 | :--- | :--- | :--- | :--- | :--- |
-| `AI_Nut_Khoi_Dong` | `%I0.0` | `Nut_Khoi_Dong` | `%I0.0` | Bỏ tiền tố `AI_` |
-| `AI_Nut_Dung` | `%I0.1` | `Nut_Dung` | `%I0.1` | |
-| `AI_Nut_Reset` | `%I0.2` | `Nut_Reset` | `%I0.2` | |
-| `AI_Nut_EStop` | `%I0.3` | `Nut_EStop` | `%I0.3` | |
-| `AI_LS3202_Bon1_Cao` | `%I0.4` | `LS3202_Bon1_Cao` | `%I0.4` | |
-| `AI_FT3200_Bon1` | `%ID100` | `FT3200_Bon1` | `%ID100` | |
-| `AI_FQ3200_Bon1` | `%ID104` | `FQ3200_Bon1` | `%ID104` | |
-| `AI_LT3203_Bon1` | `%ID108` | `LT3203_Bon1` | `%ID108` | |
-| `AI_TT3204_Bon1` | `%ID112` | `TT3204_Bon1` | `%ID112` | |
-| `AI_VFD_Bon2_Contactor` | `%Q0.0` | `VFD_Bon2_Contactor` | `%Q0.0` | Contactor ATV12 |
-| `AI_AGTR3260_Khuay_Bon1` | `%Q0.1` | `AGTR3260_Khuay_Bon1` | `%Q0.1` | |
-| `AI_V3232_Xa_Bon1` | `%Q0.2` | `V3232_Xa_Bon1` | `%Q0.2` | |
-| `AI_V3233_Xa_Bon1` | `%Q0.3` | `V3233_Xa_Bon1` | `%Q0.3` | |
-| `AI_V3234_Xa_Bon1` | `%Q0.4` | `V3234_Xa_Bon1` | `%Q0.4` | |
-| `AI_V3235_Nuoc_Bon2` | `%Q0.5` | `V3235_Nuoc_Bon2` | `%Q0.5` | |
-| `AI_V3237_Xa_Bon2` | `%Q0.6` | `V3237_Xa_Bon2` | `%Q0.6` | |
-| `AI_V3238_Xa_Bon2` | `%Q0.7` | `V3238_Xa_Bon2` | `%Q0.7` | |
-| `AI_V3239_Xa_Bon2` | `%Q1.0` | `V3239_Xa_Bon2` | `%Q1.0` | |
-| `AI_Pump3264_Chuyen_Nhanh1` | `%Q1.1` | `Pump3264_Chuyen_Nhanh1` | `%Q1.1` | |
-| `AI_CV3201_Nuoc_Bon1` | `%QD100` | `CV3201_Nuoc_Bon1` | `%QD100` | AO tuyến tính |
-| `AI_AGTR3260_Toc_Do_AO` | `%QD104` | `AGTR3260_Toc_Do_AO` | `%QD104` | AO tốc độ khuấy |
-| `AI_CV3206_Hoi_Bon2` | `%QD108` | `CV3206_Hoi_Bon2` | `%QD108` | AO van hơi PID output |
+| `Nut_Khoi_Dong` | `%I0.0` | `Nut_Khoi_Dong` | `%I0.0` | Giữ nguyên tên và địa chỉ |
+| `Nut_Dung` | `%I0.1` | `Nut_Dung` | `%I0.1` | |
+| `Nut_Reset` | `%I0.2` | `Nut_Reset` | `%I0.2` | |
+| `Nut_EStop` | `%I0.3` | `Nut_EStop` | `%I0.3` | |
+| `LS3202_Bon1_Cao` | `%I0.4` | `LS3202_Bon1_Cao` | `%I0.4` | |
+| `FT3200_Bon1` | `%ID100` | `FT3200_Bon1` | `%ID100` | |
+| `FQ3200_Bon1` | `%ID104` | `FQ3200_Bon1` | `%ID104` | |
+| `LT3203_Bon1` | `%ID108` | `LT3203_Bon1` | `%ID108` | |
+| `TT3204_Bon1` | `%ID112` | `TT3204_Bon1` | `%ID112` | |
+| `VFD_Bon2_Contactor` | `%Q0.0` | `VFD_Bon2_Contactor` | `%Q0.0` | Contactor ATV12 |
+| `AGTR3260_Khuay_Bon1` | `%Q0.1` | `AGTR3260_Khuay_Bon1` | `%Q0.1` | |
+| `V3232_Xa_Bon1` | `%Q0.2` | `V3232_Xa_Bon1` | `%Q0.2` | |
+| `V3233_Xa_Bon1` | `%Q0.3` | `V3233_Xa_Bon1` | `%Q0.3` | |
+| `V3234_Xa_Bon1` | `%Q0.4` | `V3234_Xa_Bon1` | `%Q0.4` | |
+| `V3235_Nuoc_Bon2` | `%Q0.5` | `V3235_Nuoc_Bon2` | `%Q0.5` | |
+| `V3237_Xa_Bon2` | `%Q0.6` | `V3237_Xa_Bon2` | `%Q0.6` | |
+| `V3238_Xa_Bon2` | `%Q0.7` | `V3238_Xa_Bon2` | `%Q0.7` | |
+| `V3239_Xa_Bon2` | `%Q1.0` | `V3239_Xa_Bon2` | `%Q1.0` | |
+| `Pump3264_Chuyen_Nhanh1` | `%Q1.1` | `Pump3264_Chuyen_Nhanh1` | `%Q1.1` | |
+| `CV3201_Nuoc_Bon1` | `%QD100` | `CV3201_Nuoc_Bon1` | `%QD100` | AO tuyến tính |
+| `AGTR3260_Toc_Do_AO` | `%QD104` | `AGTR3260_Toc_Do_AO` | `%QD104` | AO tốc độ khuấy |
+| `CV3206_Hoi_Bon2` | `%QD108` | `CV3206_Hoi_Bon2` | `%QD108` | AO van hơi PID output |
 
 ### 2.2. Biến M-Area LAD → DB SCL
 
-| Biến LAD Cũ (M-area) | Địa chỉ | Biến SCL Mới (DB) | Kiểu | Ghi chú |
+| Biến LAD Hiện Hữu (M-area) | Địa chỉ | Biến SCL Mới (DB) | Kiểu | Ghi chú |
 | :--- | :--- | :--- | :--- | :--- |
-| `AI_Auto_Enable` | `%M110.0` | `DB_OperationData.Sys.auto_enable` | Bool | |
-| `AI_EStop_Latch` | `%M110.1` | `DB_OperationData.Sys.estop_latch` | Bool | |
-| `AI_Loi_Tong` | `%M110.2` | `DB_OperationData.Sys.loi_tong` | Bool | |
-| `AI_Loi_Dry_Run` | `%M110.3` | `DB_OperationData.Sys.loi_dry_run` | Bool | |
-| `AI_Bon1_State` | `%MW120` | `DB_OperationData.Bon1.state` | Int | Bước tuần tự |
-| `AI_Bon2_State` | `%MW122` | `DB_OperationData.Bon2.state` | Int | |
-| `AI_PID_Enable_Bon2` | `%M124.0` | `DB_OperationData.Bon2.pid_enable` | Bool | |
-| `AI_PID_CV_Bon2` | `%MD130` | `DB_OperationData.Bon2.pid_cv` | Real | Cần xác nhận tên chân |
-| `AI_SP_NhietDo_Bon2` | `%MD200` | `DB_HmiData.Setpoint.sp_nhiet_do_bon2` | Real | HMI setpoint |
-| `AI_SP_NhietDo_Bon4` | `%MD204` | `DB_HmiData.Setpoint.sp_nhiet_do_bon4` | Real | HMI setpoint |
-| `AI_SP_Nuoc_Bon1` | `%MD208` | `DB_HmiData.Setpoint.sp_nuoc_bon1` | Real | |
-| `AI_SP_Nuoc_Bon2` | `%MD212` | `DB_HmiData.Setpoint.sp_nuoc_bon2` | Real | |
-| `AI_Alarm_Status` | `%MW250` | `DB_HmiData.Status.alarm_status` | Int | WinCC TextList |
-| `AI_VFD_Comm_Fault` | `%M260.0` | `DB_OperationData.Sys.VFD_Comm_Fault` | Bool | Lỗi Modbus RTU |
+| `Auto_Enable` | `%M110.0` | `DB_OperationData.Sys.auto_enable` | Bool | |
+| `EStop_Latch` | `%M110.1` | `DB_OperationData.Sys.estop_latch` | Bool | |
+| `Loi_Tong` | `%M110.2` | `DB_OperationData.Sys.loi_tong` | Bool | |
+| `Loi_Dry_Run` | `%M110.3` | `DB_OperationData.Sys.loi_dry_run` | Bool | |
+| `Bon1_State` | `%MW120` | `DB_OperationData.Bon1.state` | Int | Bước tuần tự |
+| `Bon2_State` | `%MW122` | `DB_OperationData.Bon2.state` | Int | |
+| `PID_Enable_Bon2` | `%M124.0` | `DB_OperationData.Bon2.pid_enable` | Bool | |
+| `PID_CV_Bon2` | `%MD130` | `DB_OperationData.Bon2.pid_cv` | Real | Cần xác nhận tên chân |
+| `SP_NhietDo_Bon2` | `%MD200` | `DB_HmiData.Setpoint.sp_nhiet_do_bon2` | Real | HMI setpoint |
+| `SP_NhietDo_Bon4` | `%MD204` | `DB_HmiData.Setpoint.sp_nhiet_do_bon4` | Real | HMI setpoint |
+| `SP_Nuoc_Bon1` | `%MD208` | `DB_HmiData.Setpoint.sp_nuoc_bon1` | Real | |
+| `SP_Nuoc_Bon2` | `%MD212` | `DB_HmiData.Setpoint.sp_nuoc_bon2` | Real | |
+| `Alarm_Status` | `%MW250` | `DB_HmiData.Status.alarm_status` | Int | WinCC TextList |
+| `VFD_Comm_Fault` | `%M260.0` | `DB_OperationData.Sys.VFD_Comm_Fault` | Bool | Lỗi Modbus RTU |
 
 ---
 

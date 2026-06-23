@@ -155,7 +155,7 @@ Khi chạy thực tế trên tủ điện với phần cứng thật, tester th�
 ### 4.2. Bước 2: Kiểm tra liên kết truyền thông (Communication Link Test)
 1. **Modbus RTU:**
    - Đóng contactor `%Q0.0` cấp nguồn động lực cho ATV12.
-   - Kiểm tra mã lỗi của `MB_MASTER` trong `FB_VFD_ATV12_ModbusRTU`. Đảm bảo mã trạng thái liên tục trả về `16#7000` (Không có yêu cầu) hoặc `16#0000` (Thành công), không bị lỗi `16#80E0` (Sai cấu hình cổng) hay `16#80C8` (Timeout).
+   - Kiểm tra hành vi và mã lỗi của `MB_MASTER` trong `FB_VFD_ATV12_ModbusRTU`. Đảm bảo cờ `ERROR = FALSE`, cờ `DONE` có xung (lên `True` trong một chu kỳ quét) khi giao dịch thành công, cờ `BUSY` không bị kẹt ở trạng thái `True`. Giá trị `STATUS` không được rơi vào nhóm lỗi cấu hình cổng (`16#80E0`) hay lỗi timeout kết nối (`16#80C8`), mã `STATUS` cụ thể cần được đối chiếu theo tài liệu của Siemens và giá trị readback thực tế khi giao tiếp ổn định.
 2. **Modbus TCP:**
    - Kết nối cáp Ethernet giữa PLC1, PLC2 và HMI Switch.
    - Ping kiểm tra kết nối IP của các thiết bị.
