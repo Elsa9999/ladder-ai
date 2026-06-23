@@ -1,0 +1,43 @@
+path,category,reason,safe_to_delete_now,needs_archive_first,risk_level
+Output_FB_Comms.xml,DELETE_CANDIDATE,Tep XML khoi FB_Comms xuat tam o root,TRUE,FALSE,LOW
+Output_FB_Tu_Dong.xml,DELETE_CANDIDATE,Tep XML khoi FB_Tu_Dong xuat tam o root,TRUE,FALSE,LOW
+Output_OB30_PID.xml,DELETE_CANDIDATE,Tep XML khoi OB30 xuat tam o root,TRUE,FALSE,LOW
+scratch/PLC_2_temp,DELETE_CANDIDATE,Thu muc tam chua XML khoi PLC2,TRUE,FALSE,LOW
+scratch/dummy_out,DELETE_CANDIDATE,Thu muc tam chua output gia lap,TRUE,FALSE,LOW
+scratch/output_temp,DELETE_CANDIDATE,Thu muc tam chua output XML generator,TRUE,FALSE,LOW
+scratch/import_temp,DELETE_CANDIDATE,Thu muc tam dung cho import XML,TRUE,FALSE,LOW
+scratch/tags_output,DELETE_CANDIDATE,Thu muc tam chua tag table xuat ra,TRUE,FALSE,LOW
+scratch/cleanup_log.txt,DELETE_CANDIDATE,Log cua qua trinh don dep cu,TRUE,FALSE,LOW
+scratch/compile_log.txt,DELETE_CANDIDATE,Log bien dich chuong trinh cu,TRUE,FALSE,LOW
+scratch/export_log.txt,DELETE_CANDIDATE,Log xuat file XML cua Openness,TRUE,FALSE,LOW
+scratch/import_log.txt,DELETE_CANDIDATE,Log nap file XML cua Openness,TRUE,FALSE,LOW
+scratch/hmi_compile_log.txt,DELETE_CANDIDATE,Log bien dich giao dien HMI WinCC,TRUE,FALSE,LOW
+scratch/lang_log.txt,DELETE_CANDIDATE,Log kiem tra ngon ngu giao dien,TRUE,FALSE,LOW
+scratch/python_import_log.txt,DELETE_CANDIDATE,Log import va phan tich thu vien Python,TRUE,FALSE,LOW
+scratch/_bindings_log.txt,DELETE_CANDIDATE,Log lien ket tag WinCC voi PLC,TRUE,FALSE,LOW
+scratch/_mapping_log.txt,DELETE_CANDIDATE,Log anh xa tag cuoi cung,TRUE,FALSE,LOW
+scratch/_mapping_v2_log.txt,DELETE_CANDIDATE,Log anh xa tag phien ban 2,TRUE,FALSE,LOW
+scratch/_mapping_v3_log.txt,DELETE_CANDIDATE,Log anh xa tag phien ban 3,TRUE,FALSE,LOW
+scratch/_verify_tags_log.txt,DELETE_CANDIDATE,Log kiem tra tinh hop le cua tag table,TRUE,FALSE,LOW
+scratch/bon_tron_1_export.xml,DELETE_CANDIDATE,XML xuat ra cua man hinh Bon tron 1,TRUE,FALSE,MEDIUM
+scratch/bon_tron_1_patched.xml,DELETE_CANDIDATE,XML Bon tron 1 da duoc va loi IO Field,FALSE,TRUE,MEDIUM
+scratch/bon_tron_1_readback.xml,DELETE_CANDIDATE,XML Bon tron 1 doc nguoc tu du an TIA,TRUE,FALSE,LOW
+scratch/bon_tron_2_export.xml,DELETE_CANDIDATE,XML xuat ra cua man hinh Bon tron 2,TRUE,FALSE,MEDIUM
+scratch/bon_tron_2_patched.xml,DELETE_CANDIDATE,XML Bon tron 2 da duoc va loi IO Field,FALSE,TRUE,MEDIUM
+scratch/bon_tron_2_readback.xml,DELETE_CANDIDATE,XML Bon tron 2 doc nguoc tu du an TIA,TRUE,FALSE,LOW
+scratch/bon_tron_3_export.xml,DELETE_CANDIDATE,XML xuat ra cua man hinh Bon tron 3,TRUE,FALSE,MEDIUM
+scratch/bon_tron_3_patched.xml,DELETE_CANDIDATE,XML Bon tron 3 da duoc va loi IO Field,FALSE,TRUE,MEDIUM
+scratch/bon_tron_3_readback.xml,DELETE_CANDIDATE,XML Bon tron 3 doc nguoc tu du an TIA,TRUE,FALSE,LOW
+scratch/bon_tron_4_export.xml,DELETE_CANDIDATE,XML xuat ra cua man hinh Bon tron 4,TRUE,FALSE,MEDIUM
+scratch/bon_tron_4_patched.xml,DELETE_CANDIDATE,XML Bon tron 4 da duoc va loi IO Field,FALSE,TRUE,MEDIUM
+scratch/bon_tron_4_readback.xml,DELETE_CANDIDATE,XML Bon tron 4 doc nguoc tu du an TIA,TRUE,FALSE,LOW
+scratch/Screen_1_export.xml,DELETE_CANDIDATE,XML xuat ra man hinh Screen_1 WinCC,TRUE,FALSE,MEDIUM
+scratch/Screen_1_patched.xml,DELETE_CANDIDATE,XML Screen_1 WinCC da va loi IO Field de thi,FALSE,TRUE,HIGH
+scratch/Screen_1_readback.xml,DELETE_CANDIDATE,XML Screen_1 doc nguoc tu du an TIA,FALSE,TRUE,MEDIUM
+scratch/scadabai3_export.xml,DELETE_CANDIDATE,XML xuat cua man hinh SCADA Bai 3,TRUE,FALSE,LOW
+scratch/scadabai4_export.xml,DELETE_CANDIDATE,XML xuat cua man hinh SCADA Bai 4,TRUE,FALSE,LOW
+scratch/scadabai5_export.xml,DELETE_CANDIDATE,XML xuat cua man hinh SCADA Bai 5,TRUE,FALSE,LOW
+scratch/scadabai6_export.xml,DELETE_CANDIDATE,XML xuat cua man hinh SCADA Bai 6,TRUE,FALSE,LOW
+scratch/scadabai7_export.xml,DELETE_CANDIDATE,XML xuat cua man hinh SCADA Bai 7,TRUE,FALSE,LOW
+scratch/debug_find.py,DELETE_CANDIDATE,Script kiem tra ham find nhanh,TRUE,FALSE,LOW
+scratch/dummy_out.txt,DELETE_CANDIDATE,File text xuat tam thoi,TRUE,FALSE,LOW

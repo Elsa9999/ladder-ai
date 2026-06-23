@@ -150,7 +150,7 @@ Khi chạy thực tế trên tủ điện với phần cứng thật, tester th�
 ### 4.1. Bước 1: Kiểm tra cấu hình phần cứng (Hardware Check)
 1. Xác minh HW ID của cổng CB1241 trên PLC1 đúng với giá trị cấu hình trong code SCL của khối `MB_COMM_LOAD` (không hard-code giá trị giả định).
 2. Kiểm tra đấu nối dây Modbus RTU (chân A/B, điện trở đầu cuối 120 Ohm bật ở cả hai đầu CB1241 và biến tần ATV12).
-3. Cấp nguồn điều khiển PLC, đảm bảo cả 2 CPU và thiết bị ngoại vi được cấp nguồn đầy đủ, không có lỗi phần cứng (đèn ERROR nhấp nháy đỏ).
+3. Cấp nguồn điều khiển PLC, đảm bảo cả 2 CPU và thiết bị ngoại vi được cấp nguồn đầy đủ, không có lỗi phần cứng (đèn ERROR không sáng/không nhấp nháy đỏ).
 
 ### 4.2. Bước 2: Kiểm tra liên kết truyền thông (Communication Link Test)
 1. **Modbus RTU:**
