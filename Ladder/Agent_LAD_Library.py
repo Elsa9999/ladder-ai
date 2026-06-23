@@ -4,6 +4,47 @@
 import sys, os
 from datetime import datetime
 
+def format_symbol_path(path_str):
+    components = path_str.split(".")
+    xml_parts = []
+    for x in components:
+        if x.startswith("%") and len(x) > 2:
+            slice_type = x[1].lower()
+            slice_idx = x[2:]
+            if xml_parts:
+                xml_parts[-1] = xml_parts[-1].replace("<Component ", f'<Component SliceAccessModifier="{slice_type}{slice_idx}" ', 1)
+        # Check if x has array syntax like "Name[index]"
+        elif "[" in x and x.endswith("]"):
+            base_name = x[:x.find("[")]
+            index_str = x[x.find("[")+1:-1]
+            xml_parts.append(
+                f'<Component Name="{base_name}" AccessModifier="Array">'
+                f'<Access Scope="LiteralConstant">'
+                f'<Constant>'
+                f'<ConstantType>DInt</ConstantType>'
+                f'<ConstantValue>{index_str}</ConstantValue>'
+                f'</Constant>'
+                f'</Access>'
+                f'</Component>'
+            )
+        else:
+            xml_parts.append(f'<Component Name="{x}" />')
+    return "".join(xml_parts)
+
+def get_integer_type(value_str):
+    try:
+        int_val = int(value_str)
+        if -32768 <= int_val <= 32767:
+            return "Int"
+        elif 32768 <= int_val <= 65535:
+            return "UDInt"
+        elif -2147483648 <= int_val <= 2147483647:
+            return "DInt"
+        else:
+            return "UDInt"
+    except ValueError:
+        return "Int"
+
 class UIDGen:
     def __init__(self, start=20):
         self.val = start
@@ -18,7 +59,17 @@ class TIALadderBuilder:
         self.block_type = block_type
         self.networks = ""
         self.timers = []
+        self.temp_vars = []
         self.uid_gen = UIDGen(start=20)
+
+    def _get_symbol_access_xml(self, value, tag_uid):
+        value_str = str(value)
+        if value_str.startswith("#"):
+            comp_str = format_symbol_path(value_str[1:])
+            return f'<Access Scope="LocalVariable" UId="{tag_uid}"><Symbol>{comp_str}</Symbol></Access>'
+        else:
+            comp_str = format_symbol_path(value_str)
+            return f'<Access Scope="GlobalVariable" UId="{tag_uid}"><Symbol>{comp_str}</Symbol></Access>'
 
     def _get_access_xml(self, pin_name, value, tag_uid):
         value_str = str(value)
@@ -49,17 +100,20 @@ class TIALadderBuilder:
             "PARITY": "UInt",
         }
         if pin_name in pin_types:
-            return f'<Access Scope="LiteralConstant" UId="{tag_uid}"><Constant><ConstantType>{pin_types[pin_name]}</ConstantType><ConstantValue>{value_str}</ConstantValue></Constant></Access>'
+            try:
+                float(value_str)
+                return f'<Access Scope="LiteralConstant" UId="{tag_uid}"><Constant><ConstantType>{pin_types[pin_name]}</ConstantType><ConstantValue>{value_str}</ConstantValue></Constant></Access>'
+            except ValueError:
+                pass
         # 5. Default numeric check
         try:
             float(value_str)
             is_real = '.' in value_str
-            ctype = "Real" if is_real else "Int"
+            ctype = "Real" if is_real else get_integer_type(value_str)
             return f'<Access Scope="LiteralConstant" UId="{tag_uid}"><Constant><ConstantType>{ctype}</ConstantType><ConstantValue>{value_str}</ConstantValue></Constant></Access>'
         except ValueError:
             # Symbolic name with dots
-            comp_str = "".join([f'<Component Name="{x}" />' for x in value_str.split(".")])
-            return f'<Access Scope="GlobalVariable" UId="{tag_uid}"><Symbol>{comp_str}</Symbol></Access>'
+            return self._get_symbol_access_xml(value_str, tag_uid)
 
     def _build_network(self, title, elements):
         net_uid = self.uid_gen.next()
@@ -82,11 +136,7 @@ class TIALadderBuilder:
                 part_name = "Contact"
                 negated_tag = '<Negated Name="operand" />' if ctype == "NC" else ""
 
-                accesses.append(
-                    f'<Access Scope="GlobalVariable" UId="{var_uid}">'
-                    f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in comp[1].split(".")]) }</Symbol>'
-                    f'</Access>'
-                )
+                accesses.append(self._get_symbol_access_xml(comp[1], var_uid))
 
                 parts.append(
                     f'<Part Name="{part_name}" UId="{part_uid}">'
@@ -119,11 +169,7 @@ class TIALadderBuilder:
                 elif ctype == "ResetCoil":
                     part_name = "RCoil"
 
-                accesses.append(
-                    f'<Access Scope="GlobalVariable" UId="{var_uid}">'
-                    f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in comp[1].split(".")]) }</Symbol>'
-                    f'</Access>'
-                )
+                accesses.append(self._get_symbol_access_xml(comp[1], var_uid))
                 parts.append(f'<Part Name="{part_name}" UId="{part_uid}" />')
 
                 w_in = self.uid_gen.next()
@@ -142,6 +188,47 @@ class TIALadderBuilder:
                 prev_uid = part_uid
                 prev_pin = "out"
 
+            elif ctype == "OR3":
+                tag1 = comp[1]
+                tag2 = comp[2]
+                tag3 = comp[3]
+                var1_uid = self.uid_gen.next()
+                var2_uid = self.uid_gen.next()
+                var3_uid = self.uid_gen.next()
+                part1_uid = self.uid_gen.next()
+                part2_uid = self.uid_gen.next()
+                part3_uid = self.uid_gen.next()
+                or_uid = self.uid_gen.next()
+                
+                accesses.append(self._get_symbol_access_xml(tag1, var1_uid))
+                accesses.append(self._get_symbol_access_xml(tag2, var2_uid))
+                accesses.append(self._get_symbol_access_xml(tag3, var3_uid))
+                
+                parts.append(f'<Part Name="Contact" UId="{part1_uid}" />')
+                parts.append(f'<Part Name="Contact" UId="{part2_uid}" />')
+                parts.append(f'<Part Name="Contact" UId="{part3_uid}" />')
+                parts.append(f'<Part Name="O" UId="{or_uid}"><TemplateValue Name="Card" Type="Cardinality">3</TemplateValue></Part>')
+                
+                w_in = self.uid_gen.next()
+                wires.append(f'<Wire UId="{w_in}">{prev_conn_str}<NameCon UId="{part1_uid}" Name="in" /><NameCon UId="{part2_uid}" Name="in" /><NameCon UId="{part3_uid}" Name="in" /></Wire>')
+                
+                w_op1 = self.uid_gen.next()
+                wires.append(f'<Wire UId="{w_op1}"><IdentCon UId="{var1_uid}" /><NameCon UId="{part1_uid}" Name="operand" /></Wire>')
+                w_op2 = self.uid_gen.next()
+                wires.append(f'<Wire UId="{w_op2}"><IdentCon UId="{var2_uid}" /><NameCon UId="{part2_uid}" Name="operand" /></Wire>')
+                w_op3 = self.uid_gen.next()
+                wires.append(f'<Wire UId="{w_op3}"><IdentCon UId="{var3_uid}" /><NameCon UId="{part3_uid}" Name="operand" /></Wire>')
+
+                w_out1 = self.uid_gen.next()
+                wires.append(f'<Wire UId="{w_out1}"><NameCon UId="{part1_uid}" Name="out" /><NameCon UId="{or_uid}" Name="in1" /></Wire>')
+                w_out2 = self.uid_gen.next()
+                wires.append(f'<Wire UId="{w_out2}"><NameCon UId="{part2_uid}" Name="out" /><NameCon UId="{or_uid}" Name="in2" /></Wire>')
+                w_out3 = self.uid_gen.next()
+                wires.append(f'<Wire UId="{w_out3}"><NameCon UId="{part3_uid}" Name="out" /><NameCon UId="{or_uid}" Name="in3" /></Wire>')
+
+                prev_uid = or_uid
+                prev_pin = "out"
+
             elif ctype == "OR2":
                 tag1 = comp[1]
                 tag2 = comp[2]
@@ -151,8 +238,8 @@ class TIALadderBuilder:
                 part2_uid = self.uid_gen.next()
                 or_uid = self.uid_gen.next()
                 
-                accesses.append(f'<Access Scope="GlobalVariable" UId="{var1_uid}"><Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in tag1.split(".")]) }</Symbol></Access>')
-                accesses.append(f'<Access Scope="GlobalVariable" UId="{var2_uid}"><Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in tag2.split(".")]) }</Symbol></Access>')
+                accesses.append(self._get_symbol_access_xml(tag1, var1_uid))
+                accesses.append(self._get_symbol_access_xml(tag2, var2_uid))
                 
                 parts.append(f'<Part Name="Contact" UId="{part1_uid}" />')
                 parts.append(f'<Part Name="Contact" UId="{part2_uid}" />')
@@ -181,7 +268,7 @@ class TIALadderBuilder:
                 
                 if param_tag:
                     var_uid = self.uid_gen.next()
-                    accesses.append(f'<Access Scope="GlobalVariable" UId="{var_uid}"><Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in param_tag.split(".")]) }</Symbol></Access>')
+                    accesses.append(self._get_symbol_access_xml(param_tag, var_uid))
                     parts.append(f'<Call UId="{call_uid}"><CallInfo Name="{fc_name}" BlockType="FC"><Parameter Name="bDangChay" Section="Input" Type="Bool" /></CallInfo></Call>')
                     w_in = self.uid_gen.next()
                     wires.append(f'<Wire UId="{w_in}">{prev_conn_str}<NameCon UId="{call_uid}" Name="en" /></Wire>')
@@ -200,7 +287,7 @@ class TIALadderBuilder:
                 var_uid = self.uid_gen.next()
                 part_uid = self.uid_gen.next()
                 
-                accesses.append(f'<Access Scope="GlobalVariable" UId="{var_uid}"><Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in tag.split(".")]) }</Symbol></Access>')
+                accesses.append(self._get_symbol_access_xml(tag, var_uid))
                 parts.append(f'<Part Name="PBox" UId="{part_uid}" />')
                 
                 w_in = self.uid_gen.next()
@@ -219,9 +306,17 @@ class TIALadderBuilder:
             #        ("CMP_LT", "DB1.var", "0.02")        -> var < 0.02
             # =========================================================
             elif ctype.startswith("CMP_"):
+                # Support _Int, _Real, _DWord, etc. suffixes
+                suffix = None
+                base_ctype = ctype
+                for s in ["_Int", "_Real", "_DWord", "_DInt", "_UDInt", "_Word", "_USInt", "_UInt"]:
+                    if ctype.endswith(s):
+                        suffix = s[1:]
+                        base_ctype = ctype[:-len(s)]
+                        break
                 op_map = {"CMP_GT": "Gt", "CMP_GE": "Ge", "CMP_LT": "Lt",
                           "CMP_LE": "Le", "CMP_EQ": "Eq", "CMP_NE": "Ne"}
-                part_name = op_map.get(ctype, "Gt")
+                part_name = op_map.get(base_ctype, "Gt")
                 in1_tag = comp[1]  # left operand (variable)
                 in2_raw = comp[2]  # right operand (variable or literal)
 
@@ -230,14 +325,12 @@ class TIALadderBuilder:
                 cmp_uid = self.uid_gen.next()
 
                 # in1 is always a GlobalVariable
-                accesses.append(
-                    f'<Access Scope="GlobalVariable" UId="{in1_uid}">'
-                    f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in in1_tag.split(".")]) }</Symbol>'
-                    f'</Access>'
-                )
+                accesses.append(self._get_symbol_access_xml(in1_tag, in1_uid))
 
                 # Detect type based on tag name or context
-                if "ErrorBits" in in1_tag:
+                if suffix:
+                    type_str = suffix
+                elif "ErrorBits" in in1_tag:
                     type_str = "DWord"
                 elif "Time" in in1_tag:
                     type_str = "Time"
@@ -271,18 +364,14 @@ class TIALadderBuilder:
                         if type_str == "DWord":
                             ctype_str = "DWord"
                         else:
-                            ctype_str = "Real" if is_real else "Int"
+                            ctype_str = "Real" if is_real else get_integer_type(in2_raw)
                         accesses.append(
                             f'<Access Scope="LiteralConstant" UId="{in2_uid}">'
                             f'<Constant><ConstantType>{ctype_str}</ConstantType><ConstantValue>{in2_raw}</ConstantValue></Constant>'
                             f'</Access>'
                         )
                 else:
-                    accesses.append(
-                        f'<Access Scope="GlobalVariable" UId="{in2_uid}">'
-                        f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in in2_raw.split(".")]) }</Symbol>'
-                        f'</Access>'
-                    )
+                    accesses.append(self._get_symbol_access_xml(in2_raw, in2_uid))
 
                 parts.append(f'<Part Name="{part_name}" UId="{cmp_uid}"><TemplateValue Name="SrcType" Type="Type">{type_str}</TemplateValue></Part>')
 
@@ -310,11 +399,7 @@ class TIALadderBuilder:
                 move_uid = self.uid_gen.next()
 
                 accesses.append(self._get_access_xml("in", src_raw, src_uid))
-                accesses.append(
-                    f'<Access Scope="GlobalVariable" UId="{dst_uid}">'
-                    f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in dst_tag.split(".")]) }</Symbol>'
-                    f'</Access>'
-                )
+                accesses.append(self._get_symbol_access_xml(dst_tag, dst_uid))
 
                 parts.append(f'<Part Name="Move" UId="{move_uid}"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part>')
 
@@ -353,18 +438,14 @@ class TIALadderBuilder:
                     is_lit1 = False
 
                 if is_lit1:
-                    ctype_str = "Real" if is_real1 else "Int"
+                    ctype_str = "Real" if is_real1 else get_integer_type(in1_raw)
                     accesses.append(
                         f'<Access Scope="LiteralConstant" UId="{in1_uid}">'
                         f'<Constant><ConstantType>{ctype_str}</ConstantType><ConstantValue>{in1_raw}</ConstantValue></Constant>'
                         f'</Access>'
                     )
                 else:
-                    accesses.append(
-                        f'<Access Scope="GlobalVariable" UId="{in1_uid}">'
-                        f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in in1_raw.split(".")]) }</Symbol>'
-                        f'</Access>'
-                    )
+                    accesses.append(self._get_symbol_access_xml(in1_raw, in1_uid))
 
                 # IN2
                 try:
@@ -375,25 +456,17 @@ class TIALadderBuilder:
                     is_lit2 = False
 
                 if is_lit2:
-                    ctype_str = "Real" if is_real2 else "Int"
+                    ctype_str = "Real" if is_real2 else get_integer_type(in2_raw)
                     accesses.append(
                         f'<Access Scope="LiteralConstant" UId="{in2_uid}">'
                         f'<Constant><ConstantType>{ctype_str}</ConstantType><ConstantValue>{in2_raw}</ConstantValue></Constant>'
                         f'</Access>'
                     )
                 else:
-                    accesses.append(
-                        f'<Access Scope="GlobalVariable" UId="{in2_uid}">'
-                        f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in in2_raw.split(".")]) }</Symbol>'
-                        f'</Access>'
-                    )
+                    accesses.append(self._get_symbol_access_xml(in2_raw, in2_uid))
 
                 # OUT
-                accesses.append(
-                    f'<Access Scope="GlobalVariable" UId="{out_uid}">'
-                    f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in out_tag.split(".")]) }</Symbol>'
-                    f'</Access>'
-                )
+                accesses.append(self._get_symbol_access_xml(out_tag, out_uid))
 
                 w_en = self.uid_gen.next()
                 wires.append(f'<Wire UId="{w_en}">{prev_conn_str}<NameCon UId="{math_uid}" Name="en" /></Wire>')
@@ -430,25 +503,17 @@ class TIALadderBuilder:
                     is_lit1 = False
 
                 if is_lit1:
-                    ctype_str = "Real" if is_real1 else "Int"
+                    ctype_str = "Real" if is_real1 else get_integer_type(in1_raw)
                     accesses.append(
                         f'<Access Scope="LiteralConstant" UId="{in1_uid}">'
                         f'<Constant><ConstantType>{ctype_str}</ConstantType><ConstantValue>{in1_raw}</ConstantValue></Constant>'
                         f'</Access>'
                     )
                 else:
-                    accesses.append(
-                        f'<Access Scope="GlobalVariable" UId="{in1_uid}">'
-                        f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in in1_raw.split(".")]) }</Symbol>'
-                        f'</Access>'
-                    )
+                    accesses.append(self._get_symbol_access_xml(in1_raw, in1_uid))
 
                 # OUT
-                accesses.append(
-                    f'<Access Scope="GlobalVariable" UId="{out_uid}">'
-                    f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in out_tag.split(".")]) }</Symbol>'
-                    f'</Access>'
-                )
+                accesses.append(self._get_symbol_access_xml(out_tag, out_uid))
 
                 w_en = self.uid_gen.next()
                 wires.append(f'<Wire UId="{w_en}">{prev_conn_str}<NameCon UId="{math_uid}" Name="en" /></Wire>')
@@ -487,25 +552,17 @@ class TIALadderBuilder:
                     is_lit1 = False
 
                 if is_lit1:
-                    ctype_str = "Real" if is_real1 else "Int"
+                    ctype_str = "Real" if is_real1 else get_integer_type(in1_raw)
                     accesses.append(
                         f'<Access Scope="LiteralConstant" UId="{in1_uid}">'
                         f'<Constant><ConstantType>{ctype_str}</ConstantType><ConstantValue>{in1_raw}</ConstantValue></Constant>'
                         f'</Access>'
                     )
                 else:
-                    accesses.append(
-                        f'<Access Scope="GlobalVariable" UId="{in1_uid}">'
-                        f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in in1_raw.split(".")]) }</Symbol>'
-                        f'</Access>'
-                    )
+                    accesses.append(self._get_symbol_access_xml(in1_raw, in1_uid))
 
                 # OUT
-                accesses.append(
-                    f'<Access Scope="GlobalVariable" UId="{out_uid}">'
-                    f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in out_tag.split(".")]) }</Symbol>'
-                    f'</Access>'
-                )
+                accesses.append(self._get_symbol_access_xml(out_tag, out_uid))
 
                 w_en = self.uid_gen.next()
                 wires.append(f'<Wire UId="{w_en}">{prev_conn_str}<NameCon UId="{conv_uid}" Name="en" /></Wire>')
@@ -548,7 +605,7 @@ class TIALadderBuilder:
                     del templates["Equation"]
 
                 for t_name, t_val in templates.items():
-                    t_type = "Cardinality" if t_name == "Card" else "Type"
+                    t_type = "Cardinality" if (t_name == "Card" or t_name.startswith("card")) else "Type"
                     part_xml += f'<TemplateValue Name="{t_name}" Type="{t_type}">{t_val}</TemplateValue>'
                 
                 part_xml += '</Part>'
@@ -560,21 +617,27 @@ class TIALadderBuilder:
 
                 # Process Inputs
                 for pin_name, tag_raw in inputs.items():
-                    tag_uid = self.uid_gen.next()
-                    accesses.append(self._get_access_xml(pin_name, tag_raw, tag_uid))
-                    w_in = self.uid_gen.next()
-                    wires.append(f'<Wire UId="{w_in}"><IdentCon UId="{tag_uid}" /><NameCon UId="{gen_uid}" Name="{pin_name}" /></Wire>')
+                    if tag_raw == "OPEN" or tag_raw == "" or tag_raw is None:
+                        open_uid = self.uid_gen.next()
+                        w_in = self.uid_gen.next()
+                        wires.append(f'<Wire UId="{w_in}"><OpenCon UId="{open_uid}" /><NameCon UId="{gen_uid}" Name="{pin_name}" /></Wire>')
+                    else:
+                        tag_uid = self.uid_gen.next()
+                        accesses.append(self._get_access_xml(pin_name, tag_raw, tag_uid))
+                        w_in = self.uid_gen.next()
+                        wires.append(f'<Wire UId="{w_in}"><IdentCon UId="{tag_uid}" /><NameCon UId="{gen_uid}" Name="{pin_name}" /></Wire>')
 
                 # Process Outputs
                 for pin_name, tag_raw in outputs.items():
-                    tag_uid = self.uid_gen.next()
-                    accesses.append(
-                        f'<Access Scope="GlobalVariable" UId="{tag_uid}">'
-                        f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in tag_raw.split(".")]) }</Symbol>'
-                        f'</Access>'
-                    )
-                    w_out = self.uid_gen.next()
-                    wires.append(f'<Wire UId="{w_out}"><NameCon UId="{gen_uid}" Name="{pin_name}" /><IdentCon UId="{tag_uid}" /></Wire>')
+                    if tag_raw == "OPEN" or tag_raw == "" or tag_raw is None:
+                        open_uid = self.uid_gen.next()
+                        w_out = self.uid_gen.next()
+                        wires.append(f'<Wire UId="{w_out}"><NameCon UId="{gen_uid}" Name="{pin_name}" /><OpenCon UId="{open_uid}" /></Wire>')
+                    else:
+                        tag_uid = self.uid_gen.next()
+                        accesses.append(self._get_symbol_access_xml(tag_raw, tag_uid))
+                        w_out = self.uid_gen.next()
+                        wires.append(f'<Wire UId="{w_out}"><NameCon UId="{gen_uid}" Name="{pin_name}" /><IdentCon UId="{tag_uid}" /></Wire>')
 
                 prev_uid = gen_uid
                 prev_pin = "eno"
@@ -591,7 +654,7 @@ class TIALadderBuilder:
                 pid_uid = self.uid_gen.next()
                 inst_uid = self.uid_gen.next()
 
-                comp_str = "".join([f'<Component Name="{x}" />' for x in db_name.split(".")])
+                comp_str = format_symbol_path(db_name)
                 parts.append(
                     f'<Part Name="{part_name}" Version="{version}" UId="{pid_uid}">'
                     f'<Instance Scope="GlobalVariable" UId="{inst_uid}">'
@@ -619,18 +682,14 @@ class TIALadderBuilder:
                             is_lit = False
 
                         if is_lit:
-                            ctype_str = "Real" if is_real else "Int"
+                            ctype_str = "Real" if is_real else get_integer_type(in2_raw)
                             accesses.append(
                                 f'<Access Scope="LiteralConstant" UId="{tag_uid}">'
                                 f'<Constant><ConstantType>{ctype_str}</ConstantType><ConstantValue>{tag_raw}</ConstantValue></Constant>'
                                 f'</Access>'
                             )
                         else:
-                            accesses.append(
-                                f'<Access Scope="GlobalVariable" UId="{tag_uid}">'
-                                f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in tag_raw.split(".")]) }</Symbol>'
-                                f'</Access>'
-                            )
+                            accesses.append(self._get_symbol_access_xml(tag_raw, tag_uid))
                         w_in = self.uid_gen.next()
                         wires.append(f'<Wire UId="{w_in}"><IdentCon UId="{tag_uid}" /><NameCon UId="{pid_uid}" Name="{pin}" /></Wire>')
                     else:
@@ -647,11 +706,7 @@ class TIALadderBuilder:
                     if pin in outputs and outputs[pin]:
                         tag_raw = outputs[pin]
                         tag_uid = self.uid_gen.next()
-                        accesses.append(
-                            f'<Access Scope="GlobalVariable" UId="{tag_uid}">'
-                            f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in tag_raw.split(".")]) }</Symbol>'
-                            f'</Access>'
-                        )
+                        accesses.append(self._get_symbol_access_xml(tag_raw, tag_uid))
                         w_out = self.uid_gen.next()
                         wires.append(f'<Wire UId="{w_out}"><NameCon UId="{pid_uid}" Name="{pin}" /><IdentCon UId="{tag_uid}" /></Wire>')
                     else:
@@ -688,15 +743,11 @@ class TIALadderBuilder:
                         f'</Access>'
                     )
                 else:
-                    accesses.append(
-                        f'<Access Scope="GlobalVariable" UId="{pt_uid}">'
-                        f'<Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in time_val.split(".")]) }</Symbol>'
-                        f'</Access>'
-                    )
+                    accesses.append(self._get_symbol_access_xml(time_val, pt_uid))
 
                 is_global = "." in db_name or db_name not in self.timers
                 scope_str = "GlobalVariable"
-                comp_str = "".join([f'<Component Name="{x}" />' for x in db_name.split(".")])
+                comp_str = format_symbol_path(db_name)
                 parts.append(
                     f'<Part Name="TON" Version="1.0" UId="{part_uid}">'
                     f'<Instance Scope="{scope_str}" UId="{inst_uid}">'
@@ -725,7 +776,7 @@ class TIALadderBuilder:
                 if q_tag:
                     w_q = self.uid_gen.next()
                     q_uid = self.uid_gen.next()
-                    accesses.append(f'<Access Scope="GlobalVariable" UId="{q_uid}"><Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in q_tag.split(".")]) }</Symbol></Access>')
+                    accesses.append(self._get_symbol_access_xml(q_tag, q_uid))
                     wires.append(f'<Wire UId="{w_q}"><NameCon UId="{part_uid}" Name="Q" /><IdentCon UId="{q_uid}" /></Wire>')
                 else:
                     open_uid = self.uid_gen.next()
@@ -736,7 +787,7 @@ class TIALadderBuilder:
                 if et_tag:
                     w_et = self.uid_gen.next()
                     et_uid = self.uid_gen.next()
-                    accesses.append(f'<Access Scope="GlobalVariable" UId="{et_uid}"><Symbol>{ "".join(["<Component Name=\"" + x + "\" />" for x in et_tag.split(".")]) }</Symbol></Access>')
+                    accesses.append(self._get_symbol_access_xml(et_tag, et_uid))
                     wires.append(f'<Wire UId="{w_et}"><NameCon UId="{part_uid}" Name="ET" /><IdentCon UId="{et_uid}" /></Wire>')
                 else:
                     open_uid = self.uid_gen.next()
@@ -756,7 +807,7 @@ class TIALadderBuilder:
 
                 is_global = "." in db_name or db_name not in self.timers
                 scope_str = "GlobalVariable"
-                comp_str = "".join([f'<Component Name="{x}" />' for x in db_name.split(".")])
+                comp_str = format_symbol_path(db_name)
 
                 parts.append(
                     f'<Part Name="CTU" Version="{version}" UId="{ctu_uid}">'
@@ -811,7 +862,7 @@ class TIALadderBuilder:
                 mcl_uid = self.uid_gen.next()
                 inst_uid = self.uid_gen.next()
 
-                comp_str = "".join([f'<Component Name="{x}" />' for x in db_name.split(".")])
+                comp_str = format_symbol_path(db_name)
                 parts.append(
                     f'<Part Name="MB_COMM_LOAD" Version="{version}" UId="{mcl_uid}">'
                     f'<Instance Scope="GlobalVariable" UId="{inst_uid}">'
@@ -864,7 +915,7 @@ class TIALadderBuilder:
                 mbm_uid = self.uid_gen.next()
                 inst_uid = self.uid_gen.next()
 
-                comp_str = "".join([f'<Component Name="{x}" />' for x in db_name.split(".")])
+                comp_str = format_symbol_path(db_name)
                 parts.append(
                     f'<Part Name="MB_MASTER" Version="{version}" UId="{mbm_uid}">'
                     f'<Instance Scope="GlobalVariable" UId="{inst_uid}">'
@@ -917,7 +968,7 @@ class TIALadderBuilder:
                 blk_uid = self.uid_gen.next()
                 inst_uid = self.uid_gen.next()
 
-                comp_str = "".join([f'<Component Name="{x}" />' for x in db_name.split(".")])
+                comp_str = format_symbol_path(db_name)
                 parts.append(
                     f'<Part Name="{ctype}" Version="{version}" UId="{blk_uid}">'
                     f'<Instance Scope="GlobalVariable" UId="{inst_uid}">'
@@ -1021,7 +1072,7 @@ class TIALadderBuilder:
         title_uid = self.uid_gen.next()
         title_item_uid = self.uid_gen.next()
 
-        target = "".join(f'<Component Name="{x}" />' for x in instance_name.split(".")) + '<Component Name="sRet" /><Component Name="i_Mode" />'
+        target = format_symbol_path(instance_name) + '<Component Name="sRet" /><Component Name="i_Mode" />'
         self.networks += f'''
       <SW.Blocks.CompileUnit ID="{net_uid}" CompositionName="CompileUnits">
         <AttributeList>
@@ -1055,7 +1106,7 @@ class TIALadderBuilder:
             <ObjectList>
               <MultilingualTextItem ID="{title_item_uid}" CompositionName="Items">
                 <AttributeList>
-                  <Culture>vi-VN</Culture>
+                  <Culture>en-US</Culture>
                   <Text>{title}</Text>
                 </AttributeList>
               </MultilingualTextItem>
@@ -1064,10 +1115,17 @@ class TIALadderBuilder:
         </ObjectList>
       </SW.Blocks.CompileUnit>'''
 
+    def add_temp_var(self, name, datatype):
+        self.temp_vars.append((name, datatype))
+
     def generate_xml(self):
         static_timers = ""
         for t in self.timers:
             static_timers += f'<Member Name="{t}" Datatype="IEC_TIMER" Accessibility="Public" />\n          '
+        temp_members = ""
+        for name, dtype in self.temp_vars:
+            temp_members += f'<Member Name="{name}" Datatype="{dtype}" Accessibility="Public" />\n          '
+        temp_section = f'<Section Name="Temp">\n          {temp_members}</Section>' if temp_members else '<Section Name="Temp" />'
 
         interface_str = ""
         if self.block_type == "FB":
@@ -1078,7 +1136,7 @@ class TIALadderBuilder:
         <Section Name="Static">
           {static_timers}
         </Section>
-        <Section Name="Temp" />
+        {temp_section}
         <Section Name="Constant" />
       </Sections></Interface>'''
         elif self.block_type == "FC":
@@ -1086,14 +1144,14 @@ class TIALadderBuilder:
         <Section Name="Input" />
         <Section Name="Output" />
         <Section Name="InOut" />
-        <Section Name="Temp" />
+        {temp_section}
         <Section Name="Constant" />
         <Section Name="Return"><Member Name="Ret_Val" Datatype="Void" Accessibility="Public" /></Section>
       </Sections></Interface>'''
         elif self.block_type == "OB":
             interface_str = f'''<Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
         <Section Name="Input"><Member Name="Initial_Call" Datatype="Bool" Accessibility="Public" Informative="true" /><Member Name="Remanence" Datatype="Bool" Accessibility="Public" Informative="true" /></Section>
-        <Section Name="Temp" />
+        {temp_section}
         <Section Name="Constant" />
       </Sections></Interface>'''
 
@@ -1139,6 +1197,9 @@ class TIAHmiListBuilder:
             "target": text_or_graphic,
             "comment": item_comment
         })
+
+    def add_temp_var(self, name, datatype):
+        self.temp_vars.append((name, datatype))
 
     def generate_xml(self):
         root_tag = f"Hmi.TextGraphicList.{self.list_type}"
@@ -1338,4 +1399,3 @@ if __name__ == "__main__":
     with open("Output_FB_Comms.xml", "w", encoding="utf-8") as f:
         f.write(comm_xml)
     print("[SUCCESS] Output_FB_Comms.xml generated!")
-

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-06-21T12:15:02Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+  </DocumentInfo>
+  <SW.WatchAndForceTables.PlcWatchTable ID="0">
+    <AttributeList>
+      <Name>WT_PLC2_Fake_PLC1_Modbus_Command</Name>
+    </AttributeList>
+    <ObjectList>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="1" CompositionName="Entries">
+        <AttributeList>
+          <Name>&quot;DB_Modbus_Holding_Register_DB&quot;.CmdSeq</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="2" CompositionName="Entries">
+        <AttributeList>
+          <Name>&quot;DB_Modbus_Holding_Register_DB&quot;.Cmd_Start</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="3" CompositionName="Entries">
+        <AttributeList>
+          <Name>&quot;DB_Modbus_Holding_Register_DB&quot;.Cmd_Stop</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="4" CompositionName="Entries">
+        <AttributeList>
+          <Name>&quot;DB_Modbus_Holding_Register_DB&quot;.Cmd_Reset</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="5" CompositionName="Entries">
+        <AttributeList>
+          <Name>&quot;DB_Modbus_Holding_Register_DB&quot;.Cmd_EStop</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="6" CompositionName="Entries">
+        <AttributeList>
+          <Name>&quot;DB_Modbus_Holding_Register_DB&quot;.Cmd_Load_Recipe</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="7" CompositionName="Entries">
+        <AttributeList>
+          <Name>&quot;DB_Modbus_Holding_Register_DB&quot;.Heartbeat_Client</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="8" CompositionName="Entries">
+        <AttributeList>
+          <Name>&quot;DB_Modbus_Holding_Register_DB&quot;.AckSeq</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="9" CompositionName="Entries">
+        <AttributeList>
+          <Name>&quot;DB_Modbus_Holding_Register_DB&quot;.Done_Branch2</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="10" CompositionName="Entries">
+        <AttributeList>
+          <Name>&quot;DB_Modbus_Holding_Register_DB&quot;.Done_Discharge2</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="11" CompositionName="Entries">
+        <AttributeList>
+          <Name>&quot;DB_Modbus_Holding_Register_DB&quot;.Alarm</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="12" CompositionName="Entries">
+        <AttributeList>
+          <Name>&quot;DB_Modbus_Holding_Register_DB&quot;.State</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+    </ObjectList>
+  </SW.WatchAndForceTables.PlcWatchTable>
+</Document>

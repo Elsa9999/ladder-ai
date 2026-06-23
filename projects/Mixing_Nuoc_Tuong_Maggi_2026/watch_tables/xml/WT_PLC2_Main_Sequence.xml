@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-06-21T12:15:02Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+  </DocumentInfo>
+  <SW.WatchAndForceTables.PlcWatchTable ID="0">
+    <AttributeList>
+      <Name>WT_PLC2_Main_Sequence</Name>
+    </AttributeList>
+    <ObjectList>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="1" CompositionName="Entries">
+        <AttributeList>
+          <Name>HMI_Sim_Mode</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="2" CompositionName="Entries">
+        <AttributeList>
+          <Name>HMI_Use_Sim_Input_PLC2</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="3" CompositionName="Entries">
+        <AttributeList>
+          <Name>PLC2_State</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="4" CompositionName="Entries">
+        <AttributeList>
+          <Name>PLC2_Loi_Tong</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="5" CompositionName="Entries">
+        <AttributeList>
+          <Name>FQ3210_Bon3_HMI</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="6" CompositionName="Entries">
+        <AttributeList>
+          <Name>LT3213_Bon3_HMI</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="7" CompositionName="Entries">
+        <AttributeList>
+          <Name>FQ3215_Bon4_HMI</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="8" CompositionName="Entries">
+        <AttributeList>
+          <Name>LT3218_Bon4_HMI</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="9" CompositionName="Entries">
+        <AttributeList>
+          <Name>TT3219_Bon4_HMI</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="10" CompositionName="Entries">
+        <AttributeList>
+          <Name>V3240_Nuoc_Bon3</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="11" CompositionName="Entries">
+        <AttributeList>
+          <Name>AGTR3262_Khuay_Bon3</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="12" CompositionName="Entries">
+        <AttributeList>
+          <Name>V3245_Nuoc_Bon4</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="13" CompositionName="Entries">
+        <AttributeList>
+          <Name>CV3216_Hoi_Bon4</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="14" CompositionName="Entries">
+        <AttributeList>
+          <Name>AGTR3263_Khuay_Bon4</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="15" CompositionName="Entries">
+        <AttributeList>
+          <Name>AGTR3263_Dao_Chieu</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="16" CompositionName="Entries">
+        <AttributeList>
+          <Name>Pump3265_Chuyen_Nhanh2</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="17" CompositionName="Entries">
+        <AttributeList>
+          <Name>PLC2_Me_Nhanh2_Hoan_Thanh</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="18" CompositionName="Entries">
+        <AttributeList>
+          <Name>PLC2_Xa_Bon4_Xong</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="19" CompositionName="Entries">
+        <AttributeList>
+          <Name>HMI_Anim_Bon3_Frame</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+      <SW.WatchAndForceTables.PlcWatchTableEntry ID="20" CompositionName="Entries">
+        <AttributeList>
+          <Name>HMI_Anim_Bon4_Frame</Name>
+        </AttributeList>
+      </SW.WatchAndForceTables.PlcWatchTableEntry>
+    </ObjectList>
+  </SW.WatchAndForceTables.PlcWatchTable>
+</Document>

@@ -1,0 +1,39 @@
+# PLC1 Watch Table - Chu Trình Tự Động & Mô Phỏng Cảm Biến
+
+| Tên Biến (Tag Name) | Mô Tả / Chú Thích (Comment) |
+| --- | --- |
+| `HMI_Sim_Mode` | Cho phép toàn bộ tín hiệu mô phỏng HMI tác động vào input hiệu dụng |
+| `HMI_Run_Enable` | Cho phép vận hành từ HMI ở chế độ thật |
+| `HMI_Use_Sim_Input_PLC1` | Cho phép sử dụng đầu vào mô phỏng PLC1 |
+| `HMI_Use_Sim_Input_BonChua` | Cho phép sử dụng đầu vào mô phỏng Bồn chứa |
+| `Gia_Lap_Mat_Ket_Noi_HMI` | Nút giả lập mất kết nối PLC |
+| `HMI_Load_Default_Recipe` | Yêu cầu nạp lại Recipe mặc định từ HMI |
+| `Nut_Khoi_Dong_HMI` | Nút khởi động ảo từ HMI |
+| `Nut_Dung_HMI` | Nút dừng ảo từ HMI |
+| `Nut_Reset_HMI` | Nút reset lỗi ảo từ HMI |
+| `Nut_EStop_HMI` | Nút dừng khẩn ảo từ HMI |
+| `PLC1_State` | Mã bước chu trình Nhánh 1 Bồn 1-2 |
+| `BonChua_State` | Mã bước cụm bồn chứa và lọc thành phẩm |
+| `PLC1_Loi_Tong` | Lỗi tổng khóa Auto Nhánh 1 |
+| `FQ3200_Bon1_HMI` | Giá trị mô phỏng lưu lượng tích lũy Bồn 1 (lít) |
+| `LT3203_Bon1_HMI` | Giá trị mô phỏng mức liên tục Bồn 1 (m) |
+| `FQ3205_Bon2_HMI` | Giá trị mô phỏng lưu lượng tích lũy Bồn 2 (lít) |
+| `LT3209_Bon2_HMI` | Giá trị mô phỏng mức liên tục Bồn 2 (m) |
+| `TT3208_Bon2_HMI` | Giá trị mô phỏng nhiệt độ Bồn 2 (°C) |
+| `LT3302_BonChua1_HMI` | Giá trị mô phỏng mức liên tục Bồn chứa 01 (m) |
+| `TT3301_BonChua1_HMI` | Giá trị mô phỏng nhiệt độ Bồn chứa 01 (°C) |
+| `LT3307_BonChua2_HMI` | Giá trị mô phỏng mức liên tục Bồn chứa 02 (m) |
+| `PI3308_Truoc_Filter_HMI` | Giá trị mô phỏng áp suất trước màng lọc (bar) |
+| `FT3309_Xa_Thanh_Pham_HMI` | Giá trị mô phỏng lưu lượng xả thành phẩm (L/h) |
+| `V3230_Nuoc_Bon1` | Van on/off cấp nước Bồn 1 |
+| `AGTR3260_Khuay_Bon1` | Động cơ khuấy Bồn 1 |
+| `V3235_Nuoc_Bon2` | Van on/off cấp nước Bồn 2 |
+| `CV3206_Hoi_Bon2` | Van hơi/nhiệt Bồn 2 (độ mở 0-100%) |
+| `VFD_Bon2_Run` | Lệnh chạy VFD động cơ Bồn 2 |
+| `VFD_Bon2_Dao_Chieu` | Lệnh đảo chiều VFD động cơ Bồn 2 |
+| `Pump3264_Chuyen_Nhanh1` | Bơm chuyển dung dịch Nhánh 1 xuống bồn chứa |
+| `Pump3364_Filter` | Bơm qua màng lọc CCP số 1 |
+| `CV_Filler_Cap_Dich` | Van tuyến tính cấp dịch xuống phễu chiết rót |
+| `HMI_Anim_Bon1_Frame` | Khung hình animation cánh khuấy Bồn 1 (0..7) |
+| `HMI_Anim_Bon2_Frame` | Khung hình animation cánh khuấy Bồn 2 (0..7) |
+

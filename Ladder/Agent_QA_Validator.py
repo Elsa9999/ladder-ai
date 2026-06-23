@@ -50,13 +50,14 @@ def run_qa_validator(output_dir):
         if not exists:
             is_overall_pass = False
 
-    # Kiểm tra AI_Tags.xml hoặc PLC_Tags.csv
+    # Kiểm tra PLC_Tags.xml, AI_Tags.xml hoặc PLC_Tags.csv
     ai_tags_path = os.path.join(output_dir, "AI_Tags.xml")
-    plc_tags_path = os.path.join(output_dir, "PLC_Tags.csv")
-    tags_exist = os.path.exists(ai_tags_path) or os.path.exists(plc_tags_path)
+    plc_tags_xml_path = os.path.join(output_dir, "PLC_Tags.xml")
+    plc_tags_csv_path = os.path.join(output_dir, "PLC_Tags.csv")
+    tags_exist = os.path.exists(ai_tags_path) or os.path.exists(plc_tags_xml_path) or os.path.exists(plc_tags_csv_path)
     tags_status = "ĐẠT (PASS)" if tags_exist else "THẤT BẠI (FAIL)"
-    print_accented(f"  - AI_Tags.xml hoặc PLC_Tags.csv (Bảng tag PLC): {tags_status}")
-    report_lines.append(f"- **Bảng Tag PLC** (`AI_Tags.xml` hoặc `PLC_Tags.csv`): {tags_status}")
+    print_accented(f"  - PLC_Tags.xml, AI_Tags.xml hoặc PLC_Tags.csv (Bảng tag PLC): {tags_status}")
+    report_lines.append(f"- **Bảng Tag PLC** (`PLC_Tags.xml`, `AI_Tags.xml` hoặc `PLC_Tags.csv`): {tags_status}")
     if not tags_exist:
         is_overall_pass = False
 
@@ -88,9 +89,15 @@ def run_qa_validator(output_dir):
     tag_addresses = {} # name -> address
     tag_names_by_address = {} # address -> list of names
     
+    xml_tags_to_parse = []
+    if os.path.exists(plc_tags_xml_path):
+        xml_tags_to_parse.append(plc_tags_xml_path)
     if os.path.exists(ai_tags_path):
+        xml_tags_to_parse.append(ai_tags_path)
+
+    for xml_path in xml_tags_to_parse:
         try:
-            tree = ET.parse(ai_tags_path)
+            tree = ET.parse(xml_path)
             root = tree.getroot()
             # Tìm tất cả PlcTag dot-agnostic
             for tag_node in root.iter():
@@ -108,11 +115,11 @@ def run_qa_validator(output_dir):
                                 tag_names_by_address[addr] = []
                             tag_names_by_address[addr].append(name)
         except Exception as e:
-            print_accented(f"  - Cảnh báo: Không thể phân tích cú pháp AI_Tags.xml: {str(e)}")
-            
-    elif os.path.exists(plc_tags_path):
+            print_accented(f"  - Cảnh báo: Không thể phân tích cú pháp {os.path.basename(xml_path)}: {str(e)}")
+
+    if not xml_tags_to_parse and os.path.exists(plc_tags_csv_path):
         try:
-            with open(plc_tags_path, "r", encoding="utf-8") as f:
+            with open(plc_tags_csv_path, "r", encoding="utf-8") as f:
                 for line in f:
                     parts = line.strip().split(",")
                     if len(parts) >= 3:
@@ -135,7 +142,7 @@ def run_qa_validator(output_dir):
     # Chỉ lấy các file XML làm khối chương trình PLC (bỏ qua HMI Text/Graphic lists và PLC Tag Table)
     xml_files = []
     for f in os.listdir(output_dir):
-        if f.endswith(".xml") and not f.startswith("AI_Tags"):
+        if f.endswith(".xml") and not f.startswith("AI_Tags") and not f.startswith("PLC_Tags"):
             filepath = os.path.join(output_dir, f)
             try:
                 with open(filepath, "r", encoding="utf-8") as file_obj:
@@ -243,6 +250,77 @@ def run_qa_validator(output_dir):
                     for mt in missing_set:
                         print_accented(f"        - {mt}")
                         report_lines.append(f"    - `{mt}`")
+                
+                # 3.4. Kiểm tra nâng cao (GET/PUT, Multi-call, Powerrail Coil, Unsupported Ops)
+                get_put_parts = [p for p in root.findall(".//{*}Part") if p.attrib.get("Name", "") in ("GET", "PUT")]
+                if get_put_parts:
+                    print_accented(f"    - [ERROR] Khối {xml_file} chứa lệnh GET/PUT cấm!")
+                    report_lines.append(f"- **Chốt chặn lệnh truyền thông:** THẤT BẠI (FAIL - phát hiện GET/PUT)")
+                    is_overall_pass = False
+                
+                instances = {}
+                for part in root.findall(".//{*}Part"):
+                    part_name = part.attrib.get("Name", "")
+                    if part_name in ("MB_CLIENT", "MB_MASTER", "MB_SERVER", "PID_Compact"):
+                        inst_node = part.find(".//{*}Instance")
+                        if inst_node is not None:
+                            comp_nodes = inst_node.findall(".//{*}Component")
+                            if comp_nodes:
+                                db_name = comp_nodes[0].attrib.get("Name", "")
+                                if db_name:
+                                    if db_name not in instances:
+                                        instances[db_name] = []
+                                    instances[db_name].append(part_name)
+                # MB_CLIENT sharing one instance DB across sequenced steps (write+read) is valid for V3.1
+                ALLOWED_MULTI_CALL = set()
+                multi_call_db = [
+                    db for db, calls in instances.items()
+                    if len(calls) > 1 and not all(c in ALLOWED_MULTI_CALL for c in calls)
+                ]
+                if multi_call_db:
+                    print_accented(f"    - [ERROR] Khối {xml_file} gọi trùng lặp instance DB: {multi_call_db}")
+                    report_lines.append(f"- **Tính an toàn Modbus/PID (Multi-call):** THẤT BẠI (FAIL - Trùng {multi_call_db})")
+                    is_overall_pass = False
+                
+                powerrail_coils = []
+                for wire in root.findall(".//{*}Wire"):
+                    powerrail = wire.find(".//{*}Powerrail")
+                    if powerrail is not None:
+                        name_cons = wire.findall(".//{*}NameCon")
+                        for nc in name_cons:
+                            nc_uid = nc.attrib.get("UId")
+                            nc_name = nc.attrib.get("Name", "")
+                            part_node = root.find(f".//{{*}}Part[@UId='{nc_uid}']")
+                            if part_node is not None:
+                                p_name = part_node.attrib.get("Name", "")
+                                if p_name == "Coil":
+                                    powerrail_coils.append(nc_uid)
+                if powerrail_coils:
+                    print_accented(f"    - [ERROR] Khối {xml_file} chứa Coil thường nối thẳng Powerrail: UIds {powerrail_coils}")
+                    report_lines.append(f"- **Coil thường nối thẳng Powerrail:** THẤT BẠI (FAIL - UIds {powerrail_coils})")
+                    is_overall_pass = False
+                    
+                supported_parts = {
+                    "Contact", "Coil", "SCoil", "RCoil", "TON", "CTU", "Move",
+                    "Eq", "Ne", "Lt", "Gt", "Le", "Ge", "O", "PBox",
+                    "Add", "Sub", "Mul", "Div", "Calculate", "Call",
+                    "MB_COMM_LOAD", "MB_MASTER", "MB_SERVER", "MB_CLIENT", "PID_Compact",
+                    "Abs", "Sqr", "Sqrt", "Sin", "Cos", "Convert", "Round", "Ceil", "Floor", "Not"
+                }
+                unsupported_ops = []
+                for part in root.findall(".//{*}Part"):
+                    p_name = part.attrib.get("Name", "")
+                    is_supported = False
+                    for sp in supported_parts:
+                        if p_name.startswith(sp):
+                            is_supported = True
+                            break
+                    if not is_supported:
+                        unsupported_ops.append(p_name)
+                if unsupported_ops:
+                    print_accented(f"    - [ERROR] Khối {xml_file} chứa operation không hỗ trợ: {unsupported_ops}")
+                    report_lines.append(f"- **Operation không hỗ trợ:** THẤT BẠI (FAIL - {unsupported_ops})")
+                    is_overall_pass = False
                         
             except Exception as e:
                 print_accented(f"    - Lỗi khi đọc file XML: {str(e)}")

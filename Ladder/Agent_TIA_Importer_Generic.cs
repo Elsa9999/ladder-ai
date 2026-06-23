@@ -12,6 +12,7 @@ using Siemens.Engineering.SW.Types;
 using Siemens.Engineering.Hmi;
 using Siemens.Engineering.Hmi.TextGraphicList;
 using Siemens.Engineering.Compiler;
+using System.Xml;
 
 class AgentTIAImporterGeneric
 {
@@ -176,7 +177,29 @@ class AgentTIAImporterGeneric
                 var techGroup = plcSoftware.TechnologicalObjectGroup;
                 if (techGroup != null)
                 {
-                    string targetToName = plcSoftware.Name.Contains("PLC_1") ? "AI_PID_Compact_1" : (plcSoftware.Name.Contains("PLC_2") ? "AI_PID_Compact_2" : null);
+                    string targetToName = plcSoftware.Name.Contains("PLC_1") ? "PID_Compact_1" : (plcSoftware.Name.Contains("PLC_2") ? "PID_Compact_2" : null);
+                    string oldToName = plcSoftware.Name.Contains("PLC_1") ? "AI_PID_Compact_1" : (plcSoftware.Name.Contains("PLC_2") ? "AI_PID_Compact_2" : null);
+                    
+                    if (oldToName != null)
+                    {
+                        foreach (var obj in techGroup.TechnologicalObjects.ToList())
+                        {
+                            if (obj.Name == oldToName)
+                            {
+                                Console.WriteLine(string.Format("Renaming legacy Technological Object: {0} to {1} ...", oldToName, targetToName));
+                                try 
+                                {
+                                    obj.Name = targetToName;
+                                    Console.WriteLine("  SUCCESS!");
+                                } 
+                                catch (Exception ex) 
+                                {
+                                    Console.WriteLine("  FAILED! " + ex.Message); 
+                                }
+                            }
+                        }
+                    }
+
                     if (targetToName != null)
                     {
                         bool exists = false;
@@ -192,7 +215,7 @@ class AgentTIAImporterGeneric
                         if (!exists)
                         {
                             Console.WriteLine(string.Format("Creating Technological Object: {0} ...", targetToName));
-                            string[] versions = { "2.3", "2.2", "2.1", "2.0", "1.2", "1.1", "1.0" };
+                            string[] versions = { "1.2", "2.3", "2.2", "2.1", "2.0", "1.1", "1.0" };
                             bool created = false;
                             foreach (var verStr in versions)
                             {
@@ -203,7 +226,10 @@ class AgentTIAImporterGeneric
                                     created = true;
                                     break;
                                 }
-                                catch {}
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine(string.Format("    Error creating version {0}: {1}", verStr, ex.Message));
+                                }
                             }
                             if (!created)
                             {
@@ -275,6 +301,57 @@ class AgentTIAImporterGeneric
                 }
             }
 
+            // Pre-clean legacy tag tables starting with "AI_" or matching "PLC_Tags"
+            try
+            {
+                Console.WriteLine("Pre-clean tag tables block started.");
+                Console.WriteLine("Number of tag tables: " + plcSoftware.TagTableGroup.TagTables.Count);
+                foreach (var tbl in plcSoftware.TagTableGroup.TagTables.ToList())
+                {
+                    Console.WriteLine(string.Format("Checking tag table: {0}", tbl.Name));
+                    if (tbl.Name.StartsWith("AI_", StringComparison.OrdinalIgnoreCase) || 
+                        tbl.Name.StartsWith("PLC_Tags", StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine(string.Format("Deleting old tag table: {0} ...", tbl.Name));
+                        tbl.Delete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Warning: Failed to clean old tag tables: " + ex.Message);
+            }
+
+            // Pre-clean legacy tags starting with "AI_" in all remaining tag tables (e.g. Default tag table)
+            try
+            {
+                Console.WriteLine("Pre-clean individual tags block started.");
+                foreach (var tbl in plcSoftware.TagTableGroup.TagTables)
+                {
+                    Console.WriteLine(string.Format("Checking tags in table: {0} (total tags: {1})", tbl.Name, tbl.Tags.Count));
+                    var tagsToDelete = new List<PlcTag>();
+                    foreach (var tag in tbl.Tags)
+                    {
+                        if (tag.Name.StartsWith("AI_", StringComparison.OrdinalIgnoreCase))
+                        {
+                            tagsToDelete.Add(tag);
+                        }
+                    }
+                    if (tagsToDelete.Count > 0)
+                    {
+                        Console.WriteLine(string.Format("Deleting {0} old tags starting with 'AI_' in table: {1} ...", tagsToDelete.Count, tbl.Name));
+                        foreach (var tag in tagsToDelete)
+                        {
+                            try { tag.Delete(); } catch {}
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Warning: Failed to clean old tags: " + ex.Message);
+            }
+
             // 2. IMPORT TAG TABLES
             if (tagFiles.Count > 0)
             {
@@ -285,7 +362,12 @@ class AgentTIAImporterGeneric
                     Console.WriteLine(string.Format("Importing Tag Table: {0} ...", tableName));
                     try
                     {
-                        plcSoftware.TagTableGroup.TagTables.Import(new FileInfo(tagFile), ImportOptions.Override);
+                        string fileToImport = FilterTagXml(tagFile);
+                        plcSoftware.TagTableGroup.TagTables.Import(new FileInfo(fileToImport), ImportOptions.Override);
+                        if (fileToImport != tagFile)
+                        {
+                            try { File.Delete(fileToImport); } catch {}
+                        }
                         Console.WriteLine("  SUCCESS!");
                     }
                     catch (Exception ex)
@@ -293,6 +375,23 @@ class AgentTIAImporterGeneric
                         Console.WriteLine(string.Format("  FAILED! {0}", ex.Message));
                     }
                 }
+            }
+
+            // Pre-clean legacy blocks starting with "AI_"
+            try
+            {
+                foreach (var block in plcSoftware.BlockGroup.Blocks.ToList())
+                {
+                    if (block.Name.StartsWith("AI_", StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine(string.Format("Deleting old block: {0} ...", block.Name));
+                        block.Delete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Warning: Failed to clean old blocks: " + ex.Message);
             }
 
             // 3. IMPORT BLOCKS
@@ -391,24 +490,7 @@ class AgentTIAImporterGeneric
 
                     int errors = 0;
                     int warnings = 0;
-                    foreach (var msg in result.Messages)
-                    {
-                        string stateStr = msg.State.ToString();
-                        if (stateStr.Contains("Error"))
-                        {
-                            errors++;
-                            Console.WriteLine(string.Format("  [ERROR] {0}: {1}", msg.Path, msg.Description));
-                        }
-                        else if (stateStr.Contains("Warning"))
-                        {
-                            warnings++;
-                            Console.WriteLine(string.Format("  [WARNING] {0}: {1}", msg.Path, msg.Description));
-                        }
-                        else
-                        {
-                            Console.WriteLine(string.Format("  [INFO] {0} [{1}]: {2}", msg.Path, stateStr, msg.Description));
-                        }
-                    }
+                    PrintCompilerMessages(result.Messages, ref errors, ref warnings);
                     Console.WriteLine(string.Format("Compilation summary: {0} Errors, {1} Warnings", errors, warnings));
                 }
             }
@@ -472,6 +554,95 @@ class AgentTIAImporterGeneric
         foreach (var child in item.DeviceItems)
         {
             FindHmiTargets(child, targets);
+        }
+    }
+
+    static string FilterTagXml(string filePath)
+    {
+        try
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filePath);
+            
+            // Find all <SW.Tags.PlcTag> nodes
+            XmlNodeList tagNodes = doc.GetElementsByTagName("SW.Tags.PlcTag");
+            List<XmlNode> nodesToRemove = new List<XmlNode>();
+            
+            foreach (XmlNode node in tagNodes)
+            {
+                XmlNode attrList = FindChildByName(node, "AttributeList");
+                if (attrList != null)
+                {
+                    XmlNode nameNode = FindChildByName(attrList, "Name");
+                    if (nameNode != null)
+                    {
+                        string tagName = nameNode.InnerText;
+                        if (tagName == "FirstScan" || tagName == "Clock_1Hz")
+                        {
+                            nodesToRemove.Add(node);
+                        }
+                    }
+                }
+            }
+            
+            if (nodesToRemove.Count > 0)
+            {
+                Console.WriteLine(string.Format("  Filtering out {0} conflicting system tag(s) from XML: FirstScan, Clock_1Hz...", nodesToRemove.Count));
+                foreach (XmlNode node in nodesToRemove)
+                {
+                    node.ParentNode.RemoveChild(node);
+                }
+                
+                string tempPath = Path.Combine(Path.GetTempPath(), Path.GetFileName(filePath));
+                doc.Save(tempPath);
+                return tempPath;
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Warning: Failed to filter tag XML: " + ex.Message);
+        }
+        return filePath;
+    }
+
+    static XmlNode FindChildByName(XmlNode parent, string name)
+    {
+        foreach (XmlNode child in parent.ChildNodes)
+        {
+            if (child.Name == name)
+            {
+                return child;
+            }
+        }
+        return null;
+    }
+
+    static void PrintCompilerMessages(CompilerResultMessageComposition messages, ref int errors, ref int warnings, int indent = 1)
+    {
+        string spaces = new string(' ', indent * 2);
+        foreach (CompilerResultMessage msg in messages)
+        {
+            string stateStr = msg.State.ToString();
+            string pathInfo = string.IsNullOrEmpty(msg.Path) ? "" : string.Format(" ({0})", msg.Path);
+            if (stateStr.Contains("Error"))
+            {
+                errors++;
+                Console.WriteLine(string.Format("{0}[ERROR]{1} {2}", spaces, pathInfo, msg.Description));
+            }
+            else if (stateStr.Contains("Warning"))
+            {
+                warnings++;
+                Console.WriteLine(string.Format("{0}[WARNING]{1} {2}", spaces, pathInfo, msg.Description));
+            }
+            else
+            {
+                Console.WriteLine(string.Format("{0}[INFO]{1} {2}", spaces, pathInfo, msg.Description));
+            }
+            
+            if (msg.Messages != null && msg.Messages.Count > 0)
+            {
+                PrintCompilerMessages(msg.Messages, ref errors, ref warnings, indent + 1);
+            }
         }
     }
 }
