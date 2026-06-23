@@ -9,10 +9,10 @@ Tài liệu này liệt kê các tiêu chuẩn kỹ thuật bắt buộc mà d�
 
 ---
 
-## 1. Tiêu Chí Lập Trình & Logic PLC (PLC Programming & Logic)
+## 1. Tiêu Chí Lập Trình & Logic PLC (Legacy LAD Acceptance Criteria — chỉ áp dụng cho bản LAD cũ)
 1.  **Lập trình 100% Ladder (Ladder-only Policy):**
-    *   Tất cả logic điều khiển trong CPU PLC (các khối OB, FB, FC) phải được lập trình hoàn toàn bằng đồ họa Ladder XML.
-    *   **Tuyệt đối nghiêm cấm** sử dụng hoặc sinh bất kỳ mã nguồn SCL nào (bao gồm khối SCL, mạng SCL hoặc file `.scl`) để chạy trên PLC.
+    *   Tất cả logic điều khiển trong CPU PLC (các khối OB, FB, FC) phải được lập trình hoàn toàn bằng đồ họa Ladder XML. Tiêu chí này chỉ áp dụng cho legacy LAD project trước tag `lad-cleaned-before-scl-20260623`, không áp dụng cho SCL-first project mới.
+    *   Trong legacy LAD project cũ, không dùng SCL. Với project SCL-first mới, logic PLC mới ưu tiên viết bằng SCL.
 2.  **Cấu hình khối PID (PID_Compact Configuration):**
     *   Bắt buộc sử dụng khối điều khiển **`PID_Compact` phiên bản 1.2** (`Version="1.2"`).
     *   **Khóa liên động chế độ PID (`sRet.i_Mode`):** Để tránh lỗi kẹt chế độ PID khi khởi động PLC hoặc dừng chu trình, bắt buộc phải viết mạng logic ghi chế độ:
@@ -28,8 +28,8 @@ Tài liệu này liệt kê các tiêu chuẩn kỹ thuật bắt buộc mà d�
 ---
 
 ## 2. Quy Trình Tích Hợp & Kiểm Thử (Integration & Testing Workflow)
-1.  **Thẩm định chất lượng XML trước khi nạp (Validate before Import):**
-    *   Luôn chạy công cụ kiểm duyệt `Agent_QA_Validator.py` trên các tệp tin XML được sinh ra trước khi tiến hành import vào TIA Portal. Đảm bảo cấu trúc XML hợp lệ, các ID và UId là duy nhất và không bị xung đột địa chỉ I/O vật lý.
+1.  **Thẩm định chất lượng XML trước khi nạp (Validate before Import - Legacy LAD only):**
+    *   Với dự án legacy LAD, chạy công cụ kiểm duyệt `Agent_QA_Validator.py` trên các tệp tin XML được sinh ra trước khi tiến hành import vào TIA Portal. Đảm bảo cấu trúc XML hợp lệ, các ID và UId là duy nhất và không bị xung đột địa chỉ I/O vật lý.
 2.  **Sao lưu và Xuất dữ liệu đối chứng (Backup & Export Policy):**
     *   Trước khi tiến hành nạp (import) bất kỳ bộ tag hay blocks mới nào vào dự án TIA Portal đang mở, bắt buộc phải thực hiện sao lưu dự án (`SaveAs`) hoặc lưu lại trạng thái hoạt động tốt gần nhất.
     *   Sau khi import thành công, bắt buộc dùng công cụ Openness `Export_Device_ByName.exe` xuất toàn bộ blocks thực tế từ TIA Portal ra thư mục `post_import_export` để đối chiếu kiểm tra chéo bằng script `verify_post_import_export.py`. Không dùng file nguồn tự sinh để tự kết luận kết quả.
