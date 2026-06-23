@@ -40,12 +40,19 @@ D:\AI_Agent_PLC_LADDER_ONLY
 |   |-- Siemens.Engineering.Hmi.dll # Thư viện Siemens Openness HMI API
 |   |-- Siemens_Block_Dictionary.json # Từ điển tra cứu cấu trúc block Siemens
 |-- prompts/
-|   |-- Master_Ladder_Only_5_Agent_Prompt.md # Prompt tổng hợp cho chuỗi 5 Agent (Legacy Reference)
-|   |-- Agent1_Analyst.md           # Hướng dẫn tác vụ của Agent 1
-|   |-- Agent2_Tag_Builder.md       # Hướng dẫn tác vụ của Agent 2
-|   |-- Agent3_Ladder_Coder.md      # Hướng dẫn tác vụ của Agent 3 (Legacy Reference)
-|   |-- Agent4_QA.md                # Hướng dẫn tác vụ của Agent 4
-|   |-- Agent5_HMI_Executor.md      # Hướng dẫn tác vụ của Agent 5
+|   |-- Master_Ladder_Only_5_Agent_Prompt.md # Prompt tổng hợp cho chuỗi 5 Agent cũ (Legacy Reference)
+|   |-- Agent1_Analyst.md           # Hướng dẫn tác vụ của Agent 1 cũ (Legacy Reference)
+|   |-- Agent2_Tag_Builder.md       # Hướng dẫn tác vụ của Agent 2 cũ (Legacy Reference)
+|   |-- Agent3_Ladder_Coder.md      # Hướng dẫn tác vụ của Agent 3 cũ (Legacy Reference)
+|   |-- Agent4_QA.md                # Hướng dẫn tác vụ của Agent 4 cũ (Legacy Reference)
+|   |-- Agent5_HMI_Executor.md      # Hướng dẫn tác vụ của Agent 5 cũ (Legacy Reference)
+|   |-- scl/                        # Thư mục Prompts cho SCL-First mới
+|   |   |-- Master_SCL_5_Agent_Prompt.md     # Prompt tổng hợp cho chuỗi 5 Agent SCL
+|   |   |-- Agent1_SCL_Analyst.md            # Prompt cho Agent 1 (Analyst)
+|   |   |-- Agent2_SCL_Tag_DB_Builder.md    # Prompt cho Agent 2 (Tag & DB Builder)
+|   |   |-- Agent3_SCL_Coder.md             # Prompt cho Agent 3 (SCL Coder)
+|   |   |-- Agent4_SCL_QA_Reviewer.md        # Prompt cho Agent 4 (SCL QA Reviewer)
+|   |   |-- Agent5_HMI_TIA_Executor.md      # Prompt cho Agent 5 (HMI & TIA Executor)
 |-- templates/
 |   |-- AI_Tags_Template.md         # Mẫu khai báo bảng biến XML (Legacy Reference)
 |   |-- Ladder_Output_Checklist.md  # Danh sách kiểm tra chất lượng bàn giao (Legacy Reference)

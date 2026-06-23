@@ -67,22 +67,23 @@ Hãy tự nghiên cứu các tài liệu theo đúng lộ trình để nắm v�
 1. [AI_AGENT_START_HERE.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/AI_AGENT_START_HERE.md) (Chỉ dẫn nhập môn - File này).
 2. [README.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/README.md) (Tổng quan kiến trúc thư mục).
 3. **[Lessons_Learned_RealWorld_PLC.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/Lessons_Learned_RealWorld_PLC.md)** (CỰC KỲ QUAN TRỌNG: Học cách thiết kế cờ chốt an toàn E-Stop trên SCADA, thứ tự Network tối ưu tránh trễ chu kỳ quét PLC, và giải quyết zombie tiến trình TIA Openness).
-4. [Master_Ladder_Only_5_Agent_Prompt.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/prompts/Master_Ladder_Only_5_Agent_Prompt.md) (Hướng dẫn vai trò của từng Agent - Legacy).
-5. [Agent_TIA_LAD_Only_Guide.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/Ladder/Agent_TIA_LAD_Only_Guide.md) (Cẩm nang vẽ đồ họa Ladder XML - Legacy).
-6. [Agent_LAD_Library.py](file:///D:/AI_Agent_PLC_LADDER_ONLY/Ladder/Agent_LAD_Library.py) (Nghiên cứu API Python dùng để sinh code - Legacy).
-7. Tra cứu các file mẫu cấu trúc trong thư mục `templates/`.
+4. **[Master_SCL_5_Agent_Prompt.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/prompts/scl/Master_SCL_5_Agent_Prompt.md)** (CỰC KỲ QUAN TRỌNG: Hướng dẫn luồng và nhiệm vụ của chuỗi 5 Agent SCL-First mới).
+5. [Master_Ladder_Only_5_Agent_Prompt.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/prompts/Master_Ladder_Only_5_Agent_Prompt.md) (Hướng dẫn vai trò của từng Agent cho Ladder cũ - Legacy Reference).
+6. [Agent_TIA_LAD_Only_Guide.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/Ladder/Agent_TIA_LAD_Only_Guide.md) (Cẩm nang vẽ đồ họa Ladder XML - Legacy Reference).
+7. [Agent_LAD_Library.py](file:///D:/AI_Agent_PLC_LADDER_ONLY/Ladder/Agent_LAD_Library.py) (Nghiên cứu API Python dùng để sinh code - Legacy Reference).
+8. Tra cứu các file mẫu cấu trúc trong thư mục `templates/`.
 
 ---
 
 ## 4. Chuỗi phối hợp 5 AI Agent (Chiến lược SCL mới)
 
-Chương trình phát triển PLC mới sẽ được phân rã thành chuỗi các tác vụ chuyên biệt:
+Chương trình phát triển PLC mới sẽ được phân rã thành chuỗi các tác vụ chuyên biệt (Chi tiết xem tại các tài liệu trong thư mục [prompts/scl/](file:///D:/AI_Agent_PLC_LADDER_ONLY/prompts/scl/)):
 
-- **Agent 1 - Analyst (Nhà phân tích):** Đọc yêu cầu công nghệ, bóc tách tín hiệu I/O vật lý, phân tích cảnh báo, liên động an toàn và xuất bản tài liệu công nghệ `IO_Map.json` cùng `Logic_Analysis.md`.
-- **Agent 2 - Tag Builder (Thiết kế bảng biến):** Đọc bản đồ I/O để tạo bảng biến PLC chuẩn (`PLC_Tags.xml` hoặc `SCL tag table`) sạch, không có tiền tố `AI_` trước khi viết code.
-- **Agent 3 - SCL Coder (Lập trình logic SCL):** Viết logic chương trình PLC (OB, FB, FC) trực tiếp bằng mã SCL source (file `.scl`) để import vào TIA Portal. Logic đồ họa Ladder XML cũ và thư viện Python `Agent_LAD_Library.py` chỉ dùng làm legacy/reference.
-- **Agent 4 - QA (Thẩm định chất lượng):** Xác thực tính duy nhất của dữ liệu, tính an toàn của I/O và đảm bảo biên dịch đạt 0 Errors. Thẩm định Ladder-only validator chỉ áp dụng cho mã Ladder cũ (legacy reference), không áp dụng cho SCL mới.
-- **Agent 5 - SCADA & Thực thi:** Thiết lập tài liệu kết nối màn hình WinCC HMI (`Tag_Binding.md`), viết cẩm nang tích hợp (`MANUAL_STEPS.md`) và hỗ trợ nạp tự động qua Openness Importer.
+- **Agent 1 - Analyst (Nhà phân tích - [Agent1_SCL_Analyst.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/prompts/scl/Agent1_SCL_Analyst.md)):** Đọc yêu cầu công nghệ, bóc tách tín hiệu I/O vật lý (không prefix `AI_`), phân tích cảnh báo, liên động an toàn và xuất bản `IO_Map.json` cùng `Logic_Analysis.md`.
+- **Agent 2 - Tag & DB Builder (Thiết kế bảng biến - [Agent2_SCL_Tag_DB_Builder.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/prompts/scl/Agent2_SCL_Tag_DB_Builder.md)):** Đọc bản đồ I/O để tạo bảng biến PLC chuẩn (`PLC_Tags.xml` hoặc SCL tag table) sạch, không có tiền tố `AI_`, và thiết kế các DB cấu trúc (`DB_HMI`, `DB_Recipe`, `DB_Operation`, `DB_Comms`).
+- **Agent 3 - SCL Coder (Lập trình logic SCL - [Agent3_SCL_Coder.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/prompts/scl/Agent3_SCL_Coder.md)):** Viết logic chương trình PLC (OB, FB, FC) trực tiếp bằng mã SCL source (file `.scl`) để import vào TIA Portal. Sử dụng `CASE State OF` rõ ràng, gọi `PID_Compact` Siemens chuẩn (không tự viết PID), cấm nhồi logic vào OB1.
+- **Agent 4 - QA Reviewer (Thẩm định chất lượng - [Agent4_SCL_QA_Reviewer.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/prompts/scl/Agent4_SCL_QA_Reviewer.md)):** Thẩm định an toàn I/O, cấm dùng GET/PUT, cấm dùng tag `AI_` mới, kiểm duyệt trên file thực tế và readback từ TIA Portal thật để đảm bảo biên dịch đạt 0 Errors.
+- **Agent 5 - HMI & TIA Executor (Thực thi - [Agent5_HMI_TIA_Executor.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/prompts/scl/Agent5_HMI_TIA_Executor.md)):** Thiết lập tài liệu kết nối WinCC HMI (`Tag_Binding.md`), chạy quy trình vá HMI WinCC qua export/dry-run/patch/readback, giữ nguyên thứ tự bồn tổng quan: Bồn 1 $\rightarrow$ Bồn 2 $\rightarrow$ Bồn 4 $\rightarrow$ Bồn 3.
 
 ---
 
