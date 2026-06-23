@@ -1,0 +1,32 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "R_TRIG",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "Element",
+      "type": "AUTO"
+    },
+    {
+      "name": "Element Time Delay",
+      "type": "AUTO"
+    },
+    {
+      "name": "Element Start",
+      "type": "AUTO"
+    },
+    {
+      "name": "Start",
+      "type": "AUTO"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "R_TRIG_DB",
+  "required_data_types": [],
+  "source_file": "Main.xml",
+  "network_index": 2,
+  "network_title": "",
+  "version": "1.0"
+}

@@ -1,0 +1,23 @@
+<SW.Blocks.CompileUnit ID="21" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="25"><Symbol><Component Name="{{BOOL_R}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="27"><Symbol><Component Name="{{INT_PV}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="29"><Symbol><Component Name="{{BOOL_Q}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="31"><Symbol><Component Name="{{INT_CV}}" /></Symbol></Access><Part Name="CTU" Version="1.0" UId="22"><Instance Scope="GlobalVariable" UId="23"><Component Name="{{DB_INSTANCE}}" /></Instance><TemplateValue Name="value_type" Type="Type">Int</TemplateValue></Part></Parts>
+              <Wires><Wire UId="24"><Powerrail /><NameCon UId="22" Name="CU" /></Wire><Wire UId="26"><IdentCon UId="25" /><NameCon UId="22" Name="R" /></Wire><Wire UId="28"><IdentCon UId="27" /><NameCon UId="22" Name="PV" /></Wire><Wire UId="30"><NameCon UId="22" Name="Q" /><IdentCon UId="29" /></Wire><Wire UId="32"><NameCon UId="22" Name="CV" /><IdentCon UId="31" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="33" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="34" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Call CTU Counter</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>

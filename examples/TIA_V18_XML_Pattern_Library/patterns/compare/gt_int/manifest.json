@@ -1,0 +1,24 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "Compare GT Int",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{INT_A}}",
+      "type": "Int"
+    },
+    {
+      "name": "{{INT_B}}",
+      "type": "Int"
+    },
+    {
+      "name": "{{BOOL_OUT}}",
+      "type": "Bool"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "",
+  "required_data_types": []
+}

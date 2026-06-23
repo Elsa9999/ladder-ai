@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CleanUpExportFolderPriorToExport>true</CleanUpExportFolderPriorToExport>
+  <CleanUpDocuFolderPriorToRendering>true</CleanUpDocuFolderPriorToRendering>
+  <CompilePriorToExport>false</CompilePriorToExport>
+  <ExportUdts>true</ExportUdts>
+  <ExportGlobalTagTables>true</ExportGlobalTagTables>
+  <ExportAllSoftwareContainers>false</ExportAllSoftwareContainers>
+  <ExportWithNamespaces>false</ExportWithNamespaces>
+  <OverwriteStyleSheet>true</OverwriteStyleSheet>
+  <OverwriteCode2DocuScript>true</OverwriteCode2DocuScript>
+  <OverwriteTextFile>true</OverwriteTextFile>
+  <ShowExtendedLogOutput>false</ShowExtendedLogOutput>
+  <ExportSingleDoc>true</ExportSingleDoc>
+  <ExportFullDoc>true</ExportFullDoc>
+  <UsedTemplateVersion>V7</UsedTemplateVersion>
+  <GenerateBlockChangelog>true</GenerateBlockChangelog>
+  <GenerateFullChangelog>true</GenerateFullChangelog>
+  <GenerateChangelogFile>true</GenerateChangelogFile>
+  <ImageRootPath />
+  <MarkdownIncludeRootPath />
+  <RemoveLeadingNumberInFolderName>false</RemoveLeadingNumberInFolderName>
+  <BlockPinStringWidth>20</BlockPinStringWidth>
+  <ShowReturnValueIfVoid>true</ShowReturnValueIfVoid>
+  <IncludeUdtInBlockDoc>true</IncludeUdtInBlockDoc>
+  <IncludeUdtInDoc>true</IncludeUdtInDoc>
+  <IncludeNestedUdtInUdt>false</IncludeNestedUdtInUdt>
+  <IncludeConstantsInDoc>true</IncludeConstantsInDoc>
+  <IncludeRetainInDoc>true</IncludeRetainInDoc>
+  <IncludeReferencedObjectsList>false</IncludeReferencedObjectsList>
+  <IncludeOnlyVersionedSystemTypes>false</IncludeOnlyVersionedSystemTypes>
+  <IncludeReferencedObjectsEmptyColumns>false</IncludeReferencedObjectsEmptyColumns>
+  <GenerateSupervisionsTable>false</GenerateSupervisionsTable>
+  <RenderSupervisionCategoriesInline>false</RenderSupervisionCategoriesInline>
+  <ShowDefaultSupervisionCategory>false</ShowDefaultSupervisionCategory>
+  <ShowUDTSupervisionsInBlock>false</ShowUDTSupervisionsInBlock>
+  <DisplayPredefinedValuesParameterTable>false</DisplayPredefinedValuesParameterTable>
+  <DisplayPredefinedValuesBlockImage>false</DisplayPredefinedValuesBlockImage>
+  <RenderWithNamespaces>false</RenderWithNamespaces>
+  <SupervisionSettingsFileName>SupervisionSettings.dat</SupervisionSettingsFileName>
+  <SupervisionSettingsFileExportErrorMessage>false</SupervisionSettingsFileExportErrorMessage>
+  <BlockPinTableNamesOutside>false</BlockPinTableNamesOutside>
+  <SortOverallChangelogFile>false</SortOverallChangelogFile>
+  <ChangelogIsPartOfAppendix>true</ChangelogIsPartOfAppendix>
+  <ExportJustSelected>false</ExportJustSelected>
+  <OverwriteChangelog>false</OverwriteChangelog>
+  <RootFolderName>LGF</RootFolderName>
+  <ActiveLanguage />
+  <ReferenceLanguage>en-us</ReferenceLanguage>
+  <Languages>
+    <Languages>en-us</Languages>
+    <Languages>de-de</Languages>
+  </Languages>
+  <ExcludeNames>
+    <ExcludeName>excludenameinlowercase</ExcludeName>
+  </ExcludeNames>
+  <ExcludeReferenceNames>
+    <ExcludeReferenceName>abs</ExcludeReferenceName>
+    <ExcludeReferenceName>move</ExcludeReferenceName>
+  </ExcludeReferenceNames>
+</Settings>

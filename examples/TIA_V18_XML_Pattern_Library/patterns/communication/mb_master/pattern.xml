@@ -1,0 +1,23 @@
+<SW.Blocks.CompileUnit ID="21" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="25"><Symbol><Component Name="{{BOOL_REQ}}" /></Symbol></Access><Access Scope="LiteralConstant" UId="27"><Constant><ConstantType>UInt</ConstantType><ConstantValue>{{UINT_MB_ADDR}}</ConstantValue></Constant></Access><Access Scope="LiteralConstant" UId="29"><Constant><ConstantType>USInt</ConstantType><ConstantValue>{{USINT_MODE}}</ConstantValue></Constant></Access><Access Scope="LiteralConstant" UId="31"><Constant><ConstantType>UDInt</ConstantType><ConstantValue>{{UDINT_DATA_ADDR}}</ConstantValue></Constant></Access><Access Scope="LiteralConstant" UId="33"><Constant><ConstantType>UInt</ConstantType><ConstantValue>{{UINT_DATA_LEN}}</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="35"><Symbol><Component Name="{{DATA_PTR_DB}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="37"><Symbol><Component Name="{{BOOL_DONE}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="39"><Symbol><Component Name="{{BOOL_BUSY}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="41"><Symbol><Component Name="{{BOOL_ERROR}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="43"><Symbol><Component Name="{{WORD_STATUS}}" /></Symbol></Access><Part Name="MB_MASTER" Version="2.2" UId="22"><Instance Scope="GlobalVariable" UId="23"><Component Name="{{DB_INSTANCE}}" /></Instance></Part></Parts>
+              <Wires><Wire UId="24"><Powerrail /><NameCon UId="22" Name="en" /></Wire><Wire UId="26"><IdentCon UId="25" /><NameCon UId="22" Name="REQ" /></Wire><Wire UId="28"><IdentCon UId="27" /><NameCon UId="22" Name="MB_ADDR" /></Wire><Wire UId="30"><IdentCon UId="29" /><NameCon UId="22" Name="MODE" /></Wire><Wire UId="32"><IdentCon UId="31" /><NameCon UId="22" Name="DATA_ADDR" /></Wire><Wire UId="34"><IdentCon UId="33" /><NameCon UId="22" Name="DATA_LEN" /></Wire><Wire UId="36"><IdentCon UId="35" /><NameCon UId="22" Name="DATA_PTR" /></Wire><Wire UId="38"><NameCon UId="22" Name="DONE" /><IdentCon UId="37" /></Wire><Wire UId="40"><NameCon UId="22" Name="BUSY" /><IdentCon UId="39" /></Wire><Wire UId="42"><NameCon UId="22" Name="ERROR" /><IdentCon UId="41" /></Wire><Wire UId="44"><NameCon UId="22" Name="STATUS" /><IdentCon UId="43" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="45" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="46" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Call MB_MASTER</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>

@@ -1,0 +1,53 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "MB_MASTER",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{BOOL_REQ}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{UINT_MB_ADDR}}",
+      "type": "UInt"
+    },
+    {
+      "name": "{{USINT_MODE}}",
+      "type": "USInt"
+    },
+    {
+      "name": "{{UDINT_DATA_ADDR}}",
+      "type": "UDInt"
+    },
+    {
+      "name": "{{UINT_DATA_LEN}}",
+      "type": "UInt"
+    },
+    {
+      "name": "{{BOOL_DONE}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_BUSY}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_ERROR}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{WORD_STATUS}}",
+      "type": "Word"
+    }
+  ],
+  "required_dbs": [
+    {
+      "name": "{{DATA_PTR_DB}}",
+      "type": "Variant"
+    }
+  ],
+  "required_instance_db": "{{DB_INSTANCE}}",
+  "required_data_types": []
+}

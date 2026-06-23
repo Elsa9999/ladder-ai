@@ -1,0 +1,32 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "SCALE_X",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "HMI_Simu_Temperature",
+      "type": "AUTO"
+    },
+    {
+      "name": "HMI_Simulation",
+      "type": "AUTO"
+    },
+    {
+      "name": "HMI_TT_Temperature",
+      "type": "AUTO"
+    },
+    {
+      "name": "Sensor_Temperature",
+      "type": "AUTO"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "",
+  "required_data_types": [],
+  "source_file": "Main.xml",
+  "network_index": 2,
+  "network_title": "Đọc về cảm biến analog",
+  "version": "1.0"
+}

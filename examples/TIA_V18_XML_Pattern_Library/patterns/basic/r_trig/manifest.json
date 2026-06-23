@@ -1,0 +1,30 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "R_TRIG",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{BOOL_CLK}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_Q}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_OUT}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{TIME_ELAPSED}}",
+      "type": "Time"
+    }
+  ],
+  "required_dbs": [
+    "{{DB_INSTANCE_TOF}}"
+  ],
+  "required_instance_db": "{{DB_INSTANCE_R_TRIG}}",
+  "required_data_types": []
+}

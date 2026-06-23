@@ -1,0 +1,189 @@
+<SW.Blocks.CompileUnit ID="21" CompositionName="CompileUnits">
+  <AttributeList>
+    <NetworkSource>
+      <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+        <Parts>
+          <Access Scope="GlobalVariable" UId="25">
+            <Symbol>
+              <Component Name="{{BOOL_REQ}}" />
+            </Symbol>
+          </Access>
+          <Access Scope="GlobalVariable" UId="27">
+            <Symbol>
+              <Component Name="{{BOOL_DISCONNECT}}" />
+            </Symbol>
+          </Access>
+          <Access Scope="LiteralConstant" UId="29">
+            <Constant>
+              <ConstantType>UInt</ConstantType>
+              <ConstantValue>{{UINT_CONNECT_ID}}</ConstantValue>
+            </Constant>
+          </Access>
+          <Access Scope="LiteralConstant" UId="31">
+            <Constant>
+              <ConstantType>USInt</ConstantType>
+              <ConstantValue>{{USINT_IP_OCTET_1}}</ConstantValue>
+            </Constant>
+          </Access>
+          <Access Scope="LiteralConstant" UId="33">
+            <Constant>
+              <ConstantType>USInt</ConstantType>
+              <ConstantValue>{{USINT_IP_OCTET_2}}</ConstantValue>
+            </Constant>
+          </Access>
+          <Access Scope="LiteralConstant" UId="35">
+            <Constant>
+              <ConstantType>USInt</ConstantType>
+              <ConstantValue>{{USINT_IP_OCTET_3}}</ConstantValue>
+            </Constant>
+          </Access>
+          <Access Scope="LiteralConstant" UId="37">
+            <Constant>
+              <ConstantType>USInt</ConstantType>
+              <ConstantValue>{{USINT_IP_OCTET_4}}</ConstantValue>
+            </Constant>
+          </Access>
+          <Access Scope="LiteralConstant" UId="39">
+            <Constant>
+              <ConstantType>UInt</ConstantType>
+              <ConstantValue>{{UINT_IP_PORT}}</ConstantValue>
+            </Constant>
+          </Access>
+          <Access Scope="LiteralConstant" UId="41">
+            <Constant>
+              <ConstantType>USInt</ConstantType>
+              <ConstantValue>{{USINT_MB_MODE}}</ConstantValue>
+            </Constant>
+          </Access>
+          <Access Scope="LiteralConstant" UId="43">
+            <Constant>
+              <ConstantType>UDInt</ConstantType>
+              <ConstantValue>{{UDINT_MB_DATA_ADDR}}</ConstantValue>
+            </Constant>
+          </Access>
+          <Access Scope="LiteralConstant" UId="45">
+            <Constant>
+              <ConstantType>UInt</ConstantType>
+              <ConstantValue>{{UINT_MB_DATA_LEN}}</ConstantValue>
+            </Constant>
+          </Access>
+          <Access Scope="GlobalVariable" UId="47">
+            <Symbol>
+              <Component Name="{{DATA_PTR_DB}}" />
+            </Symbol>
+          </Access>
+          <Access Scope="GlobalVariable" UId="49">
+            <Symbol>
+              <Component Name="{{BOOL_DONE}}" />
+            </Symbol>
+          </Access>
+          <Access Scope="GlobalVariable" UId="51">
+            <Symbol>
+              <Component Name="{{BOOL_BUSY}}" />
+            </Symbol>
+          </Access>
+          <Access Scope="GlobalVariable" UId="53">
+            <Symbol>
+              <Component Name="{{BOOL_ERROR}}" />
+            </Symbol>
+          </Access>
+          <Access Scope="GlobalVariable" UId="55">
+            <Symbol>
+              <Component Name="{{WORD_STATUS}}" />
+            </Symbol>
+          </Access>
+          <Part Name="MB_CLIENT" Version="3.1" UId="22">
+            <Instance Scope="GlobalVariable" UId="23">
+              <Component Name="{{DB_INSTANCE}}" />
+            </Instance>
+            <TemplateValue Name="card1200" Type="Cardinality">1</TemplateValue>
+            <TemplateValue Name="card1500" Type="Cardinality">0</TemplateValue>
+          </Part>
+        </Parts>
+        <Wires>
+          <Wire UId="24">
+            <Powerrail />
+            <NameCon UId="22" Name="en" />
+          </Wire>
+          <Wire UId="26">
+            <IdentCon UId="25" />
+            <NameCon UId="22" Name="REQ" />
+          </Wire>
+          <Wire UId="28">
+            <IdentCon UId="27" />
+            <NameCon UId="22" Name="DISCONNECT" />
+          </Wire>
+          <Wire UId="30">
+            <IdentCon UId="29" />
+            <NameCon UId="22" Name="CONNECT_ID" />
+          </Wire>
+          <Wire UId="32">
+            <IdentCon UId="31" />
+            <NameCon UId="22" Name="IP_OCTET_1" />
+          </Wire>
+          <Wire UId="34">
+            <IdentCon UId="33" />
+            <NameCon UId="22" Name="IP_OCTET_2" />
+          </Wire>
+          <Wire UId="36">
+            <IdentCon UId="35" />
+            <NameCon UId="22" Name="IP_OCTET_3" />
+          </Wire>
+          <Wire UId="38">
+            <IdentCon UId="37" />
+            <NameCon UId="22" Name="IP_OCTET_4" />
+          </Wire>
+          <Wire UId="40">
+            <IdentCon UId="39" />
+            <NameCon UId="22" Name="IP_PORT" />
+          </Wire>
+          <Wire UId="42">
+            <IdentCon UId="41" />
+            <NameCon UId="22" Name="MB_MODE" />
+          </Wire>
+          <Wire UId="44">
+            <IdentCon UId="43" />
+            <NameCon UId="22" Name="MB_DATA_ADDR" />
+          </Wire>
+          <Wire UId="46">
+            <IdentCon UId="45" />
+            <NameCon UId="22" Name="MB_DATA_LEN" />
+          </Wire>
+          <Wire UId="48">
+            <IdentCon UId="47" />
+            <NameCon UId="22" Name="MB_DATA_PTR" />
+          </Wire>
+          <Wire UId="50">
+            <NameCon UId="22" Name="DONE" />
+            <IdentCon UId="49" />
+          </Wire>
+          <Wire UId="52">
+            <NameCon UId="22" Name="BUSY" />
+            <IdentCon UId="51" />
+          </Wire>
+          <Wire UId="54">
+            <NameCon UId="22" Name="ERROR" />
+            <IdentCon UId="53" />
+          </Wire>
+          <Wire UId="56">
+            <NameCon UId="22" Name="STATUS" />
+            <IdentCon UId="55" />
+          </Wire>
+        </Wires>
+      </FlgNet>
+    </NetworkSource>
+    <ProgrammingLanguage>LAD</ProgrammingLanguage>
+  </AttributeList>
+  <ObjectList>
+    <MultilingualText ID="57" CompositionName="Title">
+      <ObjectList>
+        <MultilingualTextItem ID="58" CompositionName="Items">
+          <AttributeList>
+            <Culture>en-US</Culture>
+            <Text>Call MB_CLIENT</Text>
+          </AttributeList>
+        </MultilingualTextItem>
+      </ObjectList>
+    </MultilingualText>
+  </ObjectList>
+</SW.Blocks.CompileUnit>

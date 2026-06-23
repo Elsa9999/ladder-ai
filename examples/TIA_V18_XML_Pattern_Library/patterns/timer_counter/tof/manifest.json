@@ -1,0 +1,51 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "TOF",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{BOOL_COIL_F}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_STOP}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_EMERGENCY}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_DIV_1}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_MOVE_R}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_COIL_R}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_MOVE_F}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_WIND_DOWN}}",
+      "type": "Bool"
+    }
+  ],
+  "required_dbs": [
+    "{{DB_MOTOR_STATUS}}",
+    "{{DB_MOTOR_IO}}",
+    "{{DB_HMI}}",
+    "{{DB_STATES}}",
+    "{{DB_INSTANCE_TP}}",
+    "{{DB_INSTANCE_TOF_2}}"
+  ],
+  "required_instance_db": "{{DB_INSTANCE_TOF_1}}",
+  "required_data_types": []
+}

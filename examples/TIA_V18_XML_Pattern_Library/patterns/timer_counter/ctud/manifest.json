@@ -1,0 +1,24 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "CTUD",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{BOOL_COUNT_UP}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_COUNT_DOWN}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_MEM_P}}",
+      "type": "Bool"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "{{DB_INSTANCE}}",
+  "required_data_types": []
+}

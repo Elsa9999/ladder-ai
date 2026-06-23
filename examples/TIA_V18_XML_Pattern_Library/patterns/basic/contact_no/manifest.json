@@ -1,0 +1,20 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "Contact NO",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{BOOL_IN}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_OUT}}",
+      "type": "Bool"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "",
+  "required_data_types": []
+}

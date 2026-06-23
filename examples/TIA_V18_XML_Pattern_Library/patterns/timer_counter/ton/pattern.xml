@@ -1,0 +1,23 @@
+<SW.Blocks.CompileUnit ID="21" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="24"><Symbol><Component Name="{{TIME_PT}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="28"><Symbol><Component Name="{{BOOL_OUT}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="30"><Symbol><Component Name="{{TIME_ET}}" /></Symbol></Access><Part Name="TON" Version="1.0" UId="23"><Instance Scope="GlobalVariable" UId="22"><Component Name="{{DB_INSTANCE}}" /></Instance><TemplateValue Name="time_type" Type="Type">Time</TemplateValue></Part></Parts>
+              <Wires><Wire UId="25"><Powerrail /><NameCon UId="23" Name="IN" /></Wire><Wire UId="26"><IdentCon UId="24" /><NameCon UId="23" Name="PT" /></Wire><Wire UId="27"><NameCon UId="23" Name="Q" /><IdentCon UId="28" /></Wire><Wire UId="29"><NameCon UId="23" Name="ET" /><IdentCon UId="30" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="31" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="32" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Call TON Timer</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>

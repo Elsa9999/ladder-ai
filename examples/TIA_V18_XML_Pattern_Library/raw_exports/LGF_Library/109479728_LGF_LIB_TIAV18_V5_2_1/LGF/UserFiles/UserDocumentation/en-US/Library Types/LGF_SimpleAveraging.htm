@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html><html lang='en-US'>
+<head>
+<script src='../../../Code2Docu/katex/katex.min.js'></script>
+<script src='../../../Code2Docu/katex/katexStartUp.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/katex/katex.min.css' />
+<!--[if lt IE 9]><script src='../../../Code2Docu/katex/html5shiv-printshiv-3.7.3.min.js'></script><![endif]-->
+<link rel='stylesheet' href='../../../Code2Docu/highlightJS/scl.css'>
+<script src='../../../Code2Docu/highlightJS/highlight.min.js'></script>
+<script src='../../../Code2Docu/highlightJS/scl.js'></script>
+<script src='../../../Code2Docu/Code2DocuScript.js'></script>
+<script src='../../../Code2Docu/highlightJS/highlight.load.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/style.css'>
+<link rel='stylesheet' href='../../../Code2Docu/styleCustomized.css'>
+<meta http-equiv='Content-type' content='text/html;charset=UTF-8'>
+<title>LGF_SimpleAveraging (FB / 1.0.0)</title>
+</head>
+<body>
+ <div class="containerFluid"> 
+ <h1>LGF_SimpleAveraging (FB / 1.0.0)</h1>
+<div class='langSelectionBox'>
+<a href='../../en-US/Folders/LGF.htm' target='_self'>Overview</a> 
+<select class='langSelector' id='langSelector' onChange="changeLang('en-US')">
+    <option class='langOption' value=en-US selected>English (United States)</option>
+    <option class='langOption' value=de-DE>German (Germany)</option>
+</select></div></div><hr>
+<span class='author'>Author: Siemens Digital Industry</span>
+<h2>Short description</h2>
+<p>This function calculates a moving arithmetic mean from LReal values.<br />
+The method can be used to smooth data series; the values can be read in cyclically or triggered.</p>
+
+<h3>Block Interface</h3>
+<table class='block'><thead><tr><th colspan='2'> </th><th colspan='5'>LGF_SimpleAveraging (FB)</th><th colspan='2'> </th></tr></thead><tbody>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>cyclicExecution</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>average</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LReal</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>trigger</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>overflow</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>reset</td><td rowspan='2'>&nbsp;</td><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td></tr>
+<tr class='in interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in'><td rowspan='2'>LReal</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>value</td><td rowspan='2'>&nbsp;</td><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td></tr>
+<tr class='in interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in'><td rowspan='2'>USInt</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>windowSize</td><td rowspan='2'>&nbsp;</td><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td></tr>
+<tr class='in interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</tbody><tfoot><tr><td colspan='2'>&nbsp;</td><td colspan='5'>&nbsp;</td><td colspan='2'>&nbsp;</td></tr></tfoot></table>
+<h3>Input parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Identifier</th><th class='type'>Data type</th>
+<th class='default'>Default value</th>
+<th>Description</th></tr></thead><tbody>
+<tr><td>cyclicExecution</td><td>Bool</td>
+<td>FALSE</td>
+<td>TRUE: cyclic operation, trigger not in use</td></tr>
+<tr><td>trigger</td><td>Bool</td>
+<td>FALSE</td>
+<td>Rising edge: Read in `value` with every pulse at input `trigger`</td></tr>
+<tr><td>reset</td><td>Bool</td>
+<td>FALSE</td>
+<td>TRUE: The block is reset and the calculation starts again.</td></tr>
+<tr><td>value</td><td>LReal</td>
+<td>0.0</td>
+<td>Value/s from which the moving average is to be determined.</td></tr>
+<tr><td>windowSize</td><td>USInt</td>
+<td>5</td>
+<td>Window length for averaging in the range from 1..255</td></tr>
+</tbody></table>
+<h3>Output parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Identifier</th><th class='type'>Data type</th>
+<th>Description</th></tr></thead><tbody>
+<tr><td>average</td><td>LReal</td>
+<td>Moving / Floating average</td></tr>
+<tr><td>overflow</td><td>Bool</td>
+<td>TRUE: Overflow detected in the calculation</td></tr>
+</tbody></table>
+<h2>Functional description</h2>
+<dl class='NOTE'>
+<dt>Note</dt>
+<dd>The block <code>LGF_SimpleAveraging</code> does not query the data type for the input parameter <code>value</code>. For data types other than LReal, either an implicit conversion is performed automatically or an error is generated during compilation.</dd>
+<dd>You can find further information in the Chapter “Overview of Data Type Conversion” in the Online Help section of the TIA Portal or under:</dd>
+<dd><a href="https://support.industry.siemens.com/cs/ww/en/view/109773506/100611494667" target='_blank' >https://support.industry.siemens.com/cs/ww/en/view/109773506/100611494667</a></dd>
+</dl>
+<hr class='successorDefList' />
+<p>The block calculates the (moving) average based on the set <code>windowSize</code>. If <code>windowSize</code> is set to <span class="math inline">windowSize &lt; 1</span>, the value is passed through without averaging.</p>
+<p>There are two options for reading the values:</p>
+<ul>
+<li>With the <code>cyclicExecution</code> input, the values are read and calculated cyclically.</li>
+<li>With the <code>Trigger</code> input, the values are read and calculated with each pulse.</li>
+</ul>
+<p>If the calculation reaches the value range limits of <code>LReal</code>, the output <code>overflow</code> is set.</p>
+
+<h2>Change log</h2>
+<table class='ChangeLog'><thead><tr><th colspan='2'>Version & Date</th><th>Change description</th></tr></thead><tbody>
+<tr class='LogEntryStart'><td></td><td>1.0.0</td><td>Simatic Systems Support</td></tr>
+<tr><td></td><td>18.07.2024</td><td>First Release</td></tr>
+</tbody></table>
+<hr>
+<p class='footer'>
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109479728' target='_blank'>Library of General Functions (LGF)</a><br>
+<span>Entry-ID: 109479728</span>
+<span>Date: 10/2025</span>
+<span>Version: V5.2.1</span>
+<span>Generated with TIA Portal Add-In
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109809007' target='_blank'>Code2Docu</a>
+</span>
+<span> </span>
+</p>
+</body></html>

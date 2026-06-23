@@ -1,0 +1,40 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "SR",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "H_LEVEL",
+      "type": "AUTO"
+    },
+    {
+      "name": "PUMP_2",
+      "type": "AUTO"
+    },
+    {
+      "name": "L_LEVEL",
+      "type": "AUTO"
+    },
+    {
+      "name": "STOP",
+      "type": "AUTO"
+    },
+    {
+      "name": "PUMP_1",
+      "type": "AUTO"
+    },
+    {
+      "name": "Tag_2",
+      "type": "AUTO"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "",
+  "required_data_types": [],
+  "source_file": "Main.xml",
+  "network_index": 1,
+  "network_title": "",
+  "version": "1.0"
+}

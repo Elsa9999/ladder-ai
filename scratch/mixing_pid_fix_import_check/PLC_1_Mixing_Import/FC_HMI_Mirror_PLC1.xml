@@ -1,0 +1,1712 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-04-18T00:00:00Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+  </DocumentInfo>
+  <SW.Blocks.FC ID="0">
+    <AttributeList>
+      <AutoNumber>true</AutoNumber>
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+        <Section Name="Input" />
+        <Section Name="Output" />
+        <Section Name="InOut" />
+        <Section Name="Temp" />
+        <Section Name="Constant" />
+        <Section Name="Return"><Member Name="Ret_Val" Datatype="Void" Accessibility="Public" /></Section>
+      </Sections></Interface>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>FC_HMI_Mirror_PLC1</Name>
+      <Namespace />
+      <Number>40</Number>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+      
+    </AttributeList>
+    <ObjectList>
+
+      <SW.Blocks.CompileUnit ID="21" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="22"><Symbol><Component Name="AI_V3230_Nuoc_Bon1" /></Symbol></Access><Access Scope="GlobalVariable" UId="26"><Symbol><Component Name="AI_V3230_Nuoc_Bon1_M" /></Symbol></Access><Part Name="Contact" UId="23" /><Part Name="Coil" UId="27" /></Parts>
+              <Wires><Wire UId="24"><Powerrail /><NameCon UId="23" Name="in" /></Wire><Wire UId="25"><IdentCon UId="22" /><NameCon UId="23" Name="operand" /></Wire><Wire UId="28"><NameCon UId="23" Name="out" /><NameCon UId="27" Name="in" /></Wire><Wire UId="29"><IdentCon UId="26" /><NameCon UId="27" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="30" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="31" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3230_Nuoc_Bon1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="32" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="33"><Symbol><Component Name="AI_CV3201_Nuoc_Bon1" /></Symbol></Access><Access Scope="GlobalVariable" UId="34"><Symbol><Component Name="AI_CV3201_Nuoc_Bon1_M" /></Symbol></Access><Part Name="Move" UId="35"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="36"><Powerrail /><NameCon UId="35" Name="en" /></Wire><Wire UId="37"><IdentCon UId="33" /><NameCon UId="35" Name="in" /></Wire><Wire UId="38"><NameCon UId="35" Name="out1" /><IdentCon UId="34" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="39" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="40" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_CV3201_Nuoc_Bon1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="41" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="42"><Symbol><Component Name="AI_AGTR3260_Khuay_Bon1" /></Symbol></Access><Access Scope="GlobalVariable" UId="46"><Symbol><Component Name="AI_AGTR3260_Khuay_Bon1_M" /></Symbol></Access><Part Name="Contact" UId="43" /><Part Name="Coil" UId="47" /></Parts>
+              <Wires><Wire UId="44"><Powerrail /><NameCon UId="43" Name="in" /></Wire><Wire UId="45"><IdentCon UId="42" /><NameCon UId="43" Name="operand" /></Wire><Wire UId="48"><NameCon UId="43" Name="out" /><NameCon UId="47" Name="in" /></Wire><Wire UId="49"><IdentCon UId="46" /><NameCon UId="47" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="50" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="51" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_AGTR3260_Khuay_Bon1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="52" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="53"><Symbol><Component Name="AI_AGTR3260_Toc_Do_AO" /></Symbol></Access><Access Scope="GlobalVariable" UId="54"><Symbol><Component Name="AI_AGTR3260_Toc_Do_AO_M" /></Symbol></Access><Part Name="Move" UId="55"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="56"><Powerrail /><NameCon UId="55" Name="en" /></Wire><Wire UId="57"><IdentCon UId="53" /><NameCon UId="55" Name="in" /></Wire><Wire UId="58"><NameCon UId="55" Name="out1" /><IdentCon UId="54" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="59" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="60" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_AGTR3260_Toc_Do_AO</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="61" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="62"><Symbol><Component Name="AI_V3232_Xa_Bon1" /></Symbol></Access><Access Scope="GlobalVariable" UId="66"><Symbol><Component Name="AI_V3232_Xa_Bon1_M" /></Symbol></Access><Part Name="Contact" UId="63" /><Part Name="Coil" UId="67" /></Parts>
+              <Wires><Wire UId="64"><Powerrail /><NameCon UId="63" Name="in" /></Wire><Wire UId="65"><IdentCon UId="62" /><NameCon UId="63" Name="operand" /></Wire><Wire UId="68"><NameCon UId="63" Name="out" /><NameCon UId="67" Name="in" /></Wire><Wire UId="69"><IdentCon UId="66" /><NameCon UId="67" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="70" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="71" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3232_Xa_Bon1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="72" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="73"><Symbol><Component Name="AI_V3233_Xa_Bon1" /></Symbol></Access><Access Scope="GlobalVariable" UId="77"><Symbol><Component Name="AI_V3233_Xa_Bon1_M" /></Symbol></Access><Part Name="Contact" UId="74" /><Part Name="Coil" UId="78" /></Parts>
+              <Wires><Wire UId="75"><Powerrail /><NameCon UId="74" Name="in" /></Wire><Wire UId="76"><IdentCon UId="73" /><NameCon UId="74" Name="operand" /></Wire><Wire UId="79"><NameCon UId="74" Name="out" /><NameCon UId="78" Name="in" /></Wire><Wire UId="80"><IdentCon UId="77" /><NameCon UId="78" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="81" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="82" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3233_Xa_Bon1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="83" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="84"><Symbol><Component Name="AI_V3234_Xa_Bon1" /></Symbol></Access><Access Scope="GlobalVariable" UId="88"><Symbol><Component Name="AI_V3234_Xa_Bon1_M" /></Symbol></Access><Part Name="Contact" UId="85" /><Part Name="Coil" UId="89" /></Parts>
+              <Wires><Wire UId="86"><Powerrail /><NameCon UId="85" Name="in" /></Wire><Wire UId="87"><IdentCon UId="84" /><NameCon UId="85" Name="operand" /></Wire><Wire UId="90"><NameCon UId="85" Name="out" /><NameCon UId="89" Name="in" /></Wire><Wire UId="91"><IdentCon UId="88" /><NameCon UId="89" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="92" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="93" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3234_Xa_Bon1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="94" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="95"><Symbol><Component Name="AI_V3235_Nuoc_Bon2" /></Symbol></Access><Access Scope="GlobalVariable" UId="99"><Symbol><Component Name="AI_V3235_Nuoc_Bon2_M" /></Symbol></Access><Part Name="Contact" UId="96" /><Part Name="Coil" UId="100" /></Parts>
+              <Wires><Wire UId="97"><Powerrail /><NameCon UId="96" Name="in" /></Wire><Wire UId="98"><IdentCon UId="95" /><NameCon UId="96" Name="operand" /></Wire><Wire UId="101"><NameCon UId="96" Name="out" /><NameCon UId="100" Name="in" /></Wire><Wire UId="102"><IdentCon UId="99" /><NameCon UId="100" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="103" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="104" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3235_Nuoc_Bon2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="105" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="106"><Symbol><Component Name="AI_CV3206_Hoi_Bon2" /></Symbol></Access><Access Scope="GlobalVariable" UId="107"><Symbol><Component Name="AI_CV3206_Hoi_Bon2_M" /></Symbol></Access><Part Name="Move" UId="108"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="109"><Powerrail /><NameCon UId="108" Name="en" /></Wire><Wire UId="110"><IdentCon UId="106" /><NameCon UId="108" Name="in" /></Wire><Wire UId="111"><NameCon UId="108" Name="out1" /><IdentCon UId="107" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="112" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="113" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_CV3206_Hoi_Bon2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="114" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="115"><Symbol><Component Name="AI_VFD_Bon2_Run" /></Symbol></Access><Access Scope="GlobalVariable" UId="119"><Symbol><Component Name="AI_VFD_Bon2_Run_M" /></Symbol></Access><Part Name="Contact" UId="116" /><Part Name="Coil" UId="120" /></Parts>
+              <Wires><Wire UId="117"><Powerrail /><NameCon UId="116" Name="in" /></Wire><Wire UId="118"><IdentCon UId="115" /><NameCon UId="116" Name="operand" /></Wire><Wire UId="121"><NameCon UId="116" Name="out" /><NameCon UId="120" Name="in" /></Wire><Wire UId="122"><IdentCon UId="119" /><NameCon UId="120" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="123" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="124" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_VFD_Bon2_Run</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="125" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="126"><Symbol><Component Name="AI_VFD_Bon2_Dao_Chieu" /></Symbol></Access><Access Scope="GlobalVariable" UId="130"><Symbol><Component Name="AI_VFD_Bon2_Dao_Chieu_M" /></Symbol></Access><Part Name="Contact" UId="127" /><Part Name="Coil" UId="131" /></Parts>
+              <Wires><Wire UId="128"><Powerrail /><NameCon UId="127" Name="in" /></Wire><Wire UId="129"><IdentCon UId="126" /><NameCon UId="127" Name="operand" /></Wire><Wire UId="132"><NameCon UId="127" Name="out" /><NameCon UId="131" Name="in" /></Wire><Wire UId="133"><IdentCon UId="130" /><NameCon UId="131" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="134" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="135" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_VFD_Bon2_Dao_Chieu</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="136" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="137"><Symbol><Component Name="AI_VFD_Bon2_Toc_Do_AO" /></Symbol></Access><Access Scope="GlobalVariable" UId="138"><Symbol><Component Name="AI_VFD_Bon2_Toc_Do_AO_M" /></Symbol></Access><Part Name="Move" UId="139"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="140"><Powerrail /><NameCon UId="139" Name="en" /></Wire><Wire UId="141"><IdentCon UId="137" /><NameCon UId="139" Name="in" /></Wire><Wire UId="142"><NameCon UId="139" Name="out1" /><IdentCon UId="138" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="143" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="144" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_VFD_Bon2_Toc_Do_AO</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="145" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="146"><Symbol><Component Name="AI_V3237_Xa_Bon2" /></Symbol></Access><Access Scope="GlobalVariable" UId="150"><Symbol><Component Name="AI_V3237_Xa_Bon2_M" /></Symbol></Access><Part Name="Contact" UId="147" /><Part Name="Coil" UId="151" /></Parts>
+              <Wires><Wire UId="148"><Powerrail /><NameCon UId="147" Name="in" /></Wire><Wire UId="149"><IdentCon UId="146" /><NameCon UId="147" Name="operand" /></Wire><Wire UId="152"><NameCon UId="147" Name="out" /><NameCon UId="151" Name="in" /></Wire><Wire UId="153"><IdentCon UId="150" /><NameCon UId="151" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="154" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="155" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3237_Xa_Bon2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="156" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="157"><Symbol><Component Name="AI_V3238_Xa_Bon2" /></Symbol></Access><Access Scope="GlobalVariable" UId="161"><Symbol><Component Name="AI_V3238_Xa_Bon2_M" /></Symbol></Access><Part Name="Contact" UId="158" /><Part Name="Coil" UId="162" /></Parts>
+              <Wires><Wire UId="159"><Powerrail /><NameCon UId="158" Name="in" /></Wire><Wire UId="160"><IdentCon UId="157" /><NameCon UId="158" Name="operand" /></Wire><Wire UId="163"><NameCon UId="158" Name="out" /><NameCon UId="162" Name="in" /></Wire><Wire UId="164"><IdentCon UId="161" /><NameCon UId="162" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="165" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="166" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3238_Xa_Bon2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="167" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="168"><Symbol><Component Name="AI_V3239_Xa_Bon2" /></Symbol></Access><Access Scope="GlobalVariable" UId="172"><Symbol><Component Name="AI_V3239_Xa_Bon2_M" /></Symbol></Access><Part Name="Contact" UId="169" /><Part Name="Coil" UId="173" /></Parts>
+              <Wires><Wire UId="170"><Powerrail /><NameCon UId="169" Name="in" /></Wire><Wire UId="171"><IdentCon UId="168" /><NameCon UId="169" Name="operand" /></Wire><Wire UId="174"><NameCon UId="169" Name="out" /><NameCon UId="173" Name="in" /></Wire><Wire UId="175"><IdentCon UId="172" /><NameCon UId="173" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="176" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="177" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3239_Xa_Bon2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="178" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="179"><Symbol><Component Name="AI_Pump3264_Chuyen_Nhanh1" /></Symbol></Access><Access Scope="GlobalVariable" UId="183"><Symbol><Component Name="AI_Pump3264_Chuyen_Nhanh1_M" /></Symbol></Access><Part Name="Contact" UId="180" /><Part Name="Coil" UId="184" /></Parts>
+              <Wires><Wire UId="181"><Powerrail /><NameCon UId="180" Name="in" /></Wire><Wire UId="182"><IdentCon UId="179" /><NameCon UId="180" Name="operand" /></Wire><Wire UId="185"><NameCon UId="180" Name="out" /><NameCon UId="184" Name="in" /></Wire><Wire UId="186"><IdentCon UId="183" /><NameCon UId="184" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="187" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="188" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_Pump3264_Chuyen_Nhanh1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="189" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="190"><Symbol><Component Name="AI_V3331_Xa_BonChua1" /></Symbol></Access><Access Scope="GlobalVariable" UId="194"><Symbol><Component Name="AI_V3331_Xa_BonChua1_M" /></Symbol></Access><Part Name="Contact" UId="191" /><Part Name="Coil" UId="195" /></Parts>
+              <Wires><Wire UId="192"><Powerrail /><NameCon UId="191" Name="in" /></Wire><Wire UId="193"><IdentCon UId="190" /><NameCon UId="191" Name="operand" /></Wire><Wire UId="196"><NameCon UId="191" Name="out" /><NameCon UId="195" Name="in" /></Wire><Wire UId="197"><IdentCon UId="194" /><NameCon UId="195" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="198" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="199" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3331_Xa_BonChua1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="200" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="201"><Symbol><Component Name="AI_V3332_Xa_BonChua1" /></Symbol></Access><Access Scope="GlobalVariable" UId="205"><Symbol><Component Name="AI_V3332_Xa_BonChua1_M" /></Symbol></Access><Part Name="Contact" UId="202" /><Part Name="Coil" UId="206" /></Parts>
+              <Wires><Wire UId="203"><Powerrail /><NameCon UId="202" Name="in" /></Wire><Wire UId="204"><IdentCon UId="201" /><NameCon UId="202" Name="operand" /></Wire><Wire UId="207"><NameCon UId="202" Name="out" /><NameCon UId="206" Name="in" /></Wire><Wire UId="208"><IdentCon UId="205" /><NameCon UId="206" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="209" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="210" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3332_Xa_BonChua1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="211" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="212"><Symbol><Component Name="AI_Pump3361_LuanChuyen_BonChua1" /></Symbol></Access><Access Scope="GlobalVariable" UId="216"><Symbol><Component Name="AI_Pump3361_LuanChuyen_BonChua1_M" /></Symbol></Access><Part Name="Contact" UId="213" /><Part Name="Coil" UId="217" /></Parts>
+              <Wires><Wire UId="214"><Powerrail /><NameCon UId="213" Name="in" /></Wire><Wire UId="215"><IdentCon UId="212" /><NameCon UId="213" Name="operand" /></Wire><Wire UId="218"><NameCon UId="213" Name="out" /><NameCon UId="217" Name="in" /></Wire><Wire UId="219"><IdentCon UId="216" /><NameCon UId="217" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="220" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="221" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_Pump3361_LuanChuyen_BonChua1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="222" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="223"><Symbol><Component Name="AI_Pump3362_Xa_BonChua1" /></Symbol></Access><Access Scope="GlobalVariable" UId="227"><Symbol><Component Name="AI_Pump3362_Xa_BonChua1_M" /></Symbol></Access><Part Name="Contact" UId="224" /><Part Name="Coil" UId="228" /></Parts>
+              <Wires><Wire UId="225"><Powerrail /><NameCon UId="224" Name="in" /></Wire><Wire UId="226"><IdentCon UId="223" /><NameCon UId="224" Name="operand" /></Wire><Wire UId="229"><NameCon UId="224" Name="out" /><NameCon UId="228" Name="in" /></Wire><Wire UId="230"><IdentCon UId="227" /><NameCon UId="228" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="231" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="232" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_Pump3362_Xa_BonChua1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="233" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="234"><Symbol><Component Name="AI_V3333_DieuHuong_BonChua1" /></Symbol></Access><Access Scope="GlobalVariable" UId="238"><Symbol><Component Name="AI_V3333_DieuHuong_BonChua1_M" /></Symbol></Access><Part Name="Contact" UId="235" /><Part Name="Coil" UId="239" /></Parts>
+              <Wires><Wire UId="236"><Powerrail /><NameCon UId="235" Name="in" /></Wire><Wire UId="237"><IdentCon UId="234" /><NameCon UId="235" Name="operand" /></Wire><Wire UId="240"><NameCon UId="235" Name="out" /><NameCon UId="239" Name="in" /></Wire><Wire UId="241"><IdentCon UId="238" /><NameCon UId="239" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="242" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="243" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3333_DieuHuong_BonChua1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="244" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="245"><Symbol><Component Name="AI_V3334_DieuHuong_BonChua1" /></Symbol></Access><Access Scope="GlobalVariable" UId="249"><Symbol><Component Name="AI_V3334_DieuHuong_BonChua1_M" /></Symbol></Access><Part Name="Contact" UId="246" /><Part Name="Coil" UId="250" /></Parts>
+              <Wires><Wire UId="247"><Powerrail /><NameCon UId="246" Name="in" /></Wire><Wire UId="248"><IdentCon UId="245" /><NameCon UId="246" Name="operand" /></Wire><Wire UId="251"><NameCon UId="246" Name="out" /><NameCon UId="250" Name="in" /></Wire><Wire UId="252"><IdentCon UId="249" /><NameCon UId="250" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="253" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="254" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3334_DieuHuong_BonChua1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="255" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="256"><Symbol><Component Name="AI_V3335_DieuHuong_BonChua1" /></Symbol></Access><Access Scope="GlobalVariable" UId="260"><Symbol><Component Name="AI_V3335_DieuHuong_BonChua1_M" /></Symbol></Access><Part Name="Contact" UId="257" /><Part Name="Coil" UId="261" /></Parts>
+              <Wires><Wire UId="258"><Powerrail /><NameCon UId="257" Name="in" /></Wire><Wire UId="259"><IdentCon UId="256" /><NameCon UId="257" Name="operand" /></Wire><Wire UId="262"><NameCon UId="257" Name="out" /><NameCon UId="261" Name="in" /></Wire><Wire UId="263"><IdentCon UId="260" /><NameCon UId="261" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="264" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="265" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3335_DieuHuong_BonChua1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="266" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="267"><Symbol><Component Name="AI_CV3304_Nuoc_Lam_Mat" /></Symbol></Access><Access Scope="GlobalVariable" UId="268"><Symbol><Component Name="AI_CV3304_Nuoc_Lam_Mat_M" /></Symbol></Access><Part Name="Move" UId="269"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="270"><Powerrail /><NameCon UId="269" Name="en" /></Wire><Wire UId="271"><IdentCon UId="267" /><NameCon UId="269" Name="in" /></Wire><Wire UId="272"><NameCon UId="269" Name="out1" /><IdentCon UId="268" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="273" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="274" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_CV3304_Nuoc_Lam_Mat</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="275" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="276"><Symbol><Component Name="AI_V3338_Xa_BonChua2" /></Symbol></Access><Access Scope="GlobalVariable" UId="280"><Symbol><Component Name="AI_V3338_Xa_BonChua2_M" /></Symbol></Access><Part Name="Contact" UId="277" /><Part Name="Coil" UId="281" /></Parts>
+              <Wires><Wire UId="278"><Powerrail /><NameCon UId="277" Name="in" /></Wire><Wire UId="279"><IdentCon UId="276" /><NameCon UId="277" Name="operand" /></Wire><Wire UId="282"><NameCon UId="277" Name="out" /><NameCon UId="281" Name="in" /></Wire><Wire UId="283"><IdentCon UId="280" /><NameCon UId="281" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="284" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="285" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3338_Xa_BonChua2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="286" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="287"><Symbol><Component Name="AI_V3339_Xa_BonChua2" /></Symbol></Access><Access Scope="GlobalVariable" UId="291"><Symbol><Component Name="AI_V3339_Xa_BonChua2_M" /></Symbol></Access><Part Name="Contact" UId="288" /><Part Name="Coil" UId="292" /></Parts>
+              <Wires><Wire UId="289"><Powerrail /><NameCon UId="288" Name="in" /></Wire><Wire UId="290"><IdentCon UId="287" /><NameCon UId="288" Name="operand" /></Wire><Wire UId="293"><NameCon UId="288" Name="out" /><NameCon UId="292" Name="in" /></Wire><Wire UId="294"><IdentCon UId="291" /><NameCon UId="292" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="295" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="296" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3339_Xa_BonChua2</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="297" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="298"><Symbol><Component Name="AI_Pump3364_Filter" /></Symbol></Access><Access Scope="GlobalVariable" UId="302"><Symbol><Component Name="AI_Pump3364_Filter_M" /></Symbol></Access><Part Name="Contact" UId="299" /><Part Name="Coil" UId="303" /></Parts>
+              <Wires><Wire UId="300"><Powerrail /><NameCon UId="299" Name="in" /></Wire><Wire UId="301"><IdentCon UId="298" /><NameCon UId="299" Name="operand" /></Wire><Wire UId="304"><NameCon UId="299" Name="out" /><NameCon UId="303" Name="in" /></Wire><Wire UId="305"><IdentCon UId="302" /><NameCon UId="303" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="306" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="307" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_Pump3364_Filter</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="308" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="309"><Symbol><Component Name="AI_Pump3365_Filter" /></Symbol></Access><Access Scope="GlobalVariable" UId="313"><Symbol><Component Name="AI_Pump3365_Filter_M" /></Symbol></Access><Part Name="Contact" UId="310" /><Part Name="Coil" UId="314" /></Parts>
+              <Wires><Wire UId="311"><Powerrail /><NameCon UId="310" Name="in" /></Wire><Wire UId="312"><IdentCon UId="309" /><NameCon UId="310" Name="operand" /></Wire><Wire UId="315"><NameCon UId="310" Name="out" /><NameCon UId="314" Name="in" /></Wire><Wire UId="316"><IdentCon UId="313" /><NameCon UId="314" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="317" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="318" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_Pump3365_Filter</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="319" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="320"><Symbol><Component Name="AI_V3340_Duong_Filter" /></Symbol></Access><Access Scope="GlobalVariable" UId="324"><Symbol><Component Name="AI_V3340_Duong_Filter_M" /></Symbol></Access><Part Name="Contact" UId="321" /><Part Name="Coil" UId="325" /></Parts>
+              <Wires><Wire UId="322"><Powerrail /><NameCon UId="321" Name="in" /></Wire><Wire UId="323"><IdentCon UId="320" /><NameCon UId="321" Name="operand" /></Wire><Wire UId="326"><NameCon UId="321" Name="out" /><NameCon UId="325" Name="in" /></Wire><Wire UId="327"><IdentCon UId="324" /><NameCon UId="325" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="328" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="329" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3340_Duong_Filter</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="330" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="331"><Symbol><Component Name="AI_V3341_Duong_Filter" /></Symbol></Access><Access Scope="GlobalVariable" UId="335"><Symbol><Component Name="AI_V3341_Duong_Filter_M" /></Symbol></Access><Part Name="Contact" UId="332" /><Part Name="Coil" UId="336" /></Parts>
+              <Wires><Wire UId="333"><Powerrail /><NameCon UId="332" Name="in" /></Wire><Wire UId="334"><IdentCon UId="331" /><NameCon UId="332" Name="operand" /></Wire><Wire UId="337"><NameCon UId="332" Name="out" /><NameCon UId="336" Name="in" /></Wire><Wire UId="338"><IdentCon UId="335" /><NameCon UId="336" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="339" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="340" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_V3341_Duong_Filter</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="341" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="342"><Symbol><Component Name="AI_CV_Filler_Cap_Dich" /></Symbol></Access><Access Scope="GlobalVariable" UId="343"><Symbol><Component Name="AI_CV_Filler_Cap_Dich_M" /></Symbol></Access><Part Name="Move" UId="344"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="345"><Powerrail /><NameCon UId="344" Name="en" /></Wire><Wire UId="346"><IdentCon UId="342" /><NameCon UId="344" Name="in" /></Wire><Wire UId="347"><NameCon UId="344" Name="out1" /><IdentCon UId="343" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="348" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="349" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_CV_Filler_Cap_Dich</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="350" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="351"><Symbol><Component Name="AI_Coi_Bao_Dong" /></Symbol></Access><Access Scope="GlobalVariable" UId="355"><Symbol><Component Name="AI_Coi_Bao_Dong_M" /></Symbol></Access><Part Name="Contact" UId="352" /><Part Name="Coil" UId="356" /></Parts>
+              <Wires><Wire UId="353"><Powerrail /><NameCon UId="352" Name="in" /></Wire><Wire UId="354"><IdentCon UId="351" /><NameCon UId="352" Name="operand" /></Wire><Wire UId="357"><NameCon UId="352" Name="out" /><NameCon UId="356" Name="in" /></Wire><Wire UId="358"><IdentCon UId="355" /><NameCon UId="356" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="359" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="360" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_Coi_Bao_Dong</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="361" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="362"><Symbol><Component Name="AI_Pump3265_Chuyen_Nhanh2_Cmd" /></Symbol></Access><Access Scope="GlobalVariable" UId="366"><Symbol><Component Name="AI_Pump3265_Chuyen_Nhanh2_Cmd_M" /></Symbol></Access><Part Name="Contact" UId="363" /><Part Name="Coil" UId="367" /></Parts>
+              <Wires><Wire UId="364"><Powerrail /><NameCon UId="363" Name="in" /></Wire><Wire UId="365"><IdentCon UId="362" /><NameCon UId="363" Name="operand" /></Wire><Wire UId="368"><NameCon UId="363" Name="out" /><NameCon UId="367" Name="in" /></Wire><Wire UId="369"><IdentCon UId="366" /><NameCon UId="367" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="370" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="371" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_Pump3265_Chuyen_Nhanh2_Cmd</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="372" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="373"><Symbol><Component Name="AI_VFD_Bon2_Actual_Speed_Feedback" /></Symbol></Access><Access Scope="GlobalVariable" UId="374"><Symbol><Component Name="AI_VFD_Bon2_Actual_Speed_Feedback_M" /></Symbol></Access><Part Name="Move" UId="375"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="376"><Powerrail /><NameCon UId="375" Name="en" /></Wire><Wire UId="377"><IdentCon UId="373" /><NameCon UId="375" Name="in" /></Wire><Wire UId="378"><NameCon UId="375" Name="out1" /><IdentCon UId="374" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="379" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="380" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_VFD_Bon2_Actual_Speed_Feedback</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="381" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="382"><Symbol><Component Name="AI_PLC1_Load_Default_Cmd" /></Symbol></Access><Access Scope="GlobalVariable" UId="386"><Symbol><Component Name="AI_PLC1_Load_Default_Cmd_M" /></Symbol></Access><Part Name="Contact" UId="383" /><Part Name="Coil" UId="387" /></Parts>
+              <Wires><Wire UId="384"><Powerrail /><NameCon UId="383" Name="in" /></Wire><Wire UId="385"><IdentCon UId="382" /><NameCon UId="383" Name="operand" /></Wire><Wire UId="388"><NameCon UId="383" Name="out" /><NameCon UId="387" Name="in" /></Wire><Wire UId="389"><IdentCon UId="386" /><NameCon UId="387" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="390" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="391" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mirror AI_PLC1_Load_Default_Cmd</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="392" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="393"><Symbol><Component Name="AI_HMI_Operator_Login" /></Symbol></Access><Access Scope="LiteralConstant" UId="397"><Constant><ConstantType>Int</ConstantType><ConstantValue>1</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="398"><Symbol><Component Name="AI_HMI_User_Level" /></Symbol></Access><Part Name="Contact" UId="394" /><Part Name="Move" UId="399"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="395"><Powerrail /><NameCon UId="394" Name="in" /></Wire><Wire UId="396"><IdentCon UId="393" /><NameCon UId="394" Name="operand" /></Wire><Wire UId="400"><NameCon UId="394" Name="out" /><NameCon UId="399" Name="en" /></Wire><Wire UId="401"><IdentCon UId="397" /><NameCon UId="399" Name="in" /></Wire><Wire UId="402"><NameCon UId="399" Name="out1" /><IdentCon UId="398" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="403" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="404" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Quyền Operator</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="405" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="406"><Symbol><Component Name="AI_HMI_Engineer_Login" /></Symbol></Access><Access Scope="LiteralConstant" UId="410"><Constant><ConstantType>Int</ConstantType><ConstantValue>2</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="411"><Symbol><Component Name="AI_HMI_User_Level" /></Symbol></Access><Part Name="Contact" UId="407" /><Part Name="Move" UId="412"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="408"><Powerrail /><NameCon UId="407" Name="in" /></Wire><Wire UId="409"><IdentCon UId="406" /><NameCon UId="407" Name="operand" /></Wire><Wire UId="413"><NameCon UId="407" Name="out" /><NameCon UId="412" Name="en" /></Wire><Wire UId="414"><IdentCon UId="410" /><NameCon UId="412" Name="in" /></Wire><Wire UId="415"><NameCon UId="412" Name="out1" /><IdentCon UId="411" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="416" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="417" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Quyền Engineer</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="418" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="419"><Symbol><Component Name="AI_HMI_Admin_Login" /></Symbol></Access><Access Scope="LiteralConstant" UId="423"><Constant><ConstantType>Int</ConstantType><ConstantValue>3</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="424"><Symbol><Component Name="AI_HMI_User_Level" /></Symbol></Access><Part Name="Contact" UId="420" /><Part Name="Move" UId="425"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="421"><Powerrail /><NameCon UId="420" Name="in" /></Wire><Wire UId="422"><IdentCon UId="419" /><NameCon UId="420" Name="operand" /></Wire><Wire UId="426"><NameCon UId="420" Name="out" /><NameCon UId="425" Name="en" /></Wire><Wire UId="427"><IdentCon UId="423" /><NameCon UId="425" Name="in" /></Wire><Wire UId="428"><NameCon UId="425" Name="out1" /><IdentCon UId="424" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="429" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="430" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Quyền Admin</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="431" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="432"><Symbol><Component Name="AI_HMI_Engineer_Login" /></Symbol></Access><Access Scope="GlobalVariable" UId="436"><Symbol><Component Name="AI_HMI_Cho_Phep_Sua_Thong_So" /></Symbol></Access><Part Name="Contact" UId="433" /><Part Name="SCoil" UId="437" /></Parts>
+              <Wires><Wire UId="434"><Powerrail /><NameCon UId="433" Name="in" /></Wire><Wire UId="435"><IdentCon UId="432" /><NameCon UId="433" Name="operand" /></Wire><Wire UId="438"><NameCon UId="433" Name="out" /><NameCon UId="437" Name="in" /></Wire><Wire UId="439"><IdentCon UId="436" /><NameCon UId="437" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="440" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="441" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Cho phép sửa thông số Engineer</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="442" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="443"><Symbol><Component Name="AI_HMI_Admin_Login" /></Symbol></Access><Access Scope="GlobalVariable" UId="447"><Symbol><Component Name="AI_HMI_Cho_Phep_Sua_Thong_So" /></Symbol></Access><Part Name="Contact" UId="444" /><Part Name="SCoil" UId="448" /></Parts>
+              <Wires><Wire UId="445"><Powerrail /><NameCon UId="444" Name="in" /></Wire><Wire UId="446"><IdentCon UId="443" /><NameCon UId="444" Name="operand" /></Wire><Wire UId="449"><NameCon UId="444" Name="out" /><NameCon UId="448" Name="in" /></Wire><Wire UId="450"><IdentCon UId="447" /><NameCon UId="448" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="451" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="452" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Cho phép sửa thông số Admin</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="453" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="454"><Symbol><Component Name="AI_HMI_Operator_Login" /></Symbol></Access><Access Scope="GlobalVariable" UId="458"><Symbol><Component Name="AI_HMI_Cho_Phep_Sua_Thong_So" /></Symbol></Access><Part Name="Contact" UId="455" /><Part Name="RCoil" UId="459" /></Parts>
+              <Wires><Wire UId="456"><Powerrail /><NameCon UId="455" Name="in" /></Wire><Wire UId="457"><IdentCon UId="454" /><NameCon UId="455" Name="operand" /></Wire><Wire UId="460"><NameCon UId="455" Name="out" /><NameCon UId="459" Name="in" /></Wire><Wire UId="461"><IdentCon UId="458" /><NameCon UId="459" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="462" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="463" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Operator không được sửa thông số</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="464" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="LiteralConstant" UId="465"><Constant><ConstantType>Int</ConstantType><ConstantValue>0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="466"><Symbol><Component Name="AI_HMI_AnToan_Status" /></Symbol></Access><Part Name="Move" UId="467"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="468"><Powerrail /><NameCon UId="467" Name="en" /></Wire><Wire UId="469"><IdentCon UId="465" /><NameCon UId="467" Name="in" /></Wire><Wire UId="470"><NameCon UId="467" Name="out1" /><IdentCon UId="466" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="471" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="472" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mã an toàn mặc định</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="473" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="474"><Symbol><Component Name="AI_PLC1_Loi_Dosing" /></Symbol></Access><Access Scope="LiteralConstant" UId="478"><Constant><ConstantType>Int</ConstantType><ConstantValue>1</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="479"><Symbol><Component Name="AI_HMI_AnToan_Status" /></Symbol></Access><Part Name="Contact" UId="475" /><Part Name="Move" UId="480"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="476"><Powerrail /><NameCon UId="475" Name="in" /></Wire><Wire UId="477"><IdentCon UId="474" /><NameCon UId="475" Name="operand" /></Wire><Wire UId="481"><NameCon UId="475" Name="out" /><NameCon UId="480" Name="en" /></Wire><Wire UId="482"><IdentCon UId="478" /><NameCon UId="480" Name="in" /></Wire><Wire UId="483"><NameCon UId="480" Name="out1" /><IdentCon UId="479" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="484" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="485" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mã cảnh báo dosing PLC1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="486" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="487"><Symbol><Component Name="AI_PLC1_Loi_Setpoint" /></Symbol></Access><Access Scope="LiteralConstant" UId="491"><Constant><ConstantType>Int</ConstantType><ConstantValue>2</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="492"><Symbol><Component Name="AI_HMI_AnToan_Status" /></Symbol></Access><Part Name="Contact" UId="488" /><Part Name="Move" UId="493"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="489"><Powerrail /><NameCon UId="488" Name="in" /></Wire><Wire UId="490"><IdentCon UId="487" /><NameCon UId="488" Name="operand" /></Wire><Wire UId="494"><NameCon UId="488" Name="out" /><NameCon UId="493" Name="en" /></Wire><Wire UId="495"><IdentCon UId="491" /><NameCon UId="493" Name="in" /></Wire><Wire UId="496"><NameCon UId="493" Name="out1" /><IdentCon UId="492" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="497" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="498" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mã lỗi Setpoint PLC1 không hợp lệ</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="499" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="500"><Symbol><Component Name="AI_BonChua_Loi_Setpoint" /></Symbol></Access><Access Scope="LiteralConstant" UId="504"><Constant><ConstantType>Int</ConstantType><ConstantValue>2</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="505"><Symbol><Component Name="AI_HMI_AnToan_Status" /></Symbol></Access><Part Name="Contact" UId="501" /><Part Name="Move" UId="506"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="502"><Powerrail /><NameCon UId="501" Name="in" /></Wire><Wire UId="503"><IdentCon UId="500" /><NameCon UId="501" Name="operand" /></Wire><Wire UId="507"><NameCon UId="501" Name="out" /><NameCon UId="506" Name="en" /></Wire><Wire UId="508"><IdentCon UId="504" /><NameCon UId="506" Name="in" /></Wire><Wire UId="509"><NameCon UId="506" Name="out1" /><IdentCon UId="505" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="510" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="511" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mã lỗi Setpoint Bồn chứa không hợp lệ</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="512" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="513"><Symbol><Component Name="AI_PLC1_Loi_Dry_Run" /></Symbol></Access><Access Scope="LiteralConstant" UId="517"><Constant><ConstantType>Int</ConstantType><ConstantValue>3</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="518"><Symbol><Component Name="AI_HMI_AnToan_Status" /></Symbol></Access><Part Name="Contact" UId="514" /><Part Name="Move" UId="519"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="515"><Powerrail /><NameCon UId="514" Name="in" /></Wire><Wire UId="516"><IdentCon UId="513" /><NameCon UId="514" Name="operand" /></Wire><Wire UId="520"><NameCon UId="514" Name="out" /><NameCon UId="519" Name="en" /></Wire><Wire UId="521"><IdentCon UId="517" /><NameCon UId="519" Name="in" /></Wire><Wire UId="522"><NameCon UId="519" Name="out1" /><IdentCon UId="518" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="523" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="524" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mã lỗi dry run PLC1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="525" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="526"><Symbol><Component Name="AI_PLC1_EStop_Latch" /></Symbol></Access><Access Scope="LiteralConstant" UId="530"><Constant><ConstantType>Int</ConstantType><ConstantValue>4</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="531"><Symbol><Component Name="AI_HMI_AnToan_Status" /></Symbol></Access><Part Name="Contact" UId="527" /><Part Name="Move" UId="532"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="528"><Powerrail /><NameCon UId="527" Name="in" /></Wire><Wire UId="529"><IdentCon UId="526" /><NameCon UId="527" Name="operand" /></Wire><Wire UId="533"><NameCon UId="527" Name="out" /><NameCon UId="532" Name="en" /></Wire><Wire UId="534"><IdentCon UId="530" /><NameCon UId="532" Name="in" /></Wire><Wire UId="535"><NameCon UId="532" Name="out1" /><IdentCon UId="531" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="536" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="537" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mã E-Stop ưu tiên cao PLC1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="538" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="539"><Symbol><Component Name="AI_PLC1_Loi_Tong" /></Symbol></Access><Access Scope="GlobalVariable" UId="540"><Symbol><Component Name="AI_PLC2_Loi_Tong_Recv" /></Symbol></Access><Access Scope="GlobalVariable" UId="549"><Symbol><Component Name="AI_Coi_Bao_Dong" /></Symbol></Access><Part Name="Contact" UId="541" /><Part Name="Contact" UId="542" /><Part Name="O" UId="543"><TemplateValue Name="Card" Type="Cardinality">2</TemplateValue></Part><Part Name="SCoil" UId="550" /></Parts>
+              <Wires><Wire UId="544"><Powerrail /><NameCon UId="541" Name="in" /><NameCon UId="542" Name="in" /></Wire><Wire UId="545"><IdentCon UId="539" /><NameCon UId="541" Name="operand" /></Wire><Wire UId="546"><IdentCon UId="540" /><NameCon UId="542" Name="operand" /></Wire><Wire UId="547"><NameCon UId="541" Name="out" /><NameCon UId="543" Name="in1" /></Wire><Wire UId="548"><NameCon UId="542" Name="out" /><NameCon UId="543" Name="in2" /></Wire><Wire UId="551"><NameCon UId="543" Name="out" /><NameCon UId="550" Name="in" /></Wire><Wire UId="552"><IdentCon UId="549" /><NameCon UId="550" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="553" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="554" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Còi báo động khi lỗi hoặc mất truyền thông PLC1</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="555" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="556"><Symbol><Component Name="AI_HMI_Ack_Alarm" /></Symbol></Access><Access Scope="GlobalVariable" UId="560"><Symbol><Component Name="AI_Coi_Bao_Dong" /></Symbol></Access><Part Name="Contact" UId="557" /><Part Name="RCoil" UId="561" /></Parts>
+              <Wires><Wire UId="558"><Powerrail /><NameCon UId="557" Name="in" /></Wire><Wire UId="559"><IdentCon UId="556" /><NameCon UId="557" Name="operand" /></Wire><Wire UId="562"><NameCon UId="557" Name="out" /><NameCon UId="561" Name="in" /></Wire><Wire UId="563"><IdentCon UId="560" /><NameCon UId="561" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="564" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="565" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Tắt còi khi Ack Alarm</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="566" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="567"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="GlobalVariable" UId="571"><Symbol><Component Name="AI_System_Mode_Real" /></Symbol></Access><Part Name="Contact" UId="568"><Negated Name="operand" /></Part><Part Name="Coil" UId="572" /></Parts>
+              <Wires><Wire UId="569"><Powerrail /><NameCon UId="568" Name="in" /></Wire><Wire UId="570"><IdentCon UId="567" /><NameCon UId="568" Name="operand" /></Wire><Wire UId="573"><NameCon UId="568" Name="out" /><NameCon UId="572" Name="in" /></Wire><Wire UId="574"><IdentCon UId="571" /><NameCon UId="572" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="575" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="576" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Trạng thái hiển thị chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="577" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="578"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="GlobalVariable" UId="582"><Symbol><Component Name="AI_System_Mode_Sim" /></Symbol></Access><Part Name="Contact" UId="579" /><Part Name="Coil" UId="583" /></Parts>
+              <Wires><Wire UId="580"><Powerrail /><NameCon UId="579" Name="in" /></Wire><Wire UId="581"><IdentCon UId="578" /><NameCon UId="579" Name="operand" /></Wire><Wire UId="584"><NameCon UId="579" Name="out" /><NameCon UId="583" Name="in" /></Wire><Wire UId="585"><IdentCon UId="582" /><NameCon UId="583" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="586" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="587" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Trạng thái hiển thị chế độ mô phỏng</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="588" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="589"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="GlobalVariable" UId="593"><Symbol><Component Name="AI_HMI_Sim_Active_Warning" /></Symbol></Access><Part Name="Contact" UId="590" /><Part Name="Coil" UId="594" /></Parts>
+              <Wires><Wire UId="591"><Powerrail /><NameCon UId="590" Name="in" /></Wire><Wire UId="592"><IdentCon UId="589" /><NameCon UId="590" Name="operand" /></Wire><Wire UId="595"><NameCon UId="590" Name="out" /><NameCon UId="594" Name="in" /></Wire><Wire UId="596"><IdentCon UId="593" /><NameCon UId="594" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="597" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="598" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Cảnh báo chế độ mô phỏng HMI active</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="599" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="600"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="GlobalVariable" UId="604"><Symbol><Component Name="AI_LS3202_Bon1_Cao_HMI" /></Symbol></Access><Part Name="Contact" UId="601"><Negated Name="operand" /></Part><Part Name="RCoil" UId="605" /></Parts>
+              <Wires><Wire UId="602"><Powerrail /><NameCon UId="601" Name="in" /></Wire><Wire UId="603"><IdentCon UId="600" /><NameCon UId="601" Name="operand" /></Wire><Wire UId="606"><NameCon UId="601" Name="out" /><NameCon UId="605" Name="in" /></Wire><Wire UId="607"><IdentCon UId="604" /><NameCon UId="605" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="608" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="609" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_LS3202_Bon1_Cao_HMI khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="610" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="611"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="GlobalVariable" UId="615"><Symbol><Component Name="AI_PLC2_Me_Nhanh2_Hoan_Thanh_Nhan_HMI" /></Symbol></Access><Part Name="Contact" UId="612"><Negated Name="operand" /></Part><Part Name="RCoil" UId="616" /></Parts>
+              <Wires><Wire UId="613"><Powerrail /><NameCon UId="612" Name="in" /></Wire><Wire UId="614"><IdentCon UId="611" /><NameCon UId="612" Name="operand" /></Wire><Wire UId="617"><NameCon UId="612" Name="out" /><NameCon UId="616" Name="in" /></Wire><Wire UId="618"><IdentCon UId="615" /><NameCon UId="616" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="619" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="620" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_PLC2_Me_Nhanh2_Hoan_Thanh_Nhan_HMI khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="621" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="622"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="GlobalVariable" UId="626"><Symbol><Component Name="AI_LSH3310_Pheu_Cao_HMI" /></Symbol></Access><Part Name="Contact" UId="623"><Negated Name="operand" /></Part><Part Name="RCoil" UId="627" /></Parts>
+              <Wires><Wire UId="624"><Powerrail /><NameCon UId="623" Name="in" /></Wire><Wire UId="625"><IdentCon UId="622" /><NameCon UId="623" Name="operand" /></Wire><Wire UId="628"><NameCon UId="623" Name="out" /><NameCon UId="627" Name="in" /></Wire><Wire UId="629"><IdentCon UId="626" /><NameCon UId="627" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="630" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="631" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_LSH3310_Pheu_Cao_HMI khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="632" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="633"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="GlobalVariable" UId="637"><Symbol><Component Name="AI_LSL3311_Pheu_Thap_HMI" /></Symbol></Access><Part Name="Contact" UId="634"><Negated Name="operand" /></Part><Part Name="RCoil" UId="638" /></Parts>
+              <Wires><Wire UId="635"><Powerrail /><NameCon UId="634" Name="in" /></Wire><Wire UId="636"><IdentCon UId="633" /><NameCon UId="634" Name="operand" /></Wire><Wire UId="639"><NameCon UId="634" Name="out" /><NameCon UId="638" Name="in" /></Wire><Wire UId="640"><IdentCon UId="637" /><NameCon UId="638" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="641" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="642" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_LSL3311_Pheu_Thap_HMI khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="643" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="644"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="GlobalVariable" UId="648"><Symbol><Component Name="AI_PLC1_Load_Default_Done_Nhan_HMI" /></Symbol></Access><Part Name="Contact" UId="645"><Negated Name="operand" /></Part><Part Name="RCoil" UId="649" /></Parts>
+              <Wires><Wire UId="646"><Powerrail /><NameCon UId="645" Name="in" /></Wire><Wire UId="647"><IdentCon UId="644" /><NameCon UId="645" Name="operand" /></Wire><Wire UId="650"><NameCon UId="645" Name="out" /><NameCon UId="649" Name="in" /></Wire><Wire UId="651"><IdentCon UId="648" /><NameCon UId="649" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="652" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="653" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_PLC1_Load_Default_Done_Nhan_HMI khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="654" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="655"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="659"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="660"><Symbol><Component Name="AI_FT3200_Bon1_HMI" /></Symbol></Access><Part Name="Contact" UId="656"><Negated Name="operand" /></Part><Part Name="Move" UId="661"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="657"><Powerrail /><NameCon UId="656" Name="in" /></Wire><Wire UId="658"><IdentCon UId="655" /><NameCon UId="656" Name="operand" /></Wire><Wire UId="662"><NameCon UId="656" Name="out" /><NameCon UId="661" Name="en" /></Wire><Wire UId="663"><IdentCon UId="659" /><NameCon UId="661" Name="in" /></Wire><Wire UId="664"><NameCon UId="661" Name="out1" /><IdentCon UId="660" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="665" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="666" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_FT3200_Bon1_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="667" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="668"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="672"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="673"><Symbol><Component Name="AI_FQ3200_Bon1_HMI" /></Symbol></Access><Part Name="Contact" UId="669"><Negated Name="operand" /></Part><Part Name="Move" UId="674"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="670"><Powerrail /><NameCon UId="669" Name="in" /></Wire><Wire UId="671"><IdentCon UId="668" /><NameCon UId="669" Name="operand" /></Wire><Wire UId="675"><NameCon UId="669" Name="out" /><NameCon UId="674" Name="en" /></Wire><Wire UId="676"><IdentCon UId="672" /><NameCon UId="674" Name="in" /></Wire><Wire UId="677"><NameCon UId="674" Name="out1" /><IdentCon UId="673" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="678" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="679" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_FQ3200_Bon1_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="680" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="681"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="685"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="686"><Symbol><Component Name="AI_LT3203_Bon1_HMI" /></Symbol></Access><Part Name="Contact" UId="682"><Negated Name="operand" /></Part><Part Name="Move" UId="687"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="683"><Powerrail /><NameCon UId="682" Name="in" /></Wire><Wire UId="684"><IdentCon UId="681" /><NameCon UId="682" Name="operand" /></Wire><Wire UId="688"><NameCon UId="682" Name="out" /><NameCon UId="687" Name="en" /></Wire><Wire UId="689"><IdentCon UId="685" /><NameCon UId="687" Name="in" /></Wire><Wire UId="690"><NameCon UId="687" Name="out1" /><IdentCon UId="686" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="691" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="692" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_LT3203_Bon1_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="693" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="694"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="698"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="699"><Symbol><Component Name="AI_TT3204_Bon1_HMI" /></Symbol></Access><Part Name="Contact" UId="695"><Negated Name="operand" /></Part><Part Name="Move" UId="700"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="696"><Powerrail /><NameCon UId="695" Name="in" /></Wire><Wire UId="697"><IdentCon UId="694" /><NameCon UId="695" Name="operand" /></Wire><Wire UId="701"><NameCon UId="695" Name="out" /><NameCon UId="700" Name="en" /></Wire><Wire UId="702"><IdentCon UId="698" /><NameCon UId="700" Name="in" /></Wire><Wire UId="703"><NameCon UId="700" Name="out1" /><IdentCon UId="699" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="704" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="705" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_TT3204_Bon1_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="706" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="707"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="711"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="712"><Symbol><Component Name="AI_FT3205_Bon2_HMI" /></Symbol></Access><Part Name="Contact" UId="708"><Negated Name="operand" /></Part><Part Name="Move" UId="713"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="709"><Powerrail /><NameCon UId="708" Name="in" /></Wire><Wire UId="710"><IdentCon UId="707" /><NameCon UId="708" Name="operand" /></Wire><Wire UId="714"><NameCon UId="708" Name="out" /><NameCon UId="713" Name="en" /></Wire><Wire UId="715"><IdentCon UId="711" /><NameCon UId="713" Name="in" /></Wire><Wire UId="716"><NameCon UId="713" Name="out1" /><IdentCon UId="712" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="717" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="718" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_FT3205_Bon2_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="719" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="720"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="724"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="725"><Symbol><Component Name="AI_FQ3205_Bon2_HMI" /></Symbol></Access><Part Name="Contact" UId="721"><Negated Name="operand" /></Part><Part Name="Move" UId="726"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="722"><Powerrail /><NameCon UId="721" Name="in" /></Wire><Wire UId="723"><IdentCon UId="720" /><NameCon UId="721" Name="operand" /></Wire><Wire UId="727"><NameCon UId="721" Name="out" /><NameCon UId="726" Name="en" /></Wire><Wire UId="728"><IdentCon UId="724" /><NameCon UId="726" Name="in" /></Wire><Wire UId="729"><NameCon UId="726" Name="out1" /><IdentCon UId="725" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="730" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="731" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_FQ3205_Bon2_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="732" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="733"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="737"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="738"><Symbol><Component Name="AI_LT3209_Bon2_HMI" /></Symbol></Access><Part Name="Contact" UId="734"><Negated Name="operand" /></Part><Part Name="Move" UId="739"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="735"><Powerrail /><NameCon UId="734" Name="in" /></Wire><Wire UId="736"><IdentCon UId="733" /><NameCon UId="734" Name="operand" /></Wire><Wire UId="740"><NameCon UId="734" Name="out" /><NameCon UId="739" Name="en" /></Wire><Wire UId="741"><IdentCon UId="737" /><NameCon UId="739" Name="in" /></Wire><Wire UId="742"><NameCon UId="739" Name="out1" /><IdentCon UId="738" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="743" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="744" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_LT3209_Bon2_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="745" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="746"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="750"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="751"><Symbol><Component Name="AI_TT3208_Bon2_HMI" /></Symbol></Access><Part Name="Contact" UId="747"><Negated Name="operand" /></Part><Part Name="Move" UId="752"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="748"><Powerrail /><NameCon UId="747" Name="in" /></Wire><Wire UId="749"><IdentCon UId="746" /><NameCon UId="747" Name="operand" /></Wire><Wire UId="753"><NameCon UId="747" Name="out" /><NameCon UId="752" Name="en" /></Wire><Wire UId="754"><IdentCon UId="750" /><NameCon UId="752" Name="in" /></Wire><Wire UId="755"><NameCon UId="752" Name="out1" /><IdentCon UId="751" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="756" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="757" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_TT3208_Bon2_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="758" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="759"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="763"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="764"><Symbol><Component Name="AI_LT3302_BonChua1_HMI" /></Symbol></Access><Part Name="Contact" UId="760"><Negated Name="operand" /></Part><Part Name="Move" UId="765"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="761"><Powerrail /><NameCon UId="760" Name="in" /></Wire><Wire UId="762"><IdentCon UId="759" /><NameCon UId="760" Name="operand" /></Wire><Wire UId="766"><NameCon UId="760" Name="out" /><NameCon UId="765" Name="en" /></Wire><Wire UId="767"><IdentCon UId="763" /><NameCon UId="765" Name="in" /></Wire><Wire UId="768"><NameCon UId="765" Name="out1" /><IdentCon UId="764" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="769" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="770" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_LT3302_BonChua1_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="771" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="772"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="776"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="777"><Symbol><Component Name="AI_TT3301_BonChua1_HMI" /></Symbol></Access><Part Name="Contact" UId="773"><Negated Name="operand" /></Part><Part Name="Move" UId="778"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="774"><Powerrail /><NameCon UId="773" Name="in" /></Wire><Wire UId="775"><IdentCon UId="772" /><NameCon UId="773" Name="operand" /></Wire><Wire UId="779"><NameCon UId="773" Name="out" /><NameCon UId="778" Name="en" /></Wire><Wire UId="780"><IdentCon UId="776" /><NameCon UId="778" Name="in" /></Wire><Wire UId="781"><NameCon UId="778" Name="out1" /><IdentCon UId="777" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="782" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="783" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_TT3301_BonChua1_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="784" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="785"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="789"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="790"><Symbol><Component Name="AI_TT3303_TraoDoiNhiet_HMI" /></Symbol></Access><Part Name="Contact" UId="786"><Negated Name="operand" /></Part><Part Name="Move" UId="791"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="787"><Powerrail /><NameCon UId="786" Name="in" /></Wire><Wire UId="788"><IdentCon UId="785" /><NameCon UId="786" Name="operand" /></Wire><Wire UId="792"><NameCon UId="786" Name="out" /><NameCon UId="791" Name="en" /></Wire><Wire UId="793"><IdentCon UId="789" /><NameCon UId="791" Name="in" /></Wire><Wire UId="794"><NameCon UId="791" Name="out1" /><IdentCon UId="790" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="795" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="796" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_TT3303_TraoDoiNhiet_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="797" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="798"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="802"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="803"><Symbol><Component Name="AI_LT3307_BonChua2_HMI" /></Symbol></Access><Part Name="Contact" UId="799"><Negated Name="operand" /></Part><Part Name="Move" UId="804"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="800"><Powerrail /><NameCon UId="799" Name="in" /></Wire><Wire UId="801"><IdentCon UId="798" /><NameCon UId="799" Name="operand" /></Wire><Wire UId="805"><NameCon UId="799" Name="out" /><NameCon UId="804" Name="en" /></Wire><Wire UId="806"><IdentCon UId="802" /><NameCon UId="804" Name="in" /></Wire><Wire UId="807"><NameCon UId="804" Name="out1" /><IdentCon UId="803" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="808" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="809" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_LT3307_BonChua2_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="810" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="811"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="815"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="816"><Symbol><Component Name="AI_TT3306_BonChua2_HMI" /></Symbol></Access><Part Name="Contact" UId="812"><Negated Name="operand" /></Part><Part Name="Move" UId="817"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="813"><Powerrail /><NameCon UId="812" Name="in" /></Wire><Wire UId="814"><IdentCon UId="811" /><NameCon UId="812" Name="operand" /></Wire><Wire UId="818"><NameCon UId="812" Name="out" /><NameCon UId="817" Name="en" /></Wire><Wire UId="819"><IdentCon UId="815" /><NameCon UId="817" Name="in" /></Wire><Wire UId="820"><NameCon UId="817" Name="out1" /><IdentCon UId="816" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="821" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="822" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_TT3306_BonChua2_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="823" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="824"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="828"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="829"><Symbol><Component Name="AI_PI3308_Truoc_Filter_HMI" /></Symbol></Access><Part Name="Contact" UId="825"><Negated Name="operand" /></Part><Part Name="Move" UId="830"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="826"><Powerrail /><NameCon UId="825" Name="in" /></Wire><Wire UId="827"><IdentCon UId="824" /><NameCon UId="825" Name="operand" /></Wire><Wire UId="831"><NameCon UId="825" Name="out" /><NameCon UId="830" Name="en" /></Wire><Wire UId="832"><IdentCon UId="828" /><NameCon UId="830" Name="in" /></Wire><Wire UId="833"><NameCon UId="830" Name="out1" /><IdentCon UId="829" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="834" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="835" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_PI3308_Truoc_Filter_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="836" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="837"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="LiteralConstant" UId="841"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.0</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="842"><Symbol><Component Name="AI_FT3309_Xa_Thanh_Pham_HMI" /></Symbol></Access><Part Name="Contact" UId="838"><Negated Name="operand" /></Part><Part Name="Move" UId="843"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="839"><Powerrail /><NameCon UId="838" Name="in" /></Wire><Wire UId="840"><IdentCon UId="837" /><NameCon UId="838" Name="operand" /></Wire><Wire UId="844"><NameCon UId="838" Name="out" /><NameCon UId="843" Name="en" /></Wire><Wire UId="845"><IdentCon UId="841" /><NameCon UId="843" Name="in" /></Wire><Wire UId="846"><NameCon UId="843" Name="out1" /><IdentCon UId="842" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="847" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="848" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Reset AI_FT3309_Xa_Thanh_Pham_HMI về 0.0 khi ở chế độ chạy thật</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="849" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="850"><Symbol><Component Name="AI_HMI_Sim_Mode" /></Symbol></Access><Access Scope="GlobalVariable" UId="854"><Symbol><Component Name="AI_PLC1_Load_Default_Cmd" /></Symbol></Access><Access Scope="GlobalVariable" UId="858"><Symbol><Component Name="AI_PLC1_Load_Default_Done_Nhan_HMI" /></Symbol></Access><Part Name="Contact" UId="851" /><Part Name="Contact" UId="855" /><Part Name="Coil" UId="859" /></Parts>
+              <Wires><Wire UId="852"><Powerrail /><NameCon UId="851" Name="in" /></Wire><Wire UId="853"><IdentCon UId="850" /><NameCon UId="851" Name="operand" /></Wire><Wire UId="856"><NameCon UId="851" Name="out" /><NameCon UId="855" Name="in" /></Wire><Wire UId="857"><IdentCon UId="854" /><NameCon UId="855" Name="operand" /></Wire><Wire UId="860"><NameCon UId="855" Name="out" /><NameCon UId="859" Name="in" /></Wire><Wire UId="861"><IdentCon UId="858" /><NameCon UId="859" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="862" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="863" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mô phỏng truyền thông Modbus TCP: Link Done nạp recipe PLC2 sang PLC1_HMI</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+    </ObjectList>
+  </SW.Blocks.FC>
+</Document>

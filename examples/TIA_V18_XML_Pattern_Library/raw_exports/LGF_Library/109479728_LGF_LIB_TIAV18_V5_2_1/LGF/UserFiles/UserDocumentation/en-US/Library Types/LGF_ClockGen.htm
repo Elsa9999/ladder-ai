@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html><html lang='en-US'>
+<head>
+<script src='../../../Code2Docu/katex/katex.min.js'></script>
+<script src='../../../Code2Docu/katex/katexStartUp.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/katex/katex.min.css' />
+<!--[if lt IE 9]><script src='../../../Code2Docu/katex/html5shiv-printshiv-3.7.3.min.js'></script><![endif]-->
+<link rel='stylesheet' href='../../../Code2Docu/highlightJS/scl.css'>
+<script src='../../../Code2Docu/highlightJS/highlight.min.js'></script>
+<script src='../../../Code2Docu/highlightJS/scl.js'></script>
+<script src='../../../Code2Docu/Code2DocuScript.js'></script>
+<script src='../../../Code2Docu/highlightJS/highlight.load.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/style.css'>
+<link rel='stylesheet' href='../../../Code2Docu/styleCustomized.css'>
+<meta http-equiv='Content-type' content='text/html;charset=UTF-8'>
+<title>LGF_ClockGen (FB / 1.0.1)</title>
+</head>
+<body>
+ <div class="containerFluid"> 
+ <h1>LGF_ClockGen (FB / 1.0.1)</h1>
+<div class='langSelectionBox'>
+<a href='../../en-US/Folders/LGF.htm' target='_self'>Overview</a> 
+<select class='langSelector' id='langSelector' onChange="changeLang('en-US')">
+    <option class='langOption' value=en-US selected>English (United States)</option>
+    <option class='langOption' value=de-DE>German (Germany)</option>
+</select></div></div><hr>
+<span class='author'>Author: Simatic Systems Support (SICAR)</span>
+<h2>Short description</h2>
+<p>This function generates the same clock signals as the system clock memory.</p>
+
+<h3>Block Interface</h3>
+<table class='block'><thead><tr><th colspan='2'> </th><th colspan='5'>LGF_ClockGen (FB)</th><th colspan='2'> </th></tr></thead><tbody>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clockDataType</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LGF_typeSystemClockGen</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clockDataTypeRisingEdge</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LGF_typeSystemClockGen</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clockDataTypeFallingEdge</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LGF_typeSystemClockGen</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clockByte</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Byte</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clockByteRisingEdge</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Byte</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clockByteFallingEdge</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Byte</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clk10Hz</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clk5Hz</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clk2Hz5</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clk2Hz</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clk1Hz25</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clk1Hz</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clk0Hz625</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>clk0Hz5</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</tbody><tfoot><tr><td colspan='2'>&nbsp;</td><td colspan='5'>&nbsp;</td><td colspan='2'>&nbsp;</td></tr></tfoot></table>
+<h3>Output parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Identifier</th><th class='type'>Data type</th>
+<th>Description</th></tr></thead><tbody>
+<tr><td>clockDataType</td><td>LGF_typeSystemClockGen</td>
+<td>Clock data type</td></tr>
+<tr><td>clockDataTypeRisingEdge</td><td>LGF_typeSystemClockGen</td>
+<td>Clock edge data type (rising edges)</td></tr>
+<tr><td>clockDataTypeFallingEdge</td><td>LGF_typeSystemClockGen</td>
+<td>Clock edge data type (falling edges)</td></tr>
+<tr><td>clockByte</td><td>Byte</td>
+<td>Clock byte</td></tr>
+<tr><td>clockByteRisingEdge</td><td>Byte</td>
+<td>Clock edge byte (rising edges)</td></tr>
+<tr><td>clockByteFallingEdge</td><td>Byte</td>
+<td>Clock edge byte (falling edges)</td></tr>
+<tr><td>clk10Hz</td><td>Bool</td>
+<td>Clock bit 10Hz</td></tr>
+<tr><td>clk5Hz</td><td>Bool</td>
+<td>Clock bit 5Hz</td></tr>
+<tr><td>clk2Hz5</td><td>Bool</td>
+<td>Clock bit 2.5Hz</td></tr>
+<tr><td>clk2Hz</td><td>Bool</td>
+<td>Clock bit 2Hz</td></tr>
+<tr><td>clk1Hz25</td><td>Bool</td>
+<td>Clock bit 1.25Hz</td></tr>
+<tr><td>clk1Hz</td><td>Bool</td>
+<td>Clock bit 1Hz</td></tr>
+<tr><td>clk0Hz625</td><td>Bool</td>
+<td>Clock bit 0.625Hz</td></tr>
+<tr><td>clk0Hz5</td><td>Bool</td>
+<td>Clock bit 0.5Hz</td></tr>
+</tbody></table>
+<h2>User defined datatype(s)</h2>
+<h3>LGF_typeSystemClockGen (UDT / V1.0.0)</h3>
+<p>Clock generator datatype</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Identifier</th>
+      <th class='type'>Data type</th>
+      <th class='default'>Default value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>clk10Hz</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>Clock bit 10Hz</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>clk5Hz</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>Clock bit 5Hz</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>clk2Hz5</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>Clock bit 2.5Hz</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>clk2Hz</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>Clock bit 2Hz</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>clk1Hz25</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>Clock bit 1.25Hz</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>clk1Hz</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>Clock bit 1Hz</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>clk0Hz625</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>Clock bit 0.625Hz</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>clk0Hz5</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>Clock bit 0.5Hz</td>
+  </tr>
+  </tbody>
+</table>
+<h2>Functional description</h2>
+<p>The module generates the clock flags known from the system. It uses the system function <code>Runtime</code> and calculates the clock flag states based on the time.</p>
+<p>The function block outputs the clocks in three formats:</p>
+<ul>
+<li>Individual Boolean values</li>
+<li>Clock byte</li>
+<li>Clock data type</li>
+</ul>
+<p>In addition, the edges (rising and falling edges) are also evaluated and output as bytes and data structure.</p>
+
+<h2>Change log</h2>
+<table class='ChangeLog'><thead><tr><th colspan='2'>Version & Date</th><th>Change description</th></tr></thead><tbody>
+<tr class='LogEntryStart'><td></td><td>1.0.0</td><td>SICAR</td></tr>
+<tr><td></td><td>01.10.2023</td><td>First released version</td></tr>
+<tr class='LogEntryStart'><td></td><td>1.0.1</td><td>Simatic Systems Support</td></tr>
+<tr><td></td><td>06.05.2025</td><td>Integration into LGF</td></tr>
+</tbody></table>
+<hr>
+<p class='footer'>
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109479728' target='_blank'>Library of General Functions (LGF)</a><br>
+<span>Entry-ID: 109479728</span>
+<span>Date: 10/2025</span>
+<span>Version: V5.2.1</span>
+<span>Generated with TIA Portal Add-In
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109809007' target='_blank'>Code2Docu</a>
+</span>
+<span> </span>
+</p>
+</body></html>

@@ -1,0 +1,68 @@
+﻿[
+    {
+        "Path":  "C:\\Program Files\\Autodesk",
+        "Type":  "Directory",
+        "SizeMB":  746.37,
+        "Description":  "Autodesk/AutoCAD remnant directory (C:)"
+    },
+    {
+        "Path":  "C:\\Program Files (x86)\\Autodesk",
+        "Type":  "Directory",
+        "SizeMB":  23.08,
+        "Description":  "Autodesk/AutoCAD remnant directory (C:)"
+    },
+    {
+        "Path":  "C:\\ProgramData\\Autodesk",
+        "Type":  "Directory",
+        "SizeMB":  20.49,
+        "Description":  "Autodesk/AutoCAD remnant directory (C:)"
+    },
+    {
+        "Path":  "C:\\Users\\Public\\Documents\\Autodesk",
+        "Type":  "Directory",
+        "SizeMB":  0,
+        "Description":  "Autodesk/AutoCAD remnant directory (C:)"
+    },
+    {
+        "Path":  "C:\\Autodesk",
+        "Type":  "Directory",
+        "SizeMB":  0.03,
+        "Description":  "Autodesk/AutoCAD remnant directory (C:)"
+    },
+    {
+        "Path":  "C:\\Users\\lienb\\AppData\\Local\\Autodesk",
+        "Type":  "Directory",
+        "SizeMB":  317.98,
+        "Description":  "Autodesk/AutoCAD remnant directory (C:)"
+    },
+    {
+        "Path":  "C:\\Users\\lienb\\AppData\\Roaming\\Autodesk",
+        "Type":  "Directory",
+        "SizeMB":  81.09,
+        "Description":  "Autodesk/AutoCAD remnant directory (C:)"
+    },
+    {
+        "Path":  "D:\\Autodesk",
+        "Type":  "Directory",
+        "SizeMB":  0.03,
+        "Description":  "Autodesk/AutoCAD remnant found on D:"
+    },
+    {
+        "Path":  "D:\\AutoCAD_Electrical_2024_English_Win_64bit",
+        "Type":  "Directory",
+        "SizeMB":  4978.29,
+        "Description":  "Autodesk/AutoCAD remnant found on D:"
+    },
+    {
+        "Path":  "D:\\học autocad",
+        "Type":  "Directory",
+        "SizeMB":  0.03,
+        "Description":  "Autodesk/AutoCAD remnant found on D:"
+    },
+    {
+        "Path":  "D:\\Optimization_Tools\\AutoCAD",
+        "Type":  "Directory",
+        "SizeMB":  0,
+        "Description":  "Autodesk/AutoCAD remnant found on D:"
+    }
+]

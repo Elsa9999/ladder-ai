@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-04-18T00:00:00Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+  </DocumentInfo>
+  <SW.Blocks.OB ID="0">
+    <AttributeList>
+      <AutoNumber>true</AutoNumber>
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+        <Section Name="Input"><Member Name="Initial_Call" Datatype="Bool" Accessibility="Public" Informative="true" /><Member Name="Remanence" Datatype="Bool" Accessibility="Public" Informative="true" /></Section>
+        <Section Name="Temp" />
+        <Section Name="Constant" />
+      </Sections></Interface>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>Cyclic interrupt</Name>
+      <Namespace />
+      <Number>30</Number>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+      <SecondaryType>CyclicInterrupt</SecondaryType>
+    </AttributeList>
+    <ObjectList>
+
+      <SW.Blocks.CompileUnit ID="21" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="25"><Symbol><Component Name="AI_Nhiet_Do_SP" /></Symbol></Access><Access Scope="GlobalVariable" UId="27"><Symbol><Component Name="AI_Nhiet_Do_PV" /></Symbol></Access><Access Scope="GlobalVariable" UId="39"><Symbol><Component Name="AI_PID_Output" /></Symbol></Access><Part Name="PID_Compact" Version="1.2" UId="22"><Instance Scope="GlobalVariable" UId="23"><Component Name="PID_Compact_1" /></Instance></Part></Parts>
+              <Wires><Wire UId="24"><Powerrail /><NameCon UId="22" Name="en" /></Wire><Wire UId="26"><IdentCon UId="25" /><NameCon UId="22" Name="Setpoint" /></Wire><Wire UId="28"><IdentCon UId="27" /><NameCon UId="22" Name="Input" /></Wire><Wire UId="30"><OpenCon UId="29" /><NameCon UId="22" Name="Input_PER" /></Wire><Wire UId="32"><OpenCon UId="31" /><NameCon UId="22" Name="ManualEnable" /></Wire><Wire UId="34"><OpenCon UId="33" /><NameCon UId="22" Name="ManualValue" /></Wire><Wire UId="36"><OpenCon UId="35" /><NameCon UId="22" Name="Reset" /></Wire><Wire UId="38"><NameCon UId="22" Name="ScaledInput" /><OpenCon UId="37" /></Wire><Wire UId="40"><NameCon UId="22" Name="Output" /><IdentCon UId="39" /></Wire><Wire UId="42"><NameCon UId="22" Name="Output_PER" /><OpenCon UId="41" /></Wire><Wire UId="44"><NameCon UId="22" Name="Output_PWM" /><OpenCon UId="43" /></Wire><Wire UId="46"><NameCon UId="22" Name="SetpointLimit_H" /><OpenCon UId="45" /></Wire><Wire UId="48"><NameCon UId="22" Name="SetpointLimit_L" /><OpenCon UId="47" /></Wire><Wire UId="50"><NameCon UId="22" Name="InputWarning_H" /><OpenCon UId="49" /></Wire><Wire UId="52"><NameCon UId="22" Name="InputWarning_L" /><OpenCon UId="51" /></Wire><Wire UId="54"><NameCon UId="22" Name="State" /><OpenCon UId="53" /></Wire><Wire UId="56"><NameCon UId="22" Name="Error" /><OpenCon UId="55" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="57" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="58" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Điều khiển PID</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="59" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="60"><Symbol><Component Name="bDong_Co_Dang_Chay" /></Symbol></Access><Access Scope="LiteralConstant" UId="64"><Constant><ConstantType>Int</ConstantType><ConstantValue>3</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="65"><Symbol><Component Name="PID_Compact_1" /><Component Name="sRet" /><Component Name="i_Mode" /></Symbol></Access><Part Name="Contact" UId="61" /><Part Name="Move" UId="66"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part></Parts>
+              <Wires><Wire UId="62"><Powerrail /><NameCon UId="61" Name="in" /></Wire><Wire UId="63"><IdentCon UId="60" /><NameCon UId="61" Name="operand" /></Wire><Wire UId="67"><NameCon UId="61" Name="out" /><NameCon UId="66" Name="en" /></Wire><Wire UId="68"><IdentCon UId="64" /><NameCon UId="66" Name="in" /></Wire><Wire UId="69"><NameCon UId="66" Name="out1" /><IdentCon UId="65" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="70" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="71" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Chọn chế độ PID</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <SW.Blocks.CompileUnit ID="72" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="75"><Symbol><Component Name="AI_Nhiet_Do_PV" /></Symbol></Access><Access Scope="LiteralConstant" UId="77"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.95</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="79"><Symbol><Component Name="AI_PID_Output" /></Symbol></Access><Access Scope="LiteralConstant" UId="81"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.05</ConstantValue></Constant></Access><Access Scope="LiteralConstant" UId="83"><Constant><ConstantType>Real</ConstantType><ConstantValue>0.5</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="85"><Symbol><Component Name="AI_Nhiet_Do_PV" /></Symbol></Access><Part Name="Calc" UId="73"><Equation>IN2*IN1 + IN4*(IN3*IN5)</Equation><TemplateValue Name="Card" Type="Cardinality">5</TemplateValue><TemplateValue Name="SrcType" Type="Type">Real</TemplateValue></Part></Parts>
+              <Wires><Wire UId="74"><Powerrail /><NameCon UId="73" Name="en" /></Wire><Wire UId="76"><IdentCon UId="75" /><NameCon UId="73" Name="in1" /></Wire><Wire UId="78"><IdentCon UId="77" /><NameCon UId="73" Name="in2" /></Wire><Wire UId="80"><IdentCon UId="79" /><NameCon UId="73" Name="in3" /></Wire><Wire UId="82"><IdentCon UId="81" /><NameCon UId="73" Name="in4" /></Wire><Wire UId="84"><IdentCon UId="83" /><NameCon UId="73" Name="in5" /></Wire><Wire UId="86"><NameCon UId="73" Name="out" /><IdentCon UId="85" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="87" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="88" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Mô phỏng quá trình</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+    </ObjectList>
+  </SW.Blocks.OB>
+</Document>

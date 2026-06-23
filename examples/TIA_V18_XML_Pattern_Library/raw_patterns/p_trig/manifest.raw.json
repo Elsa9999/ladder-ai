@@ -1,0 +1,52 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "P_TRIG",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "I_Mode",
+      "type": "AUTO"
+    },
+    {
+      "name": "Tag_1",
+      "type": "AUTO"
+    },
+    {
+      "name": "AlwaysFALSE",
+      "type": "AUTO"
+    },
+    {
+      "name": "Q_Auto_Xylanh_Cao",
+      "type": "AUTO"
+    },
+    {
+      "name": "Tag_3",
+      "type": "AUTO"
+    },
+    {
+      "name": "Q_Auto_Xylanh_TB",
+      "type": "AUTO"
+    },
+    {
+      "name": "Tag_2",
+      "type": "AUTO"
+    },
+    {
+      "name": "Q_Auto_BT",
+      "type": "AUTO"
+    },
+    {
+      "name": "M_Mode",
+      "type": "AUTO"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "",
+  "required_data_types": [],
+  "source_file": "FC_AUTO_MODE.xml",
+  "network_index": 2,
+  "network_title": "ĐIỀU KHIỂN BĂNG TẢI",
+  "version": "1.0"
+}

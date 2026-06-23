@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html><html lang='en-US'>
+<head>
+<script src='../../../Code2Docu/katex/katex.min.js'></script>
+<script src='../../../Code2Docu/katex/katexStartUp.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/katex/katex.min.css' />
+<!--[if lt IE 9]><script src='../../../Code2Docu/katex/html5shiv-printshiv-3.7.3.min.js'></script><![endif]-->
+<link rel='stylesheet' href='../../../Code2Docu/highlightJS/scl.css'>
+<script src='../../../Code2Docu/highlightJS/highlight.min.js'></script>
+<script src='../../../Code2Docu/highlightJS/scl.js'></script>
+<script src='../../../Code2Docu/Code2DocuScript.js'></script>
+<script src='../../../Code2Docu/highlightJS/highlight.load.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/style.css'>
+<link rel='stylesheet' href='../../../Code2Docu/styleCustomized.css'>
+<meta http-equiv='Content-type' content='text/html;charset=UTF-8'>
+<title>LGF_ActDeactDevice (FB / 2.0.0)</title>
+</head>
+<body>
+ <div class="containerFluid"> 
+ <h1>LGF_ActDeactDevice (FB / 2.0.0)</h1>
+<div class='langSelectionBox'>
+<a href='../../en-US/Folders/LGF.htm' target='_self'>Overview</a> 
+<select class='langSelector' id='langSelector' onChange="changeLang('en-US')">
+    <option class='langOption' value=en-US selected>English (United States)</option>
+    <option class='langOption' value=de-DE>German (Germany)</option>
+</select></div></div><hr>
+<span class='author'>Author: Simatic Systems Support</span>
+<h2>Short description</h2>
+<p><code>LGF_ActDeactDevice</code> implements a compact state machine to activate or deactivate a decentral device.</p>
+
+<h3>Block Interface</h3>
+<table class='block'><thead><tr><th colspan='2'> </th><th colspan='5'>LGF_ActDeactDevice (FB)</th><th colspan='2'> </th></tr></thead><tbody>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>deactivate</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>done</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>activate</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>busy</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>HW_DEVICE</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>hwId</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>error</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>LGF_typeActDeactDeviceParameter</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>parameter</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>status</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Word</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>deactivatingActive</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>deactivatingDone</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>activatingActive</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>activatingDone</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>diagnostics</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LGF_typeDiagnostics</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</tbody><tfoot><tr><td colspan='2'>&nbsp;</td><td colspan='5'>&nbsp;</td><td colspan='2'>&nbsp;</td></tr></tfoot></table>
+<h3>Input parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Identifier</th><th class='type'>Data type</th>
+<th class='default'>Default value</th>
+<th>Description</th></tr></thead><tbody>
+<tr><td>deactivate</td><td>Bool</td>
+<td>FALSE</td>
+<td>Rising edge: Deactivate device given by `hwId`</td></tr>
+<tr><td>activate</td><td>Bool</td>
+<td>FALSE</td>
+<td>Rising edge: Activate device given by `hwId`</td></tr>
+<tr><td>hwId</td><td>HW_DEVICE</td>
+<td>---</td>
+<td>Hardware ID of the device which should be activated / deactivated (`Device~PnIf~IODevice`)</td></tr>
+<tr><td>parameter</td><td>LGF_typeActDeactDeviceParameter</td>
+<td>---</td>
+<td>Parameter dataset for the function `LGF_ActDeactDevice`</td></tr>
+</tbody></table>
+<h3>Output parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Identifier</th><th class='type'>Data type</th>
+<th>Description</th></tr></thead><tbody>
+<tr><td>done</td><td>Bool</td>
+<td>TRUE: Commanded functionality has been completed successfully</td></tr>
+<tr><td>busy</td><td>Bool</td>
+<td>TRUE: FB is not finished and new output values can be expected</td></tr>
+<tr><td>error</td><td>Bool</td>
+<td>An error occurred during the execution of the FB</td></tr>
+<tr><td>status</td><td>Word</td>
+<td>16#0000 - 16#7FFF: Status of the FB, 16#8000 - 16#FFFF: Error identification</td></tr>
+<tr><td>deactivatingActive</td><td>Bool</td>
+<td>TRUE: Deactivating of device active</td></tr>
+<tr><td>deactivatingDone</td><td>Bool</td>
+<td>TRUE: Device deactivated</td></tr>
+<tr><td>activatingActive</td><td>Bool</td>
+<td>TRUE: Activation of device active</td></tr>
+<tr><td>activatingDone</td><td>Bool</td>
+<td>TRUE: Device activated</td></tr>
+<tr><td>diagnostics</td><td>LGF_typeDiagnostics</td>
+<td>Diagnostic structure to store and transfer diagnostic information from blocks through the interface.</td></tr>
+</tbody></table>
+<h3>Status & Error codes</h3>
+<table class='StatusAndErrorConstants'><thead><tr><th>Code / Value</th><th>Identifier / Description</th></tr></thead><tbody>
+<tr><td>16#0000</td><td>STATUS_DEACTIVATION_DONE<br>Device deactivation done</td></tr>
+<tr><td>16#0001</td><td>STATUS_ACTIVATION_DONE<br>Device activation done</td></tr>
+<tr><td>16#7000</td><td>STATUS_NO_CALL<br>No job being currently processed</td></tr>
+<tr><td>16#7040</td><td>STATUS_DEACTIVATION<br>Processing device deactivation</td></tr>
+<tr><td>16#7060</td><td>STATUS_ACTIVATION<br>Processing device activation</td></tr>
+<tr><td>16#8600</td><td>ERR_UNDEFINED_STATE<br>Error: Due to an undefined state in state machine</td></tr>
+<tr><td>16#8601</td><td>ERR_LOG2GEO<br>Error: Log2Geo, may the HW ID for the device is wrong,
+please see `diagnostics.subFunctionStatus` for more detailed information</td></tr>
+<tr><td>16#8602</td><td>ERR_GEO2LOG<br>Error: Geo2Log, may the HW ID for the device is wrong,
+please see `diagnostics.subFunctionStatus` for more detailed information</td></tr>
+<tr><td>16#8640</td><td>ERR_DEVICE_DEACTIVATING<br>Error: Deactivation (D_ACT_DP) of device,
+please see `diagnostics.subFunctionStatus` for more detailed information</td></tr>
+<tr><td>16#8641</td><td>ERR_DEVICE_DEACTIVATING_TIME_OUT<br>Error: Deactivation of device - watchdog time expired</td></tr>
+<tr><td>16#8642</td><td>ERR_DEVICE_DEACTIVATING_RETRIES_REACHED<br>Error: Deactivation of device - max retries reached</td></tr>
+<tr><td>16#8650</td><td>ERR_READ_ACTIVATION_STATE_WHILE_DEACTIVATED<br>Error: Deactivation state (D_ACT_DP) of device is wrong,
+desired is `16#0000` or `16#0002`,
+please see `diagnostics.subFunctionStatus` for more detailed information</td></tr>
+<tr><td>16#8660</td><td>ERR_DEVICE_ACTIVATING<br>Error: Activation (D_ACT_DP) of device,
+please see `diagnostics.subFunctionStatus` for more detailed information</td></tr>
+<tr><td>16#8661</td><td>ERR_DEVICE_ACTIVATING_TIME_OUT<br>Error: Activation of device cause watchdog time expired.
+Can be a broken device connection</td></tr>
+<tr><td>16#8662</td><td>ERR_DEVICE_ACTIVATING_RETRIES_REACHED<br>Error: Activation of device cause max retries reached.
+Can be a broken device connection</td></tr>
+<tr><td>16#8663</td><td>ERR_READ_DEVICES_STATES_DURING_ACTIVATION<br>Error: Read Device states (`DeviceStates`) during device activation,
+please see `diagnostics.subFunctionStatus` for more detailed information</td></tr>
+<tr><td>16#8670</td><td>ERR_READ_DEVICES_STATES_WHILE_ACTIVE<br>Error: Read Device states (`DeviceStates`) while device active,
+please see `diagnostics.subFunctionStatus` for more detailed information</td></tr>
+<tr><td>16#8671</td><td>ERR_DEVICE_STATE_WHILE_ACTIVE<br>Error: Device states present error and is unreachable, faulty Device or IO-System</td></tr>
+<tr><td>16#8672</td><td>ERR_READ_ACTIVATION_STATE_WHILE_ACTIVE<br>Error: Activation state (`D_ACT_DP`) of device is wrong,
+desired is `16#0000` or `16#0001`,
+please see `diagnostics.subFunctionStatus` for more detailed information</td></tr>
+<tr><td>16#8690</td><td>ERR_DISABLING_DEACT_DEVICE<br>Error: Deactivation (D_ACT_DP) of device throws an error while disabling,
+please see `diagnostics.subFunctionStatus` for more detailed information</td></tr>
+<tr><td>16#8691</td><td>ERR_DISABLING_WATCHDOG<br>Error: Watchdog timer expired while disabling</td></tr>
+</tbody></table>
+<h2>User defined datatype(s)</h2>
+<h3>LGF_typeActDeactDeviceParameter (UDT / V2.0.0)</h3>
+<p>This UDT belongs to the Module <code>LGF_ActDeactDeviceParameter</code> and lists all possible parameters to configure its behavior.</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Identifier</th>
+      <th class='type'>Data type</th>
+      <th class='default'>Default value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>activationRetries</td>
+    <td class='type'>SInt</td>
+    <td class='default'>100</td>
+    <td>Number of activation & deactiviation retries until an error is set.</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>timeOutActDeact</td>
+    <td class='type'>Time</td>
+    <td class='default'>T#5S</td>
+    <td>Time to monitor the commands `activate` and `deactivate`<br>should be greater than the configured `configuration time` in the PLC hardware configuration section `Startup`</td>
+  </tr>
+  </tbody>
+</table>
+<h3>LGF_typeDiagnostics (UDT / V1.0.1)</h3>
+<p>Diagnostic structure to store and transfer diagnostic information from blocks through the interface.</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Identifier</th>
+      <th class='type'>Data type</th>
+      <th class='default'>Default value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>status</td>
+    <td class='type'>Word</td>
+    <td class='default'>16#0000</td>
+    <td>Status of the Block or error identification when error occurred</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>subfunctionStatus</td>
+    <td class='type'>Word</td>
+    <td class='default'>16#0000</td>
+    <td>Status or return value of called FB's, FC's and system blocks</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>stateNumber</td>
+    <td class='type'>DInt</td>
+    <td class='default'>0</td>
+    <td>State in the state machine of the block where the error occurred</td>
+  </tr>
+  </tbody>
+</table>
+<h2>Functional description</h2>
+<p>The module provides the procedure for activating and deactivating a remote IO-Device in the Profinet (PN, S7-1500 &amp; S7-1200) and Profibus (DP, S7-1500) network.</p>
+<p>The activation of the device (defined at <code>hwId</code>) is initiated by a rising edge at <code>activate</code>, after complete activation this is indicated at the output <code>isActivated</code>.</p>
+<hr class='predecessorDefList' />
+<dl class='NOTE'>
+<dt>Note</dt>
+<dd>The connection status of the decentralized device is as well displayed in the TIA Portal project navigation in the PLC, which is the controller, under the item 'Distributed I/O', if online with the engineering system.</dd>
+</dl>
+<hr class='successorDefList' />
+<p>Deactivation of the device (defined at <code>hwId</code>) is initiated by a rising edge at <code>deactivate</code>, after complete activation this is indicated at the output <code>isDeactivated</code>.</p>
+<hr class='pageBreak' />
+<dl class='NOTE'>
+<dt>Note</dt>
+<dd>The parameter <code>timeOutActDeact</code> for monitoring the activation and deactivation sequence should always be set higher than the parameterized value in the <code>Device configuration</code> / <code>Startup</code> / <code>Configuration time</code>.</dd>
+</dl>
+<hr class='successorDefList' />
+<p><img src="../../../Code2Docu/images/LGF_ActDeactDevice.png" alt="Parameterization PLC" /></p>
+
+<h2>Change log</h2>
+<table class='ChangeLog'><thead><tr><th colspan='2'>Version & Date</th><th>Change description</th></tr></thead><tbody>
+<tr class='LogEntryStart'><td></td><td>1.0.0</td><td>Simatic Systems Support</td></tr>
+<tr><td></td><td>06.04.2024</td><td>First released version in different project</td></tr>
+<tr class='LogEntryStart'><td></td><td>2.0.0</td><td>Simatic Systems Support</td></tr>
+<tr><td></td><td>10.03.2025</td><td>Refactoring & Improve Code for LGF Integration<br/>Thats why we start here with V2.0 for the LGF integration<br/>Copy of `LGF_ActDeactMonitorDevice` without device monitoring, just executing activation and deactivation</td></tr>
+</tbody></table>
+<hr>
+<p class='footer'>
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109479728' target='_blank'>Library of General Functions (LGF)</a><br>
+<span>Entry-ID: 109479728</span>
+<span>Date: 10/2025</span>
+<span>Version: V5.2.1</span>
+<span>Generated with TIA Portal Add-In
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109809007' target='_blank'>Code2Docu</a>
+</span>
+<span> </span>
+</p>
+</body></html>

@@ -1,0 +1,20 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "Move Time",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{TIME_IN}}",
+      "type": "Time"
+    },
+    {
+      "name": "{{TIME_OUT}}",
+      "type": "Time"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "",
+  "required_data_types": []
+}

@@ -1,0 +1,110 @@
+<SW.Blocks.CompileUnit ID="21" CompositionName="CompileUnits">
+  <AttributeList>
+    <NetworkSource>
+      <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+        <Parts>
+          <Access Scope="GlobalVariable" UId="21">
+            <Symbol>
+              <Component Name="{{BOOL_DISCONNECT}}" />
+            </Symbol>
+          </Access>
+          <Access Scope="LiteralConstant" UId="22">
+            <Constant>
+              <ConstantType>UInt</ConstantType>
+              <ConstantValue>{{UINT_CONNECT_ID}}</ConstantValue>
+            </Constant>
+          </Access>
+          <Access Scope="LiteralConstant" UId="23">
+            <Constant>
+              <ConstantType>UInt</ConstantType>
+              <ConstantValue>{{UINT_IP_PORT}}</ConstantValue>
+            </Constant>
+          </Access>
+          <Access Scope="GlobalVariable" UId="24">
+            <Symbol>
+              <Component Name="{{DATA_PTR_DB}}" />
+            </Symbol>
+          </Access>
+          <Access Scope="GlobalVariable" UId="25">
+            <Symbol>
+              <Component Name="{{BOOL_NDR}}" />
+            </Symbol>
+          </Access>
+          <Access Scope="GlobalVariable" UId="26">
+            <Symbol>
+              <Component Name="{{BOOL_DR}}" />
+            </Symbol>
+          </Access>
+          <Access Scope="GlobalVariable" UId="27">
+            <Symbol>
+              <Component Name="{{BOOL_ERROR}}" />
+            </Symbol>
+          </Access>
+          <Access Scope="GlobalVariable" UId="28">
+            <Symbol>
+              <Component Name="{{WORD_STATUS}}" />
+            </Symbol>
+          </Access>
+          <Part Name="MB_SERVER" Version="3.1" UId="29">
+            <Instance Scope="GlobalVariable" UId="30">
+              <Component Name="{{DB_INSTANCE}}" />
+            </Instance>
+            <TemplateValue Name="card1200" Type="Cardinality">1</TemplateValue>
+            <TemplateValue Name="card1500" Type="Cardinality">0</TemplateValue>
+          </Part>
+        </Parts>
+        <Wires>
+          <Wire UId="31">
+            <Powerrail />
+            <NameCon UId="29" Name="en" />
+          </Wire>
+          <Wire UId="32">
+            <IdentCon UId="21" />
+            <NameCon UId="29" Name="DISCONNECT" />
+          </Wire>
+          <Wire UId="33">
+            <IdentCon UId="22" />
+            <NameCon UId="29" Name="CONNECT_ID" />
+          </Wire>
+          <Wire UId="34">
+            <IdentCon UId="23" />
+            <NameCon UId="29" Name="IP_PORT" />
+          </Wire>
+          <Wire UId="35">
+            <IdentCon UId="24" />
+            <NameCon UId="29" Name="MB_HOLD_REG" />
+          </Wire>
+          <Wire UId="36">
+            <NameCon UId="29" Name="NDR" />
+            <IdentCon UId="25" />
+          </Wire>
+          <Wire UId="37">
+            <NameCon UId="29" Name="DR" />
+            <IdentCon UId="26" />
+          </Wire>
+          <Wire UId="38">
+            <NameCon UId="29" Name="ERROR" />
+            <IdentCon UId="27" />
+          </Wire>
+          <Wire UId="39">
+            <NameCon UId="29" Name="STATUS" />
+            <IdentCon UId="28" />
+          </Wire>
+        </Wires>
+      </FlgNet>
+    </NetworkSource>
+    <ProgrammingLanguage>LAD</ProgrammingLanguage>
+  </AttributeList>
+  <ObjectList>
+    <MultilingualText ID="40" CompositionName="Title">
+      <ObjectList>
+        <MultilingualTextItem ID="41" CompositionName="Items">
+          <AttributeList>
+            <Culture>en-US</Culture>
+            <Text>Call MB_SERVER</Text>
+          </AttributeList>
+        </MultilingualTextItem>
+      </ObjectList>
+    </MultilingualText>
+  </ObjectList>
+</SW.Blocks.CompileUnit>

@@ -1,0 +1,24 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "Sub Real",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{REAL_A}}",
+      "type": "Real"
+    },
+    {
+      "name": "{{REAL_B}}",
+      "type": "Real"
+    },
+    {
+      "name": "{{REAL_OUT}}",
+      "type": "Real"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "",
+  "required_data_types": []
+}

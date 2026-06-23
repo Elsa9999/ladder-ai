@@ -1,0 +1,23 @@
+{
+  "name": "TIA_V18_XML_Pattern_Library",
+  "description": "Reusable SimaticML XML patterns for TIA Portal V18 S7-1200 LAD generation.",
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "patterns_count": 51,
+  "categories": {
+    "basic": 9,
+    "communication": 4,
+    "compare": 13,
+    "data_blocks": 2,
+    "math": 6,
+    "pid": 2,
+    "timer_counter": 2
+  },
+  "last_catalog_build": "2026-06-08T10:55:27",
+  "policy": {
+    "do_not_invent_missing_xml": true,
+    "prefer_modbus_tcp_over_get_put": true,
+    "pid_compact_version": "1.2"
+  }
+}

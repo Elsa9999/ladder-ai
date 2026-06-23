@@ -1,0 +1,44 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "INVERT",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "base_start_button",
+      "type": "AUTO"
+    },
+    {
+      "name": "base_start_button_1_light",
+      "type": "AUTO"
+    },
+    {
+      "name": "base_stop_button",
+      "type": "AUTO"
+    },
+    {
+      "name": "base_emergency",
+      "type": "AUTO"
+    },
+    {
+      "name": "state_of_start_base",
+      "type": "AUTO"
+    },
+    {
+      "name": "base_stop_button_1_light",
+      "type": "AUTO"
+    },
+    {
+      "name": "lid_emergency_button",
+      "type": "AUTO"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "",
+  "required_data_types": [],
+  "source_file": "base_production_fb.xml",
+  "network_index": 1,
+  "network_title": "base_production_station",
+  "version": "1.0"
+}

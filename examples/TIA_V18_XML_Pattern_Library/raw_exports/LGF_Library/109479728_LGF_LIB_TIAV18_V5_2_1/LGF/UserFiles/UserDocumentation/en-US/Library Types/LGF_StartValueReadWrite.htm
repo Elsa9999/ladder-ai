@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html><html lang='en-US'>
+<head>
+<script src='../../../Code2Docu/katex/katex.min.js'></script>
+<script src='../../../Code2Docu/katex/katexStartUp.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/katex/katex.min.css' />
+<!--[if lt IE 9]><script src='../../../Code2Docu/katex/html5shiv-printshiv-3.7.3.min.js'></script><![endif]-->
+<link rel='stylesheet' href='../../../Code2Docu/highlightJS/scl.css'>
+<script src='../../../Code2Docu/highlightJS/highlight.min.js'></script>
+<script src='../../../Code2Docu/highlightJS/scl.js'></script>
+<script src='../../../Code2Docu/Code2DocuScript.js'></script>
+<script src='../../../Code2Docu/highlightJS/highlight.load.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/style.css'>
+<link rel='stylesheet' href='../../../Code2Docu/styleCustomized.css'>
+<meta http-equiv='Content-type' content='text/html;charset=UTF-8'>
+<title>LGF_StartValueReadWrite (FB / 1.0.0)</title>
+</head>
+<body>
+ <div class="containerFluid"> 
+ <h1>LGF_StartValueReadWrite (FB / 1.0.0)</h1>
+<div class='langSelectionBox'>
+<a href='../../en-US/Folders/LGF.htm' target='_self'>Overview</a> 
+<select class='langSelector' id='langSelector' onChange="changeLang('en-US')">
+    <option class='langOption' value=en-US selected>English (United States)</option>
+    <option class='langOption' value=de-DE>German (Germany)</option>
+</select></div></div><hr>
+<span class='author'>Author: Simatic Systems Support</span>
+<h2>Short description</h2>
+<p>Read or write start value(s) from variables or complete data blocks</p>
+
+<h3>Block Interface</h3>
+<table class='block'><thead><tr><th colspan='2'> </th><th colspan='5'>LGF_StartValueReadWrite (FB)</th><th colspan='2'> </th></tr></thead><tbody>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>read</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>readDone</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>write</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>writeDone</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>Variant</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>dataSource</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>busy</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>Variant</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>dataDestination</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>error</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>lastRead</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>DTL</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>lastWrite</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>DTL</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>status</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Word</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>diagnostics</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LGF_typeDiagnostics</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</tbody><tfoot><tr><td colspan='2'>&nbsp;</td><td colspan='5'>&nbsp;</td><td colspan='2'>&nbsp;</td></tr></tfoot></table>
+<h3>Input parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Identifier</th><th class='type'>Data type</th>
+<th class='default'>Default value</th>
+<th>Description</th></tr></thead><tbody>
+<tr><td>read</td><td>Bool</td>
+<td>FALSE</td>
+<td>Rising edge: Read start value of data block / Variable of data block</td></tr>
+<tr><td>write</td><td>Bool</td>
+<td>FALSE</td>
+<td>Rising edge: Write actual value(s) to start value of data block / Variable of data block</td></tr>
+<tr><td>dataSource</td><td>Variant</td>
+<td>---</td>
+<td>Data (block / variable) source, if a separate source is needed.<br>May also be `NULL` - then the target is also used as the source</td></tr>
+<tr><td>dataDestination</td><td>Variant</td>
+<td>---</td>
+<td>Data (block / variable) destination</td></tr>
+</tbody></table>
+<h3>Output parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Identifier</th><th class='type'>Data type</th>
+<th>Description</th></tr></thead><tbody>
+<tr><td>readDone</td><td>Bool</td>
+<td>TRUE: Read has been completed successfully</td></tr>
+<tr><td>writeDone</td><td>Bool</td>
+<td>TRUE: Write has been completed successfully</td></tr>
+<tr><td>busy</td><td>Bool</td>
+<td>TRUE: FB is not finished and new output values can be expected</td></tr>
+<tr><td>error</td><td>Bool</td>
+<td>TRUE: An error occurred during the execution of the FB</td></tr>
+<tr><td>lastRead</td><td>DTL</td>
+<td>Timestamp of last read access</td></tr>
+<tr><td>lastWrite</td><td>DTL</td>
+<td>Timestamp of last write access</td></tr>
+<tr><td>status</td><td>Word</td>
+<td>16#0000 - 16#7FFF: Status of the FB, 16#8000 - 16#FFFF: Error identification</td></tr>
+<tr><td>diagnostics</td><td>LGF_typeDiagnostics</td>
+<td>Diagnostic information</td></tr>
+</tbody></table>
+<h3>Status & Error codes</h3>
+<table class='StatusAndErrorConstants'><thead><tr><th>Code / Value</th><th>Identifier / Description</th></tr></thead><tbody>
+<tr><td>16#0001</td><td>STATUS_READ_DONE<br>Read execution finished without errors</td></tr>
+<tr><td>16#0002</td><td>STATUS_WRITE_DONE<br>Write execution finished without errors</td></tr>
+<tr><td>16#7000</td><td>STATUS_NO_CALL<br>No job being currently processed</td></tr>
+<tr><td>16#7001</td><td>STATUS_READ<br>Read value(s) in progress</td></tr>
+<tr><td>16#7002</td><td>STATUS_WRITE<br>Write value(s) in progress</td></tr>
+<tr><td>16#8400</td><td>ERR_MULTIPLE_COMMANDS<br>Error: Multiple commands add the same time not allowed.</td></tr>
+<tr><td>16#8600</td><td>ERR_UNDEFINED_STATE<br>Error: Undefined state in state machine</td></tr>
+<tr><td>16#8601</td><td>ERR_READ<br>Error: Read value(s) `READ_DBL` - see `diagnostics.subfunctionStatus`</td></tr>
+<tr><td>16#8602</td><td>ERR_WRITE<br>Error: Write value(s) `WRITE_DBL` - see `diagnostics.subfunctionStatus`</td></tr>
+<tr><td>16#8611</td><td>ERR_READ_TIME<br>Error: Read timestamp `RD_LOC_T` while read values - see `diagnostics.subfunctionStatus`</td></tr>
+<tr><td>16#8612</td><td>ERR_WRITE_TIME<br>Error: Write timestamp `WR_LOC_T` while write values - see `diagnostics.subfunctionStatus`</td></tr>
+</tbody></table>
+<h2>User defined datatype(s)</h2>
+<h3>LGF_typeDiagnostics (UDT / V1.0.1)</h3>
+<p>Diagnostic structure to store and transfer diagnostic information from blocks through the interface.</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Identifier</th>
+      <th class='type'>Data type</th>
+      <th class='default'>Default value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>status</td>
+    <td class='type'>Word</td>
+    <td class='default'>16#0000</td>
+    <td>Status of the Block or error identification when error occurred</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>subfunctionStatus</td>
+    <td class='type'>Word</td>
+    <td class='default'>16#0000</td>
+    <td>Status or return value of called FB's, FC's and system blocks</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>stateNumber</td>
+    <td class='type'>DInt</td>
+    <td class='default'>0</td>
+    <td>State in the state machine of the block where the error occurred</td>
+  </tr>
+  </tbody>
+</table>
+<h2>Functional description</h2>
+<p>The function reads or writes the start value of a single variable, a structured variable or an entire data area or data block from the source to the destination.</p>
+<p>The parameter <code>dataDestination</code> must always be present, the parameter <code>dataSource</code> is optional.<br />
+If <code>dataSource</code> is not used, the function...</p>
+<ul>
+<li>reads the start value(s) of the destination(s) and writes them to the current value of the same variable(s)/data block.</li>
+<li>writes the start value(s) of the target to the start value(s) of the same variable(s) of the data block.</li>
+</ul>
+<hr class='predecessorDefList' />
+<dl class='NOTE'>
+<dt>NOTE</dt>
+<dd>If the start values are written, the data block then appears in engineering as an &quot;inconsistent&quot; data block after the values have been written by the user program.</dd>
+</dl>
+<hr class='predecessorDefList' />
+<dl class='NOTE'>
+<dt>NOTE</dt>
+<dd>In order to use complete data blocks, they must be derived from a PLC data type.</dd>
+</dl>
+<hr class='predecessorDefList' />
+<dl class='NOTE'>
+<dt>Note</dt>
+<dd>A change to the start values can no longer be reversed without further modifications.</dd>
+<dd>
+<p>The possibilities are, for example:</p>
+<ul>
+<li>using an &quot;empty&quot; source with default values</li>
+<li>overwriting the value again with a different value</li>
+<li>downloading the original data block from the engineering system</li>
+</ul>
+</dd>
+</dl>
+<hr class='predecessorDefList' />
+<dl class='CAUTION'>
+<dt>Caution</dt>
+<dd>The changes are written to the SMC (Simatic Memory Card).<br />
+The SMC is a flash memory with limited write cycles, so you should not write cyclically to the SMC!</dd>
+</dl>
+
+<h2>Change log</h2>
+<table class='ChangeLog'><thead><tr><th colspan='2'>Version & Date</th><th>Change description</th></tr></thead><tbody>
+<tr class='LogEntryStart'><td></td><td>1.0.0</td><td>Simatic Systems Support</td></tr>
+<tr><td></td><td>2025-05-05</td><td>First released version</td></tr>
+</tbody></table>
+<hr>
+<p class='footer'>
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109479728' target='_blank'>Library of General Functions (LGF)</a><br>
+<span>Entry-ID: 109479728</span>
+<span>Date: 10/2025</span>
+<span>Version: V5.2.1</span>
+<span>Generated with TIA Portal Add-In
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109809007' target='_blank'>Code2Docu</a>
+</span>
+<span> </span>
+</p>
+</body></html>

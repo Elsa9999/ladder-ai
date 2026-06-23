@@ -1,0 +1,18 @@
+{
+  "name": "LGF_DOC",
+  "title": "Library of General Functions (LGF)",
+  "description": "TIA Portal has an extensive number of 'ready-to-use' instructions (mathematical functions, times, counters, etc.). In addition, there are other useful basic functions. These functions are provided in the form of a library and they can be used freely. The finished functions are freely customizable and can therefore be used universally.",
+  "version": "V5.2.1",
+  "tia_version": "V18",
+  "type": "plc_lib",
+  "sios_article": "109479728",
+  "pdf_documentation": "109479728_LGF_DOC_V5_2_1_en.pdf",
+  "url_documentation": "https://support.industry.siemens.com/cs/ww/en/view/109479728",
+  "keywords": [
+    "Code2Docu",
+    "Library of General Functions",
+    "LGF",
+    "Generic functions",
+    "General functions"
+  ]
+}

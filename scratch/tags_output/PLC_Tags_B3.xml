@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-06-12T02:00:00Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+  </DocumentInfo>
+  <SW.Tags.PlcTagTable ID="0">
+    <AttributeList>
+      <Name>PLC_AI_B3_Tags</Name>
+    </AttributeList>
+    <ObjectList>
+      <SW.Tags.PlcTag ID="1" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD0</LogicalAddress>
+          <Name>AI_B3_Sequence_Count</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1001" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2001" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>COUNT 0-100 </Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="11" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD4</LogicalAddress>
+          <Name>AI_B3_Flow_CIP_Center</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1011" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2011" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="21" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD8</LogicalAddress>
+          <Name>AI_B3_Temp_CIP_Upper</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1021" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2021" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="31" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD12</LogicalAddress>
+          <Name>AI_B3_Pressure_CIP_1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1031" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2031" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PRESSURE 7-8 bar</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="41" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD16</LogicalAddress>
+          <Name>AI_B3_Temp_Chaff_1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1041" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2041" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="51" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD20</LogicalAddress>
+          <Name>AI_B3_Flow_CIP_Feed</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1051" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2051" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="61" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD24</LogicalAddress>
+          <Name>AI_B3_Temp_Steam_1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1061" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2061" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="71" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD28</LogicalAddress>
+          <Name>AI_B3_Flow_UCWW_1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1071" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2071" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="81" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD32</LogicalAddress>
+          <Name>AI_B3_RPM_Screw_Conv</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1081" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2081" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>RPM 800-1200 RPM</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="91" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD36</LogicalAddress>
+          <Name>AI_B3_Temp_Condensate_1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1091" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2091" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="101" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD40</LogicalAddress>
+          <Name>AI_B3_Pressure_Screw_1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1101" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2101" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PRESSURE 7-8 bar</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="111" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD44</LogicalAddress>
+          <Name>AI_B3_Flow_CWW_Out</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1111" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2111" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="121" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD48</LogicalAddress>
+          <Name>AI_B3_Pressure_CWW_1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1121" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2121" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PRESSURE 7-8 bar</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="131" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD52</LogicalAddress>
+          <Name>AI_B3_Temp_Decanter2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1131" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2131" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="141" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD56</LogicalAddress>
+          <Name>AI_B3_RPM_Rotary2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1141" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2141" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>RPM 800-1200 RPM</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="151" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD60</LogicalAddress>
+          <Name>AI_B3_RPM_Rotary1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1151" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2151" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>RPM 800-1200 RPM</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="161" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD64</LogicalAddress>
+          <Name>AI_B3_Temp_GroundSilo</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1161" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2161" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="171" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD68</LogicalAddress>
+          <Name>AI_B3_Flow_GroundSilo</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1171" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2171" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="181" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD72</LogicalAddress>
+          <Name>AI_B3_Pressure_Mid_1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1181" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2181" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PRESSURE 7-8 bar</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="191" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD76</LogicalAddress>
+          <Name>AI_B3_Flow_Condensate</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1191" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2191" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="201" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD80</LogicalAddress>
+          <Name>AI_B3_Flow_Sump_Out</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1201" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2201" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="211" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD84</LogicalAddress>
+          <Name>AI_B3_Level_Sump</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1211" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2211" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>LEVEL 30-80 %</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="221" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD88</LogicalAddress>
+          <Name>AI_B3_Pressure_Decant1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1221" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2221" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PRESSURE 7-8 bar</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="231" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD92</LogicalAddress>
+          <Name>AI_B3_Pressure_Decant2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1231" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2231" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PRESSURE 7-8 bar</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="241" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD96</LogicalAddress>
+          <Name>AI_B3_Flow_Decant1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1241" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2241" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="251" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD100</LogicalAddress>
+          <Name>AI_B3_Temp_Decant1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1251" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2251" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="261" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD104</LogicalAddress>
+          <Name>AI_B3_Temp_FBB_Boiler</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1261" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2261" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="271" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD108</LogicalAddress>
+          <Name>AI_B3_Temp_CWW_Out</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1271" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2271" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="281" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD112</LogicalAddress>
+          <Name>AI_B3_Pressure_SUMP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1281" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2281" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PRESSURE 7-8 bar</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="291" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD116</LogicalAddress>
+          <Name>AI_B3_Flow_SUMP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1291" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2291" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="301" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD120</LogicalAddress>
+          <Name>AI_B3_Level_CWW</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1301" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2301" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>LEVEL 30-80 %</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="311" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD124</LogicalAddress>
+          <Name>AI_B3_Temp_FBB_Out</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1311" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2311" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="321" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD128</LogicalAddress>
+          <Name>AI_B3_Pressure_FBB_Out</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1321" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2321" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PRESSURE 7-8 bar</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="331" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD132</LogicalAddress>
+          <Name>AI_B3_Flow_FBB_Out</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1331" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2331" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+    </ObjectList>
+  </SW.Tags.PlcTagTable>
+</Document>

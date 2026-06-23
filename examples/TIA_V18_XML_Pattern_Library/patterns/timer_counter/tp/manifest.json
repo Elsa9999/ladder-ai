@@ -1,0 +1,32 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "TP",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{BOOL_IN_SET}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_IN_RESET}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_SR_MEM}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_IN_STOP}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_OUT}}",
+      "type": "Bool"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "{{DB_INSTANCE}}",
+  "required_data_types": []
+}

@@ -1,0 +1,324 @@
+﻿<!DOCTYPE html><html lang='de-DE'>
+<head>
+<script src='../../../Code2Docu/katex/katex.min.js'></script>
+<script src='../../../Code2Docu/katex/katexStartUp.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/katex/katex.min.css' />
+<!--[if lt IE 9]><script src='../../../Code2Docu/katex/html5shiv-printshiv-3.7.3.min.js'></script><![endif]-->
+<link rel='stylesheet' href='../../../Code2Docu/highlightJS/scl.css'>
+<script src='../../../Code2Docu/highlightJS/highlight.min.js'></script>
+<script src='../../../Code2Docu/highlightJS/scl.js'></script>
+<script src='../../../Code2Docu/Code2DocuScript.js'></script>
+<script src='../../../Code2Docu/highlightJS/highlight.load.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/style.css'>
+<link rel='stylesheet' href='../../../Code2Docu/styleCustomized.css'>
+<meta http-equiv='Content-type' content='text/html;charset=UTF-8'>
+<title>LGF_FileReadWriteDelete (FB / 1.0.0)</title>
+</head>
+<body>
+ <div class="containerFluid"> 
+ <h1>LGF_FileReadWriteDelete (FB / 1.0.0)</h1>
+<div class='langSelectionBox'>
+<a href='../../de-DE/Folders/LGF.htm' target='_self'>Übersicht</a> 
+<select class='langSelector' id='langSelector' onChange="changeLang('de-DE')">
+    <option class='langOption' value=en-US>English (United States)</option>
+    <option class='langOption' value=de-DE selected>German (Germany)</option>
+</select></div></div><hr>
+<span class='author'>Autor: Simatic Systems Support</span>
+<h2>Kurzbeschreibung</h2>
+<p>Mit der Funktion <code>LGF_FileReadWriteDelete</code> kann eine Datei auf/von der SIMATIC Memory Card (SMC) gelesen, geschrieben oder gelöscht werden.</p>
+<p>Zum Lesen oder Schreiben der Daten ist es notwendig, diese zu deserialisieren/serialisieren, was die Funktion bereits für den Anwender übernimmt, dafür muss ein externer Puffer in Form eines Byte-Arrays verschaltet werden, der die Datenmenge aufnehmen kann, ist der Puffer zu klein, wird ein Fehler ausgegeben.</p>
+<p>Der Dateiname muss immer vollständig zusammen mit dem Ordnernamen und der Dateierweiterung im folgenden Format angegeben werden: <code>UserFiles/Test.dat</code>.</p>
+
+<h3>Baustein Schnittstelle</h3>
+<table class='block'><thead><tr><th colspan='2'> </th><th colspan='5'>LGF_FileReadWriteDelete (FB)</th><th colspan='2'> </th></tr></thead><tbody>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>executeRead</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>done</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>executeWrite</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>busy</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>executeDelete</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>error</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>String</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>fileName</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>status</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Word</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>LGF_typeFileReadWriteDeleteParameter</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>parameter</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>dataLength</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>DInt</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>fileDoesNotExist</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>timestamps</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LGF_typeFileReadWriteDeleteTimestamps</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>diagnostics</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LGF_typeDiagnostics</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='inOut'><td rowspan='2'>Array[*] of Byte</td><td>&nbsp;</td><td>&nbsp;</td><td colspan='3'>bufferByteArray</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Array[*] of Byte</td></tr>
+<tr class='inOut interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='inOut'><td rowspan='2'>Variant</td><td>&nbsp;</td><td>&nbsp;</td><td colspan='3'>data</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Variant</td></tr>
+<tr class='inOut interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</tbody><tfoot><tr><td colspan='2'>&nbsp;</td><td colspan='5'>&nbsp;</td><td colspan='2'>&nbsp;</td></tr></tfoot></table>
+<h3>Input Parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Bezeichner</th><th class='type'>Datentyp</th>
+<th class='default'>Default Wert</th>
+<th>Beschreibung</th></tr></thead><tbody>
+<tr><td>executeRead</td><td>Bool</td>
+<td>FALSE</td>
+<td>Steigende Flanke startet einmaliges Lesen der Datei</td></tr>
+<tr><td>executeWrite</td><td>Bool</td>
+<td>FALSE</td>
+<td>Steigende Flanke startet einmaliges Schreiben der Datei</td></tr>
+<tr><td>executeDelete</td><td>Bool</td>
+<td>FALSE</td>
+<td>Steigende Flanke startet einmaliges Löschen der Datei</td></tr>
+<tr><td>fileName</td><td>String</td>
+<td>''</td>
+<td>Name der Datei inklusiv Pfad: `UserFiles/test.dat`</td></tr>
+<tr><td>parameter</td><td>LGF_typeFileReadWriteDeleteParameter</td>
+<td>---</td>
+<td>Dieser UDT gehört zu dem Modul `LGF_FileReadWriteDelete` und listet alle möglichen Parameter zur Konfiguration des Verhaltens auf.</td></tr>
+</tbody></table>
+<h3>Output Parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Bezeichner</th><th class='type'>Datentyp</th>
+<th>Beschreibung</th></tr></thead><tbody>
+<tr><td>done</td><td>Bool</td>
+<td>TRUE: FB-Abarbeitung erfolgreich fertiggestellt</td></tr>
+<tr><td>busy</td><td>Bool</td>
+<td>TRUE: FB ist aktiv; neue Ausgabewerte können erwartet werden.</td></tr>
+<tr><td>error</td><td>Bool</td>
+<td>TRUE: Bei der Ausführung der Funktionalität ist ein Fehler aufgetreten</td></tr>
+<tr><td>status</td><td>Word</td>
+<td>16#0000-16#7FFF: Status des FB / 16#8000-16#FFFF: Fehleridentifikation (siehe folgende Tabelle)</td></tr>
+<tr><td>dataLength</td><td>DInt</td>
+<td>Datenlänge die aus der Datei gelesen wurde (Serialisierte Länge von `data`)</td></tr>
+<tr><td>fileDoesNotExist</td><td>Bool</td>
+<td>True: Die Datei oder der Pfad unter `Dateiname` existiert nicht</td></tr>
+<tr><td>timestamps</td><td>LGF_typeFileReadWriteDeleteTimestamps</td>
+<td>Zeitstempel für Kommandos und Datei</td></tr>
+<tr><td>diagnostics</td><td>LGF_typeDiagnostics</td>
+<td>Diagnosestruktur zur Speicherung und Übertragung von Diagnoseinformationen von Blöcken über die Schnittstelle.</td></tr>
+</tbody></table>
+<h3>In/Out Parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Bezeichner</th><th class='type'>Datentyp</th>
+<th>Beschreibung</th></tr></thead><tbody>
+<tr><td>bufferByteArray</td><td>Array[*] of Byte</td>
+<td>Byte-Array-Puffer für Lesen / Schreiben aus / in Datei</td></tr>
+<tr><td>data</td><td>Variant</td>
+<td>Datensatz der aus Datei gelesen / in Datei geschrieben wird</td></tr>
+</tbody></table>
+<h3>Status & Error Meldungen</h3>
+<table class='StatusAndErrorConstants'><thead><tr><th>Code / Wert</th><th>Bezeichner / Beschreibung</th></tr></thead><tbody>
+<tr><td>16#0000</td><td>STATUS_EXECUTION_FINISHED<br>Ausführung ohne Fehler beendet</td></tr>
+<tr><td>16#7000</td><td>STATUS_NO_CALL<br>Kein Job wird gerade verarbeitet</td></tr>
+<tr><td>16#7001</td><td>STATUS_FIRST_CALL<br>Erster Aufruf nach Eingang eines neuen Auftrags (steigende Flanke 'execute')</td></tr>
+<tr><td>16#7002</td><td>STATUS_SUBSEQUENT_CALL<br>Nachfolgender Aufruf bei aktiver Verarbeitung ohne weitere Angaben</td></tr>
+<tr><td>16#8201</td><td>ERR_BUFFER_LOWERBOUND<br>Fehler: Untere Grenze des Pufferarrays Untere Grenze muss 0 sein</td></tr>
+<tr><td>16#8202</td><td>ERR_BUFFER_ARRAY_TO_SMALL_TO_COPY<br>Fehler: Puffergröße kleiner als benötigte Größe für Daten</td></tr>
+<tr><td>16#8400</td><td>ERR_MULTIPLE_COMMANDS<br>Fehler: Mehrere Befehle zur gleichen Zeit sind nicht erlaubt.</td></tr>
+<tr><td>16#8401</td><td>ERR_FILE_PATH<br>Fehler: Dateipfad Fehler: der Dateipfad muss mit 'UserFiles/' beginnen.</td></tr>
+<tr><td>16#8402</td><td>ERR_READ_TIME_LOCAL<br>Fehler: Lesen der Lokal Zeit `RD_LOC_T` - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8403</td><td>ERR_READ_TIME_SYSTEM<br>Fehler: Lesen der System Zeit (UTC) `RD_SYS_T` - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8411</td><td>ERR_FILE_SIZE_GRATER_THEN_DATA_SIZE<br>Fehler: Dateilänge und Datenlänge stimmen nicht überein!</td></tr>
+<tr><td>16#8412</td><td>ERR_FILE_SIZE_LESS_THEN_DATA_SIZE<br>Fehler: Dateilänge und Datenlänge stimmen nicht überein!</td></tr>
+<tr><td>16#8600</td><td>ERR_UNDEFINED_STATE<br>Fehler aufgrund eines undefinierten Zustands im Zustandsautomaten</td></tr>
+<tr><td>16#8601</td><td>ERR_MOVE_BLK_VARIANT<br>Fehler: Blockvariante verschieben (Puffer nach Daten) - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8602</td><td>ERR_SERIALIZE_DATA<br>Fehler: Daten serialisieren - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8603</td><td>ERR_DESERIALIZE_DATA<br>Fehler: Daten deserialisieren - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8604</td><td>ERR_SERIALIZE_DATE_TIMESTAMP<br>Fehler: Datums und Zeitstempel serialisieren - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8605</td><td>ERR_DESERIALIZE_DATE_TIMESTAMP<br>Fehler: Datums und Zeitstempel deserialisieren - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8610</td><td>ERR_FILE_READ_INIT<br>Fehler: Datei von der SMC lesen Initialisierung - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8611</td><td>ERR_FILE_READ<br>Fehler: Datei von SMC lesen - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8620</td><td>ERR_FILE_WRITE_INIT<br>Fehler: Datei auf die SMC schreiben Initialisierung - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8621</td><td>ERR_FILE_WRITE<br>Fehler: Datei auf SMC schreiben - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8630</td><td>ERR_FILE_DELETE_INIT<br>Fehler: Datei von der SMC löschen Initialisierung - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8631</td><td>ERR_FILE_DELETE<br>Fehler: Datei von SMC löschen - siehe `diagnostics.subFunctionStatus`</td></tr>
+</tbody></table>
+<h2>Benutzer definierte Datentypen</h2>
+<h3>LGF_typeFileReadWriteDeleteParameter (UDT / V0.0.1)</h3>
+<p>Dieser UDT gehört zu dem Modul <code>LGF_FileReadWriteDelete</code> und listet alle möglichen Parameter zur Konfiguration des Verhaltens auf.</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Bezeichner</th>
+      <th class='type'>Datentyp</th>
+      <th class='default'>Default Wert</th>
+      <th>Beschreibung</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>dataLengthMustMatch</td>
+    <td class='type'>Bool</td>
+    <td class='default'>TRUE</td>
+    <td>TRUE: Die Länge der Daten aus der Datei und der PLC muss übereinstimmen (Datei lesen)</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>clearBufferBefore</td>
+    <td class='type'>Bool</td>
+    <td class='default'>TRUE</td>
+    <td>TRUE: Der Puffer wird vor dem Schreiben der Daten mit 16#00 Byte gelöscht (Datei schreiben)</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>includeTimestamp</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>TRUE: Ein Zeitstempel (DTL) wird den Daten vorangestellt.<br>`executeWrite` fügt die aktuelle Zeit (System- oder Ortszeit) hinzu<br>`executeRead` liest den Zeitstempel zurück</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>timeStampIsLocal</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>TRUE: Der Zeitstempel wird in Ortszeit verwendet.<br>FALSE: Der Zeitstempel wird in Systemzeit / UTC verwendet.<br>Nur genutzt, wenn `includeTimestamp` gesetzt ist.</td>
+  </tr>
+  </tbody>
+</table>
+<h3>LGF_typeFileReadWriteDeleteTimestamps (UDT / V0.0.1)</h3>
+<p>Dieser UDT gehört zu dem Modul <code>LGF_FileReadWriteDelete</code> und listet alle Zeit Stempel der Befehle und der Datei auf, falls bekannt.<br />
+Wenn der Zeit Stempel unbekannt ist, wird er Default Zeit Stempel angezeigt: <code>DTL#1970-01-01-00:00:00</code>.</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Bezeichner</th>
+      <th class='type'>Datentyp</th>
+      <th class='default'>Default Wert</th>
+      <th>Beschreibung</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>file</td>
+    <td class='type'>LGF_typeFileReadWriteDeleteTimestamp</td>
+    <td class='default'>---</td>
+    <td>Zeitstempel der Datei</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>lastCommand</td>
+    <td class='type'>LGF_typeFileReadWriteDeleteTimestamp</td>
+    <td class='default'>---</td>
+    <td>Zeitstempel letztes Kommando</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>executeRead</td>
+    <td class='type'>LGF_typeFileReadWriteDeleteTimestamp</td>
+    <td class='default'>---</td>
+    <td>Zeitstempel Kommando `executeRead`</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>executeWrite</td>
+    <td class='type'>LGF_typeFileReadWriteDeleteTimestamp</td>
+    <td class='default'>---</td>
+    <td>Zeitstempel Kommando `executeWrite`</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>executeDelete</td>
+    <td class='type'>LGF_typeFileReadWriteDeleteTimestamp</td>
+    <td class='default'>---</td>
+    <td>Zeitstempel Kommando `executeDelete`</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>lastError</td>
+    <td class='type'>LGF_typeFileReadWriteDeleteTimestamp</td>
+    <td class='default'>---</td>
+    <td>Zeitstempel des letzten aufgetretenen Fehlers</td>
+  </tr>
+  </tbody>
+</table>
+<h3>LGF_typeFileReadWriteDeleteTimestamp (UDT / V0.0.1)</h3>
+<p>Dieser UDT gehört zu dem Modul <code>LGF_FileReadWriteDelete</code> und enthält einen Zeit Stempel eines Befehls oder der Datei.   Wenn der Zeit Stempel unbekannt ist, wird er Default Zeit Stempel angezeigt: <code>DTL#1970-01-01-00:00:00</code>.</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Bezeichner</th>
+      <th class='type'>Datentyp</th>
+      <th class='default'>Default Wert</th>
+      <th>Beschreibung</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>dateAndTime</td>
+    <td class='type'>DTL</td>
+    <td class='default'>---</td>
+    <td>Zeitstempel</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>timestampIsLocal</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>TRUE: Der Zeitstempel wird in Ortszeit verwendet.<br>FALSE: Der Zeitstempel wird in Systemzeit / UTC verwendet.<br>Nur genutzt wenn `includeTimestamp` gesetzt ist.</td>
+  </tr>
+  </tbody>
+</table>
+<h3>LGF_typeDiagnostics (UDT / V1.0.1)</h3>
+<p>Diagnosestruktur zur Speicherung und Übertragung von Diagnoseinformationen von Blöcken über die Schnittstelle.</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Bezeichner</th>
+      <th class='type'>Datentyp</th>
+      <th class='default'>Default Wert</th>
+      <th>Beschreibung</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>status</td>
+    <td class='type'>Word</td>
+    <td class='default'>16#0000</td>
+    <td>Status des Bausteins oder Fehleridentifikation beim Auftreten des Fehlers</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>subfunctionStatus</td>
+    <td class='type'>Word</td>
+    <td class='default'>16#0000</td>
+    <td>Status oder Rückgabewert von aufgerufenen FB's, FC's und Systembausteinen</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>stateNumber</td>
+    <td class='type'>DInt</td>
+    <td class='default'>0</td>
+    <td>Zustand in der Zustandsmaschine des Blocks, in dem der Fehler aufgetreten ist</td>
+  </tr>
+  </tbody>
+</table>
+<h2>Funktionsbeschreibung</h2>
+<h3 id="alle-befehle">Alle Befehle:</h3>
+<p>Der Dateiname muss immer vollumfänglich zusammen mit dem Ordner Namen und der Datei Erweiterung in folgendem Format angegeben werden: <code>UserFiles/test.dat</code></p>
+<h3 id="zeit-stempel">Zeit Stempel</h3>
+<p>Zeitstempel werden für Befehle, einen Fehler und die Datei geschrieben, sie werden in der Variablen <code>Timestamps</code> gespeichert. Im Falle eines Fehlers werden die Zeitstempel der einzelnen Befehle nicht geschrieben, der Zeitstempel der Datei wird auf den Standardwert <code>DTL#1970-01-01-00:00:00</code> zurückgesetzt.</p>
+<h3 id="datei-lesen-befehl-executeread">Datei Lesen - Befehl <code>executeRead</code></h3>
+<p>Mit dem Befehl <code>executeRead</code> kann eine Datei in den Datenhaushalt einer Variable an <code>data</code> eingelesen werden. Zum Lesen der Daten ist es notwendig diese zu deserialisieren, was die Funktion dem Anwender bereits abnimmt.<br />
+Zum Deserialisieren muss dafür ein externer Puffer in Form eines Byte Arrays verschaltet werden, der die Datenmenge aufnehmen kann, ist der Puffer zu klein wird ein Fehler ausgegeben.</p>
+<h3 id="datei-loschen-befehl-executedelete">Datei Löschen - Befehl <code>executeDelete</code></h3>
+<p>Mit dem Befehl <code>executeDelete</code> kann eine Datei von der SIMATIC Memory Card (SMC) gelöscht werden.</p>
+<h3 id="datei-schreiben-befehl-executewrite">Datei Schreiben - Befehl <code>executeWrite</code></h3>
+<p>Mit dem Befehl <code>executeWrite</code> kann der Datenhaushalt einer Variable an <code>data</code> in eine Datei geschrieben werden. Zum Schreiben der Daten ist es notwendig diese zu serialisieren, was die Funktion dem Anwender bereits abnimmt.<br />
+Zum Serialisieren muss dafür ein externer Puffer in Form eines Byte Arrays verschaltet werden, der die Datenmenge aufnehmen kann, ist der Puffer zu klein wird ein Fehler ausgegeben.</p>
+<hr class='predecessorDefList' />
+<dl class='HINWEIS'>
+<dt>Hinweis</dt>
+<dd>Die Datei Erweiterung (hier z.B. <code>dat</code>) kann frei gewählt werden oder auch entfallen, sie ist für eine externe Weiterverarbeitung von Nutzen, um dem Anwender das Format der Datei anzuzeigen.</dd>
+<dd>Eine Dateiendung im Dateinamen hat keinerlei Einfluss auf den Inhalt der Datei sowie dessen Formatierung, die Daten in einem entsprechenden Dateiformat bereitzustellen obliegt dem Anwender.</dd>
+</dl>
+<hr class='predecessorDefList' />
+<dl class='WARNUNG'>
+<dt>Warnung</dt>
+<dd>Die SMC (SIMATIC Memory Card) ist ein Flash Speicher mit endlichen Schreibzyklen.</dd>
+<dd>Ein hochfrequenter Schreibzugriff wirkt sich deshalb auch auf die Lebensdauer der SMC aus!</dd>
+</dl>
+
+<h2>Änderungshistorie</h2>
+<table class='ChangeLog'><thead><tr><th colspan='2'>Version & Datum</th><th>Änderungsbeschreibung</th></tr></thead><tbody>
+<tr class='LogEntryStart'><td></td><td>1.0.0</td><td>Simatic Systems Support</td></tr>
+<tr><td></td><td>10.07.2025</td><td>First released version</td></tr>
+</tbody></table>
+<hr>
+<p class='footer'>
+<a href='https://support.industry.siemens.com/cs/ww/de/view/109479728' target='_blank'>Library of General Functions (LGF)</a><br>
+<span>Beitrags Nummer: 109479728</span>
+<span>Datum: 10/2025</span>
+<span>Version: V5.2.1</span>
+<span>Generiert mit TIA Portal Add-In
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109809007' target='_blank'>Code2Docu</a>
+</span>
+<span> </span>
+</p>
+</body></html>

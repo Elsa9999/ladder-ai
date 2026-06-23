@@ -1,0 +1,77 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "MB_CLIENT",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{BOOL_REQ}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_DISCONNECT}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{UINT_CONNECT_ID}}",
+      "type": "UInt"
+    },
+    {
+      "name": "{{USINT_IP_OCTET_1}}",
+      "type": "USInt"
+    },
+    {
+      "name": "{{USINT_IP_OCTET_2}}",
+      "type": "USInt"
+    },
+    {
+      "name": "{{USINT_IP_OCTET_3}}",
+      "type": "USInt"
+    },
+    {
+      "name": "{{USINT_IP_OCTET_4}}",
+      "type": "USInt"
+    },
+    {
+      "name": "{{UINT_IP_PORT}}",
+      "type": "UInt"
+    },
+    {
+      "name": "{{USINT_MB_MODE}}",
+      "type": "USInt"
+    },
+    {
+      "name": "{{UDINT_MB_DATA_ADDR}}",
+      "type": "UDInt"
+    },
+    {
+      "name": "{{UINT_MB_DATA_LEN}}",
+      "type": "UInt"
+    },
+    {
+      "name": "{{BOOL_DONE}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_BUSY}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{BOOL_ERROR}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{WORD_STATUS}}",
+      "type": "Word"
+    }
+  ],
+  "required_dbs": [
+    {
+      "name": "{{DATA_PTR_DB}}",
+      "type": "Variant"
+    }
+  ],
+  "required_instance_db": "{{DB_INSTANCE}}",
+  "required_data_types": []
+}

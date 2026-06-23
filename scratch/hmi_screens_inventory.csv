@@ -1,0 +1,301 @@
+ScreenName,ObjectType,ObjectName,Left,Top,Width,Height,CurrentBoundTag,CurrentGraphicList,Mode,NearestLabel,NearestLabelDist
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_1,87,290,138,132,,,,"Text field_14 ('AGTR 3260') at (130,241)",105.7
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_3,133,255,62,143,,,,"Text field_14 ('AGTR 3260') at (130,241)",75.3
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_54,94,161,30,25,,,,"Text field_7 ('L') at (71,193)",43.5
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_49,110,187,14,106,,,,"Text field_10 ('C') at (67,247)",46.2
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_2,110,205,41,36,,,,"Text field_14 ('AGTR 3260') at (130,241)",53.1
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_57,32,161,63,13,,,,"Text field_7 ('L') at (71,193)",39.3
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_58,1,157,34,21,,,,"Text field_4 ('FT3200') at (7,219)",65.8
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_5,335,195,14,106,,,,"Text field_17 ('LT3203') at (294,335)",99.4
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_6,335,205,62,65,,,,"Text field_15 ('CV 3201') at (358,147)",83.8
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_18,322,293,27,31,,,,"Text field_17 ('LT3203') at (294,335)",38.8
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_7,225,311,97,13,,,,"Text field_9 ('L') at (259,335)",29.5
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_82,139,494,34,34,,,,"Text field_22 ('V3233') at (91,547)",60.1
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_24,149,421,28,11,,,,"Text field_21 ('V3232') at (198,462)",77.9
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_8,157,432,14,65,,,,"Text field_21 ('V3232') at (198,462)",62.1
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_9,157,528,14,106,,,,"Text field_22 ('V3233') at (91,547)",51.0
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_11,154,458,41,36,,,,"Text field_21 ('V3232') at (198,462)",51.1
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_10,57,503,82,13,,,,"Text field_22 ('V3233') at (91,547)",52.7
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_51,42,503,25,24,,,,"Text field_22 ('V3233') at (91,547)",77.1
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_12,42,525,14,52,,,,"Text field_24 ('Y') at (35,585)",45.4
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_13,42,535,41,36,,,,"Text field_24 ('Y') at (35,585)",47.2
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_44,158,634,28,34,,,,"Text field_35 ('Oyster Only') at (197,613)",56.0
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_14,186,653,218,13,,,,"Text field_34 ('Micro filter200u') at (262,605)",36.4
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_16,408,650,34,21,,,,"Text field_23 ('PUMP 3264') at (347,612)",49.0
+bon_tron_1,Hmi.Screen.Button,Button_2,449,627,143,63,,,Text,"Text field_2 ('Thời gian khuấy chiều ngược') at (344,553)",117.0
+bon_tron_1,Hmi.Screen.IOField,I/O field_1,576,518,67,28,,,InOutput,"Text field_1 ('Thời gian khuấy chiều thuận') at (343,518)",160.5
+bon_tron_1,Hmi.Screen.IOField,I/O field_2,577,553,67,28,,,InOutput,"Text field_2 ('Thời gian khuấy chiều ngược') at (344,553)",159.0
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_17,329,157,21,34,,,,"Text field_15 ('CV 3201') at (358,147)",55.4
+bon_tron_1,Hmi.Screen.IOField,I/O field_8,358,169,58,26,,,InOutput,"Text field_15 ('CV 3201') at (358,147)",24.6
+bon_tron_1,Hmi.Screen.IOField,I/O field_9,212,94,87,42,,,InOutput,"Text field_16 ('Total Flowmeter        FT3200') at (194,139)",44.0
+bon_tron_1,Hmi.Screen.IOField,I/O field_11,536,324,87,42,GIA_TRI_NHIET_DO_DOC_VE,,InOutput,"Text field_19 ('mô phỏng nhiệt độ') at (388,336)",121.5
+bon_tron_1,Hmi.Screen.IOField,I/O field_12,198,331,58,26,,,InOutput,"Text field_9 ('L') at (259,335)",39.1
+bon_tron_1,Hmi.Screen.IOField,I/O field_13,198,384,58,26,,,InOutput,"Text field_8 ('C') at (255,388)",35.6
+bon_tron_1,Hmi.Screen.IOField,I/O field_4,1,191,67,28,nguyen_lieu_tron_1,,InOutput,"Text field_4 ('FT3200') at (7,219)",25.3
+bon_tron_1,Hmi.Screen.IOField,I/O field_6,1,241,67,28,cap_nuoc_tron_1,,InOutput,"Text field_4 ('FT3200') at (7,219)",25.3
+bon_tron_1,Hmi.Screen.IOField,I/O field_5,474,395,41,26,,,InOutput,"Text field_20 ('SP(C)') at (422,397)",48.0
+bon_tron_1,Hmi.Screen.Button,Button_3,699,252,127,62,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",172.2
+bon_tron_1,Hmi.Screen.Button,Button_4,699,315,127,62,,,Text,"Text field_3 ('lượng nước cài đặt') at (718,520)",186.8
+bon_tron_1,Hmi.Screen.Button,Button_5,699,378,127,62,,,Text,"Text field_3 ('lượng nước cài đặt') at (718,520)",124.7
+bon_tron_1,Hmi.Screen.Button,Button_6,699,441,127,62,,,Text,"Text field_3 ('lượng nước cài đặt') at (718,520)",64.5
+bon_tron_1,Hmi.Screen.Button,Button_7,833,247,189,35,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",150.7
+bon_tron_1,Hmi.Screen.Button,Button_8,834,279,189,35,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",179.3
+bon_tron_1,Hmi.Screen.Button,Button_9,835,311,189,35,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",209.0
+bon_tron_1,Hmi.Screen.Button,Button_10,838,357,81,37,,,Text,"Text field_3 ('lượng nước cài đặt') at (718,520)",179.7
+bon_tron_1,Hmi.Screen.Button,Button_11,939,358,81,37,,,Text,"Text field_3 ('lượng nước cài đặt') at (718,520)",245.7
+bon_tron_1,Hmi.Screen.Button,Button_12,839,404,81,37,,,Text,"Text field_3 ('lượng nước cài đặt') at (718,520)",141.6
+bon_tron_1,Hmi.Screen.Button,Button_13,939,403,81,37,,,Text,"Text field_3 ('lượng nước cài đặt') at (718,520)",220.2
+bon_tron_1,Hmi.Screen.Button,Button_14,841,451,178,43,,,Text,"Text field_3 ('lượng nước cài đặt') at (718,520)",153.1
+bon_tron_1,Hmi.Screen.Button,Button_15,832,220,188,26,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",123.7
+bon_tron_1,Hmi.Screen.Button,Button_17,974,756,48,88,,,Text,"Text field_27 ('màn hình') at (976,757)",23.1
+bon_tron_1,Hmi.Screen.Button,Button_21,864,796,113,47,,,Text,"Text field_27 ('màn hình') at (976,757)",86.6
+bon_tron_1,Hmi.Screen.Button,Button_22,741,796,123,48,,,Text,"Text field_28 ('Đăng nhập') at (766,808)",5.6
+bon_tron_1,Hmi.Screen.Button,Button_23,633,796,110,46,,,Text,"Text field_28 ('Đăng nhập') at (766,808)",120.0
+bon_tron_1,Hmi.Screen.Button,Button_24,523,798,110,46,,,Text,"Text field_29 ('Chu Trình') at (435,798)",105.7
+bon_tron_1,Hmi.Screen.Button,Button_16,416,797,110,46,,,Text,"Text field_29 ('Chu Trình') at (435,798)",11.2
+bon_tron_1,Hmi.Screen.Button,Button_18,1,799,110,46,,,Text,"Text field_26 ('Cảnh báo') at (20,811)",0.5
+bon_tron_1,Hmi.Screen.Button,Button_19,112,799,197,46,,,Text,"Text field_31 ('17/6/2026 9:38:00 PM') at (8,767)",118.9
+bon_tron_1,Hmi.Screen.Button,Button_20,308,798,112,46,,,Text,"Text field_30 ('Thông sốsản phẩm') at (347,802)",20.5
+bon_tron_1,Hmi.Screen.Button,Button_25,860,756,116,41,,,Text,"Text field_27 ('màn hình') at (976,757)",78.0
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_19,986,798,23,37,,,,"Text field_27 ('màn hình') at (976,757)",39.5
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_20,750,806,15,34,,,,"Text field_28 ('Đăng nhập') at (766,808)",50.7
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_21,640,806,20,33,,,,"Text field_28 ('Đăng nhập') at (766,808)",158.0
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_22,442,818,60,21,,,,"Text field_29 ('Chu Trình') at (435,798)",19.5
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_23,313,802,30,35,,,,"Text field_30 ('Thông sốsản phẩm') at (347,802)",56.6
+bon_tron_1,Hmi.Screen.IOField,I/O field_10,4,9,371,32,,,InOutput,"Text field_16 ('Total Flowmeter        FT3200') at (194,139)",150.3
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_25,423,12,50,33,,,,"Text field_33 ('BỒN TRỘN 1') at (431,52)",63.6
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_26,482,9,50,33,,,,"Text field_33 ('BỒN TRỘN 1') at (431,52)",41.8
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_27,850,11,50,33,,,,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",110.3
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_28,899,11,50,33,,,,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",130.2
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_29,370,0,58,41,,,,"Text field_33 ('BỒN TRỘN 1') at (431,52)",110.1
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_4,156,549,41,36,,,,"Text field_12 ('V3234') at (201,559)",52.1
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_15,164,680,28,34,,,,"Text field_35 ('Oyster Only') at (197,613)",79.4
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_30,192,701,212,13,,,,"Text field_34 ('Micro filter200u') at (262,605)",82.9
+bon_tron_1,Hmi.Screen.SymbolLibrary,Symbol library_31,412,701,34,21,,,,"Text field_23 ('PUMP 3264') at (347,612)",95.4
+bon_tron_1,Hmi.Screen.Button,Button_1,449,693,143,63,,,Text,"Text field_29 ('Chu Trình') at (435,798)",96.9
+bon_tron_1,Hmi.Screen.IOField,I/O field_7,752,553,87,42,,,InOutput,"Text field_3 ('lượng nước cài đặt') at (718,520)",43.6
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_1,87,290,138,132,,,,"Text field_14 ('AGTR 3261') at (130,241)",105.7
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_3,133,255,62,143,,,,"Text field_14 ('AGTR 3261') at (130,241)",75.3
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_54,94,161,30,25,,,,"Text field_7 ('L') at (71,193)",43.5
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_49,110,187,14,106,,,,"Text field_10 ('C') at (67,247)",46.2
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_2,110,205,41,36,,,,"Text field_14 ('AGTR 3261') at (130,241)",53.1
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_57,32,161,63,13,,,,"Text field_7 ('L') at (71,193)",39.3
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_4,194,187,14,106,,,,"Text field_13 ('V3235') at (157,208)",26.7
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_58,1,157,34,21,,,,"Text field_4 ('FT3205') at (7,219)",65.8
+bon_tron_2,Hmi.Screen.Button,Button_1,146,127,107,37,,,Text,"Text field_13 ('V3235') at (157,208)",75.0
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_56,190,153,21,34,,,,"Text field_13 ('V3235') at (157,208)",51.5
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_5,335,195,14,106,,,,"Text field_17 ('LT3209') at (294,335)",99.4
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_6,335,205,62,65,,,,"Text field_15 ('CV 32.06') at (358,147)",84.6
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_18,322,293,27,31,,,,"Text field_17 ('LT3209') at (294,335)",38.8
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_7,225,311,97,13,,,,"Text field_9 ('L') at (259,335)",29.5
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_82,139,494,34,34,,,,"Text field_22 ('V3238') at (91,547)",60.1
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_24,149,421,28,11,,,,"Text field_21 ('V3237') at (198,462)",77.9
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_8,157,432,14,65,,,,"Text field_21 ('V3237') at (198,462)",62.1
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_9,157,528,14,106,,,,"Text field_22 ('V3238') at (91,547)",51.0
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_11,154,458,41,36,,,,"Text field_21 ('V3237') at (198,462)",51.1
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_10,57,503,82,13,,,,"Text field_22 ('V3238') at (91,547)",52.7
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_51,42,503,25,24,,,,"Text field_22 ('V3238') at (91,547)",77.1
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_12,42,525,14,52,,,,"Text field_24 ('Y') at (35,585)",45.4
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_13,42,535,41,36,,,,"Text field_24 ('Y') at (35,585)",47.2
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_44,158,634,28,34,,,,"Text field_22 ('V3238') at (91,547)",107.3
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_14,186,653,218,13,,,,"Text field_23 ('V3239') at (260,679)",31.4
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_15,274,624,47,47,,,,"Text field_23 ('V3239') at (260,679)",43.7
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_16,408,650,34,21,,,,"Text field_3 ('Thời gian thanh trùng') at (345,588)",61.5
+bon_tron_2,Hmi.Screen.Button,Button_2,449,627,143,63,,,Text,"Text field_3 ('Thời gian thanh trùng') at (345,588)",111.2
+bon_tron_2,Hmi.Screen.IOField,I/O field_1,576,518,67,28,,,InOutput,"Text field_1 ('Thời gian khuấy chiều thuận') at (343,518)",160.5
+bon_tron_2,Hmi.Screen.IOField,I/O field_2,577,553,67,28,,,InOutput,"Text field_2 ('Thời gian khuấy chiều ngược') at (344,553)",159.0
+bon_tron_2,Hmi.Screen.IOField,I/O field_3,578,588,67,28,,,InOutput,"Text field_2 ('Thời gian khuấy chiều ngược') at (344,553)",164.5
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_17,329,157,21,34,,,,"Text field_15 ('CV 32.06') at (358,147)",57.8
+bon_tron_2,Hmi.Screen.IOField,I/O field_8,358,169,58,26,,,InOutput,"Text field_15 ('CV 32.06') at (358,147)",25.3
+bon_tron_2,Hmi.Screen.IOField,I/O field_9,461,112,87,42,,,InOutput,"Text field_16 ('Total Flowmeter        FT3205') at (443,157)",44.0
+bon_tron_2,Hmi.Screen.IOField,I/O field_11,536,324,87,42,,,InOutput,"Text field_19 ('mô phỏng nhiệt độ') at (388,336)",121.5
+bon_tron_2,Hmi.Screen.IOField,I/O field_12,198,331,58,26,,,InOutput,"Text field_9 ('L') at (259,335)",39.1
+bon_tron_2,Hmi.Screen.IOField,I/O field_13,198,384,58,26,,,InOutput,"Text field_8 ('C') at (255,388)",35.6
+bon_tron_2,Hmi.Screen.IOField,I/O field_4,1,191,67,28,,,InOutput,"Text field_4 ('FT3205') at (7,219)",25.3
+bon_tron_2,Hmi.Screen.IOField,I/O field_6,1,241,67,28,,,InOutput,"Text field_4 ('FT3205') at (7,219)",25.3
+bon_tron_2,Hmi.Screen.IOField,I/O field_5,474,395,41,26,,,InOutput,"Text field_20 ('SP(C)') at (422,397)",48.0
+bon_tron_2,Hmi.Screen.IOField,I/O field_7,536,230,87,42,,,InOutput,"Text field_12 ('lượng nước cài đặt') at (502,197)",43.6
+bon_tron_2,Hmi.Screen.Button,Button_3,699,252,127,62,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",172.2
+bon_tron_2,Hmi.Screen.Button,Button_4,699,315,127,62,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",228.6
+bon_tron_2,Hmi.Screen.Button,Button_5,699,378,127,62,,,Text,"Text field_12 ('lượng nước cài đặt') at (502,197)",276.6
+bon_tron_2,Hmi.Screen.Button,Button_6,699,441,127,62,,,Text,"Text field_1 ('Thời gian khuấy chiều thuận') at (343,518)",318.6
+bon_tron_2,Hmi.Screen.Button,Button_7,833,247,189,35,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",150.7
+bon_tron_2,Hmi.Screen.Button,Button_8,834,279,189,35,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",179.3
+bon_tron_2,Hmi.Screen.Button,Button_9,835,311,189,35,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",209.0
+bon_tron_2,Hmi.Screen.Button,Button_10,838,357,81,37,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",242.1
+bon_tron_2,Hmi.Screen.Button,Button_11,939,358,81,37,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",273.8
+bon_tron_2,Hmi.Screen.Button,Button_12,839,404,81,37,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",289.0
+bon_tron_2,Hmi.Screen.Button,Button_13,939,403,81,37,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",314.2
+bon_tron_2,Hmi.Screen.Button,Button_14,841,451,178,43,,,Text,"Text field_27 ('màn hình') at (976,757)",311.6
+bon_tron_2,Hmi.Screen.Button,Button_15,832,220,188,26,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",123.7
+bon_tron_2,Hmi.Screen.Button,Button_17,974,756,48,88,,,Text,"Text field_27 ('màn hình') at (976,757)",23.1
+bon_tron_2,Hmi.Screen.Button,Button_21,864,796,113,47,,,Text,"Text field_27 ('màn hình') at (976,757)",86.6
+bon_tron_2,Hmi.Screen.Button,Button_22,741,796,123,48,,,Text,"Text field_28 ('Đăng nhập') at (766,808)",5.6
+bon_tron_2,Hmi.Screen.Button,Button_23,633,796,110,46,,,Text,"Text field_28 ('Đăng nhập') at (766,808)",120.0
+bon_tron_2,Hmi.Screen.Button,Button_24,523,798,110,46,,,Text,"Text field_29 ('Chu Trình') at (435,798)",105.7
+bon_tron_2,Hmi.Screen.Button,Button_16,416,797,110,46,,,Text,"Text field_29 ('Chu Trình') at (435,798)",11.2
+bon_tron_2,Hmi.Screen.Button,Button_18,1,799,110,46,,,Text,"Text field_26 ('Cảnh báo') at (20,811)",0.5
+bon_tron_2,Hmi.Screen.Button,Button_19,112,799,197,46,,,Text,"Text field_31 ('17/6/2026 8:33:00 PM') at (8,767)",118.9
+bon_tron_2,Hmi.Screen.Button,Button_20,308,798,112,46,,,Text,"Text field_30 ('Thông sốsản phẩm') at (347,802)",20.5
+bon_tron_2,Hmi.Screen.Button,Button_25,860,756,116,41,,,Text,"Text field_27 ('màn hình') at (976,757)",78.0
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_19,986,798,23,37,,,,"Text field_27 ('màn hình') at (976,757)",39.5
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_20,751,809,15,34,,,,"Text field_28 ('Đăng nhập') at (766,808)",50.0
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_21,640,806,20,33,,,,"Text field_28 ('Đăng nhập') at (766,808)",158.0
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_22,442,818,60,21,,,,"Text field_29 ('Chu Trình') at (435,798)",19.5
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_23,313,802,30,35,,,,"Text field_30 ('Thông sốsản phẩm') at (347,802)",56.6
+bon_tron_2,Hmi.Screen.IOField,I/O field_10,4,9,371,32,,,InOutput,"Text field_13 ('V3235') at (157,208)",194.1
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_25,423,12,50,33,,,,"Text field_33 ('BỒN TRỘN 2') at (431,52)",63.6
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_26,482,9,50,33,,,,"Text field_33 ('BỒN TRỘN 2') at (431,52)",41.8
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_27,850,11,50,33,,,,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",110.3
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_28,899,11,50,33,,,,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",130.2
+bon_tron_2,Hmi.Screen.SymbolLibrary,Symbol library_29,370,0,58,41,,,,"Text field_33 ('BỒN TRỘN 2') at (431,52)",110.1
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_1,87,290,138,132,,,,"Text field_14 ('AGTR 3260') at (130,241)",105.7
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_3,133,255,62,143,,,,"Text field_14 ('AGTR 3260') at (130,241)",75.3
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_54,94,161,30,25,,,,"Text field_7 ('L') at (71,193)",43.5
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_49,110,187,14,106,,,,"Text field_10 ('C') at (67,247)",46.2
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_2,110,205,41,36,,,,"Text field_14 ('AGTR 3260') at (130,241)",53.1
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_57,32,161,63,13,,,,"Text field_7 ('L') at (71,193)",39.3
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_58,1,157,34,21,,,,"Text field_4 ('FT3210') at (7,219)",65.8
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_5,335,195,14,106,,,,"Text field_17 ('LT3213') at (294,335)",99.4
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_6,335,205,62,65,,,,"Text field_15 ('CV 3211') at (358,147)",83.8
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_18,322,293,27,31,,,,"Text field_17 ('LT3213') at (294,335)",38.8
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_7,225,311,97,13,,,,"Text field_9 ('L') at (259,335)",29.5
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_82,139,494,34,34,,,,"Text field_22 ('V3243') at (91,547)",60.1
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_24,149,421,28,11,,,,"Text field_21 ('V3242') at (198,462)",77.9
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_8,157,432,14,65,,,,"Text field_21 ('V3242') at (198,462)",62.1
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_9,157,528,14,106,,,,"Text field_22 ('V3243') at (91,547)",51.0
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_11,154,458,41,36,,,,"Text field_21 ('V3242') at (198,462)",51.1
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_10,57,503,82,13,,,,"Text field_22 ('V3243') at (91,547)",52.7
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_51,42,503,25,24,,,,"Text field_22 ('V3243') at (91,547)",77.1
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_12,42,525,14,52,,,,"Text field_24 ('Y') at (35,585)",45.4
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_13,42,535,41,36,,,,"Text field_24 ('Y') at (35,585)",47.2
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_44,158,634,28,34,,,,"Text field_35 ('Oyster Only') at (197,613)",56.0
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_14,186,653,218,13,,,,"Text field_34 ('Micro filter200u') at (262,605)",36.4
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_16,408,650,34,21,,,,"Text field_23 ('PUMP 3265') at (347,612)",49.0
+bon_tron_3,Hmi.Screen.Button,Button_2,449,627,143,63,,,Text,"Text field_2 ('Thời gian khuấy chiều ngược') at (344,553)",117.0
+bon_tron_3,Hmi.Screen.IOField,I/O field_1,576,518,67,28,,,InOutput,"Text field_1 ('Thời gian khuấy chiều thuận') at (343,518)",160.5
+bon_tron_3,Hmi.Screen.IOField,I/O field_2,577,553,67,28,,,InOutput,"Text field_2 ('Thời gian khuấy chiều ngược') at (344,553)",159.0
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_17,329,157,21,34,,,,"Text field_15 ('CV 3211') at (358,147)",55.4
+bon_tron_3,Hmi.Screen.IOField,I/O field_8,358,169,58,26,,,InOutput,"Text field_15 ('CV 3211') at (358,147)",24.6
+bon_tron_3,Hmi.Screen.IOField,I/O field_9,212,94,87,42,,,InOutput,"Text field_16 ('Total Flowmeter        FT3210') at (194,139)",44.0
+bon_tron_3,Hmi.Screen.IOField,I/O field_11,536,324,87,42,,,InOutput,"Text field_19 ('mô phỏng nhiệt độ') at (388,336)",121.5
+bon_tron_3,Hmi.Screen.IOField,I/O field_12,198,331,58,26,,,InOutput,"Text field_9 ('L') at (259,335)",39.1
+bon_tron_3,Hmi.Screen.IOField,I/O field_13,198,384,58,26,,,InOutput,"Text field_8 ('C') at (255,388)",35.6
+bon_tron_3,Hmi.Screen.IOField,I/O field_4,1,191,67,28,,,InOutput,"Text field_4 ('FT3210') at (7,219)",25.3
+bon_tron_3,Hmi.Screen.IOField,I/O field_6,1,241,67,28,,,InOutput,"Text field_4 ('FT3210') at (7,219)",25.3
+bon_tron_3,Hmi.Screen.IOField,I/O field_5,474,395,41,26,,,InOutput,"Text field_20 ('SP(C)') at (422,397)",48.0
+bon_tron_3,Hmi.Screen.Button,Button_3,699,252,127,62,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",172.2
+bon_tron_3,Hmi.Screen.Button,Button_4,699,315,127,62,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",228.6
+bon_tron_3,Hmi.Screen.Button,Button_5,699,378,127,62,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",287.8
+bon_tron_3,Hmi.Screen.Button,Button_6,699,441,127,62,,,Text,"Text field_1 ('Thời gian khuấy chiều thuận') at (343,518)",318.6
+bon_tron_3,Hmi.Screen.Button,Button_7,833,247,189,35,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",150.7
+bon_tron_3,Hmi.Screen.Button,Button_8,834,279,189,35,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",179.3
+bon_tron_3,Hmi.Screen.Button,Button_9,835,311,189,35,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",209.0
+bon_tron_3,Hmi.Screen.Button,Button_10,838,357,81,37,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",242.1
+bon_tron_3,Hmi.Screen.Button,Button_11,939,358,81,37,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",273.8
+bon_tron_3,Hmi.Screen.Button,Button_12,839,404,81,37,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",289.0
+bon_tron_3,Hmi.Screen.Button,Button_13,939,403,81,37,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",314.2
+bon_tron_3,Hmi.Screen.Button,Button_14,841,451,178,43,,,Text,"Text field_27 ('màn hình') at (976,757)",311.6
+bon_tron_3,Hmi.Screen.Button,Button_15,832,220,188,26,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",123.7
+bon_tron_3,Hmi.Screen.Button,Button_17,974,756,48,88,,,Text,"Text field_27 ('màn hình') at (976,757)",23.1
+bon_tron_3,Hmi.Screen.Button,Button_21,864,796,113,47,,,Text,"Text field_27 ('màn hình') at (976,757)",86.6
+bon_tron_3,Hmi.Screen.Button,Button_22,741,796,123,48,,,Text,"Text field_28 ('Đăng nhập') at (766,808)",5.6
+bon_tron_3,Hmi.Screen.Button,Button_23,633,796,110,46,,,Text,"Text field_28 ('Đăng nhập') at (766,808)",120.0
+bon_tron_3,Hmi.Screen.Button,Button_24,523,798,110,46,,,Text,"Text field_29 ('Chu Trình') at (435,798)",105.7
+bon_tron_3,Hmi.Screen.Button,Button_16,416,797,110,46,,,Text,"Text field_29 ('Chu Trình') at (435,798)",11.2
+bon_tron_3,Hmi.Screen.Button,Button_18,1,799,110,46,,,Text,"Text field_26 ('Cảnh báo') at (20,811)",0.5
+bon_tron_3,Hmi.Screen.Button,Button_19,112,799,197,46,,,Text,"Text field_31 ('17/6/2026 9:38:00 PM') at (8,767)",118.9
+bon_tron_3,Hmi.Screen.Button,Button_20,308,798,112,46,,,Text,"Text field_30 ('Thông sốsản phẩm') at (347,802)",20.5
+bon_tron_3,Hmi.Screen.Button,Button_25,860,756,116,41,,,Text,"Text field_27 ('màn hình') at (976,757)",78.0
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_19,986,798,23,37,,,,"Text field_27 ('màn hình') at (976,757)",39.5
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_20,750,806,15,34,,,,"Text field_28 ('Đăng nhập') at (766,808)",50.7
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_21,640,806,20,33,,,,"Text field_28 ('Đăng nhập') at (766,808)",158.0
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_22,442,818,60,21,,,,"Text field_29 ('Chu Trình') at (435,798)",19.5
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_23,313,802,30,35,,,,"Text field_30 ('Thông sốsản phẩm') at (347,802)",56.6
+bon_tron_3,Hmi.Screen.IOField,I/O field_10,4,9,371,32,,,InOutput,"Text field_16 ('Total Flowmeter        FT3210') at (194,139)",150.3
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_25,423,12,50,33,,,,"Text field_33 ('BỒN TRỘN 3') at (431,52)",63.6
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_26,482,9,50,33,,,,"Text field_33 ('BỒN TRỘN 3') at (431,52)",41.8
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_27,850,11,50,33,,,,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",110.3
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_28,899,11,50,33,,,,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",130.2
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_29,370,0,58,41,,,,"Text field_33 ('BỒN TRỘN 3') at (431,52)",110.1
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_4,156,549,41,36,,,,"Text field_12 ('V3244') at (201,559)",52.1
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_15,164,680,28,34,,,,"Text field_35 ('Oyster Only') at (197,613)",79.4
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_30,192,701,212,13,,,,"Text field_34 ('Micro filter200u') at (262,605)",82.9
+bon_tron_3,Hmi.Screen.SymbolLibrary,Symbol library_31,412,701,34,21,,,,"Text field_23 ('PUMP 3265') at (347,612)",95.4
+bon_tron_3,Hmi.Screen.Button,Button_1,449,693,143,63,,,Text,"Text field_29 ('Chu Trình') at (435,798)",96.9
+bon_tron_3,Hmi.Screen.IOField,I/O field_7,516,220,87,42,,,InOutput,"Text field_3 ('lượng nước cài đặt') at (482,187)",43.6
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_1,87,290,138,132,,,,"Text field_14 ('AGTR 3263') at (130,241)",105.7
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_3,133,255,62,143,,,,"Text field_14 ('AGTR 3263') at (130,241)",75.3
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_54,94,161,30,25,,,,"Text field_7 ('L') at (71,193)",43.5
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_49,110,187,14,106,,,,"Text field_10 ('C') at (67,247)",46.2
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_2,110,205,41,36,,,,"Text field_14 ('AGTR 3263') at (130,241)",53.1
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_57,32,161,63,13,,,,"Text field_7 ('L') at (71,193)",39.3
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_4,194,187,14,106,,,,"Text field_13 ('V3245') at (157,208)",26.7
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_58,1,157,34,21,,,,"Text field_4 ('FT3215') at (7,219)",65.8
+bon_tron_4,Hmi.Screen.Button,Button_1,146,127,107,37,,,Text,"Text field_13 ('V3245') at (157,208)",75.0
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_56,190,153,21,34,,,,"Text field_13 ('V3245') at (157,208)",51.5
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_5,335,195,14,106,,,,"Text field_17 ('LT3219') at (294,335)",99.4
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_6,335,205,62,65,,,,"Text field_15 ('CV 3216') at (358,147)",83.8
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_18,322,293,27,31,,,,"Text field_17 ('LT3219') at (294,335)",38.8
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_7,225,311,97,13,,,,"Text field_9 ('L') at (259,335)",29.5
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_82,139,494,34,34,,,,"Text field_22 ('V3248') at (91,547)",60.1
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_24,149,421,28,11,,,,"Text field_21 ('V3247') at (198,462)",77.9
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_8,157,432,14,65,,,,"Text field_21 ('V3247') at (198,462)",62.1
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_9,157,528,14,106,,,,"Text field_22 ('V3248') at (91,547)",51.0
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_11,154,458,41,36,,,,"Text field_21 ('V3247') at (198,462)",51.1
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_10,57,503,82,13,,,,"Text field_22 ('V3248') at (91,547)",52.7
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_51,42,503,25,24,,,,"Text field_22 ('V3248') at (91,547)",77.1
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_12,42,525,14,52,,,,"Text field_24 ('Y') at (35,585)",45.4
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_13,42,535,41,36,,,,"Text field_24 ('Y') at (35,585)",47.2
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_44,158,634,28,34,,,,"Text field_22 ('V3248') at (91,547)",107.3
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_14,186,653,218,13,,,,"Text field_23 ('V3249') at (260,679)",31.4
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_15,274,624,47,47,,,,"Text field_23 ('V3249') at (260,679)",43.7
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_16,408,650,34,21,,,,"Text field_3 ('Thời gian thanh trùng') at (345,588)",61.5
+bon_tron_4,Hmi.Screen.Button,Button_2,449,627,143,63,,,Text,"Text field_3 ('Thời gian thanh trùng') at (345,588)",111.2
+bon_tron_4,Hmi.Screen.IOField,I/O field_1,576,518,67,28,,,InOutput,"Text field_1 ('Thời gian khuấy chiều thuận') at (343,518)",160.5
+bon_tron_4,Hmi.Screen.IOField,I/O field_2,577,553,67,28,,,InOutput,"Text field_2 ('Thời gian khuấy chiều ngược') at (344,553)",159.0
+bon_tron_4,Hmi.Screen.IOField,I/O field_3,578,588,67,28,,,InOutput,"Text field_2 ('Thời gian khuấy chiều ngược') at (344,553)",164.5
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_17,329,157,21,34,,,,"Text field_15 ('CV 3216') at (358,147)",55.4
+bon_tron_4,Hmi.Screen.IOField,I/O field_8,358,169,58,26,,,InOutput,"Text field_15 ('CV 3216') at (358,147)",24.6
+bon_tron_4,Hmi.Screen.IOField,I/O field_9,461,112,87,42,,,InOutput,"Text field_16 ('Total Flowmeter        FT3215') at (443,157)",44.0
+bon_tron_4,Hmi.Screen.IOField,I/O field_11,536,324,87,42,,,InOutput,"Text field_19 ('mô phỏng nhiệt độ') at (388,336)",121.5
+bon_tron_4,Hmi.Screen.IOField,I/O field_12,198,331,58,26,,,InOutput,"Text field_9 ('L') at (259,335)",39.1
+bon_tron_4,Hmi.Screen.IOField,I/O field_13,198,384,58,26,,,InOutput,"Text field_8 ('C') at (255,388)",35.6
+bon_tron_4,Hmi.Screen.IOField,I/O field_4,1,191,67,28,,,InOutput,"Text field_4 ('FT3215') at (7,219)",25.3
+bon_tron_4,Hmi.Screen.IOField,I/O field_6,1,241,67,28,,,InOutput,"Text field_4 ('FT3215') at (7,219)",25.3
+bon_tron_4,Hmi.Screen.IOField,I/O field_5,474,395,41,26,,,InOutput,"Text field_20 ('SP(C)') at (422,397)",48.0
+bon_tron_4,Hmi.Screen.IOField,I/O field_7,536,230,87,42,,,InOutput,"Text field_12 ('lượng nước cài đặt') at (502,197)",43.6
+bon_tron_4,Hmi.Screen.Button,Button_3,699,252,127,62,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",172.2
+bon_tron_4,Hmi.Screen.Button,Button_4,699,315,127,62,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",228.6
+bon_tron_4,Hmi.Screen.Button,Button_5,699,378,127,62,,,Text,"Text field_12 ('lượng nước cài đặt') at (502,197)",276.6
+bon_tron_4,Hmi.Screen.Button,Button_6,699,441,127,62,,,Text,"Text field_1 ('Thời gian khuấy chiều thuận') at (343,518)",318.6
+bon_tron_4,Hmi.Screen.Button,Button_7,833,247,189,35,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",150.7
+bon_tron_4,Hmi.Screen.Button,Button_8,834,279,189,35,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",179.3
+bon_tron_4,Hmi.Screen.Button,Button_9,835,311,189,35,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",209.0
+bon_tron_4,Hmi.Screen.Button,Button_10,838,357,81,37,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",242.1
+bon_tron_4,Hmi.Screen.Button,Button_11,939,358,81,37,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",273.8
+bon_tron_4,Hmi.Screen.Button,Button_12,839,404,81,37,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",289.0
+bon_tron_4,Hmi.Screen.Button,Button_13,939,403,81,37,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",314.2
+bon_tron_4,Hmi.Screen.Button,Button_14,841,451,178,43,,,Text,"Text field_27 ('màn hình') at (976,757)",311.6
+bon_tron_4,Hmi.Screen.Button,Button_15,832,220,188,26,,,Text,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",123.7
+bon_tron_4,Hmi.Screen.Button,Button_17,974,756,48,88,,,Text,"Text field_27 ('màn hình') at (976,757)",23.1
+bon_tron_4,Hmi.Screen.Button,Button_21,864,796,113,47,,,Text,"Text field_27 ('màn hình') at (976,757)",86.6
+bon_tron_4,Hmi.Screen.Button,Button_22,741,796,123,48,,,Text,"Text field_28 ('Đăng nhập') at (766,808)",5.6
+bon_tron_4,Hmi.Screen.Button,Button_23,633,796,110,46,,,Text,"Text field_28 ('Đăng nhập') at (766,808)",120.0
+bon_tron_4,Hmi.Screen.Button,Button_24,523,798,110,46,,,Text,"Text field_29 ('Chu Trình') at (435,798)",105.7
+bon_tron_4,Hmi.Screen.Button,Button_16,416,797,110,46,,,Text,"Text field_29 ('Chu Trình') at (435,798)",11.2
+bon_tron_4,Hmi.Screen.Button,Button_18,1,799,110,46,,,Text,"Text field_26 ('Cảnh báo') at (20,811)",0.5
+bon_tron_4,Hmi.Screen.Button,Button_19,112,799,197,46,,,Text,"Text field_31 ('17/6/2026 8:33:00 PM') at (8,767)",118.9
+bon_tron_4,Hmi.Screen.Button,Button_20,308,798,112,46,,,Text,"Text field_30 ('Thông sốsản phẩm') at (347,802)",20.5
+bon_tron_4,Hmi.Screen.Button,Button_25,860,756,116,41,,,Text,"Text field_27 ('màn hình') at (976,757)",78.0
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_19,986,798,23,37,,,,"Text field_27 ('màn hình') at (976,757)",39.5
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_20,751,809,15,34,,,,"Text field_28 ('Đăng nhập') at (766,808)",50.0
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_21,640,806,20,33,,,,"Text field_28 ('Đăng nhập') at (766,808)",158.0
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_22,442,818,60,21,,,,"Text field_29 ('Chu Trình') at (435,798)",19.5
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_23,313,802,30,35,,,,"Text field_30 ('Thông sốsản phẩm') at (347,802)",56.6
+bon_tron_4,Hmi.Screen.IOField,I/O field_10,4,9,371,32,,,InOutput,"Text field_13 ('V3245') at (157,208)",194.1
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_25,423,12,50,33,,,,"Text field_33 ('BỒN TRỘN 4') at (431,52)",63.6
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_26,482,9,50,33,,,,"Text field_33 ('BỒN TRỘN 4') at (431,52)",41.8
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_27,850,11,50,33,,,,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",110.3
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_28,899,11,50,33,,,,"Text field_25 ('NƯỚC TƯƠNG') at (794,124)",130.2
+bon_tron_4,Hmi.Screen.SymbolLibrary,Symbol library_29,370,0,58,41,,,,"Text field_33 ('BỒN TRỘN 4') at (431,52)",110.1

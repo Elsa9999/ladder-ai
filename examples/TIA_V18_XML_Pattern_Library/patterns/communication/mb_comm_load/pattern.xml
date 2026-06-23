@@ -1,0 +1,23 @@
+<SW.Blocks.CompileUnit ID="21" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="25"><Symbol><Component Name="{{BOOL_REQ}}" /></Symbol></Access><Access Scope="LiteralConstant" UId="27"><Constant><ConstantType>PORT</ConstantType><ConstantValue>{{PORT_PORT}}</ConstantValue></Constant></Access><Access Scope="LiteralConstant" UId="29"><Constant><ConstantType>UDInt</ConstantType><ConstantValue>{{UDINT_BAUD}}</ConstantValue></Constant></Access><Access Scope="LiteralConstant" UId="31"><Constant><ConstantType>UInt</ConstantType><ConstantValue>{{UINT_PARITY}}</ConstantValue></Constant></Access><Access Scope="GlobalVariable" UId="41"><Symbol><Component Name="{{DATA_PTR_DB}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="43"><Symbol><Component Name="{{BOOL_DONE}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="45"><Symbol><Component Name="{{BOOL_ERROR}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="47"><Symbol><Component Name="{{WORD_STATUS}}" /></Symbol></Access><Part Name="MB_COMM_LOAD" Version="2.1" UId="22"><Instance Scope="GlobalVariable" UId="23"><Component Name="{{DB_INSTANCE}}" /></Instance></Part></Parts>
+              <Wires><Wire UId="24"><Powerrail /><NameCon UId="22" Name="en" /></Wire><Wire UId="26"><IdentCon UId="25" /><NameCon UId="22" Name="REQ" /></Wire><Wire UId="28"><IdentCon UId="27" /><NameCon UId="22" Name="PORT" /></Wire><Wire UId="30"><IdentCon UId="29" /><NameCon UId="22" Name="BAUD" /></Wire><Wire UId="32"><IdentCon UId="31" /><NameCon UId="22" Name="PARITY" /></Wire><Wire UId="34"><OpenCon UId="33" /><NameCon UId="22" Name="FLOW_CTRL" /></Wire><Wire UId="36"><OpenCon UId="35" /><NameCon UId="22" Name="RTS_ON_DLY" /></Wire><Wire UId="38"><OpenCon UId="37" /><NameCon UId="22" Name="RTS_OFF_DLY" /></Wire><Wire UId="40"><OpenCon UId="39" /><NameCon UId="22" Name="RESP_TO" /></Wire><Wire UId="42"><IdentCon UId="41" /><NameCon UId="22" Name="MB_DB" /></Wire><Wire UId="44"><NameCon UId="22" Name="DONE" /><IdentCon UId="43" /></Wire><Wire UId="46"><NameCon UId="22" Name="ERROR" /><IdentCon UId="45" /></Wire><Wire UId="48"><NameCon UId="22" Name="STATUS" /><IdentCon UId="47" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="49" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="50" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Call MB_COMM_LOAD</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>

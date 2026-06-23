@@ -1,0 +1,23 @@
+<SW.Blocks.CompileUnit ID="21" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="22"><Symbol><Component Name="{{INT_A}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="23"><Symbol><Component Name="{{INT_B}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="28"><Symbol><Component Name="{{BOOL_OUT}}" /></Symbol></Access><Part Name="Gt" UId="24"><TemplateValue Name="SrcType" Type="Type">Real</TemplateValue></Part><Part Name="Coil" UId="29" /></Parts>
+              <Wires><Wire UId="25"><Powerrail /><NameCon UId="24" Name="pre" /></Wire><Wire UId="26"><IdentCon UId="22" /><NameCon UId="24" Name="in1" /></Wire><Wire UId="27"><IdentCon UId="23" /><NameCon UId="24" Name="in2" /></Wire><Wire UId="30"><NameCon UId="24" Name="out" /><NameCon UId="29" Name="in" /></Wire><Wire UId="31"><IdentCon UId="28" /><NameCon UId="29" Name="operand" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="32" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="33" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>Compare GT Int</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>

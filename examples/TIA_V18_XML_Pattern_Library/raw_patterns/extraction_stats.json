@@ -1,0 +1,912 @@
+{
+  "OR": [
+    {
+      "filename": "Main.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 3,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "DIV1_COUNTING.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "DIV1_COUNTING.xml",
+      "network_idx": 2,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "DIV2_COUNTING.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "DIV2_COUNTING.xml",
+      "network_idx": 2,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "M1_MOTOR.xml",
+      "network_idx": 2,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "M1_WIND_DOWN.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "M2_WIND_DOWN.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 2,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 5,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 6,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 7,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "MAIN_MOTOR.xml",
+      "network_idx": 2,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "MAIN_WIND_DOWN.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 2,
+      "network_title": "\u0110I\u1ec0U KHI\u1ec2N B\u0102NG T\u1ea2I",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 3,
+      "network_title": "\u0110I\u1ec0U KHI\u1ec2N XI LANH S\u1ea2N PH\u1ea8M CAO",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 4,
+      "network_title": "\u0110I\u1ec0U KHI\u1ec2N XI LANH S\u1ea2N PH\u1ea8M TRUNG B\u00ccNH",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 5,
+      "network_title": "\u0111\u1ebfm s\u1ea3n ph\u1ea9m cao",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 6,
+      "network_title": "\u0111\u1ebfm s\u1ea3n ph\u1ea9m trung b\u00ecnh",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 7,
+      "network_title": "\u0111\u1ebfm s\u1ea3n ph\u1ea9m th\u1ea5p",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_MANUAL_MODE.xml",
+      "network_idx": 1,
+      "network_title": "B\u0102NG T\u1ea2I",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_MANUAL_MODE.xml",
+      "network_idx": 2,
+      "network_title": "XI LANH CAO",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_MANUAL_MODE.xml",
+      "network_idx": 3,
+      "network_title": "XI LANH  TRUNG B\u00ccNH",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_OUTPUT.xml",
+      "network_idx": 1,
+      "network_title": "B\u0102NG T\u1ea2I",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_OUTPUT.xml",
+      "network_idx": 2,
+      "network_title": "XI LANH CAO",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_OUTPUT.xml",
+      "network_idx": 3,
+      "network_title": "XI LANH TRUNG B\u00ccNH",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Assembly_Emergency.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "BASE_execess_remove_station.xml",
+      "network_idx": 1,
+      "network_title": "LID_BELT_EXECESS_CONVYR_HANDLER",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "BASE_execess_remove_station.xml",
+      "network_idx": 4,
+      "network_title": "PUSH_RETURN_EXECESS_BLUE",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "BASE_execess_remove_station.xml",
+      "network_idx": 9,
+      "network_title": "PUSH_RETURN_GREEN",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "base_production_fb.xml",
+      "network_idx": 1,
+      "network_title": "base_production_station",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "base_production_fb.xml",
+      "network_idx": 4,
+      "network_title": "emitting_base",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "base_production_fb.xml",
+      "network_idx": 6,
+      "network_title": "FEEDING_CONVYER_HANDLER_BASE",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "base_production_fb.xml",
+      "network_idx": 7,
+      "network_title": "base_machinning_handle",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "BASE_SORTING_STATION.xml",
+      "network_idx": 4,
+      "network_title": "GREEN PUSHER SORTING RETURN",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "BASE_SORTING_STATION.xml",
+      "network_idx": 6,
+      "network_title": "BLUE_PUSHER_SORTING_RETURN",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "LID PRODUCTION.xml",
+      "network_idx": 1,
+      "network_title": "LID STARTING HANDLE",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "LID PRODUCTION.xml",
+      "network_idx": 4,
+      "network_title": "FIRST LID TO EMIT",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "LID_execess_remove_station.xml",
+      "network_idx": 1,
+      "network_title": "LID_BELT_EXECESS_CONVYR_HANDLER",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "LID_execess_remove_station.xml",
+      "network_idx": 4,
+      "network_title": "PUSH_RETURN_EXECESS_BLUE",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "LID_execess_remove_station.xml",
+      "network_idx": 7,
+      "network_title": "PUSH_RETURN_GREEN",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "LID_SORTING_STATION.xml",
+      "network_idx": 4,
+      "network_title": "GREEN PUSHER SORTING RETURN",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "LID_SORTING_STATION.xml",
+      "network_idx": 6,
+      "network_title": "BLUE_PUSHER_SORTING_RETURN",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "PICK_UP_BASE_ROBOT.xml",
+      "network_idx": 5,
+      "network_title": "LID_RETURN_TO_ORIGIN_PICKUP",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "PICK_UP_LID_ROBOT.xml",
+      "network_idx": 5,
+      "network_title": "LID_RETURN_TO_ORIGIN_PICKUP",
+      "version": "1.0",
+      "instance_db": ""
+    }
+  ],
+  "SR": [
+    {
+      "filename": "Main.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 2,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "Timer_0_DB"
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 3,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 9,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    }
+  ],
+  "TP": [
+    {
+      "filename": "Main.xml",
+      "network_idx": 2,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "Timer_0_DB"
+    },
+    {
+      "filename": "M1_WIND_DOWN.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "M1_STOP_TIMER"
+    },
+    {
+      "filename": "M2_WIND_DOWN.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "M2_STOP_TIMER"
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 6,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "M1_PULSE_START"
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 7,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "M2_PULSE_START"
+    },
+    {
+      "filename": "MAIN_WIND_DOWN.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "MAIN_STOP_TIMER"
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 8,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_4"
+    }
+  ],
+  "CTU": [
+    {
+      "filename": "DIV1_COUNTING.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "DIV1_COUNTER"
+    },
+    {
+      "filename": "DIV2_COUNTING.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "DIV2_COUNTER"
+    },
+    {
+      "filename": "A_COUNTER.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "IEC_Counter_0_DB_7"
+    },
+    {
+      "filename": "A_COUNTER.xml",
+      "network_idx": 2,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "IEC_Counter_0_DB_6"
+    },
+    {
+      "filename": "BASE_execess_remove_station.xml",
+      "network_idx": 2,
+      "network_title": "COUNTING NO OF BLUE MATERIAL OF EXECCES",
+      "version": "1.0",
+      "instance_db": "IEC_Counter_0_DB_2"
+    },
+    {
+      "filename": "BASE_execess_remove_station.xml",
+      "network_idx": 6,
+      "network_title": "COUNTING NO OF GREEN MATERIAL",
+      "version": "1.0",
+      "instance_db": "IEC_Counter_0_DB_3"
+    },
+    {
+      "filename": "LID_execess_remove_station.xml",
+      "network_idx": 2,
+      "network_title": "COUNTING NO OF BLUE MATERIAL OF EXECCES",
+      "version": "1.0",
+      "instance_db": "IEC_Counter_0_DB"
+    },
+    {
+      "filename": "LID_execess_remove_station.xml",
+      "network_idx": 5,
+      "network_title": "COUNTING NO OF GREEN MATERIAL",
+      "version": "1.0",
+      "instance_db": "IEC_Counter_0_DB_1"
+    }
+  ],
+  "TOF": [
+    {
+      "filename": "M1_WIND_DOWN.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "M1_R_TIMER"
+    },
+    {
+      "filename": "M2_WIND_DOWN.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "M2_R_TIMER"
+    },
+    {
+      "filename": "MAIN_WIND_DOWN.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "MAIN_R_TIMER"
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB"
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 2,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_1"
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 3,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_2"
+    },
+    {
+      "filename": "BASE_execess_remove_station.xml",
+      "network_idx": 1,
+      "network_title": "LID_BELT_EXECESS_CONVYR_HANDLER",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_10"
+    },
+    {
+      "filename": "BASE_execess_remove_station.xml",
+      "network_idx": 5,
+      "network_title": "RETURN_EXECESS_BLUE_TO_STORAGE",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_2"
+    },
+    {
+      "filename": "BASE_execess_remove_station.xml",
+      "network_idx": 8,
+      "network_title": "RETURN_EXECESS_GREEN_TO_STORAGE",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_9"
+    },
+    {
+      "filename": "base_production_fb.xml",
+      "network_idx": 3,
+      "network_title": "emit_base_handler",
+      "version": "1.0",
+      "instance_db": "base_raw_to_emit"
+    },
+    {
+      "filename": "base_production_fb.xml",
+      "network_idx": 4,
+      "network_title": "emitting_base",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_7"
+    },
+    {
+      "filename": "base_production_fb.xml",
+      "network_idx": 8,
+      "network_title": "base_raw_into_cnc",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_8"
+    },
+    {
+      "filename": "BASE_SORTING_STATION.xml",
+      "network_idx": 1,
+      "network_title": "BEGIN SORTING CONVYER",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_12"
+    },
+    {
+      "filename": "LID PRODUCTION.xml",
+      "network_idx": 3,
+      "network_title": "LID_EMITTER_HANDLER",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB"
+    },
+    {
+      "filename": "LID PRODUCTION.xml",
+      "network_idx": 4,
+      "network_title": "FIRST LID TO EMIT",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_1"
+    },
+    {
+      "filename": "LID PRODUCTION.xml",
+      "network_idx": 9,
+      "network_title": "DETECT_IS_ANY_PART_IN_CNC_LID",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_5"
+    },
+    {
+      "filename": "LID_execess_remove_station.xml",
+      "network_idx": 1,
+      "network_title": "LID_BELT_EXECESS_CONVYR_HANDLER",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_4"
+    },
+    {
+      "filename": "LID_execess_remove_station.xml",
+      "network_idx": 3,
+      "network_title": "PUSH_FORWARD_EXECS_BLUE",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_3"
+    },
+    {
+      "filename": "LID_execess_remove_station.xml",
+      "network_idx": 6,
+      "network_title": "PUSH_FORWARD_EXECS_GREEN",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_6"
+    },
+    {
+      "filename": "LID_SORTING_STATION.xml",
+      "network_idx": 1,
+      "network_title": "BEGIN SORTING CONVYER",
+      "version": "1.0",
+      "instance_db": "SORTING_COVYER_TIMER"
+    }
+  ],
+  "P_TRIG": [
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 2,
+      "network_title": "\u0110I\u1ec0U KHI\u1ec2N B\u0102NG T\u1ea2I",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 5,
+      "network_title": "\u0111\u1ebfm s\u1ea3n ph\u1ea9m cao",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 6,
+      "network_title": "\u0111\u1ebfm s\u1ea3n ph\u1ea9m trung b\u00ecnh",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 7,
+      "network_title": "\u0111\u1ebfm s\u1ea3n ph\u1ea9m th\u1ea5p",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_MO_PHONG_ND.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_SIMULATION.xml",
+      "network_idx": 1,
+      "network_title": "KH\u1edeI \u0110\u1ed8NG L\u00c0 CH\u1ea0Y SIMU C\u1ea2M BI\u1ebeN Cao LU\u00d4N",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_SIMULATION.xml",
+      "network_idx": 2,
+      "network_title": "B\u1eadt c\u00e1c bit m\u00f4 ph\u1ecfng c\u1ea3m bi\u1ebfn khi ch\u01b0a \u0111\u01b0\u1ee3c b\u1eadt",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "PICK_UP_BASE_ROBOT.xml",
+      "network_idx": 1,
+      "network_title": "BASE_PICKUP_ROBOT_LOWERING_Z_AXIS",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "PICK_UP_LID_ROBOT.xml",
+      "network_idx": 1,
+      "network_title": "LID_PICKUP_ROBOT_LOWERING_Z_AXIS",
+      "version": "1.0",
+      "instance_db": ""
+    }
+  ],
+  "N_TRIG": [
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 2,
+      "network_title": "\u0110I\u1ec0U KHI\u1ec2N B\u0102NG T\u1ea2I",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 3,
+      "network_title": "\u0110I\u1ec0U KHI\u1ec2N XI LANH S\u1ea2N PH\u1ea8M CAO",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB"
+    },
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 4,
+      "network_title": "\u0110I\u1ec0U KHI\u1ec2N XI LANH S\u1ea2N PH\u1ea8M TRUNG B\u00ccNH",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_1"
+    },
+    {
+      "filename": "Assembly_Blue.xml",
+      "network_idx": 1,
+      "network_title": "Clamp when blue lid in place",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Assembly_Blue.xml",
+      "network_idx": 2,
+      "network_title": "Clamp when blue base in place",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Assembly_Blue.xml",
+      "network_idx": 8,
+      "network_title": "lower post after part leaves",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Assembly_Green.xml",
+      "network_idx": 1,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Assembly_Green.xml",
+      "network_idx": 2,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "Assembly_Green.xml",
+      "network_idx": 8,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "PICK_UP_BASE_ROBOT.xml",
+      "network_idx": 2,
+      "network_title": "BASE_PICKUP_OPERATE_SUCCTION",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "PICK_UP_BASE_ROBOT.xml",
+      "network_idx": 3,
+      "network_title": "PICK_UP_BASE_GO_TO_FEEDING",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "PICK_UP_BASE_ROBOT.xml",
+      "network_idx": 4,
+      "network_title": "LID_PICK_UP_LOWERING_Z_AXIS_IN_FEEDING",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "PICK_UP_BASE_ROBOT.xml",
+      "network_idx": 5,
+      "network_title": "LID_RETURN_TO_ORIGIN_PICKUP",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "PICK_UP_LID_ROBOT.xml",
+      "network_idx": 2,
+      "network_title": "LID_PICKUP_OPERATE_SUCCTION",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "PICK_UP_LID_ROBOT.xml",
+      "network_idx": 3,
+      "network_title": "PICK_UP_LID_GO_TO_FEEDING",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "PICK_UP_LID_ROBOT.xml",
+      "network_idx": 4,
+      "network_title": "LID_PICK_UP_LOWERING_Z_AXIS_IN_FEEDING",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "PICK_UP_LID_ROBOT.xml",
+      "network_idx": 5,
+      "network_title": "LID_RETURN_TO_ORIGIN_PICKUP",
+      "version": "1.0",
+      "instance_db": ""
+    }
+  ],
+  "TON": [
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 3,
+      "network_title": "\u0110I\u1ec0U KHI\u1ec2N XI LANH S\u1ea2N PH\u1ea8M CAO",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB"
+    },
+    {
+      "filename": "FC_AUTO_MODE.xml",
+      "network_idx": 4,
+      "network_title": "\u0110I\u1ec0U KHI\u1ec2N XI LANH S\u1ea2N PH\u1ea8M TRUNG B\u00ccNH",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_1"
+    },
+    {
+      "filename": "FC_SIMULATION.xml",
+      "network_idx": 2,
+      "network_title": "B\u1eadt c\u00e1c bit m\u00f4 ph\u1ecfng c\u1ea3m bi\u1ebfn khi ch\u01b0a \u0111\u01b0\u1ee3c b\u1eadt",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_2"
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 8,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "IEC_Timer_0_DB_3"
+    }
+  ],
+  "TONR": [
+    {
+      "filename": "FC_SIMULATION.xml",
+      "network_idx": 3,
+      "network_title": "Timer c\u1ea3m bi\u1ebfn Cao",
+      "version": "1.0",
+      "instance_db": "Timer_Simu_CB_Cao"
+    },
+    {
+      "filename": "FC_SIMULATION.xml",
+      "network_idx": 4,
+      "network_title": "Timer c\u1ea3m bi\u1ebfn nh\u1ecf",
+      "version": "1.0",
+      "instance_db": "Timer_Simu_CB_TB"
+    },
+    {
+      "filename": "FC_SIMULATION.xml",
+      "network_idx": 5,
+      "network_title": "M\u00f4 ph\u1ecfng c\u1ea3m bi\u1ebfn trung b\u00ecnh",
+      "version": "1.0",
+      "instance_db": "Timer_Simu_CB_Thap"
+    }
+  ],
+  "NORM_X": [
+    {
+      "filename": "Main.xml",
+      "network_idx": 2,
+      "network_title": "\u0110\u1ecdc v\u1ec1 c\u1ea3m bi\u1ebfn analog",
+      "version": "1.0",
+      "instance_db": ""
+    }
+  ],
+  "SCALE_X": [
+    {
+      "filename": "Main.xml",
+      "network_idx": 2,
+      "network_title": "\u0110\u1ecdc v\u1ec1 c\u1ea3m bi\u1ebfn analog",
+      "version": "1.0",
+      "instance_db": ""
+    }
+  ],
+  "R_TRIG": [
+    {
+      "filename": "Main.xml",
+      "network_idx": 2,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "R_TRIG_DB"
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 3,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "R_TRIG_DB_1"
+    },
+    {
+      "filename": "Main.xml",
+      "network_idx": 8,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "R_TRIG_DB_2"
+    }
+  ],
+  "F_TRIG": [
+    {
+      "filename": "Main.xml",
+      "network_idx": 9,
+      "network_title": "",
+      "version": "1.0",
+      "instance_db": "F_TRIG_DB"
+    }
+  ],
+  "INVERT": [
+    {
+      "filename": "base_production_fb.xml",
+      "network_idx": 1,
+      "network_title": "base_production_station",
+      "version": "1.0",
+      "instance_db": ""
+    },
+    {
+      "filename": "LID PRODUCTION.xml",
+      "network_idx": 1,
+      "network_title": "LID STARTING HANDLE",
+      "version": "1.0",
+      "instance_db": ""
+    }
+  ]
+}

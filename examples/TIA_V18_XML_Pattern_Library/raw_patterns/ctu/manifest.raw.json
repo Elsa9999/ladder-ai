@@ -1,0 +1,36 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "CTU",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "M1_I/O_DB",
+      "type": "AUTO"
+    },
+    {
+      "name": "DIV1_COUNTER",
+      "type": "AUTO"
+    },
+    {
+      "name": "STATES_DB",
+      "type": "AUTO"
+    },
+    {
+      "name": "HMI_DB",
+      "type": "AUTO"
+    },
+    {
+      "name": "MAIN_I/O_DB",
+      "type": "AUTO"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "DIV1_COUNTER",
+  "required_data_types": [],
+  "source_file": "DIV1_COUNTING.xml",
+  "network_index": 1,
+  "network_title": "",
+  "version": "1.0"
+}

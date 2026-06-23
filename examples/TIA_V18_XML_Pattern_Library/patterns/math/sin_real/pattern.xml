@@ -1,0 +1,23 @@
+<SW.Blocks.CompileUnit ID="21" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource>
+            <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+              <Parts><Access Scope="GlobalVariable" UId="23"><Symbol><Component Name="{{REAL_A}}" /></Symbol></Access><Access Scope="GlobalVariable" UId="24"><Symbol><Component Name="{{REAL_OUT}}" /></Symbol></Access><Part Name="Sin" UId="22"><TemplateValue Name="SrcType" Type="Type">Real</TemplateValue></Part></Parts>
+              <Wires><Wire UId="25"><Powerrail /><NameCon UId="22" Name="en" /></Wire><Wire UId="26"><IdentCon UId="23" /><NameCon UId="22" Name="in" /></Wire><Wire UId="27"><NameCon UId="22" Name="out" /><IdentCon UId="24" /></Wire></Wires>
+            </FlgNet>
+          </NetworkSource>
+          <ProgrammingLanguage>LAD</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="28" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="29" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>SIN Real</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>

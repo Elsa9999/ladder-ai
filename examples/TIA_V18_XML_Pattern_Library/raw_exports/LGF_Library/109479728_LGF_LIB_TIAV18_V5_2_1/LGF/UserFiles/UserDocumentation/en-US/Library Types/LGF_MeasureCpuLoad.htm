@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html><html lang='en-US'>
+<head>
+<script src='../../../Code2Docu/katex/katex.min.js'></script>
+<script src='../../../Code2Docu/katex/katexStartUp.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/katex/katex.min.css' />
+<!--[if lt IE 9]><script src='../../../Code2Docu/katex/html5shiv-printshiv-3.7.3.min.js'></script><![endif]-->
+<link rel='stylesheet' href='../../../Code2Docu/highlightJS/scl.css'>
+<script src='../../../Code2Docu/highlightJS/highlight.min.js'></script>
+<script src='../../../Code2Docu/highlightJS/scl.js'></script>
+<script src='../../../Code2Docu/Code2DocuScript.js'></script>
+<script src='../../../Code2Docu/highlightJS/highlight.load.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/style.css'>
+<link rel='stylesheet' href='../../../Code2Docu/styleCustomized.css'>
+<meta http-equiv='Content-type' content='text/html;charset=UTF-8'>
+<title>LGF_MeasureCpuLoad (FB / 1.1.1)</title>
+</head>
+<body>
+ <div class="containerFluid"> 
+ <h1>LGF_MeasureCpuLoad (FB / 1.1.1)</h1>
+<div class='langSelectionBox'>
+<a href='../../en-US/Folders/LGF.htm' target='_self'>Overview</a> 
+<select class='langSelector' id='langSelector' onChange="changeLang('en-US')">
+    <option class='langOption' value=en-US selected>English (United States)</option>
+    <option class='langOption' value=de-DE>German (Germany)</option>
+</select></div></div><hr>
+<span class='author'>Author: Simatic Systems Support</span>
+<h2>Short description</h2>
+<p>Measurement and calculation of PLC CPU load for different OB types</p>
+
+<h3>Block Interface</h3>
+<table class='block'><thead><tr><th colspan='2'> </th><th colspan='5'>LGF_MeasureCpuLoad (FB)</th><th colspan='2'> </th></tr></thead><tbody>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>enable</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>valid</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>reset</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>busy</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>Real</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>loadCascade</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>error</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>LGF_typeMeasureCpuLoad_Configuration</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>configuration</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>status</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Word</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>averagingActive</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>loadCascadeActive</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>cycleTimeMin</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LTime</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>cycleTimeActual</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LTime</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>cycleTimeMax</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LTime</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>cycleTimeMaxConfigured</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LTime</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>runtime</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LReal</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>cpuLoad</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Real</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>comLoad</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Real</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>comLoadConfigured</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Real</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>limitWarning</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>limitAlarm</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>resultsCyclic</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Array[0..#LAST_CYCLIC_BLOCK_INDEX] of LGF_typeMeasureCpuLoad_ResultBlock</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>results</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Array[0..#LAST_BLOCK_INDEX] of LGF_typeMeasureCpuLoad_ResultBlock</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>diagnostics</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LGF_typeDiagnostics</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</tbody><tfoot><tr><td colspan='2'>&nbsp;</td><td colspan='5'>&nbsp;</td><td colspan='2'>&nbsp;</td></tr></tfoot></table>
+<h3>Input parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Identifier</th><th class='type'>Data type</th>
+<th class='default'>Default value</th>
+<th>Description</th></tr></thead><tbody>
+<tr><td>enable</td><td>Bool</td>
+<td>FALSE</td>
+<td>TRUE: Enable functionality of FB</td></tr>
+<tr><td>reset</td><td>Bool</td>
+<td>FALSE</td>
+<td>Rising edge: Reset all internal values and as well PLC CPU timing statistic</td></tr>
+<tr><td>loadCascade</td><td>Real</td>
+<td>0.0</td>
+<td>Percentage Load Value from another `LGF_MeasureCpuLoad` [%] (Connect `cpuLoad` from predecessor instance call)</td></tr>
+<tr><td>configuration</td><td>LGF_typeMeasureCpuLoad_Configuration</td>
+<td>---</td>
+<td>This UDT belongs to the Module `LGF_MeasureCpuLoad` and lists all possible parameter to configure its behavior.</td></tr>
+</tbody></table>
+<h3>Output parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Identifier</th><th class='type'>Data type</th>
+<th>Description</th></tr></thead><tbody>
+<tr><td>valid</td><td>Bool</td>
+<td>TRUE: Valid set of output values available at the FB</td></tr>
+<tr><td>busy</td><td>Bool</td>
+<td>TRUE: FB is not finished, and new output values can be expected</td></tr>
+<tr><td>error</td><td>Bool</td>
+<td>TRUE: An error occurred during the execution of the FB</td></tr>
+<tr><td>status</td><td>Word</td>
+<td>16#0000 - 16#7FFF: Status of the FB, 16#8000 - 16#FFFF: Error identification</td></tr>
+<tr><td>averagingActive</td><td>Bool</td>
+<td>TRUE: Averaging of actual values active</td></tr>
+<tr><td>loadCascadeActive</td><td>Bool</td>
+<td>TRUE: Load calculation cascade active</td></tr>
+<tr><td>cycleTimeMin</td><td>LTime</td>
+<td>Minimum cycle time [ms]</td></tr>
+<tr><td>cycleTimeActual</td><td>LTime</td>
+<td>Actual cycle time [ms]</td></tr>
+<tr><td>cycleTimeMax</td><td>LTime</td>
+<td>Maximum cycle time [ms]</td></tr>
+<tr><td>cycleTimeMaxConfigured</td><td>LTime</td>
+<td>Configured maximum cycle time [ms] (in plc hardware configuration)</td></tr>
+<tr><td>runtime</td><td>LReal</td>
+<td>Actual cycle time incl. interrupts [ms]</td></tr>
+<tr><td>cpuLoad</td><td>Real</td>
+<td>Actual PLC CPU load [%]</td></tr>
+<tr><td>comLoad</td><td>Real</td>
+<td>Actual communication load [%]</td></tr>
+<tr><td>comLoadConfigured</td><td>Real</td>
+<td>Configured communication load [%]</td></tr>
+<tr><td>limitWarning</td><td>Bool</td>
+<td>Load more than configured threshold value 'configuration.limitWarning'</td></tr>
+<tr><td>limitAlarm</td><td>Bool</td>
+<td>Load more than configured threshold value 'configuration.limitAlarm'</td></tr>
+<tr><td>resultsCyclic</td><td>Array[0..#LAST_CYCLIC_BLOCK_INDEX] of LGF_typeMeasureCpuLoad_ResultBlock</td>
+<td>Results of Cyclic OB read outs</td></tr>
+<tr><td>results</td><td>Array[0..#LAST_BLOCK_INDEX] of LGF_typeMeasureCpuLoad_ResultBlock</td>
+<td>Results of NON-Cyclic OB read outs</td></tr>
+<tr><td>diagnostics</td><td>LGF_typeDiagnostics</td>
+<td>Diagnostic structure to store and transfer diagnostic information from blocks through the interface.</td></tr>
+</tbody></table>
+<h3>Status & Error codes</h3>
+<table class='StatusAndErrorConstants'><thead><tr><th>Code / Value</th><th>Identifier / Description</th></tr></thead><tbody>
+<tr><td>16#7000</td><td>STATUS_NO_CALL<br>No job being currently processed</td></tr>
+<tr><td>16#7001</td><td>STATUS_FIRST_CALL<br>First call after incoming new job (rising edge 'enable')</td></tr>
+<tr><td>16#7002</td><td>STATUS_SUBSEQUENT_CALL<br>Subsequent call during active processing without further details</td></tr>
+<tr><td>16#8600</td><td>ERR_UNDEFINED_STATE<br>Error: Due to an undefined state in state machine</td></tr>
+<tr><td>16#8601</td><td>ERROR_RTINFO_CONFIGURED_MAX_CYCLETIME<br>Error: RT INFO read configured MAX cycle time Information</td></tr>
+<tr><td>16#8602</td><td>ERROR_RTINFO_CONFIGURED_COM_LOAD<br>Error: RT INFO read configured COM Load Information</td></tr>
+<tr><td>16#8610</td><td>ERROR_RTINFO_ACTUAL_CYCLETIME<br>Error: RT INFO read actual cycle time Information</td></tr>
+<tr><td>16#8611</td><td>ERROR_RTINFO_ACTUAL_MIN_CYCLETIME<br>Error: RT INFO read MIN cycle time Information</td></tr>
+<tr><td>16#8612</td><td>ERROR_RTINFO_ACTUAL_MAX_CYCLETIME<br>Error: RT INFO read MAX cycle time Information</td></tr>
+<tr><td>16#8620</td><td>ERROR_RTINFO_ACTUAL_COM_LOAD<br>Error: RT INFO read actual COM Load Information</td></tr>
+<tr><td>16#8630</td><td>ERROR_RTINFO_RESET_STATISTICS<br>Error: RT INFO reset statistic information</td></tr>
+<tr><td>16#9000</td><td>ERROR_RTINFO_RUNTIME_OB_CYCLIC<br>Error: Read RT INFO cycle time Information OB + index of OB in array</td></tr>
+<tr><td>16#9100</td><td>ERROR_RTINFO_RUNTIME_OB<br>Error: Read RT INFO cycle time Information OB + index of OB in array</td></tr>
+</tbody></table>
+<h2>User defined datatype(s)</h2>
+<h3>LGF_typeMeasureCpuLoad_Configuration (UDT / V1.0.0)</h3>
+<p>This UDT belongs to the Module <code>LGF_MeasureCpuLoad</code> and lists all possible parameter to configure its behavior.</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Identifier</th>
+      <th class='type'>Data type</th>
+      <th class='default'>Default value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>cfcRun</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>CFC Run (OB No is shifted to 10xx)</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>averagingValues</td>
+    <td class='type'>USInt</td>
+    <td class='default'>0</td>
+    <td>Averaging the measured values by building the arithmetic average value</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>comLoadSim</td>
+    <td class='type'>UInt</td>
+    <td class='default'>0</td>
+    <td>Com Load Simulation [%]<br>IF > 0.0 used as value for calculation<br>IF <= 0.0 take real com load value read from PLC</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>limitWarning</td>
+    <td class='type'>Real</td>
+    <td class='default'>70.0</td>
+    <td>Warning threshold value [%]</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>limitAlarm</td>
+    <td class='type'>Real</td>
+    <td class='default'>100.0</td>
+    <td>Alarming threshold value [%]</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>organizationBlocksCyclic</td>
+    <td class='type'>Array[0..10] of LGF_typeMeasureCpuLoad_ConfigurationBlock</td>
+    <td class='default'>---</td>
+    <td>Cyclic Blocks to measure</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>organizationBlocks</td>
+    <td class='type'>Array[0..30] of LGF_typeMeasureCpuLoad_ConfigurationBlock</td>
+    <td class='default'>---</td>
+    <td>NON-Cyclic Blocks to measure</td>
+  </tr>
+  </tbody>
+</table>
+<h3>LGF_typeMeasureCpuLoad_ConfigurationBlock (UDT / V1.0.0)</h3>
+<p>Configuration for the block to be measured</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Identifier</th>
+      <th class='type'>Data type</th>
+      <th class='default'>Default value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>enableMeasurement</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>Enable measurement</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>obNumber</td>
+    <td class='type'>Int</td>
+    <td class='default'>0</td>
+    <td>Organization's Block Number of the module to be measured</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>initialLoad</td>
+    <td class='type'>Real</td>
+    <td class='default'>0.0</td>
+    <td>Initial load [%], only used if averaging is turned on</td>
+  </tr>
+  </tbody>
+</table>
+<h3>LGF_typeMeasureCpuLoad_ResultBlock (UDT / V1.0.0)</h3>
+<p>Results for Block measured</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Identifier</th>
+      <th class='type'>Data type</th>
+      <th class='default'>Default value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>obNumber</td>
+    <td class='type'>Int</td>
+    <td class='default'>0</td>
+    <td>Organisation Block Number</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>runtime</td>
+    <td class='type'>LTime</td>
+    <td class='default'>---</td>
+    <td>Runtime of Organization block [ms]</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>cycleLoad</td>
+    <td class='type'>Real</td>
+    <td class='default'>0.0</td>
+    <td>Load of block calculated using the cycle time [%]</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>maxCycleLoad</td>
+    <td class='type'>Real</td>
+    <td class='default'>0.0</td>
+    <td>Load of block calculated using the MAX cycle time [%]</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>error</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>TRUE: An error occurred during reading block statistic</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>status</td>
+    <td class='type'>Word</td>
+    <td class='default'>16#0000</td>
+    <td>16#0000 - 16#7FFF: Status of the `RT_INFO`, 16#8000 - 16#FFFF: Error identification</td>
+  </tr>
+  </tbody>
+</table>
+<h3>LGF_typeDiagnostics (UDT / V1.0.1)</h3>
+<p>Diagnostic structure to store and transfer diagnostic information from blocks through the interface.</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Identifier</th>
+      <th class='type'>Data type</th>
+      <th class='default'>Default value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>status</td>
+    <td class='type'>Word</td>
+    <td class='default'>16#0000</td>
+    <td>Status of the Block or error identification when error occurred</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>subfunctionStatus</td>
+    <td class='type'>Word</td>
+    <td class='default'>16#0000</td>
+    <td>Status or return value of called FB's, FC's and system blocks</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>stateNumber</td>
+    <td class='type'>DInt</td>
+    <td class='default'>0</td>
+    <td>State in the state machine of the block where the error occurred</td>
+  </tr>
+  </tbody>
+</table>
+<h2>Functional description</h2>
+<p>This function can be used to read out the various runtimes of organizational blocks (OB) and calculate the PLC CPU load based on the results.</p>
+<p>The OBs to be considered are specified and activated in the configuration; please note that cyclical and acyclically OBs must be configured in separate structures.</p>
+<p>It is also possible to</p>
+<ul>
+<li>Average/smooth the measured values</li>
+<li>Specify limit values for a warning and an alarm</li>
+<li>Specify the communication load as a simulated value</li>
+<li>Automatically increment the OB numbers for CFC</li>
+</ul>
+
+<h2>Change log</h2>
+<table class='ChangeLog'><thead><tr><th colspan='2'>Version & Date</th><th>Change description</th></tr></thead><tbody>
+<tr class='LogEntryStart'><td></td><td>1.0.0</td><td>SAG BG</td></tr>
+<tr><td></td><td>19.05.2024</td><td>First Release</td></tr>
+<tr class='LogEntryStart'><td></td><td>1.1.0</td><td>SAG BG</td></tr>
+<tr><td></td><td>06.05.2024</td><td>Add Output with overall runtime incl. interrupts</td></tr>
+<tr class='LogEntryStart'><td></td><td>1.1.1</td><td>Siemens System Support</td></tr>
+<tr><td></td><td>03.09.2025</td><td>Bugfixed error in loop</td></tr>
+</tbody></table>
+<hr>
+<p class='footer'>
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109479728' target='_blank'>Library of General Functions (LGF)</a><br>
+<span>Entry-ID: 109479728</span>
+<span>Date: 10/2025</span>
+<span>Version: V5.2.1</span>
+<span>Generated with TIA Portal Add-In
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109809007' target='_blank'>Code2Docu</a>
+</span>
+<span> </span>
+</p>
+</body></html>

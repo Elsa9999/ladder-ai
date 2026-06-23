@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html><html lang='en-US'>
+<head>
+<script src='../../../Code2Docu/katex/katex.min.js'></script>
+<script src='../../../Code2Docu/katex/katexStartUp.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/katex/katex.min.css' />
+<!--[if lt IE 9]><script src='../../../Code2Docu/katex/html5shiv-printshiv-3.7.3.min.js'></script><![endif]-->
+<link rel='stylesheet' href='../../../Code2Docu/highlightJS/scl.css'>
+<script src='../../../Code2Docu/highlightJS/highlight.min.js'></script>
+<script src='../../../Code2Docu/highlightJS/scl.js'></script>
+<script src='../../../Code2Docu/Code2DocuScript.js'></script>
+<script src='../../../Code2Docu/highlightJS/highlight.load.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/style.css'>
+<link rel='stylesheet' href='../../../Code2Docu/styleCustomized.css'>
+<meta http-equiv='Content-type' content='text/html;charset=UTF-8'>
+<title>LGF_DTLToString_US (FC / 1.0.1)</title>
+</head>
+<body>
+ <div class="containerFluid"> 
+ <h1>LGF_DTLToString_US (FC / 1.0.1)</h1>
+<div class='langSelectionBox'>
+<a href='../../en-US/Folders/LGF.htm' target='_self'>Overview</a> 
+<select class='langSelector' id='langSelector' onChange="changeLang('en-US')">
+    <option class='langOption' value=en-US selected>English (United States)</option>
+    <option class='langOption' value=de-DE>German (Germany)</option>
+</select></div></div><hr>
+<span class='author'>Author: Siemens Digital Industry</span>
+<h2>Short description</h2>
+<p>This function converts a date of data type DTL into a character string of data type STRING in American format (US) (MM DD YYYY…).</p>
+
+<h3>Block Interface</h3>
+<table class='block'><thead><tr><th colspan='2'> </th><th colspan='5'>LGF_DTLToString_US (FC)</th><th colspan='2'> </th></tr></thead><tbody>
+<tr class='in return'><td rowspan='2'>DTL</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>date</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>Ret_Val</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>String</td></tr>
+<tr class='in return interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in'><td rowspan='2'>Char</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>separator</td><td rowspan='2'>&nbsp;</td><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td></tr>
+<tr class='in interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in'><td rowspan='2'>Char</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>separatorDateAndTime</td><td rowspan='2'>&nbsp;</td><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td></tr>
+<tr class='in interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</tbody><tfoot><tr><td colspan='2'>&nbsp;</td><td colspan='5'>&nbsp;</td><td colspan='2'>&nbsp;</td></tr></tfoot></table>
+<h3>Input parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Identifier</th><th class='type'>Data type</th>
+<th>Description</th></tr></thead><tbody>
+<tr><td>date</td><td>DTL</td>
+<td>Date to convert as DTL tag</td></tr>
+<tr><td>separator</td><td>Char</td>
+<td>Separator between the components of the output date.</td></tr>
+<tr><td>separatorDateAndTime</td><td>Char</td>
+<td>Separator between the components date and time.</td></tr>
+</tbody></table>
+<h3>Output parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Identifier</th><th class='type'>Data type</th>
+<th>Description</th></tr></thead><tbody>
+<tr class='return'><td>Ret_Val</td><td>String</td>
+<td>Output string in accordance with the American format (US).<br>Example: `01-22-2019 14:06:51.524621000`</td></tr>
+</tbody></table>
+<h2>Functional description</h2>
+<p>The block reads a date of data type DTL and converts the individual components of the date (year, month, day, hour…) into a character string and outputs it in American format (US). The separator between the components of the date is variable.</p>
+<h3 id="american-format-us">American format (US):</h3>
+<p class="imagePageWidth">
+<img src="../../../Code2Docu/images/LGF_DTLToString_US.png" alt="LGF_DTLToString_US - Structure of the character string in accordance with American format" title="LGF_DTLToString_US - Structure of the character string in accordance with American format" /></p>
+<h3 id="separator">Separator:</h3>
+<p>At the input parameter <code>separator</code>, you specify the separator between the components of the date, at <code>seperatorDateAndTime</code> you specify the separator between the date and the time.</p>
+<h3 id="example">Example:</h3>
+<ul>
+<li><p>separatorDate = <code>-</code> - outString = <code>06-20-2025…</code> (default)</p>
+</li>
+<li><p>separatorDate = <code>/</code> - outString = <code>06/20/2025…</code></p>
+</li>
+<li><p>separatorDateAndTime = <code> </code> - outString = <code>06-20-2025 12:45…</code> (default)</p>
+</li>
+<li><p>separatorDateAndTime = <code>T</code> - outString = <code>06-20-2025T12:45…</code></p>
+</li>
+</ul>
+
+<h2>Change log</h2>
+<table class='ChangeLog'><thead><tr><th colspan='2'>Version & Date</th><th>Change description</th></tr></thead><tbody>
+<tr class='LogEntryStart'><td></td><td>1.0.0</td><td>Siemens Industry Online Support</td></tr>
+<tr><td></td><td>28.07.2025</td><td>First released version</td></tr>
+<tr class='LogEntryStart'><td></td><td>1.0.1</td><td>Simatic Systems Support</td></tr>
+<tr><td></td><td>09.10.2025</td><td>Spelling errors</td></tr>
+</tbody></table>
+<hr>
+<p class='footer'>
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109479728' target='_blank'>Library of General Functions (LGF)</a><br>
+<span>Entry-ID: 109479728</span>
+<span>Date: 10/2025</span>
+<span>Version: V5.2.1</span>
+<span>Generated with TIA Portal Add-In
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109809007' target='_blank'>Code2Docu</a>
+</span>
+<span> </span>
+</p>
+</body></html>

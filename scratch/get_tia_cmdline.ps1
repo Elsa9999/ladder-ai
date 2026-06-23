@@ -1,0 +1,1 @@
+Get-CimInstance Win32_Process -Filter "Name = 'Siemens.Automation.Portal.exe'" | Select-Object ProcessId, CommandLine | Format-List | Out-File -FilePath "d:\AI_Agent_PLC_LADDER_ONLY\scratch\tia_cmdlines.txt" -Encoding utf8

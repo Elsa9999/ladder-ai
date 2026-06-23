@@ -1,0 +1,10 @@
+import sys
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
+with open("projects/Mixing_Nuoc_Tuong_Maggi_2026/generate_mixing_project.py", "r", encoding="utf-8") as f:
+    lines = f.readlines()
+
+for i, line in enumerate(lines):
+    if "VFD_Bon2_MB_DataAddr" in line:
+        print(f"Line {i+1}: {line.strip()}")

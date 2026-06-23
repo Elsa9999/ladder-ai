@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-06-20T23:26:23.319602Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+  </DocumentInfo>
+  <Hmi.TextGraphicList.TextList ID="0">
+    <AttributeList>
+      <ListRange>Decimal</ListRange>
+      <Name>TL_Mixing_Step</Name>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="47" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="48" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>Mã bước chu trình Mixing</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <Hmi.TextGraphicList.TextListEntry ID="2" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>true</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>0</From>
+          <To>0</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="3" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="4" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Chờ lệnh</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="5" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>10</From>
+          <To>10</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="6" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Dosing nước</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="8" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>11</From>
+          <To>11</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="9" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="10" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Tip nguyên liệu</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="11" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>12</From>
+          <To>12</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="12" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="13" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Khuấy ban đầu</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="14" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>15</From>
+          <To>15</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="15" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="16" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Xả sang bồn kế tiếp</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="17" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>20</From>
+          <To>20</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="18" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="19" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Dosing bổ sung</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="20" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>21</From>
+          <To>21</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="21" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="22" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Tip phụ gia</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="23" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>22</From>
+          <To>22</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="24" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="25" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Khuấy chiều thuận</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="26" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>23</From>
+          <To>23</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="27" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="28" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Khuấy chiều ngược</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="29" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>30</From>
+          <To>30</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="30" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="31" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>PID gia nhiệt/điều khiển</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="32" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>31</From>
+          <To>31</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="33" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="34" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Giữ thanh trùng</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="35" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>50</From>
+          <To>50</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="36" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="37" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Bồn chứa 01 nhận dịch</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="38" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>60</From>
+          <To>60</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="39" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="40" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Giải nhiệt</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="41" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>70</From>
+          <To>70</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="42" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="43" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Chuyển sang Bồn chứa 02</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="44" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>80</From>
+          <To>80</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="45" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="46" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>Lọc CCP và chiết rót</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+    </ObjectList>
+  </Hmi.TextGraphicList.TextList>
+</Document>

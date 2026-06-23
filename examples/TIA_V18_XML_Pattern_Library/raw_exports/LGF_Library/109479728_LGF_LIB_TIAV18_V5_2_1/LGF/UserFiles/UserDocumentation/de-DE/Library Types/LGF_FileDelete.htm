@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html><html lang='de-DE'>
+<head>
+<script src='../../../Code2Docu/katex/katex.min.js'></script>
+<script src='../../../Code2Docu/katex/katexStartUp.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/katex/katex.min.css' />
+<!--[if lt IE 9]><script src='../../../Code2Docu/katex/html5shiv-printshiv-3.7.3.min.js'></script><![endif]-->
+<link rel='stylesheet' href='../../../Code2Docu/highlightJS/scl.css'>
+<script src='../../../Code2Docu/highlightJS/highlight.min.js'></script>
+<script src='../../../Code2Docu/highlightJS/scl.js'></script>
+<script src='../../../Code2Docu/Code2DocuScript.js'></script>
+<script src='../../../Code2Docu/highlightJS/highlight.load.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/style.css'>
+<link rel='stylesheet' href='../../../Code2Docu/styleCustomized.css'>
+<meta http-equiv='Content-type' content='text/html;charset=UTF-8'>
+<title>LGF_FileDelete (FB / 1.0.0)</title>
+</head>
+<body>
+ <div class="containerFluid"> 
+ <h1>LGF_FileDelete (FB / 1.0.0)</h1>
+<div class='langSelectionBox'>
+<a href='../../de-DE/Folders/LGF.htm' target='_self'>Übersicht</a> 
+<select class='langSelector' id='langSelector' onChange="changeLang('de-DE')">
+    <option class='langOption' value=en-US>English (United States)</option>
+    <option class='langOption' value=de-DE selected>German (Germany)</option>
+</select></div></div><hr>
+<span class='author'>Autor: Simatic Systems Support</span>
+<h2>Kurzbeschreibung</h2>
+<p>Dieser Funktionsbaustein löscht eine Datei, die auf der Speicherkarte der SPS (SMC) im Ordner UserFiles gespeichert ist.</p>
+
+<h3>Baustein Schnittstelle</h3>
+<table class='block'><thead><tr><th colspan='2'> </th><th colspan='5'>LGF_FileDelete (FB)</th><th colspan='2'> </th></tr></thead><tbody>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>execute</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>done</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>String</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>fileName</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>busy</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>error</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>fileDoesNotExist</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>status</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Word</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class=' out'><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td><td rowspan='2'>&nbsp;</td><td rowspan='2'>diagnostics</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LGF_typeDiagnostics</td></tr>
+<tr class='out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</tbody><tfoot><tr><td colspan='2'>&nbsp;</td><td colspan='5'>&nbsp;</td><td colspan='2'>&nbsp;</td></tr></tfoot></table>
+<h3>Input Parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Bezeichner</th><th class='type'>Datentyp</th>
+<th class='default'>Default Wert</th>
+<th>Beschreibung</th></tr></thead><tbody>
+<tr><td>execute</td><td>Bool</td>
+<td>FALSE</td>
+<td>Steigende Flanke startet Löschen der Datei</td></tr>
+<tr><td>fileName</td><td>String</td>
+<td>''</td>
+<td>Name der Datei inklusiv Pfad: `UserFiles/test.dat`</td></tr>
+</tbody></table>
+<h3>Output Parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Bezeichner</th><th class='type'>Datentyp</th>
+<th>Beschreibung</th></tr></thead><tbody>
+<tr><td>done</td><td>Bool</td>
+<td>TRUE: FB-Abarbeitung erfolgreich fertiggestellt</td></tr>
+<tr><td>busy</td><td>Bool</td>
+<td>TRUE: FB ist aktiv; neue Ausgabewerte können erwartet werden.</td></tr>
+<tr><td>error</td><td>Bool</td>
+<td>TRUE: Bei der Ausführung der Funktionalität ist ein Fehler aufgetreten</td></tr>
+<tr><td>fileDoesNotExist</td><td>Bool</td>
+<td>True: Die Datei oder der Pfad unter `Dateiname` existiert nicht</td></tr>
+<tr><td>status</td><td>Word</td>
+<td>16#0000-16#7FFF: Status des FB / 16#8000-16#FFFF: Fehleridentifikation (siehe folgende Tabelle)</td></tr>
+<tr><td>diagnostics</td><td>LGF_typeDiagnostics</td>
+<td>Diagnosestruktur zur Speicherung und Übertragung von Diagnoseinformationen von Blöcken über die Schnittstelle.</td></tr>
+</tbody></table>
+<h3>Status & Error Meldungen</h3>
+<table class='StatusAndErrorConstants'><thead><tr><th>Code / Wert</th><th>Bezeichner / Beschreibung</th></tr></thead><tbody>
+<tr><td>16#0000</td><td>STATUS_EXECUTION_FINISHED<br>Ausführung ohne Fehler beendet</td></tr>
+<tr><td>16#7000</td><td>STATUS_NO_CALL<br>Kein Job wird gerade verarbeitet</td></tr>
+<tr><td>16#7001</td><td>STATUS_FIRST_CALL<br>Erster Aufruf nach Eingang eines neuen Auftrags (steigende Flanke 'execute')</td></tr>
+<tr><td>16#7002</td><td>STATUS_SUBSEQUENT_CALL<br>Nachfolgender Aufruf bei aktiver Verarbeitung ohne weitere Angaben</td></tr>
+<tr><td>16#8401</td><td>ERR_FILE_PATH<br>Fehler: Dateipfad Fehler: der Dateipfad muss mit 'UserFiles/' beginnen.</td></tr>
+<tr><td>16#8600</td><td>ERR_UNDEFINED_STATE<br>Fehler aufgrund eines undefinierten Zustands im Zustandsautomaten</td></tr>
+<tr><td>16#8604</td><td>ERR_FILE_DELETE_INIT<br>Fehler: Datei von der SMC lesen - siehe `diagnostics.subFunctionStatus`</td></tr>
+<tr><td>16#8605</td><td>ERR_FILE_DELETE<br>Fehler: Datei von SMC lesen - siehe `diagnostics.subFunctionStatus`</td></tr>
+</tbody></table>
+<h2>Benutzer definierte Datentypen</h2>
+<h3>LGF_typeDiagnostics (UDT / V1.0.1)</h3>
+<p>Diagnosestruktur zur Speicherung und Übertragung von Diagnoseinformationen von Blöcken über die Schnittstelle.</p>
+
+<table class='UDT'>
+  <thead>
+    <tr>
+      <th colspan='1' class='name'>Bezeichner</th>
+      <th class='type'>Datentyp</th>
+      <th class='default'>Default Wert</th>
+      <th>Beschreibung</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>status</td>
+    <td class='type'>Word</td>
+    <td class='default'>16#0000</td>
+    <td>Status des Bausteins oder Fehleridentifikation beim Auftreten des Fehlers</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>subfunctionStatus</td>
+    <td class='type'>Word</td>
+    <td class='default'>16#0000</td>
+    <td>Status oder Rückgabewert von aufgerufenen FB's, FC's und Systembausteinen</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>stateNumber</td>
+    <td class='type'>DInt</td>
+    <td class='default'>0</td>
+    <td>Zustand in der Zustandsmaschine des Blocks, in dem der Fehler aufgetreten ist</td>
+  </tr>
+  </tbody>
+</table>
+<h2>Funktionsbeschreibung</h2>
+<p>Mit der Funktion <code>LGF_FileDelete</code> kann eine Datei von der SIMATIC Memory Card (SMC) gelöscht werden.</p>
+<p>Der Dateiname muss immer vollumfänglich zusammen mit dem Ordner Namen und der Datei Erweiterung in folgendem Format angegeben werden: <code>UserFiles/test.dat</code></p>
+
+<h2>Änderungshistorie</h2>
+<table class='ChangeLog'><thead><tr><th colspan='2'>Version & Datum</th><th>Änderungsbeschreibung</th></tr></thead><tbody>
+<tr class='LogEntryStart'><td></td><td>1.0.0</td><td>Simatic Systems Support</td></tr>
+<tr><td></td><td>29.04.2025</td><td>First released version</td></tr>
+</tbody></table>
+<hr>
+<p class='footer'>
+<a href='https://support.industry.siemens.com/cs/ww/de/view/109479728' target='_blank'>Library of General Functions (LGF)</a><br>
+<span>Beitrags Nummer: 109479728</span>
+<span>Datum: 10/2025</span>
+<span>Version: V5.2.1</span>
+<span>Generiert mit TIA Portal Add-In
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109809007' target='_blank'>Code2Docu</a>
+</span>
+<span> </span>
+</p>
+</body></html>

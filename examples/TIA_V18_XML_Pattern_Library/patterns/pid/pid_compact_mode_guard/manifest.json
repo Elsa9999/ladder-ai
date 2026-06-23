@@ -1,0 +1,22 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "PID_Compact i_Mode guard",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{PID_ENABLE}}",
+      "type": "Bool"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "{{PID_INSTANCE}}",
+  "required_data_types": [],
+  "notes": [
+    "Use together with PID_Compact Version 1.2.",
+    "Moves Int 3 to instance.sRet.i_Mode when enable is TRUE.",
+    "Moves Int 0 to instance.sRet.i_Mode when enable is FALSE.",
+    "Each move is guarded by Ne SrcType Int, matching the known-good TIA export style."
+  ]
+}

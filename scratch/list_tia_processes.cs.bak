@@ -1,0 +1,14 @@
+using System;
+using System.IO;
+using Siemens.Engineering;
+
+class ListTiaProcesses
+{
+    static void Main()
+    {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Console.WriteLine("========================================");
+        Console.WriteLine(" LIST ACTIVE TIA PORTAL INSTANCES (ORIGINAL BACKUP)");
+        Console.WriteLine("========================================");
+    }
+}

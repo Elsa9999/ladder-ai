@@ -1,0 +1,36 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "F_TRIG",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "Auger Duty Cycle Output",
+      "type": "AUTO"
+    },
+    {
+      "name": "Start",
+      "type": "AUTO"
+    },
+    {
+      "name": "Auger Duty Cycle Start",
+      "type": "AUTO"
+    },
+    {
+      "name": "Set Reset",
+      "type": "AUTO"
+    },
+    {
+      "name": "Test Output",
+      "type": "AUTO"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "F_TRIG_DB",
+  "required_data_types": [],
+  "source_file": "Main.xml",
+  "network_index": 9,
+  "network_title": "",
+  "version": "1.0"
+}

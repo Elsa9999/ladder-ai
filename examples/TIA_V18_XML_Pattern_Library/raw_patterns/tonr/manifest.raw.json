@@ -1,0 +1,36 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "TONR",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "Simu_CB_Cao_Moi_Xuat_Phat",
+      "type": "AUTO"
+    },
+    {
+      "name": "Timer_Simu_CB_Cao",
+      "type": "AUTO"
+    },
+    {
+      "name": "SIMU_CB_CAO",
+      "type": "AUTO"
+    },
+    {
+      "name": "Q_BT",
+      "type": "AUTO"
+    },
+    {
+      "name": "M_CB_Cao",
+      "type": "AUTO"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "Timer_Simu_CB_Cao",
+  "required_data_types": [],
+  "source_file": "FC_SIMULATION.xml",
+  "network_index": 3,
+  "network_title": "Timer cảm biến Cao",
+  "version": "1.0"
+}

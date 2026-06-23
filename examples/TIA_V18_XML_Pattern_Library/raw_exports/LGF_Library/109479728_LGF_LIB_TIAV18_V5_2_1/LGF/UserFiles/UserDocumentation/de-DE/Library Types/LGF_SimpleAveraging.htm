@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html><html lang='de-DE'>
+<head>
+<script src='../../../Code2Docu/katex/katex.min.js'></script>
+<script src='../../../Code2Docu/katex/katexStartUp.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/katex/katex.min.css' />
+<!--[if lt IE 9]><script src='../../../Code2Docu/katex/html5shiv-printshiv-3.7.3.min.js'></script><![endif]-->
+<link rel='stylesheet' href='../../../Code2Docu/highlightJS/scl.css'>
+<script src='../../../Code2Docu/highlightJS/highlight.min.js'></script>
+<script src='../../../Code2Docu/highlightJS/scl.js'></script>
+<script src='../../../Code2Docu/Code2DocuScript.js'></script>
+<script src='../../../Code2Docu/highlightJS/highlight.load.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/style.css'>
+<link rel='stylesheet' href='../../../Code2Docu/styleCustomized.css'>
+<meta http-equiv='Content-type' content='text/html;charset=UTF-8'>
+<title>LGF_SimpleAveraging (FB / 1.0.0)</title>
+</head>
+<body>
+ <div class="containerFluid"> 
+ <h1>LGF_SimpleAveraging (FB / 1.0.0)</h1>
+<div class='langSelectionBox'>
+<a href='../../de-DE/Folders/LGF.htm' target='_self'>Übersicht</a> 
+<select class='langSelector' id='langSelector' onChange="changeLang('de-DE')">
+    <option class='langOption' value=en-US>English (United States)</option>
+    <option class='langOption' value=de-DE selected>German (Germany)</option>
+</select></div></div><hr>
+<span class='author'>Autor: Siemens Digital Industry</span>
+<h2>Kurzbeschreibung</h2>
+<p>Diese Funktion berechnet einen gleitenden arithmetischen Mittelwert aus LReal-Werten.<br />
+Die Methode kann zur Glättung von Datenreihen verwendet werden, die Werte können zyklisch oder getriggert eingelesen werden.</p>
+
+<h3>Baustein Schnittstelle</h3>
+<table class='block'><thead><tr><th colspan='2'> </th><th colspan='5'>LGF_SimpleAveraging (FB)</th><th colspan='2'> </th></tr></thead><tbody>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>cyclicExecution</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>average</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>LReal</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in out'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>trigger</td><td rowspan='2'>&nbsp;</td><td rowspan='2'>overflow</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>Bool</td></tr>
+<tr class='in out interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in'><td rowspan='2'>Bool</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>reset</td><td rowspan='2'>&nbsp;</td><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td></tr>
+<tr class='in interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in'><td rowspan='2'>LReal</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>value</td><td rowspan='2'>&nbsp;</td><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td></tr>
+<tr class='in interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+<tr class='in'><td rowspan='2'>USInt</td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'>windowSize</td><td rowspan='2'>&nbsp;</td><td rowspan='2'></td><td>&nbsp;</td><td>&nbsp;</td><td rowspan='2'></td></tr>
+<tr class='in interface'><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+</tbody><tfoot><tr><td colspan='2'>&nbsp;</td><td colspan='5'>&nbsp;</td><td colspan='2'>&nbsp;</td></tr></tfoot></table>
+<h3>Input Parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Bezeichner</th><th class='type'>Datentyp</th>
+<th class='default'>Default Wert</th>
+<th>Beschreibung</th></tr></thead><tbody>
+<tr><td>cyclicExecution</td><td>Bool</td>
+<td>FALSE</td>
+<td>TRUE: Zyklisches Einlesen, trigger nicht verwendet</td></tr>
+<tr><td>trigger</td><td>Bool</td>
+<td>FALSE</td>
+<td>Steigende Flanke: Einlesen von `value` bei jedem Impuls am Eingang `trigger`</td></tr>
+<tr><td>reset</td><td>Bool</td>
+<td>FALSE</td>
+<td>TRUE: Der Baustein wird zurückgesetzt und die Berechnung beginnt erneut.</td></tr>
+<tr><td>value</td><td>LReal</td>
+<td>0.0</td>
+<td>Wert/e, aus welchen der gleitende Mittelwert bestimmt werden soll.</td></tr>
+<tr><td>windowSize</td><td>USInt</td>
+<td>5</td>
+<td>Fensterlänge für die gleitende Mittelung im Bereich von 1..255</td></tr>
+</tbody></table>
+<h3>Output Parameter</h3>
+<table class='BlockInterface'><thead><tr><th class='name'>Bezeichner</th><th class='type'>Datentyp</th>
+<th>Beschreibung</th></tr></thead><tbody>
+<tr><td>average</td><td>LReal</td>
+<td>Gleitender Mittelwert</td></tr>
+<tr><td>overflow</td><td>Bool</td>
+<td>TRUE: Überlauf der in der Berechnung erkannt</td></tr>
+</tbody></table>
+<h2>Funktionsbeschreibung</h2>
+<dl class='HINWEIS'>
+<dt>Hinweis</dt>
+<dd>Der Baustein <code>LGF_SimpleAveraging</code> führt keine Datentypabfrage für den Eingangsparameter <code>value</code> durch. Bei anderen Datentypen als LReal wird entweder automatisch eine implizite Konvertierung durchgeführt oder ein Fehler beim Übersetzen generiert.</dd>
+<dd>Weitere Informationen finden Sie im Kapitel &quot;Übersicht über die Datentypkonvertierung&quot; in der Online Hilfe des TIA Portals oder unter:</dd>
+<dd><a href="https://support.industry.siemens.com/cs/ww/de/view/109773506/100611494667" target='_blank' >https://support.industry.siemens.com/cs/ww/de/view/109773506/100611494667</a></dd>
+</dl>
+<hr class='successorDefList' />
+<p>Der Block berechnet den (gleitenden) Mittelwert auf der Grundlage der eingestellten <code>windowSize</code>. Wenn <code>windowSize</code> auf <span class="math inline">windowSize &lt; 1</span> gesetzt ist, wird der Wert ohne Mittelwertbildung durchgereicht.</p>
+<p>Für das Auslesen der Werte gibt es zwei Möglichkeiten:</p>
+<ul>
+<li>Mit dem Eingang <code>cyclicExecution</code> werden die Werte zyklisch gelesen und berechnet.</li>
+<li>Mit dem Eingang <code>Trigger</code> werden die Werte bei jedem Impuls eingelesen und berechnet.</li>
+</ul>
+<p>Wenn die Berechnung die Wertebereichs Grenzen von <code>LReal</code> erreicht, wird der Ausgang <code>overflow</code> gesetzt.</p>
+
+<h2>Änderungshistorie</h2>
+<table class='ChangeLog'><thead><tr><th colspan='2'>Version & Datum</th><th>Änderungsbeschreibung</th></tr></thead><tbody>
+<tr class='LogEntryStart'><td></td><td>1.0.0</td><td>Simatic Systems Support</td></tr>
+<tr><td></td><td>18.07.2024</td><td>First Release</td></tr>
+</tbody></table>
+<hr>
+<p class='footer'>
+<a href='https://support.industry.siemens.com/cs/ww/de/view/109479728' target='_blank'>Library of General Functions (LGF)</a><br>
+<span>Beitrags Nummer: 109479728</span>
+<span>Datum: 10/2025</span>
+<span>Version: V5.2.1</span>
+<span>Generiert mit TIA Portal Add-In
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109809007' target='_blank'>Code2Docu</a>
+</span>
+<span> </span>
+</p>
+</body></html>

@@ -1,0 +1,40 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "TON",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "Tag_6",
+      "type": "AUTO"
+    },
+    {
+      "name": "AlwaysFALSE",
+      "type": "AUTO"
+    },
+    {
+      "name": "Q_Auto_Xylanh_Cao",
+      "type": "AUTO"
+    },
+    {
+      "name": "I_CB_Cao",
+      "type": "AUTO"
+    },
+    {
+      "name": "Q_Auto_BT",
+      "type": "AUTO"
+    },
+    {
+      "name": "M_CB_Cao",
+      "type": "AUTO"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "IEC_Timer_0_DB",
+  "required_data_types": [],
+  "source_file": "FC_AUTO_MODE.xml",
+  "network_index": 3,
+  "network_title": "ĐIỀU KHIỂN XI LANH SẢN PHẨM CAO",
+  "version": "1.0"
+}

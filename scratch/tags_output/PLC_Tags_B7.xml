@@ -1,0 +1,1445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-06-12T02:00:00Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+  </DocumentInfo>
+  <SW.Tags.PlcTagTable ID="0">
+    <AttributeList>
+      <Name>PLC_AI_B7_Tags</Name>
+    </AttributeList>
+    <ObjectList>
+      <SW.Tags.PlcTag ID="1" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD800</LogicalAddress>
+          <Name>AI_B7_K03_PT02_Pressure</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1001" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2001" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PRESSURE 7-8 bar</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="11" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD804</LogicalAddress>
+          <Name>AI_B7_K03_TT04_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1011" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2011" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="21" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD808</LogicalAddress>
+          <Name>AI_B7_K03_TT05_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1021" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2021" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="31" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD812</LogicalAddress>
+          <Name>AI_B7_K03_TT06_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1031" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2031" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="41" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD816</LogicalAddress>
+          <Name>AI_B7_K03_TT07_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1041" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2041" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="51" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD820</LogicalAddress>
+          <Name>AI_B7_K03_PT07_Pressure</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1051" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2051" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PRESSURE 7-8 bar</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="61" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD824</LogicalAddress>
+          <Name>AI_B7_K03_FT03_Flow</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1061" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2061" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="71" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD828</LogicalAddress>
+          <Name>AI_B7_K03_Density_1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1071" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2071" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>COUNT 800-1000 kg/m3</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="81" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD832</LogicalAddress>
+          <Name>AI_B7_K03_LT01_Level</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1081" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2081" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>LEVEL 20-80 cm</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="91" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD836</LogicalAddress>
+          <Name>AI_B7_K03_LT02_Level</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1091" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2091" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>LEVEL 20-80 cm</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="101" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD840</LogicalAddress>
+          <Name>AI_B7_K03_TT01_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1101" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2101" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="111" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD844</LogicalAddress>
+          <Name>AI_B7_K03_TT02_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1111" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2111" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="121" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD848</LogicalAddress>
+          <Name>AI_B7_Reboiler_PV</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1121" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2121" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="131" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD852</LogicalAddress>
+          <Name>AI_B7_Reboiler_SP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1131" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2131" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="141" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD856</LogicalAddress>
+          <Name>AI_B7_Reboiler_CV</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1141" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2141" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PERCENT 20-80 %</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="151" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD860</LogicalAddress>
+          <Name>AI_B7_HE03_Primary_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1151" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2151" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="161" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD864</LogicalAddress>
+          <Name>AI_B7_HE03_Secondary_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1161" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2161" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="171" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD868</LogicalAddress>
+          <Name>AI_B7_K03_L08_Level</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1171" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2171" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>LEVEL 20-80 cm</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="181" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD872</LogicalAddress>
+          <Name>AI_B7_K03_L06_Level</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1181" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2181" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>LEVEL 20-80 cm</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="191" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD876</LogicalAddress>
+          <Name>AI_B7_K03_L05_Level</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1191" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2191" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>LEVEL 20-80 cm</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="201" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD880</LogicalAddress>
+          <Name>AI_B7_K03_L07_Level</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1201" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2201" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>LEVEL 20-80 cm</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="211" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD884</LogicalAddress>
+          <Name>AI_B7_K03_L04_Level</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1211" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2211" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>LEVEL 20-80 cm</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="221" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD888</LogicalAddress>
+          <Name>AI_B7_K03_L03_Level</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1221" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2221" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>LEVEL 20-80 cm</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="231" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD892</LogicalAddress>
+          <Name>AI_B7_V03A_Density</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1231" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2231" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>COUNT 800-1000 kg/m3</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="241" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD896</LogicalAddress>
+          <Name>AI_B7_Kettle_Flow_SP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1241" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2241" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 kg/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="251" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD900</LogicalAddress>
+          <Name>AI_B7_Keboiler_Flow_SP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1251" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2251" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 kg/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="261" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD904</LogicalAddress>
+          <Name>AI_B7_Reflux_Time_SP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1261" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2261" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>COUNT 0-60 Min</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="271" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD908</LogicalAddress>
+          <Name>AI_B7_Time_Remain</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1271" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2271" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>COUNT 0-60 Min</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="281" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD912</LogicalAddress>
+          <Name>AI_B7_RD_Level_SP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1281" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2281" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>LEVEL 20-80 cm</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="291" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD916</LogicalAddress>
+          <Name>AI_B7_Reflux_Flow_SP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1291" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2291" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="301" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD920</LogicalAddress>
+          <Name>AI_B7_Collection_SP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1301" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2301" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="311" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD924</LogicalAddress>
+          <Name>AI_B7_Total_Flowrate</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1311" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2311" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 L/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="321" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD928</LogicalAddress>
+          <Name>AI_B7_ML_Qty_SP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1321" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2321" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>COUNT 0-600 L</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="331" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD932</LogicalAddress>
+          <Name>AI_B7_ML_Qty_Total</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1331" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2331" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>COUNT 0-600 L</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="341" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD936</LogicalAddress>
+          <Name>AI_B7_Material_Code</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1341" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2341" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>COUNT 0-99 </Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="351" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD940</LogicalAddress>
+          <Name>AI_B7_Stage_Number</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1351" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2351" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>COUNT 0-20 </Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="361" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD944</LogicalAddress>
+          <Name>AI_B7_Batch_Number</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1361" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2361" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>COUNT 0-9999 </Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="371" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD948</LogicalAddress>
+          <Name>AI_B7_Current_User_ID</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1371" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2371" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>COUNT 0-999 </Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="381" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD952</LogicalAddress>
+          <Name>AI_B7_K_05_L_704_HI</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1381" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2381" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>LEVEL 20-80 cm</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="391" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD956</LogicalAddress>
+          <Name>AI_B7_Density_SP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1391" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2391" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>COUNT 800-1000 kg/m3</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="401" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD960</LogicalAddress>
+          <Name>AI_B7_CTS_Flow_1</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1401" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2401" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 kg/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="411" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD964</LogicalAddress>
+          <Name>AI_B7_CTS_Flow_2</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1411" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2411" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>FLOW 100-200 kg/h</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="421" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD968</LogicalAddress>
+          <Name>AI_B7_Steam_PT01_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1421" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2421" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="431" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD972</LogicalAddress>
+          <Name>AI_B7_Steam_PT02_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1431" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2431" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="441" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD976</LogicalAddress>
+          <Name>AI_B7_CWS_TT01_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1441" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2441" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="451" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD980</LogicalAddress>
+          <Name>AI_B7_CWS_TT02_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1451" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2451" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="461" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD984</LogicalAddress>
+          <Name>AI_B7_CWS_TT03_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1461" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2461" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="471" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD988</LogicalAddress>
+          <Name>AI_B7_CWAR_TT01_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1471" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2471" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="481" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD992</LogicalAddress>
+          <Name>AI_B7_CWAR_TT02_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1481" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2481" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="491" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD996</LogicalAddress>
+          <Name>AI_B7_CWAR_TT03_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1491" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2491" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="501" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1000</LogicalAddress>
+          <Name>AI_B7_CWAR_TT04_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1501" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2501" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="511" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1004</LogicalAddress>
+          <Name>AI_B7_K03_CV01_PV</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1511" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2511" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PERCENT 20-80 %</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="521" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1008</LogicalAddress>
+          <Name>AI_B7_K03_CV01_SP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1521" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2521" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PERCENT 20-80 %</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="531" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1012</LogicalAddress>
+          <Name>AI_B7_K03_CV01_CV</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1531" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2531" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PERCENT 20-80 %</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="541" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1016</LogicalAddress>
+          <Name>AI_B7_Steam_CV01_PV</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1541" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2541" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PERCENT 20-80 %</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="551" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1020</LogicalAddress>
+          <Name>AI_B7_Steam_CV01_SP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1551" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2551" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PERCENT 20-80 %</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="561" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1024</LogicalAddress>
+          <Name>AI_B7_Steam_CV01_CV</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1561" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2561" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PERCENT 20-80 %</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="571" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1028</LogicalAddress>
+          <Name>AI_B7_K03_Jacket_PV</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1571" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2571" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="581" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1032</LogicalAddress>
+          <Name>AI_B7_K03_Jacket_SP</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1581" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2581" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="591" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1036</LogicalAddress>
+          <Name>AI_B7_K03_Jacket_CV</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1591" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2591" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>PERCENT 20-80 %</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="601" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1040</LogicalAddress>
+          <Name>AI_B7_CHWR_TT01_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1601" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2601" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="611" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1044</LogicalAddress>
+          <Name>AI_B7_CHWR_TT02_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1611" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2611" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="621" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1048</LogicalAddress>
+          <Name>AI_B7_CHWS_TT01_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1621" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2621" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="631" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1052</LogicalAddress>
+          <Name>AI_B7_CHWS_TT02_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1631" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2631" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+      <SW.Tags.PlcTag ID="641" CompositionName="Tags">
+        <AttributeList>
+          <DataTypeName>Real</DataTypeName>
+          <ExternalAccessible>true</ExternalAccessible>
+          <ExternalVisible>true</ExternalVisible>
+          <ExternalWritable>true</ExternalWritable>
+          <LogicalAddress>%MD1056</LogicalAddress>
+          <Name>AI_B7_K03_TT03_Temp</Name>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1641" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="2641" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text>TEMP 50-80 °C</Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Tags.PlcTag>
+    </ObjectList>
+  </SW.Tags.PlcTagTable>
+</Document>

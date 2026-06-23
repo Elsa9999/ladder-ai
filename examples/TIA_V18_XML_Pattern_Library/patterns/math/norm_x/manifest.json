@@ -1,0 +1,36 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "NORM_X",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{BOOL_SIMULATION}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{INT_ANALOG_IN}}",
+      "type": "Int"
+    },
+    {
+      "name": "{{INT_TEMP}}",
+      "type": "Int"
+    },
+    {
+      "name": "{{INT_SIMU_VAL}}",
+      "type": "Int"
+    },
+    {
+      "name": "{{REAL_TEMP}}",
+      "type": "Real"
+    },
+    {
+      "name": "{{REAL_SCALED_OUT}}",
+      "type": "Real"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "",
+  "required_data_types": []
+}

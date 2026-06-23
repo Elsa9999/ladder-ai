@@ -1,0 +1,44 @@
+{
+  "tia_version": "V18",
+  "plc_family": "S7-1200",
+  "language": "LAD",
+  "block_instruction_name": "PID_Compact",
+  "tested_status": "compiled",
+  "required_tags": [
+    {
+      "name": "{{REAL_SETPOINT}}",
+      "type": "Real"
+    },
+    {
+      "name": "{{REAL_INPUT}}",
+      "type": "Real"
+    },
+    {
+      "name": "{{BOOL_MANUALENABLE}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{REAL_MANUALVALUE}}",
+      "type": "Real"
+    },
+    {
+      "name": "{{BOOL_RESET}}",
+      "type": "Bool"
+    },
+    {
+      "name": "{{REAL_OUTPUT}}",
+      "type": "Real"
+    },
+    {
+      "name": "{{INT_STATE}}",
+      "type": "Int"
+    },
+    {
+      "name": "{{BOOL_ERROR}}",
+      "type": "Bool"
+    }
+  ],
+  "required_dbs": [],
+  "required_instance_db": "{{DB_INSTANCE}}",
+  "required_data_types": []
+}

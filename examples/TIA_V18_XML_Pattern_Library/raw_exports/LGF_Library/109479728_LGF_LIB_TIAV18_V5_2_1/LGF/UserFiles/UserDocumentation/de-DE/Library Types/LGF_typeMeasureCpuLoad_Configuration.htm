@@ -1,0 +1,84 @@
+<!DOCTYPE html><html lang='de-DE'>
+<head>
+<script src='../../../Code2Docu/katex/katex.min.js'></script>
+<script src='../../../Code2Docu/katex/katexStartUp.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/katex/katex.min.css' />
+<!--[if lt IE 9]><script src='../../../Code2Docu/katex/html5shiv-printshiv-3.7.3.min.js'></script><![endif]-->
+<link rel='stylesheet' href='../../../Code2Docu/highlightJS/scl.css'>
+<script src='../../../Code2Docu/highlightJS/highlight.min.js'></script>
+<script src='../../../Code2Docu/highlightJS/scl.js'></script>
+<script src='../../../Code2Docu/Code2DocuScript.js'></script>
+<script src='../../../Code2Docu/highlightJS/highlight.load.js'></script>
+<link rel='stylesheet' href='../../../Code2Docu/style.css'>
+<link rel='stylesheet' href='../../../Code2Docu/styleCustomized.css'>
+<meta http-equiv='Content-type' content='text/html;charset=UTF-8'>
+<title>LGF_typeMeasureCpuLoad_Configuration (UDT / V1.0.0)</title>
+</head><body>
+ <div class="containerFluid"> 
+ <h1>LGF_typeMeasureCpuLoad_Configuration (UDT / V1.0.0)</h1>
+<div class='langSelectionBox'>
+<a href='../../de-DE/Folders/LGF.htm' target='_self'>Übersicht</a> 
+<select class='langSelector' id='langSelector' onChange="changeLang('de-DE')">
+    <option class='langOption' value=en-US>English (United States)</option>
+    <option class='langOption' value=de-DE selected>German (Germany)</option>
+</select></div></div><hr>
+<h2>Beschreibung</h2>
+<p>Dieser UDT gehört zum Modul <code>LGF_MeasureCpuLoad</code> und listet alle möglichen Parameter zur Konfiguration des Verhaltens auf.</p>
+
+<h2>Parameterbeschreibung</h2>
+<table class='UDT'><thead><tr><th colspan='1' class='name'>Bezeichner</th><th class='type'>Datentyp</th><th class='default'>Default Wert</th><th>Beschreibung</th></tr></thead><tbody>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>cfcRun</td>
+    <td class='type'>Bool</td>
+    <td class='default'>FALSE</td>
+    <td>CFC-Lauf (OB-Nr. wird nach 10xx verschoben)</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>averagingValues</td>
+    <td class='type'>USInt</td>
+    <td class='default'>0</td>
+    <td>Mittelwertbildung der Messwerte durch Bildung des arithmetischen Mittelwerts</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>comLoadSim</td>
+    <td class='type'>UInt</td>
+    <td class='default'>0</td>
+    <td>Com-Load-Simulation [%]<br>WENN > 0.0 Wert wird für die Berechnung verwendet<br>WENN <= 0.0 tatsächlichen Com-Load-Wert verwenden, der von der SPS gelesen wird</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>limitWarning</td>
+    <td class='type'>Real</td>
+    <td class='default'>70.0</td>
+    <td>Warngungs Grenzwert [%]</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>limitAlarm</td>
+    <td class='type'>Real</td>
+    <td class='default'>100.0</td>
+    <td>Alarm Grenzwert [%]</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>organizationBlocksCyclic</td>
+    <td class='type'>Array[0..10] of LGF_typeMeasureCpuLoad_ConfigurationBlock</td>
+    <td class='default'>---</td>
+    <td>Zyklische Blöcke zur Messung</td>
+  </tr>
+  <tr>
+    <td colspan ='1' style='width: 125px;'>organizationBlocks</td>
+    <td class='type'>Array[0..30] of LGF_typeMeasureCpuLoad_ConfigurationBlock</td>
+    <td class='default'>---</td>
+    <td>NICHT zyklische Blöcke zur Messung</td>
+  </tr>
+</tbody></table>
+<hr>
+<p class='footer'>
+<a href='https://support.industry.siemens.com/cs/ww/de/view/109479728' target='_blank'>Library of General Functions (LGF)</a><br>
+<span>Beitrags Nummer: 109479728</span>
+<span>Datum: 10/2025</span>
+<span>Version: V5.2.1</span>
+<span>Generiert mit TIA Portal Add-In
+<a href='https://support.industry.siemens.com/cs/ww/en/view/109809007' target='_blank'>Code2Docu</a>
+</span>
+<span> </span>
+</p>
+</body></html>

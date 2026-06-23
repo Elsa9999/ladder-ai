@@ -1,0 +1,84 @@
+<Pattern Name="PID_Compact_Mode_Guard">
+  <SW.Blocks.CompileUnit ID="13100" CompositionName="CompileUnits">
+    <AttributeList>
+      <NetworkSource>
+        <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+          <Parts>
+            <Access Scope="GlobalVariable" UId="13101"><Symbol><Component Name="{{PID_ENABLE}}" /></Symbol></Access>
+            <Access Scope="GlobalVariable" UId="13102"><Symbol><Component Name="{{PID_INSTANCE}}" /><Component Name="sRet" /><Component Name="i_Mode" /></Symbol></Access>
+            <Access Scope="LiteralConstant" UId="13103"><Constant><ConstantType>Int</ConstantType><ConstantValue>3</ConstantValue></Constant></Access>
+            <Access Scope="LiteralConstant" UId="13104"><Constant><ConstantType>Int</ConstantType><ConstantValue>3</ConstantValue></Constant></Access>
+            <Access Scope="GlobalVariable" UId="13105"><Symbol><Component Name="{{PID_INSTANCE}}" /><Component Name="sRet" /><Component Name="i_Mode" /></Symbol></Access>
+            <Part Name="Contact" UId="13106" />
+            <Part Name="Ne" UId="13107"><TemplateValue Name="SrcType" Type="Type">Int</TemplateValue></Part>
+            <Part Name="Move" UId="13108"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part>
+          </Parts>
+          <Wires>
+            <Wire UId="13109"><Powerrail /><NameCon UId="13106" Name="in" /></Wire>
+            <Wire UId="13110"><IdentCon UId="13101" /><NameCon UId="13106" Name="operand" /></Wire>
+            <Wire UId="13111"><NameCon UId="13106" Name="out" /><NameCon UId="13107" Name="pre" /></Wire>
+            <Wire UId="13112"><IdentCon UId="13102" /><NameCon UId="13107" Name="in1" /></Wire>
+            <Wire UId="13113"><IdentCon UId="13103" /><NameCon UId="13107" Name="in2" /></Wire>
+            <Wire UId="13114"><NameCon UId="13107" Name="out" /><NameCon UId="13108" Name="en" /></Wire>
+            <Wire UId="13115"><IdentCon UId="13104" /><NameCon UId="13108" Name="in" /></Wire>
+            <Wire UId="13116"><NameCon UId="13108" Name="out1" /><IdentCon UId="13105" /></Wire>
+          </Wires>
+        </FlgNet>
+      </NetworkSource>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="13117" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="13118" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>PID Auto Mode 3 when enable is active</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.CompileUnit>
+  <SW.Blocks.CompileUnit ID="13200" CompositionName="CompileUnits">
+    <AttributeList>
+      <NetworkSource>
+        <FlgNet xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/FlgNet/v4">
+          <Parts>
+            <Access Scope="GlobalVariable" UId="13201"><Symbol><Component Name="{{PID_ENABLE}}" /></Symbol></Access>
+            <Access Scope="GlobalVariable" UId="13202"><Symbol><Component Name="{{PID_INSTANCE}}" /><Component Name="sRet" /><Component Name="i_Mode" /></Symbol></Access>
+            <Access Scope="LiteralConstant" UId="13203"><Constant><ConstantType>Int</ConstantType><ConstantValue>0</ConstantValue></Constant></Access>
+            <Access Scope="LiteralConstant" UId="13204"><Constant><ConstantType>Int</ConstantType><ConstantValue>0</ConstantValue></Constant></Access>
+            <Access Scope="GlobalVariable" UId="13205"><Symbol><Component Name="{{PID_INSTANCE}}" /><Component Name="sRet" /><Component Name="i_Mode" /></Symbol></Access>
+            <Part Name="Contact" UId="13206"><Negated Name="operand" /></Part>
+            <Part Name="Ne" UId="13207"><TemplateValue Name="SrcType" Type="Type">Int</TemplateValue></Part>
+            <Part Name="Move" UId="13208"><TemplateValue Name="Card" Type="Cardinality">1</TemplateValue></Part>
+          </Parts>
+          <Wires>
+            <Wire UId="13209"><Powerrail /><NameCon UId="13206" Name="in" /></Wire>
+            <Wire UId="13210"><IdentCon UId="13201" /><NameCon UId="13206" Name="operand" /></Wire>
+            <Wire UId="13211"><NameCon UId="13206" Name="out" /><NameCon UId="13207" Name="pre" /></Wire>
+            <Wire UId="13212"><IdentCon UId="13202" /><NameCon UId="13207" Name="in1" /></Wire>
+            <Wire UId="13213"><IdentCon UId="13203" /><NameCon UId="13207" Name="in2" /></Wire>
+            <Wire UId="13214"><NameCon UId="13207" Name="out" /><NameCon UId="13208" Name="en" /></Wire>
+            <Wire UId="13215"><IdentCon UId="13204" /><NameCon UId="13208" Name="in" /></Wire>
+            <Wire UId="13216"><NameCon UId="13208" Name="out1" /><IdentCon UId="13205" /></Wire>
+          </Wires>
+        </FlgNet>
+      </NetworkSource>
+      <ProgrammingLanguage>LAD</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="13217" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="13218" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text>PID Inactive Mode 0 when enable is inactive</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.CompileUnit>
+</Pattern>
