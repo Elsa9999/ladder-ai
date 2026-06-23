@@ -39,26 +39,23 @@ Logic SCL mới sẽ chuyển toàn bộ dữ liệu nội bộ và dữ liệu 
 
 ---
 
-## 3. Bản Đồ I/O Vật Lý Bắt Buộc Giữ Nguyên (Physical I/O Preservation)
+## 3. Phân Định Real_IO và Sim_IO (I/O Mapping Strategy)
 
-Để đảm bảo không cần đấu nối lại dây điện trên tủ điều khiển thực tế, các địa chỉ ngõ vào vật lý (`%I`) và ngõ ra vật lý (`%Q`) phải được giữ nguyên chính xác từ bản cũ:
+Để đảm bảo dự án phản ánh đúng cấu hình thiết bị thực tế trên tủ điện Variant B, bảng biến được phân chia rõ rệt thành hai nhóm:
 
-### Ngõ vào số (Digital Inputs - %I):
-*   Cảm biến báo mức cạn Bồn 1: `%I0.0`
-*   Cảm biến báo mức đầy Bồn 1: `%I0.1`
-*   Cảm biến báo mức cạn Bồn 2: `%I0.2`
-*   Cảm biến báo mức đầy Bồn 2: `%I0.3`
-*   Cảm biến báo mức cạn Bồn 3: `%I0.4`
-*   Cảm biến báo mức đầy Bồn 3: `%I0.5`
-*   Cảm biến báo mức cạn Bồn 4: `%I0.6`
-*   Cảm biến báo mức đầy Bồn 4: `%I0.7`
+### A. Nhóm Real_IO (I/O vật lý thật)
+Đây là các tín hiệu đấu dây thực tế với tủ điều khiển. Chúng được khai báo địa chỉ `%I` / `%Q` hoặc bản đồ thanh ghi truyền thông:
+*   **Truyền thông Biến tần (Modbus RTU RS485):** Các thanh ghi lệnh (`Control Word`, `Frequency Setpoint`) và thanh ghi trạng thái (`Status Word`, `Frequency Feedback`) kết nối qua mạng RS485 với ATV12.
+*   **Nút nhấn vật lý (nếu có):** Nút nhấn Start (`%I0.0`), Stop (`%I0.1`), Reset (`%I0.2`), và Emergency Stop (`%I0.3`) nếu được đấu nối thật vào ngõ vào số của PLC1.
+*   **Ngõ ra điều khiển động cơ (contactor):** Ngõ ra kích khởi động từ động cơ cánh khuấy Bồn 4 (`%Q0.0`) hoặc rơ-le trung gian điều khiển chạy biến tần nếu có đấu nối thật.
 
-### Ngõ ra số (Digital Outputs - %Q):
-*   Van cấp liệu Dosing Bồn 1: `%Q0.0`
-*   Van xả Bồn 1: `%Q0.1`
-*   Van cấp liệu Dosing Bồn 2: `%Q0.2`
-*   Van xả Bồn 2: `%Q0.3`
-*   Van cấp liệu Dosing Bồn 3: `%Q0.4`
-*   Van xả Bồn 3: `%Q0.5`
-*   Van cấp liệu Dosing Bồn 4: `%Q0.6`
-*   Van xả Bồn 4: `%Q0.7`
+### B. Nhóm Sim_IO (I/O mô phỏng)
+Mặc định, các tín hiệu van, cảm biến mức, cảm biến nhiệt độ và cảm biến lưu lượng **không có thiết bị vật lý thật tương ứng trong tủ điện đấu nối của Variant B**.
+*   **Danh sách Sim_IO:**
+    *   Cảm biến mức cạn/đầy các bồn (Bồn 1, 2, 3, 4).
+    *   Các van cấp liệu Dosing và van xả đáy các bồn (Bồn 1, 2, 3, 4).
+    *   Cảm biến đo nhiệt độ thực tế (`PV`) và cảm biến lưu lượng (`FT`).
+*   **Ràng buộc lập trình:**
+    *   Tuyệt đối **KHÔNG** tự ý ánh xạ (map) các tín hiệu Sim_IO này vào vùng địa chỉ `%I` hoặc `%Q`.
+    *   Tất cả dữ liệu Sim_IO này phải được định nghĩa và xử lý trực tiếp trong các khối dữ liệu cấu trúc `DB_Operation` hoặc `DB_HMI`.
+    *   Các giá trị cảm biến Sim_IO sẽ được HMI cập nhật ảo hoặc được tính toán tự động bằng logic mô phỏng nội bộ của PLC.

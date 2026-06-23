@@ -39,7 +39,7 @@ Các khối dưới đây là khối thư viện tích hợp sẵn của hãng S
 2.  **MB_CLIENT / MB_SERVER (Version 3.1):**
     *   **Khối gọi:** `MB_CLIENT_DB` và `MB_SERVER_DB` (gọi trong các FB truyền thông tương ứng của Variant B).
     *   **Nhiệm vụ:** Thiết lập kênh truyền dữ liệu Modbus TCP qua Ethernet giữa PLC1 và PLC2.
-    *   **Lưu ý lập trình SCL:** Không khai báo cứng kiểu kết nối trong DB. Sử dụng cấu trúc `TCON_IP_v4` gán động IP và Port ở OB100.
+    *   **Lưu ý lập trình SCL:** Sử dụng DB kết nối cấu trúc kiểu `TCON_IP_v4` tường minh. Chân `CONNECT` của khối `MB_CLIENT`/`MB_SERVER` phải trỏ trực tiếp vào DB `TCON_IP_v4` này. Các thông số cấu hình IP, Port, Connection ID có thể được thiết lập qua Start Value trong DB hoặc khởi tạo ở `OB100`/`FirstScan`, đảm bảo biên dịch và readback từ TIA Portal khớp chính xác. Không sử dụng các shortcut kết nối `CONNECT_ID`/`IP_OCTET` mơ hồ. Giao tiếp S7 GET/PUT bị nghiêm cấm hoàn toàn.
 
 3.  **Modbus RTU Blocks (MB_COMM_LOAD & MB_MASTER):**
     *   **Khối gọi:** `MB_COMM_LOAD_DB` và `MB_MASTER_DB` (gọi trong `FB_ATV12_Modbus_RTU`).

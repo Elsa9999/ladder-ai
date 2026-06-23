@@ -38,7 +38,7 @@ Tài liệu này phân định phạm vi kỹ thuật, mục tiêu và yêu cầ
 *   **Truyền thông PLC-PLC (Modbus TCP):**
     *   Nghiêm cấm sử dụng giao thức S7 GET/PUT.
     *   Sử dụng thư viện **`MB_CLIENT`** (trên PLC_1) và **`MB_SERVER`** (trên PLC_2) phiên bản **V3.1**.
-    *   Thiết lập TCON cấu hình kết nối (địa chỉ IP, ID kết nối, Port) bắt buộc phải được gán động thông qua các lệnh `MOVE` trong mạng khởi động `FirstScan` (OB100) để đảm bảo tính an toàn tham chiếu XML khi import.
+    *   Cấu hình kết nối Modbus TCP sử dụng DB kiểu dữ liệu `TCON_IP_v4` tường minh. Chân `CONNECT` của khối `MB_CLIENT`/`MB_SERVER` phải trỏ trực tiếp vào DB `TCON_IP_v4` này. Các thông số cấu hình IP, Port, Connection ID có thể đặt bằng Start Value trong DB hoặc khởi tạo ở `OB100`/`FirstScan`, đảm bảo compile và readback từ TIA Portal khớp chính xác. Không sử dụng các shortcut kết nối `CONNECT_ID`/`IP_OCTET` mơ hồ.
     *   Thiết lập cơ chế bắt tay (Handshake) truyền nhận dữ liệu lệnh và phản hồi bằng các tag kiểu dữ liệu **`Int`** (`CmdSeq` và `AckSeq`) để chống trùng hoặc chồng lệnh và không sinh lỗi cảnh báo kiểu dữ liệu khi biên dịch.
 *   **Truyền thông Biến Tần (Modbus RTU):**
     *   PLC_1 giao tiếp với biến tần Altivar 12 (ATV12) qua mô-đun truyền thông RS485.
