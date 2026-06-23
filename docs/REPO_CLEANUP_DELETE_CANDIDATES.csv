@@ -19,21 +19,21 @@ scratch/_mapping_log.txt,DELETE_CANDIDATE,Log anh xa tag cuoi cung,TRUE,FALSE,LO
 scratch/_mapping_v2_log.txt,DELETE_CANDIDATE,Log anh xa tag phien ban 2,TRUE,FALSE,LOW
 scratch/_mapping_v3_log.txt,DELETE_CANDIDATE,Log anh xa tag phien ban 3,TRUE,FALSE,LOW
 scratch/_verify_tags_log.txt,DELETE_CANDIDATE,Log kiem tra tinh hop le cua tag table,TRUE,FALSE,LOW
-scratch/bon_tron_1_export.xml,DELETE_CANDIDATE,XML xuat ra cua man hinh Bon tron 1,TRUE,FALSE,MEDIUM
-scratch/bon_tron_1_patched.xml,DELETE_CANDIDATE,XML Bon tron 1 da duoc va loi IO Field,FALSE,TRUE,MEDIUM
-scratch/bon_tron_1_readback.xml,DELETE_CANDIDATE,XML Bon tron 1 doc nguoc tu du an TIA,TRUE,FALSE,LOW
-scratch/bon_tron_2_export.xml,DELETE_CANDIDATE,XML xuat ra cua man hinh Bon tron 2,TRUE,FALSE,MEDIUM
-scratch/bon_tron_2_patched.xml,DELETE_CANDIDATE,XML Bon tron 2 da duoc va loi IO Field,FALSE,TRUE,MEDIUM
-scratch/bon_tron_2_readback.xml,DELETE_CANDIDATE,XML Bon tron 2 doc nguoc tu du an TIA,TRUE,FALSE,LOW
-scratch/bon_tron_3_export.xml,DELETE_CANDIDATE,XML xuat ra cua man hinh Bon tron 3,TRUE,FALSE,MEDIUM
-scratch/bon_tron_3_patched.xml,DELETE_CANDIDATE,XML Bon tron 3 da duoc va loi IO Field,FALSE,TRUE,MEDIUM
-scratch/bon_tron_3_readback.xml,DELETE_CANDIDATE,XML Bon tron 3 doc nguoc tu du an TIA,TRUE,FALSE,LOW
-scratch/bon_tron_4_export.xml,DELETE_CANDIDATE,XML xuat ra cua man hinh Bon tron 4,TRUE,FALSE,MEDIUM
-scratch/bon_tron_4_patched.xml,DELETE_CANDIDATE,XML Bon tron 4 da duoc va loi IO Field,FALSE,TRUE,MEDIUM
-scratch/bon_tron_4_readback.xml,DELETE_CANDIDATE,XML Bon tron 4 doc nguoc tu du an TIA,TRUE,FALSE,LOW
-scratch/Screen_1_export.xml,DELETE_CANDIDATE,XML xuat ra man hinh Screen_1 WinCC,TRUE,FALSE,MEDIUM
-scratch/Screen_1_patched.xml,DELETE_CANDIDATE,XML Screen_1 WinCC da va loi IO Field de thi,FALSE,TRUE,HIGH
-scratch/Screen_1_readback.xml,DELETE_CANDIDATE,XML Screen_1 doc nguoc tu du an TIA,FALSE,TRUE,MEDIUM
+scratch/bon_tron_1_export.xml,ARCHIVE,XML xuat ra cua man hinh Bon tron 1,FALSE,TRUE,MEDIUM
+scratch/bon_tron_1_patched.xml,KEEP_EVIDENCE,XML Bon tron 1 da duoc va loi IO Field,FALSE,TRUE,MEDIUM
+scratch/bon_tron_1_readback.xml,KEEP_EVIDENCE,XML Bon tron 1 doc nguoc tu du an TIA,FALSE,TRUE,LOW
+scratch/bon_tron_2_export.xml,ARCHIVE,XML xuat ra cua man hinh Bon tron 2,FALSE,TRUE,MEDIUM
+scratch/bon_tron_2_patched.xml,KEEP_EVIDENCE,XML Bon tron 2 da duoc va loi IO Field,FALSE,TRUE,MEDIUM
+scratch/bon_tron_2_readback.xml,KEEP_EVIDENCE,XML Bon tron 2 doc nguoc tu du an TIA,FALSE,TRUE,LOW
+scratch/bon_tron_3_export.xml,ARCHIVE,XML xuat ra cua man hinh Bon tron 3,FALSE,TRUE,MEDIUM
+scratch/bon_tron_3_patched.xml,KEEP_EVIDENCE,XML Bon tron 3 da duoc va loi IO Field,FALSE,TRUE,MEDIUM
+scratch/bon_tron_3_readback.xml,KEEP_EVIDENCE,XML Bon tron 3 doc nguoc tu du an TIA,FALSE,TRUE,LOW
+scratch/bon_tron_4_export.xml,ARCHIVE,XML xuat ra cua man hinh Bon tron 4,FALSE,TRUE,MEDIUM
+scratch/bon_tron_4_patched.xml,KEEP_EVIDENCE,XML Bon tron 4 da duoc va loi IO Field,FALSE,TRUE,MEDIUM
+scratch/bon_tron_4_readback.xml,KEEP_EVIDENCE,XML Bon tron 4 doc nguoc tu du an TIA,FALSE,TRUE,LOW
+scratch/Screen_1_export.xml,ARCHIVE,XML xuat ra man hinh Screen_1 WinCC,FALSE,TRUE,MEDIUM
+scratch/Screen_1_patched.xml,KEEP_EVIDENCE,XML Screen_1 WinCC da va loi IO Field de thi,FALSE,TRUE,HIGH
+scratch/Screen_1_readback.xml,KEEP_EVIDENCE,XML Screen_1 doc nguoc tu du an TIA,FALSE,TRUE,MEDIUM
 scratch/scadabai3_export.xml,DELETE_CANDIDATE,XML xuat cua man hinh SCADA Bai 3,TRUE,FALSE,LOW
 scratch/scadabai4_export.xml,DELETE_CANDIDATE,XML xuat cua man hinh SCADA Bai 4,TRUE,FALSE,LOW
 scratch/scadabai5_export.xml,DELETE_CANDIDATE,XML xuat cua man hinh SCADA Bai 5,TRUE,FALSE,LOW

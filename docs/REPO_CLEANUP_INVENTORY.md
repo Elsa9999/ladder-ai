@@ -41,12 +41,28 @@ graph TD
 | `scratch/find_*.py`, `scratch/inspect_*.py`, `scratch/search_*.py` | ~40 tệp | **ARCHIVE** | Các script tiện ích hỗ trợ tìm kiếm tag, comments, kiểm tra visibility hoặc xuất tọa độ HMI. | Mất các công cụ hỗ trợ debug nhanh khi gặp lỗi. |
 | `scratch/PLC_2_temp/`, `scratch/dummy_out/`, `scratch/import_temp/`, `scratch/output_temp/` | 5 thư mục | **DELETE_CANDIDATE** | Các thư mục lưu trữ XML tạm thời sinh ra trong quá trình chạy thử script. | Không có rủi ro, hệ thống tự tạo lại khi chạy script. |
 | `Output_*.xml` ở thư mục gốc | ~3 tệp | **DELETE_CANDIDATE** | Các tệp XML xuất ra của một vài khối đơn lẻ (OB30, FB_Comms). | Không có rủi ro, có thể xuất lại từ TIA. |
-| `scratch/*_export.xml`, `scratch/*_patched.xml`, `scratch/*_readback.xml` | ~30 tệp | **DELETE_CANDIDATE** | Các tệp XML của từng bồn hoặc Screen_1 xuất ra trong quá trình vá lỗi (patching). | Phải xuất lại từ TIA hoặc HMI nếu cần kiểm tra. |
+| `scratch/*_patched.xml`, `scratch/*_readback.xml`, và HMI export quan trọng | ~20 tệp | **ARCHIVE / KEEP_EVIDENCE** | Các tệp XML bằng chứng của giao diện WinCC đã được sửa lỗi căn lề và đọc ngược từ TIA. | **CAO:** Mất đi các tệp lưu vết giao diện WinCC đã sửa lỗi căn lề IO Field, có thể phải làm lại nếu TIA Portal chưa lưu thành công. |
+| `scratch/scadabai*_export.xml`, tệp XML đơn lẻ test không liên quan | ~10 tệp | **DELETE_CANDIDATE** | Các file XML của các dự án SCADA cũ hoặc XML test đơn lẻ không liên quan đến dự án Maggi 2026. | Thấp, có thể xuất lại từ TIA Portal hoặc sinh lại nếu cần. |
 | `scratch/*_log.txt`, `scratch/cleanup_log.txt`, `scratch/compile_log.txt` | ~20 tệp | **DELETE_CANDIDATE** | Nhật ký chạy thử, biên dịch và map tag cũ. | Mất log lịch sử debug cũ (không quan trọng). |
-
 ---
 
-## 3. Đánh Giá Rủi Ro Khi Dọn Dẹp
+## 3. Danh Sách Dọn Dẹp An Toàn Giai Đoạn 1 (PHASE 1 SAFE CLEANUP)
+
+Dưới đây là các tệp tin và thư mục tạm thực sự an toàn, có thể tiến hành xóa ngay lập tức (khi có lệnh) mà không gây ảnh hưởng hay rủi ro nào cho hệ thống do chúng là log tạm hoặc các thư mục tự động sinh lại khi chạy các tool generator/harness:
+
+| Đường dẫn tệp / thư mục | Loại tài nguyên | Lý do an toàn để xóa |
+| :--- | :--- | :--- |
+| `scratch/cleanup_log.txt` | File log | Nhật ký dọn dẹp cũ, không còn giá trị sử dụng. |
+| `scratch/compile_log.txt` | File log | Nhật ký biên dịch C# cũ của các Openness tool. |
+| `scratch/import_log.txt` | File log | Nhật ký import XML cũ của TIA Portal. |
+| `scratch/python_import_log.txt` | File log | Nhật ký import python, tự động sinh lại khi chạy code. |
+| `scratch/dummy_out.txt` | File tạm | File text rỗng được sinh ra khi chạy test. |
+| `scratch/dummy_out/` | Thư mục tạm | Thư mục chứa dữ liệu mô phỏng, tự sinh lại khi chạy generator. |
+| `scratch/import_temp/` | Thư mục tạm | Thư mục đệm dùng cho XML import, tự tạo khi chạy tool. |
+| `scratch/output_temp/` | Thư mục tạm | Thư mục chứa file trung gian của XML generator, tự sinh lại. |
+
+---
+## 4. Đánh Giá Rủi Ro Khi Dọn Dẹp
 
 > [!CAUTION]
 > **Các rủi ro nghiêm trọng cần tránh:**
