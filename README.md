@@ -27,9 +27,9 @@ D:\AI_Agent_PLC_LADDER_ONLY
 |-- README.md                       # Tài liệu tổng quan dự án (File này)
 |-- Lessons_Learned_RealWorld_PLC.md # Đúc kết kinh nghiệm thiết kế PLC thực tế
 |-- Ladder/
-|   |-- Agent_LAD_Library.py        # Thư viện Python sinh mã Ladder XML & HMI Lists
-|   |-- Agent_QA_Validator.py       # Bộ thẩm định chất lượng tự động mới (QA Validator)
-|   |-- Agent_TIA_LAD_Only_Guide.md # Hướng dẫn lập trình 100% Ladder XML
+|   |-- Agent_LAD_Library.py        # Thư viện Python sinh mã Ladder XML & HMI Lists (Legacy Reference)
+|   |-- Agent_QA_Validator.py       # Bộ thẩm định chất lượng tự động mới (QA Validator - Legacy Reference)
+|   |-- Agent_TIA_LAD_Only_Guide.md # Hướng dẫn lập trình 100% Ladder XML (Legacy Reference)
 |   |-- Agent_TIA_Importer_Generic.exe # Công cụ tự động nạp XML và HMI lists vào TIA Portal
 |   |-- Agent_TIA_Importer_Generic.cs  # Mã nguồn C# của bộ nạp tự động
 |   |-- Agent_TIA_HMI_Exporter.exe  # Công cụ xuất Text/Graphic List của HMI ra XML
@@ -40,15 +40,15 @@ D:\AI_Agent_PLC_LADDER_ONLY
 |   |-- Siemens.Engineering.Hmi.dll # Thư viện Siemens Openness HMI API
 |   |-- Siemens_Block_Dictionary.json # Từ điển tra cứu cấu trúc block Siemens
 |-- prompts/
-|   |-- Master_Ladder_Only_5_Agent_Prompt.md # Prompt tổng hợp cho chuỗi 5 Agent
+|   |-- Master_Ladder_Only_5_Agent_Prompt.md # Prompt tổng hợp cho chuỗi 5 Agent (Legacy Reference)
 |   |-- Agent1_Analyst.md           # Hướng dẫn tác vụ của Agent 1
 |   |-- Agent2_Tag_Builder.md       # Hướng dẫn tác vụ của Agent 2
-|   |-- Agent3_Ladder_Coder.md      # Hướng dẫn tác vụ của Agent 3
+|   |-- Agent3_Ladder_Coder.md      # Hướng dẫn tác vụ của Agent 3 (Legacy Reference)
 |   |-- Agent4_QA.md                # Hướng dẫn tác vụ của Agent 4
 |   |-- Agent5_HMI_Executor.md      # Hướng dẫn tác vụ của Agent 5
 |-- templates/
-|   |-- AI_Tags_Template.md         # Mẫu khai báo bảng biến XML
-|   |-- Ladder_Output_Checklist.md  # Danh sách kiểm tra chất lượng bàn giao
+|   |-- AI_Tags_Template.md         # Mẫu khai báo bảng biến XML (Legacy Reference)
+|   |-- Ladder_Output_Checklist.md  # Danh sách kiểm tra chất lượng bàn giao (Legacy Reference)
 |   |-- Manual_Steps_Template.md    # Mẫu tài liệu hướng dẫn vận hành hệ thống
 |-- examples/                       # Các ví dụ tham khảo
 |-- projects/                       # Nơi lưu trữ các dự án sinh thực tế
@@ -57,12 +57,12 @@ D:\AI_Agent_PLC_LADDER_ONLY
 ## Quy tắc sử dụng ngôn ngữ Tiếng Việt thống nhất
 
 Để đảm bảo tính tương thích phần mềm tối đa và hiển thị rõ ràng, chuyên nghiệp:
-- **Tên biến (Tag Name), tên DB, tên HMI Tag:** Bắt buộc viết bằng **tiếng Việt không dấu** (ASCII, ký tự chữ, số và dấu gạch dưới, bắt đầu bằng `AI_`, ví dụ: `AI_Nut_Khoi_Dong`). Điều này ngăn ngừa lỗi font/bảng mã hệ thống khi import tự động qua Openness API.
+- **Tên biến (Tag Name), tên DB, tên HMI Tag:** Bắt buộc viết bằng **tiếng Việt không dấu** (ASCII, ký tự chữ, số và dấu gạch dưới, KHÔNG sử dụng tiền tố `AI_` cho các biến mới, ví dụ: `Nut_Khoi_Dong`). Tiền tố `AI_` chỉ là lịch sử trước migration và không được dùng lại. Điều này ngăn ngừa lỗi font/bảng mã hệ thống khi import tự động qua Openness API.
 - **Tiêu đề mạng (Network Title), Chú thích (Comment) và Mô tả (Description) trong code/tài liệu:** Bắt buộc sử dụng **tiếng Việt có dấu** chuẩn UTF-8 để đảm bảo thông tin an toàn công nghệ hiển thị trực quan và chính xác trên WinCC SCADA/HMI.
 
-### Ví dụ đặt tên chuẩn:
-- Biến vật lý: `AI_Nut_Khoi_Dong`
-- Biến ảo HMI: `AI_Nut_Khoi_Dong_HMI`
+### Ví dụ đặt tên chuẩn (Không chứa tiền tố AI_):
+- Biến vật lý: `Nut_Khoi_Dong`
+- Biến ảo HMI: `Nut_Khoi_Dong_HMI`
 - Chú thích: `Nút khởi động hệ thống an toàn`
 - Tiêu đề mạng: `Khởi động chu kỳ chưng cất tự động`
 
@@ -70,9 +70,9 @@ D:\AI_Agent_PLC_LADDER_ONLY
 
 1. Đọc kỹ tài liệu chỉ dẫn [AI_AGENT_START_HERE.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/AI_AGENT_START_HERE.md) và tuân thủ thiết kế an toàn trong [Lessons_Learned_RealWorld_PLC.md](file:///D:/AI_Agent_PLC_LADDER_ONLY/Lessons_Learned_RealWorld_PLC.md).
 2. Phân tích đề bài và sinh sơ đồ ngõ vào ra đặt trong `IO_Map.json`.
-3. Sinh bảng tag PLC đầy đủ và lưu tại `AI_Tags.xml`.
-4. Viết mã Python gọi thư viện `Agent_LAD_Library.py` để kết xuất các khối logic OB/FB/FC và HMI Text/Graphic Lists dưới dạng XML.
-5. Chạy bộ thẩm định tự động `Agent_QA_Validator.py` để chắc chắn chương trình không vi phạm chính sách Ladder-only và đạt 100% tiêu chí an toàn ngõ vào ra.
+3. Sinh bảng tag PLC đầy đủ và lưu tại `PLC_Tags.xml` hoặc SCL tag table (không chứa tiền tố `AI_`).
+4. Lập trình logic OB/FB/FC trực tiếp dưới dạng mã SCL (file `.scl`) và định nghĩa các khối dữ liệu DB/UDT cho dự án SCL mới. (Thư viện Python `Agent_LAD_Library.py` chỉ dùng để tham khảo vẽ Ladder XML cũ).
+5. Đảm bảo biên dịch không lỗi (0 Errors) khi nạp qua Openness. Bộ validator kiểm duyệt Ladder-only và `Agent_QA_Validator.py` chỉ áp dụng cho phiên bản Ladder cũ (legacy reference), không dùng cho SCL mới.
 6. Hoàn thiện tài liệu WinCC và hướng dẫn import thực tế bàn giao tại thư mục `projects/<ten_du_an>/output/`.
 
 ## Bộ công cụ hỗ trợ phát triển PLC

@@ -22,13 +22,13 @@ Tài liệu này cung cấp các nguyên tắc nghiệp vụ kỹ thuật cốt 
 1.  **Sử dụng Thư Viện Modbus V3.1:** Phù hợp nhất cho S7-1200 firmware V4.5+.
 2.  **Khối Client (PLC1):**
     *   Gọi khối `MB_CLIENT` (instance `MB_CLIENT_DB`).
-    *   Sử dụng biến bước điều khiển tuần tự (ví dụ: `AI_MB_TCP_iStep`) để điều phối việc ghi dữ liệu lệnh (MODE = 1) và đọc dữ liệu trạng thái (MODE = 0) tránh xung đột kênh truyền.
+    *   Sử dụng biến bước điều khiển tuần tự (ví dụ: `MB_TCP_iStep`) để điều phối việc ghi dữ liệu lệnh (MODE = 1) và đọc dữ liệu trạng thái (MODE = 0) tránh xung đột kênh truyền.
 3.  **Khối Server (PLC2):**
     *   Gọi khối `MB_SERVER` (instance `MB_SERVER_DB`).
     *   Liên kết chân `MB_HOLD_REG` trực tiếp với DB Modbus thô `DB_Modbus_Holding_Register_DB` dạng Standard layout (Non-Optimized).
 4.  **Thiết lập TCON cấu hình kết nối:**
     *   Không khai báo tĩnh cấu hình kết nối trong DB.
-    *   **Bắt buộc gán động** các thông số IP kết nối, ID kết nối, Connection type và Port thông qua lệnh `MOVE` trong mạng khởi động `AI_FirstScan` (OB100 hoặc block khởi tạo tương đương).
+    *   **Bắt buộc gán động** các thông số IP kết nối, ID kết nối, Connection type và Port thông qua lệnh `MOVE` trong mạng khởi động `FirstScan` (OB100 hoặc block khởi tạo tương đương).
 5.  **Cơ chế bắt tay chống trùng/chồng lệnh (Handshake):**
     *   Sử dụng số thứ tự lệnh `CmdSeq` (gửi từ Client) và `AckSeq` (phản hồi từ Server).
     *   Định kiểu dữ liệu của các tag handshake là **`Int`** để tránh cảnh báo ép kiểu (type-mismatch warnings) when biên dịch trong TIA.
@@ -41,7 +41,7 @@ Tài liệu này cung cấp các nguyên tắc nghiệp vụ kỹ thuật cốt 
 2.  **Khóa liên động chế độ PID (`sRet.i_Mode`):** 
     *   Mặc định khi PLC khởi động hoặc dừng khẩn, PID có thể bị kẹt ở chế độ không mong muốn.
     *   Bắt buộc thiết kế logic điều khiển `sRet.i_Mode` thông qua lệnh `MOVE`:
-        *   Khi cờ kích hoạt PID (`AI_PID_*_Enable`) đóng: `MOVE 3` (Auto mode) vào `sRet.i_Mode`.
+        *   Khi cờ kích hoạt PID (`PID_*_Enable`) đóng: `MOVE 3` (Auto mode) vào `sRet.i_Mode`.
         *   Khi cờ kích hoạt PID ngắt: `MOVE 0` (Inactive mode) vào `sRet.i_Mode`.
 
 ---

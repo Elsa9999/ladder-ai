@@ -23,7 +23,7 @@ Tài liệu này liệt kê các tiêu chuẩn kỹ thuật bắt buộc mà d�
 4.  **Trao đổi dữ liệu qua Modbus TCP:**
     *   Sử dụng giao thức truyền thông Modbus TCP qua các khối thư viện **`MB_CLIENT`** (tại PLC Client) và **`MB_SERVER`** (tại PLC Server).
     *   **Phiên bản Modbus:** Bắt buộc sử dụng phiên bản **V3.1** nhằm tương thích tốt nhất với dòng CPU S7-1200 có firmware **V4.5** trở lên.
-    *   Các chân cấu hình IP và thông số kết nối của struct `TCON_IP_v4` phải được gán động bằng lệnh `MOVE` trong mạng khởi tạo (`AI_FirstScan`) thay vì gán tĩnh trong DB để đảm bảo tính an toàn tham chiếu khi import XML.
+    *   Các chân cấu hình IP và thông số kết nối của struct `TCON_IP_v4` phải được gán động bằng lệnh `MOVE` trong mạng khởi tạo (`FirstScan`) thay vì gán tĩnh trong DB để đảm bảo tính an toàn tham chiếu khi import XML.
 
 ---
 
