@@ -7,7 +7,7 @@ VERSION : 0.1
       Khuay_Phan_Hoi : Bool;             // Phản hồi trạng thái cánh khuấy chạy (Feedback)
       Toc_Do_Cai_Dat : Real := 0.0;      // Tốc độ cài đặt cánh khuấy (Hz hoặc rpm)
       Toc_Do_Phan_Hoi : Real := 0.0;     // Tốc độ phản hồi thực tế của cánh khuấy (Hz hoặc rpm)
-      Khuay_Dao_Chieu : Bool;            // Lệnh đảo chiều cánh khuấy (chỉ dùng cho Bồn 4)
+      Khuay_Dao_Chieu : Bool;            // Lệnh đảo chiều cánh khuấy, dùng khi bồn/variant có hỗ trợ đảo chiều.
       
       // Trạng thái van cấp liệu và xả đáy
       Van_Cap_Nuoc : Bool;               // Van cấp nước vào bồn

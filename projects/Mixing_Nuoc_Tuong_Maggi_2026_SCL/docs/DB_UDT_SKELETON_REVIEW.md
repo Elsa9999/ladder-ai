@@ -1,13 +1,14 @@
 # ĐÁNH GIÁ VÀ ĐẶC TẢ UDT/DB SKELETON (DB_UDT_SKELETON_REVIEW.md)
 
-Tài liệu này đánh giá chi tiết cấu trúc các kiểu dữ liệu tự định nghĩa (UDT) và các khối dữ liệu (DB) đã được xây dựng dưới dạng SCL skeleton cho dự án `projects/Mixing_Nuoc_Tuong_Maggi_2026_SCL`. 
+Tài liệu này đánh giá chi tiết cấu trúc các kiểu dữ liệu tự định nghĩa (UDT) và các khối dữ liệu (DB) đã được xây dựng dưới dạng SCL skeleton cho dự án `projects/Mixing_Nuoc_Tuong_Maggi_2026_SCL`.
 
 ---
 
 ## 1. Xác Nhận Phạm Vi Lượt Thực Hiện
 *   **Mã nguồn logic vận hành:** Lượt này **CHỈ** dựng khung khai báo dữ liệu (UDT, DB skeleton) và thiết lập các giá trị mặc định ban đầu an toàn. Tuyệt đối **KHÔNG** viết logic vận hành tuần tự, không viết logic OB1, FB Grafcet, Modbus RTU/TCP call, hay các khối FC phụ trợ.
 *   **Gắn kết TIA Portal:** Không thực hiện import TIA, không biên dịch trên TIA Portal, không chỉnh sửa file HMI XML, và không sửa đổi bất kỳ mã nguồn Ladder cũ nào.
-*   **Nguyên tắc không dùng tiền tố `AI_`:** Đã tuân thủ 100%. Toàn bộ UDT, DB và các biến bên trong đều sử dụng tên chuẩn ASCII không dấu, không có tiền tố `AI_` (chỉ dùng các tên như `Nut_Start_Physical`, `Bon1`, `Khuay_Chay`).
+*   **Nguyên tắc không dùng tiền tố `AI_`:** Đã tuân thủ 100% trong toàn bộ các file UDT/DB được tạo. Toàn bộ UDT, DB và các biến bên trong đều sử dụng tên chuẩn ASCII không dấu, không có tiền tố `AI_` (chỉ dùng các tên như `Nut_Start_Physical`, `Bon1`, `Khuay_Chay`).
+*   **Lưu ý về tên lịch sử pre-migration:** Tiền tố `AI_` chỉ là tên lịch sử trong dự án cũ trước khi migration và **không được dùng làm nguồn mapping chính** hay dùng trong các khai báo mới.
 
 ---
 
@@ -39,63 +40,77 @@ Tài liệu này đánh giá chi tiết cấu trúc các kiểu dữ liệu tự
 4.  **[DB_Comms.scl](file:///d:/AI_Agent_PLC_LADDER_ONLY/projects/Mixing_Nuoc_Tuong_Maggi_2026_SCL/db/DB_Comms.scl):**
     *   *Mục đích:* Vùng đệm truyền thông Modbus TCP/RTU. Sử dụng thuộc tính chuẩn `{ S7_Optimized_Access := 'False' }` (Non-Optimized) để đảm bảo độ lệch địa chỉ byte cố định nhằm tránh lỗi `16#80B6`. Khai báo sẵn các biến kết nối dạng `TCON_IP_v4` với giá trị Start Value chuẩn.
 5.  **[DB_RealIO_Map.scl](file:///d:/AI_Agent_PLC_LADDER_ONLY/projects/Mixing_Nuoc_Tuong_Maggi_2026_SCL/db/DB_RealIO_Map.scl):**
-    *   *Mục đích:* Lưu trữ đệm các ngõ vào/ra vật lý thật của Variant B để map với PLC Tags ở đầu và cuối vòng quét.
+    *   *Mục đích:* Lưu trữ đệm các ngõ vào/ra vật lý thật đã xác nhận của Variant B (các nút nhấn vật lý, contactor nguồn biến tần) để ánh xạ với PLC Tags ở đầu và cuối vòng quét OB1.
 
 ---
 
 ## 3. Phân Định Real_IO vs. Sim_IO trong Thiết Kế Mới
 
-Dựa trên cấu hình phần cứng Variant B (2 PLC đấu nối thật), chúng ta phân chia rạch ròi các biến như sau:
+Theo nguyên tắc phân định nghiêm ngặt: Mọi van, cảm biến mức, cảm biến nhiệt độ, cảm biến lưu lượng, phao mức nếu chưa có bảng đấu nối xác nhận chính thức từ bản vẽ thi công đều phải được coi là **Sim_IO** (mô phỏng ảo trong DB). Chỉ những thiết bị vật lý thật đã được xác nhận mới nằm trong bảng Real_IO.
 
-| Tên Thiết Bị / Tín Hiệu | Địa Chỉ Vật Lý | Loại I/O | Kênh Trao Đổi / Khối Xử Lý | Ghi Chú |
+### A. Bảng Real_IO Xác Nhận (Được định nghĩa trong `DB_RealIO_Map.scl`)
+Các ngõ vào/ra vật lý thật có đấu nối trực tiếp vào tủ điều khiển Variant B:
+
+| Tên Thiết Bị / Tín Hiệu | Địa Chỉ Vật Lý | Loại I/O | Kênh Ánh Xạ Trong SCL | Ghi Chú |
 | :--- | :--- | :---: | :--- | :--- |
-| **Nút Start vật lý** | `%I0.0` | Real_IO | `DB_RealIO_Map.Nut_Start_Physical` | Đọc ở đầu OB1 |
-| **Nút Stop vật lý** | `%I0.1` | Real_IO | `DB_RealIO_Map.Nut_Stop_Physical` | Đọc ở đầu OB1 |
-| **Nút Reset vật lý** | `%I0.2` | Real_IO | `DB_RealIO_Map.Nut_Reset_Physical` | Đọc ở đầu OB1 |
-| **Nút E-Stop vật lý** | `%I0.3` | Real_IO | `DB_RealIO_Map.Nut_EStop_Physical` | Thường đóng, đọc ở đầu OB1 |
-| **Phao báo đầy Bồn 1** | `%I0.4` | Real_IO | `DB_RealIO_Map.LS3202_Bon1_Cao_Physical` | Chỉ có trên PLC1 |
-| **Phao báo đầy Bồn 4** | `%I0.5` | Real_IO | `DB_RealIO_Map.LS3217_Bon4_Cao_Physical` | Chỉ có trên PLC2 |
-| **Phao báo cao phễu rót**| `%I0.6` | Real_IO | `DB_RealIO_Map.LSH3310_Pheu_Cao_Physical` | Chỉ có trên PLC1 |
-| **Phao báo thấp phễu rót**| `%I0.7` | Real_IO | `DB_RealIO_Map.LSL3311_Pheu_Thap_Physical`| Chỉ có trên PLC1 |
-| **Contactor VFD Bồn 2** | `%Q0.0` | Real_IO | `DB_RealIO_Map.VFD_Bon2_Contactor` | Ghi ở cuối OB1 PLC1 |
-| **Biến tần ATV12 (Bồn 2)**| Modbus RTU | Real_IO | `DB_Comms.VFD_Bon2` (Addr 8501, 8502, 3201, 3202) | RS485 qua khối `MB_MASTER` |
-| **Các cảm biến đo LT/TT**| Không gán %I| Sim_IO  | `DB_Operation.BonX.Muc_Dich_PV` / `Nhiet_Do_PV` | Không gán %I, cập nhật ảo qua DB |
-| **Các van xả/van cấp**  | Không gán %Q| Sim_IO  | `DB_Operation.BonX.Van_Xa_Day_Y` / `Van_Cap_Nuoc` | Không gán %Q, điều khiển ảo qua DB |
+| **Nút Start vật lý** | `%I0.0` | Real_IO | `DB_RealIO_Map.Nut_Start_Physical` | Đọc ở đầu OB1 PLC1 |
+| **Nút Stop vật lý** | `%I0.1` | Real_IO | `DB_RealIO_Map.Nut_Stop_Physical` | Đọc ở đầu OB1 PLC1 |
+| **Nút Reset vật lý** | `%I0.2` | Real_IO | `DB_RealIO_Map.Nut_Reset_Physical` | Đọc ở đầu OB1 PLC1 |
+| **Nút E-Stop vật lý** | `%I0.3` | Real_IO | `DB_RealIO_Map.Nut_EStop_Physical` | Thường đóng, đọc ở đầu OB1 PLC1 |
+| **Contactor VFD Bồn 2** | `%Q0.0` | Real_IO | `DB_RealIO_Map.VFD_Bon2_Contactor` | Ghi ở cuối OB1 PLC1 để cấp nguồn/enable ATV12 |
+| **Biến tần ATV12 (Bồn 2)**| RS485/RTU | Real_IO | `DB_Comms.VFD_Bon2` | Truyền thông thanh ghi qua Modbus RTU |
+
+### B. Nhóm Cảm Biến / Phao Chưa Xác Nhận (UNCONFIRMED_OPTIONAL_IO)
+Các tín hiệu dưới đây là phao cơ học trong dự án cũ nhưng **chưa có bảng đấu nối xác nhận chính thức cho Variant B**. Do đó, chúng được đưa ra khỏi `DB_RealIO_Map` và xử lý như các biến mô phỏng ảo (Sim_IO) trong `DB_Operation`/`DB_HMI`:
+
+*   `LS3202_Bon1_Cao` (Phao báo đầy Bồn 1)
+*   `LS3217_Bon4_Cao` (Phao báo đầy Bồn 4)
+*   `LSH3310_Pheu_Cao` (Phao báo cao phễu rót)
+*   `LSL3311_Pheu_Thap` (Phao báo thấp phễu rót)
+
+### C. Nhóm Sim_IO Mặc Định (Xử lý hoàn toàn trong DB)
+Tất cả các van cấp/xả, cảm biến mức liên tục LT, cảm biến nhiệt độ TT, lưu lượng kế FT đều là Sim_IO và không gán địa chỉ vật lý `%I/%Q`:
+
+*   **Đo lường liên tục:** `LT3203_Bon1`, `LT3209_Bon2`, `LT3213_Bon3`, `LT3218_Bon4`, `LT3302_BonChua1`, `LT3307_BonChua2`, `TT3204_Bon1`, `TT3208_Bon2`, `TT3214_Bon3`, `TT3219_Bon4`, `FT3200_Bon1`, `FT3205_Bon2`, `FT3210_Bon3`, `FT3215_Bon4`.
+*   **Chấp hành cơ cấu:** `AGTR3260_Khuay_Bon1`, `AGTR3262_Khuay_Bon3`, `AGTR3263_Khuay_Bon4`, `V3232_Xa_Bon1`, `V3235_Nuoc_Bon2`, `V3237_Xa_Bon2`, `V3240_Nuoc_Bon3`, `V3242_Xa_Bon3`, `V3245_Nuoc_Bon4`, `V3247_Xa_Bon4`, v.v.
 
 ---
 
-## 4. Ánh Xạ Biến Cũ (LAD Legacy Tag) Sang Cấu Trúc DB Mới
+## 4. Ánh Xạ Biến Cũ (Ladder Tags) Sang Cấu Trúc DB Mới
 
-Dưới đây là bảng ánh xạ sơ bộ các tag chính từ dự án Ladder cũ sang các biến thành phần trong các DB mới của SCL:
+> [!NOTE]
+> Tiền tố `AI_` là tên lịch sử pre-migration và đã được loại bỏ hoàn toàn trong dự án SCL-first. Bản đồ mapping sử dụng các tag hiện hữu sạch sau khi migration từ legacy project (ví dụ: `Nut_Khoi_Dong`, `Nut_Dung` thay vì `AI_Nut_Khoi_Dong`).
 
-| Tên Tag Cũ (Ladder) | Địa Chỉ Cũ | Biến DB Mới (SCL-First) | Vị Trí Trong DB | Ghi Chú |
+Bảng ánh xạ các tag chính từ legacy project sang cấu trúc DB/UDT mới:
+
+| Tên Tag Legacy (Ladder) | Địa Chỉ Cũ | Biến DB Mới (SCL-First) | Vị Trí Trong DB | Ghi Chú |
 | :--- | :--- | :--- | :--- | :--- |
-| `AI_Nut_Khoi_Dong` | `%I0.0` | `Nut_Start_Physical` | `DB_RealIO_Map` | Nút nhấn Start vật lý |
-| `AI_Nut_Dung` | `%I0.1` | `Nut_Stop_Physical` | `DB_RealIO_Map` | Nút nhấn Stop vật lý |
-| `AI_Nut_Reset` | `%I0.2` | `Nut_Reset_Physical` | `DB_RealIO_Map` | Nút nhấn Reset vật lý |
-| `AI_Nut_EStop` | `%I0.3` | `Nut_EStop_Physical` | `DB_RealIO_Map` | Nút EStop vật lý |
-| `AI_VFD_Bon2_Contactor`| `%Q0.0` | `VFD_Bon2_Contactor` | `DB_RealIO_Map` | Contactor nguồn biến tần |
-| `AI_LT3203_Bon1` | `%ID108` | `Bon1.Muc_Dich_PV` | `DB_Operation` | Cảm biến báo mức Bồn 1 |
-| `AI_TT3204_Bon1` | `%ID112` | `Bon1.Nhiet_Do_PV` | `DB_Operation` | Cảm biến nhiệt độ Bồn 1 |
-| `AI_LT3209_Bon2` | `%ID124` | `Bon2.Muc_Dich_PV` | `DB_Operation` | Cảm biến báo mức Bồn 2 |
-| `AI_TT3208_Bon2` | `%ID128` | `Bon2.Nhiet_Do_PV` | `DB_Operation` | Cảm biến nhiệt độ Bồn 2 |
-| `AI_LT3213_Bon3` | `%ID140` | `Bon3.Muc_Dich_PV` | `DB_Operation` | Cảm biến báo mức Bồn 3 |
-| `AI_TT3214_Bon3` | `%ID144` | `Bon3.Nhiet_Do_PV` | `DB_Operation` | Cảm biến nhiệt độ Bồn 3 |
-| `AI_LT3218_Bon4` | `%ID156` | `Bon4.Muc_Dich_PV` | `DB_Operation` | Cảm biến báo mức Bồn 4 |
-| `AI_TT3219_Bon4` | `%ID160` | `Bon4.Nhiet_Do_PV` | `DB_Operation` | Cảm biến nhiệt độ Bồn 4 |
-| `AI_LT3302_BonChua1` | `%ID164` | `BonChua1.Muc_Dich_PV` | `DB_Operation` | Mức dịch Bồn chứa 1 |
-| `AI_LT3307_BonChua2` | `%ID176` | `BonChua2.Muc_Dich_PV` | `DB_Operation` | Mức dịch Bồn chứa 2 |
-| `AI_AGTR3260_Khuay_Bon1`| `%Q0.1` | `Bon1.Khuay_Chay` | `DB_Operation` | Động cơ khuấy Bồn 1 (Sim_IO) |
-| `AI_V3232_Xa_Bon1` | `%Q0.2` | `Bon1.Van_Xa_Day_1` | `DB_Operation` | Van xả đáy 1 Bồn 1 (Sim_IO) |
-| `AI_V3235_Nuoc_Bon2` | `%Q0.5` | `Bon2.Van_Cap_Nuoc` | `DB_Operation` | Van nước cấp Bồn 2 (Sim_IO) |
-| `AI_CV3206_Hoi_Bon2` | `%QD108` | `Bon2.Van_Cap_Hoi` | `DB_Operation` | Độ mở van hơi Bồn 2 (Sim_IO) |
-| `AI_PID_Bon2_Enable` | `%M412.0` | `PID_Bon2.Enable` | `DB_Operation` | Kích hoạt PID Bồn 2 |
-| `AI_PID_Bon2_SP` | `%MD416` | `PID_Bon2.Setpoint` | `DB_Operation` | Setpoint nhiệt độ PID Bồn 2 |
-| `AI_PID_Bon2_PV` | `%MD420` | `PID_Bon2.PV` | `DB_Operation` | Phản hồi nhiệt độ PID Bồn 2 |
-| `AI_PID_Bon2_CV` | `%MD424` | `PID_Bon2.CV` | `DB_Operation` | Ngõ ra điều khiển PID Bồn 2 |
-| `AI_HMI_Nut_Khoi_Dong`| `%M110.0` | `HMI.Nut_Khoi_Dong` | `DB_HMI` | Nút nhấn khởi động từ HMI |
-| `AI_HMI_SP_PLC1_Nuoc_Bon1`| `%MD224` | `Recipe.SP_Nuoc_Bon1` | `DB_HMI` / `DB_Recipe` | Setpoint nước cấp Bồn 1 |
-| `AI_HMI_SP_PLC1_Toc_Do_Bon1`| `%MD240` | `Recipe.SP_Toc_Do_Bon1` | `DB_HMI` / `DB_Recipe` | Setpoint tốc độ Bồn 1 |
+| `Nut_Khoi_Dong` | `%I0.0` | `Nut_Start_Physical` | `DB_RealIO_Map` | Nút nhấn Start vật lý thật |
+| `Nut_Dung` | `%I0.1` | `Nut_Stop_Physical` | `DB_RealIO_Map` | Nút nhấn Stop vật lý thật |
+| `Nut_Reset` | `%I0.2` | `Nut_Reset_Physical` | `DB_RealIO_Map` | Nút nhấn Reset lỗi vật lý thật |
+| `Nut_EStop` | `%I0.3` | `Nut_EStop_Physical` | `DB_RealIO_Map` | Nút EStop vật lý thật |
+| `VFD_Bon2_Contactor` | `%Q0.0` | `VFD_Bon2_Contactor` | `DB_RealIO_Map` | Contactor nguồn biến tần thật |
+| `LT3203_Bon1` | `%ID108` | `Bon1.Muc_Dich_PV` | `DB_Operation` | Cảm biến báo mức Bồn 1 (Sim_IO) |
+| `TT3204_Bon1` | `%ID112` | `Bon1.Nhiet_Do_PV` | `DB_Operation` | Cảm biến nhiệt độ Bồn 1 (Sim_IO) |
+| `LT3209_Bon2` | `%ID124` | `Bon2.Muc_Dich_PV` | `DB_Operation` | Cảm biến báo mức Bồn 2 (Sim_IO) |
+| `TT3208_Bon2` | `%ID128` | `Bon2.Nhiet_Do_PV` | `DB_Operation` | Cảm biến nhiệt độ Bồn 2 (Sim_IO) |
+| `LT3213_Bon3` | `%ID140` | `Bon3.Muc_Dich_PV` | `DB_Operation` | Cảm biến báo mức Bồn 3 (Sim_IO) |
+| `TT3214_Bon3` | `%ID144` | `Bon3.Nhiet_Do_PV` | `DB_Operation` | Cảm biến nhiệt độ Bồn 3 (Sim_IO) |
+| `LT3218_Bon4` | `%ID156` | `Bon4.Muc_Dich_PV` | `DB_Operation` | Cảm biến báo mức Bồn 4 (Sim_IO) |
+| `TT3219_Bon4` | `%ID160` | `Bon4.Nhiet_Do_PV` | `DB_Operation` | Cảm biến nhiệt độ Bồn 4 (Sim_IO) |
+| `LT3302_BonChua1` | `%ID164` | `BonChua1.Muc_Dich_PV` | `DB_Operation` | Mức dịch Bồn chứa 1 (Sim_IO) |
+| `LT3307_BonChua2` | `%ID176` | `BonChua2.Muc_Dich_PV` | `DB_Operation` | Mức dịch Bồn chứa 2 (Sim_IO) |
+| `AGTR3260_Khuay_Bon1` | `%Q0.1` | `Bon1.Khuay_Chay` | `DB_Operation` | Cánh khuấy Bồn 1 (Sim_IO) |
+| `V3232_Xa_Bon1` | `%Q0.2` | `Bon1.Van_Xa_Day_1` | `DB_Operation` | Van xả đáy 1 Bồn 1 (Sim_IO) |
+| `V3235_Nuoc_Bon2` | `%Q0.5` | `Bon2.Van_Cap_Nuoc` | `DB_Operation` | Van nước cấp Bồn 2 (Sim_IO) |
+| `CV3206_Hoi_Bon2` | `%QD108` | `Bon2.Van_Cap_Hoi` | `DB_Operation` | Độ mở van hơi Bồn 2 (Sim_IO) |
+| `PID_Bon2_Enable` | `%M412.0` | `PID_Bon2.Enable` | `DB_Operation` | Kích hoạt PID Bồn 2 |
+| `PID_Bon2_SP` | `%MD416` | `PID_Bon2.Setpoint` | `DB_Operation` | Setpoint nhiệt độ PID Bồn 2 |
+| `PID_Bon2_PV` | `%MD420` | `PID_Bon2.PV` | `DB_Operation` | Phản hồi nhiệt độ PID Bồn 2 |
+| `PID_Bon2_CV` | `%MD424` | `PID_Bon2.CV` | `DB_Operation` | Ngõ ra điều khiển PID Bồn 2 |
+| `Nut_Khoi_Dong_HMI` | `%M110.0` | `HMI.Nut_Khoi_Dong` | `DB_HMI` | Nút nhấn khởi động từ HMI |
+| `HMI_SP_PLC1_Nuoc_Bon1` | `%MD224` | `Recipe.SP_Nuoc_Bon1` | `DB_HMI` / `DB_Recipe` | Setpoint nước cấp Bồn 1 |
+| `HMI_SP_PLC1_Toc_Do_Bon1`| `%MD240` | `Recipe.SP_Toc_Do_Bon1` | `DB_HMI` / `DB_Recipe` | Setpoint tốc độ Bồn 1 |
 
 ---
 
