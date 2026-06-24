@@ -130,7 +130,7 @@ Dựa trên việc giải mã và phân tích các mạng StructuredText trong `
 Chúng tôi tiến hành đối chiếu cấu trúc hiện tại của các file `projects/Mixing_Nuoc_Tuong_Maggi_2026_SCL/udt/*.scl` và `projects/Mixing_Nuoc_Tuong_Maggi_2026_SCL/db/*.scl` với các phát hiện từ dự án mẫu:
 
 ### Điểm skeleton đang giống style TIA thật:
-1.  **Định dạng Source SCL:** Cấu trúc định nghĩa UDT (`TYPE ... END_TYPE`) và DB (`DATA_BLOCK ... END_DATA_BLOCK`) trong các file skeleton hoàn toàn khớp với định dạng mã nguồn SCL ngoài mà TIA Portal chấp nhận khi import.
+1.  **Định dạng Source SCL:** Cấu trúc UDT/DB skeleton đang giống pattern source SCL thường dùng cho TIA External Source, nhưng chưa được xác nhận bằng import/compile thật trên TIA Portal V18. Bắt buộc chạy import/compile/readback trước khi kết luận compile-ready.
 2.  **Cấu hình tối ưu hóa:** Sử dụng thuộc tính `{ S7_Optimized_Access := 'True' }` cho các DB nội bộ (`DB_Recipe`, `DB_Operation`, `DB_HMI`) và `{ S7_Optimized_Access := 'False' }` cho `DB_Comms` đúng với quy tắc truyền thông Modbus TCP.
 
 ### Điểm vẫn cần TIA Portal import/compile kiểm chứng thực tế:
@@ -148,6 +148,6 @@ END_DATA_BLOCK
 ```
 *   **Vấn đề rủi ro:** Gán giá trị khởi đầu cho từng trường con của một Struct lồng trong khối `BEGIN` của DB nguồn ngoài đôi khi bị trình biên dịch SCL của TIA Portal báo lỗi parser hoặc không áp dụng đúng giá trị mặc định.
 *   **Đề xuất tối ưu:** 
-    1. Do tất cả các thuộc tính của `UDT_Recipe` đã được gán sẵn giá trị mặc định lúc định nghĩa ở tệp [UDT_Recipe.scl](file:///d:/AI_Agent_PLC_LADDER_ONLY/projects/Mixing_Nuoc_Tuong_Maggi_2026_SCL/udt/UDT_Recipe.scl) (ví dụ: `SP_Nuoc_Bon1 : Real := 100.0;`), khi khai báo `Default_Recipe : "UDT_Recipe";` trong DB, TIA Portal sẽ tự động lấy các giá trị mặc định này làm giá trị khởi động.
+    1. Về mặt thiết kế, kỳ vọng TIA Portal sử dụng default value từ UDT khi khai báo biến kiểu UDT trong DB; tuy nhiên hành vi này phải được xác nhận bằng import/compile/readback TIA V18. Nếu không chắc, ưu tiên bỏ BEGIN assignment trong DB_Recipe.scl và kiểm chứng bằng compile thật.
     2. Ta có thể **lược bỏ hoàn toàn** các dòng gán thủ công này trong khối `BEGIN` của `DB_Recipe.scl` để mã nguồn sạch hơn và giảm thiểu tối đa lỗi khi import.
     3. Nếu cần nạp lại công thức mặc định lúc Runtime, việc gán này nên được thực hiện bằng lệnh gán cấu trúc động trong logic SCL (ví dụ: `"DB_Recipe".Active := "DB_Recipe".Default_Recipe;` hoặc gọi ở `FirstScan` (OB100)).

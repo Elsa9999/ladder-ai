@@ -68,3 +68,17 @@ Dưới đây là các tệp tin và thư mục tạm thực sự an toàn, có 
 > **Các rủi ro nghiêm trọng cần tránh:**
 > 1. **Rủi ro mất thư viện DLL:** Tuyệt đối không xóa các tệp `Siemens.Engineering.dll` và `Siemens.Engineering.Hmi.dll` trong `scratch/` vì chúng không đi kèm bộ cài Python hay OS mà được sao chép trực tiếp từ bộ cài TIA Portal. Xóa đi sẽ phá hủy toàn bộ hệ thống Openness Tooling.
 > 2. **Rủi ro mất file XML HMI Patched:** `Screen_1_patched.xml` hoặc `Screen_1_readback.xml` hiện được phân loại KEEP_EVIDENCE/ARCHIVE và tuyệt đối không xóa trực tiếp. Chỉ được archive/move sau khi đã xác nhận TIA Portal lưu thành công và có bản backup Git/tag.
+
+---
+
+## 5. Bổ Sung Các Thư Mục Mới Phát Sinh Và Tham Chiếu SCL (Tháng 06/2026)
+
+Dưới đây là danh sách cập nhật các thư mục phát sinh tạm thời hoặc reference đang ở trạng thái untracked/modified:
+
+| Đường dẫn thư mục | Nguồn gốc phát sinh | Phân loại | Có cần commit? | Lý do không ảnh hưởng đến dự án Maggi SCL |
+| :--- | :--- | :--- | :--- | :--- |
+| `examples/TIA_V18_XML_Pattern_Library/raw_exports/PLSP_export/PLC_1/` | Sinh ra từ công cụ TIA Openness khi chạy export/import các khối mẫu hoặc library block cho PLC_1. | **DELETE_CANDIDATE** | **KHÔNG** | Đây là thư mục đệm chứa XML raw phục vụ kiểm thử Openness Tooling, không chứa logic vận hành hay UDT/DB gốc của dự án Maggi SCL-first. |
+| `scratch/downloaded_projects/DATN/` | Dự án Đồ án tốt nghiệp (DATN) mẫu tải từ bên ngoài để nghiên cứu cấu trúc PLC thực tế. | **ARCHIVE / KEEP_EVIDENCE** | **KHÔNG** | Dự án tham khảo bên ngoài để học tập cú pháp điều khiển bồn trộn, không liên quan đến cấu hình phần cứng hoặc logic chạy thực tế của hệ thống Maggi 2026. |
+| `scratch/downloaded_projects/Box-Sorting-with-Siemens-PLC-and-Factory-IO` | Submodule dự án phân loại hộp (Box Sorting) dùng Factory I/O và Siemens PLC làm reference. | **IGNORE / KEEP** | **KHÔNG** (Giữ nguyên submodule) | Chứa các file cấu hình tạm hoặc log chạy Factory I/O của hệ thống Box Sorting, hoàn toàn độc lập với quy trình Maggi. |
+| `scratch/downloaded_projects/PLC_Mixing_system` | Submodule dự án mô phỏng hệ thống trộn PLC Mixing System cũ. | **IGNORE / KEEP** | **KHÔNG** (Giữ nguyên submodule) | Dự án trộn cũ này viết bằng ngôn ngữ LAD/FBD hoặc cấu trúc cũ, không sử dụng kiến trúc SCL-first và không dùng Modbus TCP như Maggi 2026. |
+
