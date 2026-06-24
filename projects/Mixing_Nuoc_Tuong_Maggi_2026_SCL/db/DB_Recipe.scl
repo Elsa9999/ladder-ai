@@ -1,0 +1,33 @@
+DATA_BLOCK "DB_Recipe"
+{ S7_Optimized_Access := 'True' }
+VERSION : 0.1
+// Khối dữ liệu lưu trữ công thức pha chế đang chạy và các giá trị mặc định của hệ thống
+   STRUCT
+      Active : "UDT_Recipe";             // Công thức đang hoạt động hiện tại (Active Recipe)
+      Default_Recipe : "UDT_Recipe";     // Công thức mặc định khôi phục hệ thống (Default Recipe)
+      Load_Default_Trigger : Bool := FALSE; // Cờ kích hoạt nạp lại công thức mặc định
+   END_STRUCT;
+BEGIN
+   // Thiết lập giá trị mặc định ban đầu cho công thức hệ thống (Start Values)
+   Default_Recipe.SP_Nuoc_Bon1 := 100.0;
+   Default_Recipe.SP_Nuoc_Bon2 := 120.0;
+   Default_Recipe.SP_Nuoc_Bon3 := 100.0;
+   Default_Recipe.SP_Nuoc_Bon4 := 120.0;
+   
+   Default_Recipe.SP_Toc_Do_Bon1 := 30.0;
+   Default_Recipe.SP_Toc_Do_Bon2 := 45.0;
+   Default_Recipe.SP_Toc_Do_Bon3 := 30.0;
+   Default_Recipe.SP_Toc_Do_Bon4 := 45.0;
+   
+   Default_Recipe.SP_Nhiet_Do_Bon2 := 80.0;
+   Default_Recipe.SP_Nhiet_Do_Bon4 := 80.0;
+   Default_Recipe.SP_Nhiet_Giai_Nhiet_BonChua1 := 40.0;
+   
+   Default_Recipe.SP_Thoi_Gian_Khuay_Bon1 := 300.0;
+   Default_Recipe.SP_Thoi_Gian_Khuay_Bon3 := 300.0;
+   Default_Recipe.SP_Thoi_Gian_Khuay_Thuan := 60.0;
+   Default_Recipe.SP_Thoi_Gian_Khuay_Nghich := 60.0;
+   Default_Recipe.SP_Thoi_Gian_Tiet_Trung := 900.0;
+   
+   Default_Recipe.SP_Ap_Suat_Loc_Max := 2.5;
+END_DATA_BLOCK

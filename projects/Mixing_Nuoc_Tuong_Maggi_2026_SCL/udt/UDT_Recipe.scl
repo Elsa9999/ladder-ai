@@ -1,0 +1,32 @@
+TYPE "UDT_Recipe"
+VERSION : 0.1
+// Cấu trúc công thức pha chế (Setpoint định lượng nước, tốc độ khuấy, nhiệt độ và thời gian)
+   STRUCT
+      // Định lượng nước cấp (Lít - Real)
+      SP_Nuoc_Bon1 : Real := 100.0;      // Setpoint nước cấp Bồn 1
+      SP_Nuoc_Bon2 : Real := 120.0;      // Setpoint nước cấp Bồn 2
+      SP_Nuoc_Bon3 : Real := 100.0;      // Setpoint nước cấp Bồn 3
+      SP_Nuoc_Bon4 : Real := 120.0;      // Setpoint nước cấp Bồn 4
+      
+      // Tốc độ cánh khuấy cài đặt (Hz - Real)
+      SP_Toc_Do_Bon1 : Real := 30.0;     // Tốc độ khuấy cài đặt Bồn 1
+      SP_Toc_Do_Bon2 : Real := 45.0;     // Tốc độ khuấy cài đặt Bồn 2 (VFD)
+      SP_Toc_Do_Bon3 : Real := 30.0;     // Tốc độ khuấy cài đặt Bồn 3
+      SP_Toc_Do_Bon4 : Real := 45.0;     // Tốc độ khuấy cài đặt Bồn 4
+      
+      // Nhiệt độ gia nhiệt mục tiêu cho PID (°C - Real)
+      SP_Nhiet_Do_Bon2 : Real := 80.0;   // Nhiệt độ cài đặt gia nhiệt Bồn 2 (PID)
+      SP_Nhiet_Do_Bon4 : Real := 80.0;   // Nhiệt độ cài đặt gia nhiệt Bồn 4 (PID)
+      SP_Nhiet_Giai_Nhiet_BonChua1 : Real := 40.0; // Nhiệt độ giải nhiệt bồn chứa 1 mục tiêu
+      
+      // Thời gian chạy các giai đoạn (Giây - Real)
+      SP_Thoi_Gian_Khuay_Bon1 : Real := 300.0; // Thời gian khuấy chính Bồn 1 (giây)
+      SP_Thoi_Gian_Khuay_Bon3 : Real := 300.0; // Thời gian khuấy chính Bồn 3 (giây)
+      SP_Thoi_Gian_Khuay_Thuan : Real := 60.0;  // Thời gian chạy khuấy thuận Bồn 4 (giây)
+      SP_Thoi_Gian_Khuay_Nghich : Real := 60.0; // Thời gian chạy khuấy nghịch Bồn 4 (giây)
+      SP_Thoi_Gian_Tiet_Trung : Real := 900.0;  // Thời gian giữ nhiệt tiệt trùng Bồn 2 & 4 (giây)
+      
+      // Ngưỡng bảo vệ an toàn
+      SP_Ap_Suat_Loc_Max : Real := 2.5;  // Áp suất tối đa cho phép của bộ lọc xả đáy (bar)
+   END_STRUCT;
+END_TYPE

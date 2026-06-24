@@ -1,0 +1,19 @@
+TYPE "UDT_PID_Channel"
+VERSION : 0.1
+// Cấu trúc dữ liệu điều phối bộ điều khiển PID_Compact Siemens chuẩn
+   STRUCT
+      Enable : Bool := FALSE;            // Cho phép PID chạy (từ logic hệ thống)
+      Setpoint : Real := 0.0;            // Giá trị cài đặt nhiệt độ mục tiêu (°C)
+      PV : Real := 0.0;                  // Giá trị đo nhiệt độ thực tế đưa vào PID PV (°C)
+      CV : Real := 0.0;                  // Giá trị ngõ ra điều khiển PID tính toán (%)
+      
+      // Trạng thái từ khối PID_Compact chuẩn Siemens
+      Status : Word := 16#0;             // Mã trạng thái/lỗi của bộ PID (Status)
+      Manual_Mode : Bool := FALSE;       // Yêu cầu chuyển sang chế độ điều khiển bằng tay (Manual)
+      Manual_Value : Real := 0.0;        // Giá trị ngõ ra điều khiển bằng tay (%)
+      
+      // Biến điều phối chế độ sRet.i_Mode của PID_Compact Siemens
+      // 0 = Inactive, 3 = Auto. Ghi trực tiếp giá trị này vào chân sRet.i_Mode của PID instance DB
+      Mode : Int := 0;                   // Chế độ hiện tại ghi xuống PID_Compact
+   END_STRUCT;
+END_TYPE

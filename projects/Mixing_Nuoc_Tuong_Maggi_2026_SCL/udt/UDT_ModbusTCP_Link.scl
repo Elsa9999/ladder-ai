@@ -1,0 +1,37 @@
+TYPE "UDT_ModbusTCP_Link"
+VERSION : 0.1
+// Cấu trúc dữ liệu quản lý truyền thông Modbus TCP PLC1 - PLC2
+   STRUCT
+      // Trạng thái giao tiếp khối MB_CLIENT / MB_SERVER
+      Busy : Bool := FALSE;              // Cờ Busy từ khối Modbus TCP
+      Done : Bool := FALSE;              // Cờ Done (Client) hoặc NDR (Server) báo truyền nhận hoàn tất
+      Error : Bool := FALSE;             // Cờ lỗi truyền thông (Error)
+      Status : Word := 16#0;             // Mã trạng thái/lỗi chi tiết (Status)
+      
+      // Cơ chế bắt tay điều phối dữ liệu (Handshake)
+      CmdSeq : Int := 0;                 // Mã số lệnh điều khiển gửi từ PLC1 (Client) sang PLC2 (Server)
+      AckSeq : Int := 0;                 // Mã số xác nhận phản hồi từ PLC2 (Server) về PLC1 (Client)
+      
+      // Giám sát kết nối (Watchdog/Heartbeat)
+      Heartbeat_Send : Int := 0;         // Nhịp tim gửi đi để bên đối tác giám sát
+      Heartbeat_Recv : Int := 0;         // Nhịp tim nhận về từ đối tác
+      Heartbeat_Last : Int := 0;         // Lưu giá trị nhịp tim trước đó để so sánh thay đổi
+      Watchdog_Timer : Time := T#0s;     // Thời gian chờ để xác định mất kết nối
+      Connection_Ok : Bool := FALSE;     // Cờ xác nhận kết nối truyền thông hoạt động tốt
+      
+      // Vùng đệm thanh ghi Modbus Holding Register (Modbus Address 40001+)
+      // Dùng làm vùng đệm trung gian để MB_CLIENT đọc/ghi chéo hoặc MB_SERVER chứa dữ liệu chia sẻ.
+      // Register Map:
+      // Word 0: CmdSeq (PLC1 -> PLC2)
+      // Word 1: CmdFlags (PLC1 -> PLC2)
+      // Word 2: Heartbeat_Client (PLC1 -> PLC2)
+      // Word 3: AckSeq (PLC2 -> PLC1)
+      // Word 4: StatusFlags (PLC2 -> PLC1)
+      // Word 5: State (PLC2 -> PLC1)
+      // Word 6: SP_Nhiet_Do (PLC2 -> PLC1, x10)
+      // Word 7: PV_Nhiet_Do (PLC2 -> PLC1, x10)
+      // Word 8: CV_Nhiet_Do (PLC2 -> PLC1, x10)
+      // Word 9: Heartbeat_Server (PLC2 -> PLC1)
+      MB_Hold_Reg : Array[0..19] of Word; // Vùng đệm 20 thanh ghi Word
+   END_STRUCT;
+END_TYPE

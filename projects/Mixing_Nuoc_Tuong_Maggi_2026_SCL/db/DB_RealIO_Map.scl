@@ -1,0 +1,28 @@
+DATA_BLOCK "DB_RealIO_Map"
+{ S7_Optimized_Access := 'True' }
+VERSION : 0.1
+// Khối dữ liệu đệm trung gian ánh xạ các ngõ vào/ra vật lý thực tế (Real_IO) cho Variant B.
+// Việc ánh xạ (mapping) hai chiều giữa các biến DB này và địa chỉ vật lý %I/%Q sẽ được thực hiện 
+// ở đầu và cuối vòng quét OB1 để tăng tính cấu trúc và dễ dàng test/chuyển đổi mô phỏng.
+   STRUCT
+      // --- NGÕ VÀO VẬT LÝ (PLC1 - Ánh xạ từ vùng nhớ %I ở đầu vòng quét OB1) ---
+      Nut_Start_Physical : Bool := FALSE;   // Nút nhấn chạy hệ thống vật lý (%I0.0)
+      Nut_Stop_Physical : Bool := FALSE;    // Nút nhấn dừng hệ thống vật lý (%I0.1)
+      Nut_Reset_Physical : Bool := FALSE;   // Nút nhấn Reset lỗi vật lý (%I0.2)
+      Nut_EStop_Physical : Bool := FALSE;   // Nút nhấn dừng khẩn cấp vật lý (%I0.3)
+      
+      // --- CẢM BIẾN PHAO MỨC CƠ HỌC THẬT (Đấu dây vật lý thực tế) ---
+      LS3202_Bon1_Cao_Physical : Bool := FALSE;   // Cảm biến báo mức đầy cơ học Bồn 1 (%I0.4 - chỉ có trên PLC1)
+      LS3217_Bon4_Cao_Physical : Bool := FALSE;   // Cảm biến báo mức đầy cơ học Bồn 4 (%I0.5 - chỉ có trên PLC2)
+      LSH3310_Pheu_Cao_Physical : Bool := FALSE;  // Cảm biến báo mức cao phễu rót (%I0.6 - chỉ có trên PLC1)
+      LSL3311_Pheu_Thap_Physical : Bool := FALSE; // Cảm biến báo mức thấp phễu rót (%I0.7 - chỉ có trên PLC1)
+      
+      // --- NGÕ RA ĐIỀU KHIỂN THỰC TẾ (PLC1 - Ánh xạ ra vùng nhớ %Q ở cuối vòng quét OB1) ---
+      VFD_Bon2_Contactor : Bool := FALSE;   // Contactor cấp nguồn/enable cho biến tần ATV12 Bồn 2 (%Q0.0)
+      
+      // --- LƯU Ý PHÂN ĐỊNH SIM_IO ---
+      // Toàn bộ các thiết bị chấp hành khác (như van cấp nước, van hơi gia nhiệt, cảm biến mức liên tục LT,
+      // cảm biến nhiệt độ TT, cảm biến lưu lượng FT) đều được định nghĩa là Sim_IO và không ánh xạ ra I/O vật lý.
+   END_STRUCT;
+BEGIN
+END_DATA_BLOCK

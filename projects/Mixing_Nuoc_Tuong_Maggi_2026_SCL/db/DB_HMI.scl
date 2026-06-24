@@ -1,0 +1,11 @@
+DATA_BLOCK "DB_HMI"
+{ S7_Optimized_Access := 'True' }
+VERSION : 0.1
+// Khối dữ liệu giao tiếp với màn hình WinCC HMI (SCADA)
+   STRUCT
+      HMI : "UDT_HMI_Data";             // Gom nhóm nút nhấn ảo và biến hình động
+      Recipe : "UDT_Recipe";             // Các tham số công thức hiển thị/cài đặt từ HMI
+      System : "UDT_SystemStatus";       // Trạng thái vận hành và giám sát hệ thống
+   END_STRUCT;
+BEGIN
+END_DATA_BLOCK

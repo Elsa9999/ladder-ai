@@ -1,0 +1,39 @@
+TYPE "UDT_Tank"
+VERSION : 0.1
+// Cấu trúc dữ liệu cho một bồn trộn (Trạng thái van, cảm biến mức, cánh khuấy, mô phỏng mức dịch)
+   STRUCT
+      // Trạng thái động cơ cánh khuấy
+      Khuay_Chay : Bool;                 // Lệnh chạy cánh khuấy (Cmd)
+      Khuay_Phan_Hoi : Bool;             // Phản hồi trạng thái cánh khuấy chạy (Feedback)
+      Toc_Do_Cai_Dat : Real := 0.0;      // Tốc độ cài đặt cánh khuấy (Hz hoặc rpm)
+      Toc_Do_Phan_Hoi : Real := 0.0;     // Tốc độ phản hồi thực tế của cánh khuấy (Hz hoặc rpm)
+      Khuay_Dao_Chieu : Bool;            // Lệnh đảo chiều cánh khuấy (chỉ dùng cho Bồn 4)
+      
+      // Trạng thái van cấp liệu và xả đáy
+      Van_Cap_Nuoc : Bool;               // Van cấp nước vào bồn
+      Van_Cap_Nuoc_AO : Real := 0.0;     // Độ mở van cấp nước tuyến tính (%)
+      Van_Xa_Day_1 : Bool;               // Van xả đáy nhánh 1
+      Van_Xa_Day_2 : Bool;               // Van xả đáy nhánh 2
+      Van_Xa_Day_3 : Bool;               // Van xả đáy nhánh 3
+      
+      // Van hơi gia nhiệt / van nước làm mát (cho Bồn 2 và Bồn 4 có PID nhiệt độ)
+      Van_Cap_Hoi : Real := 0.0;         // Độ mở van cấp hơi gia nhiệt (%)
+      Van_Lam_Mat : Real := 0.0;         // Độ mở van cấp nước làm mát (%)
+      
+      // Cảm biến đo lường mức và nhiệt độ (Sim_IO)
+      Cam_Bien_Cao : Bool;               // Cảm biến báo mức cao vượt ngưỡng (LS)
+      Muc_Dich_PV : Real := 0.0;         // Mức dịch đo lường thực tế (LT)
+      Nhiet_Do_PV : Real := 0.0;         // Nhiệt độ đo lường thực tế (TT)
+      Luu_Luong_PV : Real := 0.0;        // Lưu lượng dòng cấp (FT)
+      The_Tich_Luy_Ke : Real := 0.0;     // Thể tích lũy kế (FQ)
+      
+      // Các biến hỗ trợ mô phỏng động học nội bộ (Sim_IO)
+      Sim_Active : Bool := TRUE;         // Cho phép chạy mô phỏng nội bộ cho bồn này
+      Sim_Muc_Dich_Tich_Luy : Real := 0.0; // Mức dịch tích lũy mô phỏng
+      Sim_Nhiet_Do_Tich_Luy : Real := 25.0; // Nhiệt độ tích lũy mô phỏng
+      
+      // Trạng thái vận hành và tiến trình
+      Buoc_Grafcet : Int := 0;           // Bước tiến trình hiện tại
+      Me_Hoan_Thanh : Bool := FALSE;     // Cờ báo kết thúc mẻ trộn hiện tại
+   END_STRUCT;
+END_TYPE

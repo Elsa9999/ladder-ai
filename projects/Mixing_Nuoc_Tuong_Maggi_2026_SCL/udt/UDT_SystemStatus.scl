@@ -1,0 +1,16 @@
+TYPE "UDT_SystemStatus"
+VERSION : 0.1
+// Cấu thế trạng thái hệ thống chung (Chế độ Manual/Auto, trạng thái E-Stop, Alarms)
+   STRUCT
+      Auto_Active : Bool := FALSE;       // Trạng thái hệ thống đang chạy tự động
+      Manual_Active : Bool := TRUE;      // Trạng thái hệ thống ở chế độ tay
+      EStop_Pressed : Bool := TRUE;      // Nút dừng khẩn cấp E-Stop bị tác động (Thường đóng, TRUE = hở mạch/bị nhấn)
+      Safety_Gate_Closed : Bool := FALSE; // Trạng thái cửa bảo vệ/cửa tủ đóng kín
+      System_Alarm_Active : Bool := FALSE; // Có lỗi tích cực nào đang xảy ra trong hệ thống
+      Coi_Bao_Dong : Bool := FALSE;       // Điều khiển còi báo động lỗi
+      
+      // Giám sát hoạt động của PLC
+      Heartbeat_Counter : DInt := 0;      // Bộ đếm nhịp tim vòng quét PLC (tăng liên tục)
+      First_Scan_Done : Bool := FALSE;    // Cờ báo hiệu vòng quét khởi động đầu tiên đã chạy qua
+   END_STRUCT;
+END_TYPE

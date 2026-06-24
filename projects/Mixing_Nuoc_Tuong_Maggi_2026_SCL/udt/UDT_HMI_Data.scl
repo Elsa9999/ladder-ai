@@ -1,0 +1,27 @@
+TYPE "UDT_HMI_Data"
+VERSION : 0.1
+// Cấu trúc dữ liệu WinCC HMI (Đọc/Ghi) cho giao tiếp với PLC
+   STRUCT
+      // Nhóm nút nhấn điều khiển ảo từ HMI (SCADA/WinCC)
+      Nut_Khoi_Dong : Bool := FALSE;     // Lệnh khởi động hệ thống từ HMI
+      Nut_Dung : Bool := FALSE;          // Lệnh dừng hệ thống từ HMI
+      Nut_Reset : Bool := FALSE;         // Lệnh Reset lỗi hệ thống từ HMI
+      Nut_EStop : Bool := FALSE;         // Lệnh dừng khẩn cấp ảo từ HMI
+      Che_Do_Manual : Bool := TRUE;      // Chế độ vận hành (True = Tay/Manual, False = Tự động/Auto)
+      Cho_Phep_Sua_Thong_So : Bool := FALSE; // Cho phép sửa thông số/Recipe từ HMI
+      
+      // Nhóm trạng thái phản hồi hiển thị lên HMI
+      System_Running : Bool := FALSE;    // Đèn báo hệ thống đang chạy
+      System_Alarms : Word := 16#0;      // Từ trạng thái cảnh báo/lỗi hệ thống (mã lỗi)
+      Safety_Ok : Bool := TRUE;          // Báo trạng thái an toàn hệ thống (không bị E-Stop, khóa cửa bảo vệ)
+      
+      // Nhóm biến trạng thái tạo hình động trên màn hình WinCC HMI (Animation)
+      // Mức dịch bồn chứa được chuẩn hóa dạng Int (0..100) để vẽ đồ họa dâng mức nước trên SCADA
+      Anim_Bon1_MucDich : Int := 0;      // Hình động mức dịch Bồn 1 (0..100)
+      Anim_Bon2_MucDich : Int := 0;      // Hình động mức dịch Bồn 2 (0..100)
+      Anim_Bon3_MucDich : Int := 0;      // Hình động mức dịch Bồn 3 (0..100)
+      Anim_Bon4_MucDich : Int := 0;      // Hình động mức dịch Bồn 4 (0..100)
+      Anim_BonChua1_MucDich : Int := 0;  // Hình động mức dịch Bồn chứa 1 (0..100)
+      Anim_BonChua2_MucDich : Int := 0;  // Hình động mức dịch Bồn chứa 2 (0..100)
+   END_STRUCT;
+END_TYPE

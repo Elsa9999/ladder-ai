@@ -1,0 +1,38 @@
+DATA_BLOCK "DB_Operation"
+{ S7_Optimized_Access := 'True' }
+VERSION : 0.1
+// Khối dữ liệu vận hành chính (Trạng thái của các bồn, các bộ điều khiển PID nhiệt độ và cờ liên động quy trình)
+   STRUCT
+      // Trạng thái vận hành của 4 bồn trộn chính
+      Bon1 : "UDT_Tank";                 // Trạng thái và biến đo lường Bồn 1
+      Bon2 : "UDT_Tank";                 // Trạng thái và biến đo lường Bồn 2
+      Bon3 : "UDT_Tank";                 // Trạng thái và biến đo lường Bồn 3
+      Bon4 : "UDT_Tank";                 // Trạng thái và biến đo lường Bồn 4
+      
+      // Trạng thái vận hành của các bồn chứa phụ trợ
+      BonChua1 : "UDT_Tank";             // Trạng thái bồn chứa trung gian 1 (Bồn chứa giải nhiệt)
+      BonChua2 : "UDT_Tank";             // Trạng thái bồn chứa trung gian 2 (Bồn chứa thành phẩm trước chiết)
+      
+      // Trạng thái mức của Phễu rót (Filler Hopper)
+      Pheu_Filler_Cao : Bool := FALSE;   // Phễu rót mức cao (LSH3310_Pheu_Cao) - Sim_IO
+      Pheu_Filler_Thap : Bool := FALSE;  // Phễu rót mức thấp (LSL3311_Pheu_Thap) - Sim_IO
+      
+      // Trạng thái các bộ điều khiển nhiệt độ PID
+      PID_Bon2 : "UDT_PID_Channel";      // Kênh điều phối PID nhiệt độ Bồn 2
+      PID_Bon4 : "UDT_PID_Channel";      // Kênh điều phối PID nhiệt độ Bồn 4
+      
+      // Phân bổ và quản lý khóa liên động nhánh xả (Shared Resource Allocation)
+      // Để tránh việc hai bồn xả đồng thời làm tràn hoặc lẫn dòng chảy:
+      // Owner = 0: Nhánh trống. Owner = 1: Bồn 1 đang xả. Owner = 2: Bồn 2 đang xả.
+      Owner_Nhanh1 : Int := 0;           // Phân quyền sử dụng đường xả Nhánh 1 (Bồn 1 / Bồn 2)
+      
+      // Owner = 0: Nhánh trống. Owner = 3: Bồn 3 đang xả. Owner = 4: Bồn 4 đang xả.
+      Owner_Nhanh2 : Int := 0;           // Phân quyền sử dụng đường xả Nhánh 2 (Bồn 3 / Bồn 4)
+      
+      // Điều khiển còi và hệ thống an toàn
+      Safety_Estop_Active : Bool := FALSE; // Trạng thái Estop đang tác động chốt ngắt hệ thống
+      System_Reset : Bool := FALSE;      // Cờ xung kích hoạt Reset hệ thống
+      Coi_Bao_Dong : Bool := FALSE;      // Trạng thái còi báo động toàn hệ thống
+   END_STRUCT;
+BEGIN
+END_DATA_BLOCK

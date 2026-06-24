@@ -1,0 +1,30 @@
+TYPE "UDT_VFD_ATV12"
+VERSION : 0.1
+// Cấu trúc dữ liệu điều khiển biến tần Altivar 12 (ATV12) qua RS485 (Modbus RTU)
+   STRUCT
+      // Tín hiệu điều khiển (Ghi xuống biến tần)
+      ControlWord : Word := 16#0;        // Thanh ghi lệnh Control Word (Thanh ghi Modbus 8501 - 48502)
+      FreqSetpoint : Int := 0;           // Tần số cài đặt (Thanh ghi Modbus 8502 - 48503, tỷ lệ x10, ví dụ 500 = 50.0 Hz)
+      
+      // Tín hiệu trạng thái (Đọc từ biến tần)
+      StatusWord : Word := 16#0;         // Thanh ghi trạng thái Status Word (Thanh ghi Modbus 3201 - 38501)
+      FreqFeedback : Int := 0;           // Tần số phản hồi thực tế (Thanh ghi Modbus 3202 - 38502, tỷ lệ x10)
+      
+      // Biến trạng thái tuần tự và cờ điều phối cho khối FB_ATV12_Modbus_RTU
+      Step : Int := 0;                   // Bước trong chu kỳ Modbus RTU (0=Đọc Status/Freq, 1=Ghi Control Word, 2=Ghi Freq Ref, v.v.)
+      Comm_Active : Bool := FALSE;       // Yêu cầu kích hoạt truyền thông Modbus RTU với biến tần
+      Comm_Ready : Bool := FALSE;        // Truyền thông đã sẵn sàng và không lỗi
+      
+      // Các cổng kết nối của khối MB_MASTER
+      MB_Req : Bool := FALSE;            // Yêu cầu phát lệnh truyền thông (REQ)
+      MB_Mode : Byte := 0;               // Chế độ Modbus (0 = Đọc, 1 = Ghi)
+      MB_DataAddr : UdInt := 0;          // Địa chỉ Modbus của thanh ghi (Data Address)
+      MB_DataLen : UInt := 0;            // Số lượng thanh ghi cần truyền nhận (Data Length)
+      MB_DataBuffer : Word := 16#0;      // Ô nhớ đệm để truyền dữ liệu
+      
+      // Phản hồi từ khối MB_MASTER
+      MB_Busy : Bool := FALSE;           // Khối đang thực hiện truyền thông (Busy)
+      MB_Error : Bool := FALSE;          // Có lỗi xảy ra trong lượt truyền thông này (Error)
+      MB_Status : Word := 16#0;          // Mã trạng thái/lỗi chi tiết (Status)
+   END_STRUCT;
+END_TYPE
