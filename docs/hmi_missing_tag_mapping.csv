@@ -1,0 +1,81 @@
+HMI Tag Name,Connection,Linked PLC Tag,Data Type,Status,Suggested PLC Target
+CV3201_Nuoc_Bon1_M,HMI_Connection_1,CV3201_Nuoc_Bon1_M,Real,Missing in both PLCs,PLC_1
+CV3206_Hoi_Bon2_M,HMI_Connection_1,CV3206_Hoi_Bon2_M,Real,Missing in both PLCs,PLC_1
+CV3211_Nuoc_Bon3_M,HMI_Connection_2,CV3211_Nuoc_Bon3_M,Real,Missing in both PLCs,PLC_2
+CV3216_Hoi_Bon4_M,HMI_Connection_2,CV3216_Hoi_Bon4_M,Real,Missing in both PLCs,PLC_2
+CV3304_Nuoc_Lam_Mat_M,HMI_Connection_1,CV3304_Nuoc_Lam_Mat_M,Real,Missing in both PLCs,PLC_1
+FQ3200_Bon1_Eff,HMI_Connection_1,FQ3200_Bon1_Eff,Real,Missing in both PLCs,PLC_1
+FQ3205_Bon2_Eff,HMI_Connection_1,FQ3205_Bon2_Eff,Real,Missing in both PLCs,PLC_1
+FQ3210_Bon3_Eff,HMI_Connection_2,FQ3210_Bon3_Eff,Real,Missing in both PLCs,PLC_2
+FQ3215_Bon4_Eff,HMI_Connection_2,FQ3215_Bon4_Eff,Real,Missing in both PLCs,PLC_2
+FT3309_Xa_Thanh_Pham_Eff,HMI_Connection_1,FT3309_Xa_Thanh_Pham_Eff,Real,Missing in both PLCs,PLC_1
+HMI_Anim_Bon1_Frame,HMI_Connection_1,HMI_Anim_Bon1_Frame,Int,Missing in both PLCs,PLC_1
+HMI_Anim_Bon1_MucDich,HMI_Connection_1,HMI_Anim_Bon1_MucDich,Int,Missing in both PLCs,PLC_1
+HMI_Anim_Bon2_Frame,HMI_Connection_1,HMI_Anim_Bon2_Frame,Int,Missing in both PLCs,PLC_1
+HMI_Anim_Bon2_MucDich,HMI_Connection_1,HMI_Anim_Bon2_MucDich,Int,Missing in both PLCs,PLC_1
+HMI_Anim_Bon3_Frame,HMI_Connection_2,HMI_Anim_Bon3_Frame,Int,Missing in both PLCs,PLC_2
+HMI_Anim_Bon3_MucDich,HMI_Connection_2,HMI_Anim_Bon3_MucDich,Int,Missing in both PLCs,PLC_2
+HMI_Anim_Bon4_Frame,HMI_Connection_2,HMI_Anim_Bon4_Frame,Int,Missing in both PLCs,PLC_2
+HMI_Anim_Bon4_MucDich,HMI_Connection_2,HMI_Anim_Bon4_MucDich,Int,Missing in both PLCs,PLC_2
+HMI_Anim_BonChua1_MucDich,HMI_Connection_1,HMI_Anim_BonChua1_MucDich,Int,Missing in both PLCs,PLC_1
+HMI_Anim_BonChua2_MucDich,HMI_Connection_1,HMI_Anim_BonChua2_MucDich,Int,Missing in both PLCs,PLC_1
+LT3203_Bon1_Eff,HMI_Connection_1,LT3203_Bon1_Eff,Real,Missing in both PLCs,PLC_1
+LT3209_Bon2_Eff,HMI_Connection_1,LT3209_Bon2_Eff,Real,Missing in both PLCs,PLC_1
+LT3213_Bon3_Eff,HMI_Connection_2,LT3213_Bon3_Eff,Real,Missing in both PLCs,PLC_2
+LT3218_Bon4_Eff,HMI_Connection_2,LT3218_Bon4_Eff,Real,Missing in both PLCs,PLC_2
+LT3302_BonChua1_Eff,HMI_Connection_1,LT3302_BonChua1_Eff,Real,Missing in both PLCs,PLC_1
+LT3307_BonChua2_Eff,HMI_Connection_1,LT3307_BonChua2_Eff,Real,Missing in both PLCs,PLC_1
+PI3308_Truoc_Filter_Eff,HMI_Connection_1,PI3308_Truoc_Filter_Eff,Real,Missing in both PLCs,PLC_1
+Pump3264_Chuyen_Nhanh1,HMI_Connection_1,Pump3264_Chuyen_Nhanh1,Bool,Missing in both PLCs,PLC_1
+Pump3265_Chuyen_Nhanh2,HMI_Connection_2,Pump3265_Chuyen_Nhanh2,Bool,Missing in both PLCs,PLC_1
+Pump3361_LuanChuyen_BonChua1,HMI_Connection_1,Pump3361_LuanChuyen_BonChua1,Bool,Missing in both PLCs,PLC_1
+Pump3362_Xa_BonChua1,HMI_Connection_1,Pump3362_Xa_BonChua1,Bool,Missing in both PLCs,PLC_1
+Pump3364_Filter,HMI_Connection_1,Pump3364_Filter,Bool,Missing in both PLCs,PLC_1
+Pump3365_Filter,HMI_Connection_1,Pump3365_Filter,Bool,Missing in both PLCs,PLC_1
+TT3204_Bon1_Eff,HMI_Connection_1,TT3204_Bon1_Eff,Real,Missing in both PLCs,PLC_1
+TT3208_Bon2_Eff,HMI_Connection_1,TT3208_Bon2_Eff,Real,Exists in PLC_1,PLC_1
+TT3214_Bon3_Eff,HMI_Connection_2,TT3214_Bon3_Eff,Real,Missing in both PLCs,PLC_2
+TT3219_Bon4_Eff,HMI_Connection_2,TT3219_Bon4_Eff,Real,Missing in both PLCs,PLC_2
+TT3301_BonChua1_Eff,HMI_Connection_1,TT3301_BonChua1_Eff,Real,Missing in both PLCs,PLC_1
+TT3303_TraoDoiNhiet_Eff,HMI_Connection_1,TT3303_TraoDoiNhiet_Eff,Real,Missing in both PLCs,PLC_1
+TT3306_BonChua2_Eff,HMI_Connection_1,TT3306_BonChua2_Eff,Real,Missing in both PLCs,PLC_1
+V3230_Nuoc_Bon1,HMI_Connection_1,V3230_Nuoc_Bon1,Bool,Missing in both PLCs,PLC_1
+V3232_Xa_Bon1,HMI_Connection_1,V3232_Xa_Bon1,Bool,Missing in both PLCs,PLC_1
+V3233_Xa_Bon1,HMI_Connection_1,V3233_Xa_Bon1,Bool,Missing in both PLCs,PLC_1
+V3234_Xa_Bon1,HMI_Connection_1,V3234_Xa_Bon1,Bool,Missing in both PLCs,PLC_1
+V3235_Nuoc_Bon2,HMI_Connection_1,V3235_Nuoc_Bon2,Bool,Missing in both PLCs,PLC_1
+V3237_Xa_Bon2,HMI_Connection_1,V3237_Xa_Bon2,Bool,Missing in both PLCs,PLC_1
+V3238_Xa_Bon2,HMI_Connection_1,V3238_Xa_Bon2,Bool,Missing in both PLCs,PLC_1
+V3239_Xa_Bon2,HMI_Connection_1,V3239_Xa_Bon2,Bool,Missing in both PLCs,PLC_1
+V3240_Nuoc_Bon3,HMI_Connection_2,V3240_Nuoc_Bon3,Bool,Missing in both PLCs,PLC_2
+V3242_Xa_Bon3,HMI_Connection_2,V3242_Xa_Bon3,Bool,Missing in both PLCs,PLC_2
+V3243_Xa_Bon3,HMI_Connection_2,V3243_Xa_Bon3,Bool,Missing in both PLCs,PLC_2
+V3244_Xa_Bon3,HMI_Connection_2,V3244_Xa_Bon3,Bool,Missing in both PLCs,PLC_2
+V3245_Nuoc_Bon4,HMI_Connection_2,V3245_Nuoc_Bon4,Bool,Missing in both PLCs,PLC_2
+V3247_Xa_Bon4,HMI_Connection_2,V3247_Xa_Bon4,Bool,Missing in both PLCs,PLC_2
+V3248_Xa_Bon4,HMI_Connection_2,V3248_Xa_Bon4,Bool,Missing in both PLCs,PLC_2
+V3249_Xa_Bon4,HMI_Connection_2,V3249_Xa_Bon4,Bool,Missing in both PLCs,PLC_2
+V3331_Xa_BonChua1,HMI_Connection_1,V3331_Xa_BonChua1,Bool,Missing in both PLCs,PLC_1
+V3332_Xa_BonChua1,HMI_Connection_1,V3332_Xa_BonChua1,Bool,Missing in both PLCs,PLC_1
+V3333_DieuHuong_BonChua1,HMI_Connection_1,V3333_DieuHuong_BonChua1,Bool,Missing in both PLCs,PLC_1
+V3334_DieuHuong_BonChua1,HMI_Connection_1,V3334_DieuHuong_BonChua1,Bool,Missing in both PLCs,PLC_1
+V3335_DieuHuong_BonChua1,HMI_Connection_1,V3335_DieuHuong_BonChua1,Bool,Missing in both PLCs,PLC_1
+V3338_Xa_BonChua2,HMI_Connection_1,V3338_Xa_BonChua2,Bool,Missing in both PLCs,PLC_1
+V3339_Xa_BonChua2,HMI_Connection_1,V3339_Xa_BonChua2,Bool,Missing in both PLCs,PLC_1
+V3340_Duong_Filter,HMI_Connection_1,V3340_Duong_Filter,Bool,Missing in both PLCs,PLC_1
+V3341_Duong_Filter,HMI_Connection_1,V3341_Duong_Filter,Bool,Missing in both PLCs,PLC_1
+GIA_TRI_NHIET_DO_DOC_VE,,,Real,Internal Tag,
+nguyen_lieu_tron_1,,,Bool,Internal Tag,
+cap_nuoc_tron_1,,,Bool,Internal Tag,
+start,,,Bool,Internal Tag,
+HMI_SP_PLC1_Nuoc_Bon1,HMI_Connection_1,HMI_SP_PLC1_Nuoc_Bon1,Real,Missing in both PLCs,PLC_1
+HMI_SP_PLC1_Nuoc_Bon2,HMI_Connection_1,HMI_SP_PLC1_Nuoc_Bon2,Real,Missing in both PLCs,PLC_1
+HMI_SP_PLC1_Nhiet_Do_Bon2,HMI_Connection_1,HMI_SP_PLC1_Nhiet_Do_Bon2,Real,Exists in PLC_1,PLC_1
+HMI_SP_PLC2_Nuoc_Bon3,HMI_Connection_2,HMI_SP_PLC2_Nuoc_Bon3,Real,Missing in both PLCs,PLC_2
+HMI_SP_PLC2_Nuoc_Bon4,HMI_Connection_2,HMI_SP_PLC2_Nuoc_Bon4,Real,Missing in both PLCs,PLC_2
+HMI_SP_PLC2_Nhiet_Do_Bon4,HMI_Connection_2,HMI_SP_PLC2_Nhiet_Do_Bon4,Real,Exists in PLC_2,PLC_2
+HMI_SP_Time_Khuay_Bon1,HMI_Connection_1,HMI_SP_Time_Khuay_Bon1,Time,Missing in both PLCs,PLC_1
+HMI_SP_Time_Khuay_Bon3,HMI_Connection_2,HMI_SP_Time_Khuay_Bon3,Time,Missing in both PLCs,PLC_2
+HMI_SP_Time_Fwd,HMI_Connection_1,HMI_SP_Time_Fwd,Time,Missing in both PLCs,PLC_1
+HMI_SP_Time_Rev,HMI_Connection_1,HMI_SP_Time_Rev,Time,Missing in both PLCs,PLC_1
+HMI_SP_Time_Sterilize,HMI_Connection_1,HMI_SP_Time_Sterilize,Time,Missing in both PLCs,PLC_1

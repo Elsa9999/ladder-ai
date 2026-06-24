@@ -1,0 +1,94 @@
+Name,Path,Data Type,Logical Address,Comment
+HMI_Run_Enable,Default tag table,Bool,%M20.0,Cho phép hệ thống chạy từ HMI
+HMI_Reset_Alarm,Default tag table,Bool,%M20.1,Reset lỗi từ HMI
+HMI_Che_Do_Thi,Default tag table,Bool,%M20.2,"Chế độ thi đấu (ON = Chạy thật, OFF = Mô phỏng)"
+HMI_Sim_Mode,Default tag table,Bool,%M20.3,Chế độ mô phỏng HMI
+PLC1_State,Default tag table,Int,%MW12,Bước quy trình hiện tại PLC1
+PLC1_Loi_Tong,Default tag table,Bool,%M20.4,Lỗi tổng PLC1
+PLC1_Stop_Active,Default tag table,Bool,%M20.5,Tín hiệu dừng đang hoạt động
+PLC1_EStop_Latch,Default tag table,Bool,%M20.6,Chốt trạng thái dừng khẩn cấp PLC1
+PLC1_SP_Valid,Default tag table,Bool,%M20.7,Cờ báo giá trị Setpoint hợp lệ
+Nut_Khoi_Dong_HMI,Default tag table,Bool,%M21.0,Nút nhấn Start trên HMI
+Nut_Dung_HMI,Default tag table,Bool,%M21.1,Nút nhấn Stop trên HMI
+Nut_Reset_HMI,Default tag table,Bool,%M21.2,Nút nhấn Reset trên HMI
+HMI_VFD_Bon2_Comm_Enable,Default tag table,Bool,%M21.3,Cho phép chạy biến tần Bồn 2 qua truyền thông
+HMI_VFD_Bon2_Real_Enable,Default tag table,Bool,%M21.4,Cho phép biến tần Bồn 2 chạy thực tế
+HMI_PID_Bon2_Dau_Noi_Enable,Default tag table,Bool,%M21.5,Cho phép chạy bộ PID Bồn 2 cho đấu nối
+PID_Bon2_Enable,Default tag table,Bool,%M21.6,Cho phép bộ PID Bồn 2 hoạt động
+PID_Bon2_Enable_Eff,Default tag table,Bool,%M21.7,Trạng thái cho phép PID thực tế hiệu dụng
+PID_Bon2_SP,Default tag table,Real,%MD30,Setpoint hiệu dụng của PID Bồn 2
+PID_Bon2_PV_Eff,Default tag table,Real,%MD34,Phản hồi nhiệt độ/tốc độ hiệu dụng PID Bồn 2
+PID_Bon2_CV,Default tag table,Real,%MD38,Đầu ra điều khiển CV PID Bồn 2
+HMI_SP_PLC1_Nhiet_Do_Bon2,Default tag table,Real,%MD42,Cài đặt nhiệt độ Bồn 2 từ HMI
+HMI_SP_PLC1_Toc_Do_Bon2_Main,Default tag table,Real,%MD46,Cài đặt tốc độ khuấy Bồn 2 từ HMI
+TT3208_Bon2_Eff,Default tag table,Real,%MD50,Nhiệt độ hiệu dụng Bồn 2 dùng cho logic điều khiển
+TT3208_Bon2_HMI,Default tag table,Real,%MD54,Giá trị mô phỏng nhiệt độ Bồn 2 từ HMI
+VFD_Bon2_Toc_Do_Cmd,Default tag table,Real,%MD58,Tốc độ yêu cầu xuất xuống biến tần Bồn 2 (Hz)
+TT3208_Bon2_Use_HMI,Default tag table,Bool,%M22.0,Cho phép sử dụng giá trị mô phỏng nhiệt độ từ HMI
+VFD_Bon2_MB_Error,Default tag table,Bool,%M22.1,Lỗi truyền thông Modbus biến tần Bồn 2
+VFD_Bon2_MB_Busy,Default tag table,Bool,%M22.2,Truyền thông Modbus biến tần đang bận
+VFD_Bon2_MB_Done,Default tag table,Bool,%M22.3,Truyền thông Modbus biến tần hoàn thành
+MB_TCP_ERROR,Default tag table,Bool,%M22.4,Lỗi truyền thông Modbus TCP PLC1-PLC2
+MB_TCP_BUSY,Default tag table,Bool,%M22.5,Truyền thông Modbus TCP đang bận
+MB_TCP_DONE,Default tag table,Bool,%M22.6,Truyền thông Modbus TCP hoàn thành
+PLC1_Heartbeat_Timeout,Default tag table,Bool,%M22.7,Cảnh báo mất kết nối nhịp tim với PLC2
+VFD_Bon2_MB_ControlWord,Default tag table,Word,%MW62,Từ lệnh Modbus gửi xuống biến tần Bồn 2
+VFD_Bon2_MB_StatusWord,Default tag table,Word,%MW64,Từ trạng thái Modbus đọc về từ biến tần Bồn 2
+VFD_Bon2_MB_FreqSetpoint,Default tag table,Word,%MW66,Tần số đặt Modbus gửi xuống biến tần
+VFD_Bon2_MB_FreqActual,Default tag table,Word,%MW68,Tần số thực tế Modbus đọc về từ biến tần
+VFD_Bon2_MB_Status,Default tag table,Word,%MW70,Trạng thái khối truyền thông Modbus biến tần
+MB_TCP_STATUS,Default tag table,Word,%MW72,Trạng thái truyền thông Modbus TCP Client
+MB_TCP_iStep,Default tag table,Int,%MW74,Bước thực thi truyền thông Modbus TCP
+PLC1_Heartbeat,Default tag table,Int,%MW76,Nhịp tim gửi đi của PLC1
+PLC2_Heartbeat_Recv,Default tag table,Int,%MW78,Nhịp tim nhận được từ PLC2
+VFD_Bon2_Contactor,Default tag table,Bool,%Q0.0,Contactor nguồn động lực biến tần Bồn 2
+CV3201_Nuoc_Bon1_M,Default tag table,Real,%MD1200,HMI tag compatibility (Missing in both PLCs)
+CV3206_Hoi_Bon2_M,Default tag table,Real,%MD1208,HMI tag compatibility (Missing in both PLCs)
+CV3304_Nuoc_Lam_Mat_M,Default tag table,Real,%MD1232,HMI tag compatibility (Missing in both PLCs)
+FQ3200_Bon1_Eff,Default tag table,Real,%MD712,HMI tag compatibility (Missing in both PLCs)
+FQ3205_Bon2_Eff,Default tag table,Real,%MD744,HMI tag compatibility (Missing in both PLCs)
+FT3309_Xa_Thanh_Pham_Eff,Default tag table,Real,%MD880,HMI tag compatibility (Missing in both PLCs)
+HMI_Anim_Bon1_Frame,Default tag table,Int,%MW260,HMI tag compatibility - New dynamic allocation
+HMI_Anim_Bon1_MucDich,Default tag table,Int,%MW262,HMI tag compatibility - New dynamic allocation
+HMI_Anim_Bon2_Frame,Default tag table,Int,%MW264,HMI tag compatibility - New dynamic allocation
+HMI_Anim_Bon2_MucDich,Default tag table,Int,%MW266,HMI tag compatibility - New dynamic allocation
+HMI_Anim_BonChua1_MucDich,Default tag table,Int,%MW268,HMI tag compatibility - New dynamic allocation
+HMI_Anim_BonChua2_MucDich,Default tag table,Int,%MW270,HMI tag compatibility - New dynamic allocation
+LT3203_Bon1_Eff,Default tag table,Real,%MD720,HMI tag compatibility (Missing in both PLCs)
+LT3209_Bon2_Eff,Default tag table,Real,%MD752,HMI tag compatibility (Missing in both PLCs)
+LT3302_BonChua1_Eff,Default tag table,Real,%MD832,HMI tag compatibility (Missing in both PLCs)
+LT3307_BonChua2_Eff,Default tag table,Real,%MD856,HMI tag compatibility (Missing in both PLCs)
+PI3308_Truoc_Filter_Eff,Default tag table,Real,%MD872,HMI tag compatibility (Missing in both PLCs)
+Pump3264_Chuyen_Nhanh1,Default tag table,Bool,%M100.0,HMI tag compatibility - New dynamic allocation
+Pump3265_Chuyen_Nhanh2,Default tag table,Bool,%M100.1,HMI tag compatibility - New dynamic allocation
+Pump3361_LuanChuyen_BonChua1,Default tag table,Bool,%M100.2,HMI tag compatibility - New dynamic allocation
+Pump3362_Xa_BonChua1,Default tag table,Bool,%M100.3,HMI tag compatibility - New dynamic allocation
+Pump3364_Filter,Default tag table,Bool,%M100.4,HMI tag compatibility - New dynamic allocation
+Pump3365_Filter,Default tag table,Bool,%M100.5,HMI tag compatibility - New dynamic allocation
+TT3204_Bon1_Eff,Default tag table,Real,%MD728,HMI tag compatibility (Missing in both PLCs)
+TT3301_BonChua1_Eff,Default tag table,Real,%MD840,HMI tag compatibility (Missing in both PLCs)
+TT3303_TraoDoiNhiet_Eff,Default tag table,Real,%MD848,HMI tag compatibility (Missing in both PLCs)
+TT3306_BonChua2_Eff,Default tag table,Real,%MD864,HMI tag compatibility (Missing in both PLCs)
+V3230_Nuoc_Bon1,Default tag table,Bool,%M100.6,HMI tag compatibility - New dynamic allocation
+V3232_Xa_Bon1,Default tag table,Bool,%M100.7,HMI tag compatibility - New dynamic allocation
+V3233_Xa_Bon1,Default tag table,Bool,%M101.0,HMI tag compatibility - New dynamic allocation
+V3234_Xa_Bon1,Default tag table,Bool,%M101.1,HMI tag compatibility - New dynamic allocation
+V3235_Nuoc_Bon2,Default tag table,Bool,%M101.2,HMI tag compatibility - New dynamic allocation
+V3237_Xa_Bon2,Default tag table,Bool,%M101.3,HMI tag compatibility - New dynamic allocation
+V3238_Xa_Bon2,Default tag table,Bool,%M101.4,HMI tag compatibility - New dynamic allocation
+V3239_Xa_Bon2,Default tag table,Bool,%M101.5,HMI tag compatibility - New dynamic allocation
+V3331_Xa_BonChua1,Default tag table,Bool,%M101.6,HMI tag compatibility - New dynamic allocation
+V3332_Xa_BonChua1,Default tag table,Bool,%M101.7,HMI tag compatibility - New dynamic allocation
+V3333_DieuHuong_BonChua1,Default tag table,Bool,%M102.0,HMI tag compatibility - New dynamic allocation
+V3334_DieuHuong_BonChua1,Default tag table,Bool,%M102.1,HMI tag compatibility - New dynamic allocation
+V3335_DieuHuong_BonChua1,Default tag table,Bool,%M102.2,HMI tag compatibility - New dynamic allocation
+V3338_Xa_BonChua2,Default tag table,Bool,%M102.3,HMI tag compatibility - New dynamic allocation
+V3339_Xa_BonChua2,Default tag table,Bool,%M102.4,HMI tag compatibility - New dynamic allocation
+V3340_Duong_Filter,Default tag table,Bool,%M102.5,HMI tag compatibility - New dynamic allocation
+V3341_Duong_Filter,Default tag table,Bool,%M102.6,HMI tag compatibility - New dynamic allocation
+HMI_SP_PLC1_Nuoc_Bon1,Default tag table,Real,%MD896,HMI tag compatibility (Missing in both PLCs)
+HMI_SP_PLC1_Nuoc_Bon2,Default tag table,Real,%MD900,HMI tag compatibility (Missing in both PLCs)
+HMI_SP_Time_Khuay_Bon1,Default tag table,Time,%MD944,HMI tag compatibility (Missing in both PLCs)
+HMI_SP_Time_Fwd,Default tag table,Time,%MD952,HMI tag compatibility (Missing in both PLCs)
+HMI_SP_Time_Rev,Default tag table,Time,%MD956,HMI tag compatibility (Missing in both PLCs)
+HMI_SP_Time_Sterilize,Default tag table,Time,%MD960,HMI tag compatibility (Missing in both PLCs)

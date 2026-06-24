@@ -1,0 +1,4 @@
+Device Name,Type,Article Number,Firmware,IP Address,Subnet Mask,Connected Subnet,Slot,Clock Memory Byte,System Memory Byte,RS485 Module,RS485 Article,RS485 Firmware,RS485 Slot
+PLC_1,CPU 1214C DC/DC/DC,6ES7 214-1AG40-0XB0,V4.0,192.168.0.1,255.255.255.0,PN/IE_1,1,%MB0,%MB1,CB 1241 (RS485),6ES7 241-1CH30-1XB0,V1.0,3
+PLC_2,CPU 1214C DC/DC/DC,6ES7 214-1AG40-0XB0,V4.0,192.168.0.2,255.255.255.0,PN/IE_1,1,%MB0,%MB1,None,-,-,-
+PC-System_1,PC Station,-,-,192.168.0.3,255.255.255.0,PN/IE_1,-,-,-,None,-,-,-
