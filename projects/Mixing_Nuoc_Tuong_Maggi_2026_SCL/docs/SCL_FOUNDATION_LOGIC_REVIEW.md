@@ -16,6 +16,9 @@ Hai khối chức năng (FC) SCL mới đã được tạo trong thư mục `fc/
 Các khối SCL nền này chỉ tham chiếu và thao tác trên các trường dữ liệu hiện có trong các DB/UDT đã được Codex phê duyệt ở các lượt trước, tuyệt đối không dùng tiền tố `AI_`.
 
 ### A. Ngõ vào/ra vật lý (trong `DB_RealIO_Map`)
+> [!NOTE]
+> `DB_RealIO_Map` hiện tại chỉ đóng vai trò là khối DB đệm trung gian (intermediate mirror DB) để lưu trữ trạng thái I/O thực tế của Variant B, chưa phải là binding phần cứng %I/%Q trực tiếp. Việc cấu hình và thực thi binding địa chỉ vật lý %I/%Q thật sự sẽ được xử lý trong một task riêng biệt sau này.
+
 - `Nut_Start_Physical` (Bool): Nút nhấn chạy hệ thống thực tế (%I0.0).
 - `Nut_Stop_Physical` (Bool): Nút nhấn dừng hệ thống thực tế (%I0.1).
 - `Nut_Reset_Physical` (Bool): Nút nhấn Reset lỗi thực tế (%I0.2).
@@ -98,3 +101,16 @@ Các khối SCL nền này chỉ tham chiếu và thao tác trên các trường
 *   **Kết quả kỳ vọng**:
     *   `DB_Operation.Bon2.Khuay_Chay` lập tức bị cưỡng bức về FALSE bởi `FC_Safety_Interlock`.
     *   `DB_RealIO_Map.VFD_Bon2_Contactor` chuyển sang FALSE.
+
+---
+
+## 6. Thứ tự gọi khối (Call Order) bắt buộc khi tích hợp vào OB1
+
+Để đảm bảo mức độ an toàn cao nhất và ngăn ngừa hiện tượng ghi đè trạng thái từ các logic khác, trình tự gọi các khối chức năng trong OB1 (hoặc OB cyclic) phải tuân thủ nghiêm ngặt quy tắc sau:
+
+1.  **Đọc và ánh xạ đầu vào (Mirror Input Blocks)**: Gọi `FC_RealIO_Mirror` (hoặc phân đoạn đọc input) đầu tiên để cập nhật trạng thái các nút nhấn vật lý và HMI vào hệ thống.
+2.  **Chạy logic vận hành chính (Sequencer / Manual / Auto Control Logic)**: Chạy các khối điều khiển mẻ, bước tuần tự Grafcet, hoặc logic điều khiển tay để tính toán lệnh chạy thiết bị (ví dụ: `Bon2.Khuay_Chay`).
+3.  **Chạy liên động an toàn (Safety Interlock Blocks) sau cùng**: Gọi `FC_Safety_Interlock` **ở cuối vòng quét**, ngay trước khi ghi đè trạng thái ra ngõ ra thực tế.
+
+> [!IMPORTANT]
+> **Lý do thiết kế:** Safety Interlock bắt buộc phải được gọi sau cùng để đóng vai trò là "lớp bảo vệ cuối cùng". Điều này đảm bảo rằng nếu nút dừng khẩn E-Stop được kích hoạt, cờ lỗi `Safety_Estop_Active` = TRUE sẽ lập tức cưỡng bức `Bon2.Khuay_Chay` = FALSE và `VFD_Bon2_Contactor` = FALSE, không cho phép bất kỳ logic vận hành hay sequencer nào vô tình bật lại các thiết bị này trong cùng chu kỳ quét.
