@@ -1,0 +1,798 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-06-24T04:51:41.6861154Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Professional</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.FC ID="0">
+    <AttributeList>
+      <AutoNumber>true</AutoNumber>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Input" />
+  <Section Name="Output" />
+  <Section Name="InOut" />
+  <Section Name="Temp" />
+  <Section Name="Constant" />
+  <Section Name="Return">
+    <Member Name="Ret_Val" Datatype="Void" Accessibility="Public" />
+  </Section>
+</Sections></Interface>
+      <IsIECCheckEnabled>false</IsIECCheckEnabled>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <Name>FC_Safety_Interlock</Name>
+      <Namespace />
+      <Number>4</Number>
+      <ProgrammingLanguage>SCL</ProgrammingLanguage>
+      <SetENOAutomatically>false</SetENOAutomatically>
+      <UDABlockProperties />
+      <UDAEnableTagReadback>false</UDAEnableTagReadback>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text> Khá»‘i chá»©c nÄƒng xá»­ lÃ½ chá»‘t lá»—i dá»«ng kháº©n cáº¥p (E-Stop Latch) vÃ  liÃªn Ä‘á»™ng an toÃ n Maggi SCL</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <SW.Blocks.CompileUnit ID="3" CompositionName="CompileUnits">
+        <AttributeList>
+          <NetworkSource><StructuredText xmlns="http://www.siemens.com/automation/Openness/SW/NetworkSource/StructuredText/v3">
+  <NewLine Num="1" UId="21" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="22">
+    <Text UId="23"> 1. KIá»‚M TRA TÃC Äá»˜NG Dá»ªNG KHáº¨N Cáº¤P (E-Stop)</Text>
+  </LineComment>
+  <NewLine Num="1" UId="24" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="25">
+    <Text UId="26"> TÃ¡c Ä‘á»™ng khi: E-Stop váº­t lÃ½ há»Ÿ máº¡ch (FALSE) OR HMI kÃ­ch hoáº¡t nÃºt dá»«ng kháº©n áº£o (TRUE)</Text>
+  </LineComment>
+  <NewLine Num="1" UId="27" />
+  <Token Text="IF" UId="28" />
+  <Blank Num="1" UId="29" />
+  <Token Text="(" UId="30" />
+  <Token Text="NOT" UId="31" />
+  <Blank Num="1" UId="32" />
+  <Access Scope="GlobalVariable" UId="33">
+    <Symbol UId="34">
+      <Component Name="DB_RealIO_Map" UId="35">
+        <BooleanAttribute Name="HasQuotes" UId="36">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="37" />
+      <Component Name="Nut_EStop_Physical" UId="38" />
+    </Symbol>
+  </Access>
+  <Token Text=")" UId="39" />
+  <Blank Num="1" UId="40" />
+  <Token Text="OR" UId="41" />
+  <Blank Num="1" UId="42" />
+  <Access Scope="GlobalVariable" UId="43">
+    <Symbol UId="44">
+      <Component Name="DB_HMI" UId="45">
+        <BooleanAttribute Name="HasQuotes" UId="46">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="47" />
+      <Component Name="HMI" UId="48" />
+      <Token Text="." UId="49" />
+      <Component Name="Nut_EStop" UId="50" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="51" />
+  <Token Text="THEN" UId="52" />
+  <NewLine Num="1" UId="53" />
+  <Blank Num="4" UId="54" />
+  <Access Scope="GlobalVariable" UId="55">
+    <Symbol UId="56">
+      <Component Name="DB_Operation" UId="57">
+        <BooleanAttribute Name="HasQuotes" UId="58">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="59" />
+      <Component Name="Safety_Estop_Active" UId="60" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="61" />
+  <Token Text=":=" UId="62" />
+  <Blank Num="1" UId="63" />
+  <Access Scope="LiteralConstant" UId="64">
+    <Constant UId="65">
+      <ConstantValue UId="67">TRUE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="68" />
+  <Blank Num="3" UId="69" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="70">
+    <Text UId="71"> Chá»‘t lá»—i dá»«ng kháº©n há»‡ thá»‘ng</Text>
+  </LineComment>
+  <NewLine Num="1" UId="72" />
+  <Blank Num="4" UId="73" />
+  <Access Scope="GlobalVariable" UId="74">
+    <Symbol UId="75">
+      <Component Name="DB_HMI" UId="76">
+        <BooleanAttribute Name="HasQuotes" UId="77">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="78" />
+      <Component Name="System" UId="79" />
+      <Token Text="." UId="80" />
+      <Component Name="EStop_Pressed" UId="81" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="82" />
+  <Token Text=":=" UId="83" />
+  <Blank Num="1" UId="84" />
+  <Access Scope="LiteralConstant" UId="85">
+    <Constant UId="86">
+      <ConstantValue UId="88">TRUE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="89" />
+  <Blank Num="8" UId="90" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="91">
+    <Text UId="92"> Äá»“ng bá»™ tráº¡ng thÃ¡i HMI giÃ¡m sÃ¡t E-Stop</Text>
+  </LineComment>
+  <NewLine Num="1" UId="93" />
+  <Blank Num="4" UId="94" />
+  <Access Scope="GlobalVariable" UId="95">
+    <Symbol UId="96">
+      <Component Name="DB_HMI" UId="97">
+        <BooleanAttribute Name="HasQuotes" UId="98">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="99" />
+      <Component Name="System" UId="100" />
+      <Token Text="." UId="101" />
+      <Component Name="System_Alarm_Active" UId="102" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="103" />
+  <Token Text=":=" UId="104" />
+  <Blank Num="1" UId="105" />
+  <Access Scope="LiteralConstant" UId="106">
+    <Constant UId="107">
+      <ConstantValue UId="109">TRUE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="110" />
+  <Blank Num="3" UId="111" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="112">
+    <Text UId="113"> KÃ­ch hoáº¡t cá» bÃ¡o lá»—i tá»•ng</Text>
+  </LineComment>
+  <NewLine Num="1" UId="114" />
+  <Blank Num="4" UId="115" />
+  <NewLine Num="1" UId="116" />
+  <Blank Num="4" UId="117" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="118">
+    <Text UId="119"> Ngáº¯t láº­p tá»©c tráº¡ng thÃ¡i váº­n hÃ nh tá»± Ä‘á»™ng</Text>
+  </LineComment>
+  <NewLine Num="1" UId="120" />
+  <Blank Num="4" UId="121" />
+  <Access Scope="GlobalVariable" UId="122">
+    <Symbol UId="123">
+      <Component Name="DB_HMI" UId="124">
+        <BooleanAttribute Name="HasQuotes" UId="125">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="126" />
+      <Component Name="System" UId="127" />
+      <Token Text="." UId="128" />
+      <Component Name="Auto_Active" UId="129" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="130" />
+  <Token Text=":=" UId="131" />
+  <Blank Num="1" UId="132" />
+  <Access Scope="LiteralConstant" UId="133">
+    <Constant UId="134">
+      <ConstantValue UId="136">FALSE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="137" />
+  <NewLine Num="1" UId="138" />
+  <Blank Num="4" UId="139" />
+  <Access Scope="GlobalVariable" UId="140">
+    <Symbol UId="141">
+      <Component Name="DB_HMI" UId="142">
+        <BooleanAttribute Name="HasQuotes" UId="143">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="144" />
+      <Component Name="HMI" UId="145" />
+      <Token Text="." UId="146" />
+      <Component Name="System_Running" UId="147" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="148" />
+  <Token Text=":=" UId="149" />
+  <Blank Num="1" UId="150" />
+  <Access Scope="LiteralConstant" UId="151">
+    <Constant UId="152">
+      <ConstantValue UId="154">FALSE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="155" />
+  <NewLine Num="1" UId="156" />
+  <Blank Num="4" UId="157" />
+  <NewLine Num="1" UId="158" />
+  <Blank Num="4" UId="159" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="160">
+    <Text UId="161"> KÃ­ch hoáº¡t cÃ²i bÃ¡o Ä‘á»™ng lá»—i</Text>
+  </LineComment>
+  <NewLine Num="1" UId="162" />
+  <Blank Num="4" UId="163" />
+  <Access Scope="GlobalVariable" UId="164">
+    <Symbol UId="165">
+      <Component Name="DB_Operation" UId="166">
+        <BooleanAttribute Name="HasQuotes" UId="167">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="168" />
+      <Component Name="Coi_Bao_Dong" UId="169" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="170" />
+  <Token Text=":=" UId="171" />
+  <Blank Num="1" UId="172" />
+  <Access Scope="LiteralConstant" UId="173">
+    <Constant UId="174">
+      <ConstantValue UId="176">TRUE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="177" />
+  <NewLine Num="1" UId="178" />
+  <Blank Num="4" UId="179" />
+  <Access Scope="GlobalVariable" UId="180">
+    <Symbol UId="181">
+      <Component Name="DB_HMI" UId="182">
+        <BooleanAttribute Name="HasQuotes" UId="183">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="184" />
+      <Component Name="System" UId="185" />
+      <Token Text="." UId="186" />
+      <Component Name="Coi_Bao_Dong" UId="187" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="188" />
+  <Token Text=":=" UId="189" />
+  <Blank Num="1" UId="190" />
+  <Access Scope="LiteralConstant" UId="191">
+    <Constant UId="192">
+      <ConstantValue UId="194">TRUE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="195" />
+  <NewLine Num="1" UId="196" />
+  <Blank Num="4" UId="197" />
+  <NewLine Num="1" UId="198" />
+  <Blank Num="4" UId="199" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="200">
+    <Text UId="201"> Ghi nháº­n mÃ£ lá»—i vÃ o Word lá»—i há»‡ thá»‘ng (bit 0 biá»ƒu thá»‹ lá»—i dá»«ng kháº©n E-Stop)</Text>
+  </LineComment>
+  <NewLine Num="1" UId="202" />
+  <Blank Num="4" UId="203" />
+  <Access Scope="GlobalVariable" UId="204">
+    <Symbol UId="205">
+      <Component Name="DB_HMI" UId="206">
+        <BooleanAttribute Name="HasQuotes" UId="207">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="208" />
+      <Component Name="HMI" UId="209" />
+      <Token Text="." UId="210" />
+      <Component Name="System_Alarms" UId="211" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="212" />
+  <Token Text=":=" UId="213" />
+  <Blank Num="1" UId="214" />
+  <Access Scope="GlobalVariable" UId="215">
+    <Symbol UId="216">
+      <Component Name="DB_HMI" UId="217">
+        <BooleanAttribute Name="HasQuotes" UId="218">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="219" />
+      <Component Name="HMI" UId="220" />
+      <Token Text="." UId="221" />
+      <Component Name="System_Alarms" UId="222" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="223" />
+  <Token Text="OR" UId="224" />
+  <Blank Num="1" UId="225" />
+  <Access Scope="LiteralConstant" UId="226">
+    <Constant UId="227">
+      <ConstantValue UId="229">16#0001</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="230" />
+  <NewLine Num="1" UId="231" />
+  <Token Text="END_IF" UId="232" />
+  <Token Text=";" UId="233" />
+  <NewLine Num="2" UId="234" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="235">
+    <Text UId="236"> 2. GIáº¢I PHÃ“NG Lá»–I CHá»T AN TOÃ€N (Reset)</Text>
+  </LineComment>
+  <NewLine Num="1" UId="237" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="238">
+    <Text UId="239"> Chá»‰ cho phÃ©p Reset lá»—i khi nÃºt nháº¥n E-Stop váº­t lÃ½ Ä‘Ã£ Ä‘Æ°á»£c nháº£ (TRUE) vÃ  nÃºt E-Stop HMI Ä‘Ã£ OFF (FALSE)</Text>
+  </LineComment>
+  <NewLine Num="1" UId="240" />
+  <Token Text="IF" UId="241" />
+  <Blank Num="1" UId="242" />
+  <Access Scope="GlobalVariable" UId="243">
+    <Symbol UId="244">
+      <Component Name="DB_RealIO_Map" UId="245">
+        <BooleanAttribute Name="HasQuotes" UId="246">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="247" />
+      <Component Name="Nut_Reset_Physical" UId="248" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="249" />
+  <Token Text="OR" UId="250" />
+  <Blank Num="1" UId="251" />
+  <Access Scope="GlobalVariable" UId="252">
+    <Symbol UId="253">
+      <Component Name="DB_HMI" UId="254">
+        <BooleanAttribute Name="HasQuotes" UId="255">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="256" />
+      <Component Name="HMI" UId="257" />
+      <Token Text="." UId="258" />
+      <Component Name="Nut_Reset" UId="259" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="260" />
+  <Token Text="THEN" UId="261" />
+  <NewLine Num="1" UId="262" />
+  <Blank Num="4" UId="263" />
+  <Token Text="IF" UId="264" />
+  <Blank Num="1" UId="265" />
+  <Access Scope="GlobalVariable" UId="266">
+    <Symbol UId="267">
+      <Component Name="DB_RealIO_Map" UId="268">
+        <BooleanAttribute Name="HasQuotes" UId="269">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="270" />
+      <Component Name="Nut_EStop_Physical" UId="271" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="272" />
+  <Token Text="AND" UId="273" />
+  <Blank Num="1" UId="274" />
+  <Token Text="(" UId="275" />
+  <Token Text="NOT" UId="276" />
+  <Blank Num="1" UId="277" />
+  <Access Scope="GlobalVariable" UId="278">
+    <Symbol UId="279">
+      <Component Name="DB_HMI" UId="280">
+        <BooleanAttribute Name="HasQuotes" UId="281">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="282" />
+      <Component Name="HMI" UId="283" />
+      <Token Text="." UId="284" />
+      <Component Name="Nut_EStop" UId="285" />
+    </Symbol>
+  </Access>
+  <Token Text=")" UId="286" />
+  <Blank Num="1" UId="287" />
+  <Token Text="THEN" UId="288" />
+  <NewLine Num="1" UId="289" />
+  <Blank Num="8" UId="290" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="291">
+    <Text UId="292"> Giáº£i phÃ³ng tráº¡ng thÃ¡i lá»—i chá»‘t</Text>
+  </LineComment>
+  <NewLine Num="1" UId="293" />
+  <Blank Num="8" UId="294" />
+  <Access Scope="GlobalVariable" UId="295">
+    <Symbol UId="296">
+      <Component Name="DB_Operation" UId="297">
+        <BooleanAttribute Name="HasQuotes" UId="298">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="299" />
+      <Component Name="Safety_Estop_Active" UId="300" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="301" />
+  <Token Text=":=" UId="302" />
+  <Blank Num="1" UId="303" />
+  <Access Scope="LiteralConstant" UId="304">
+    <Constant UId="305">
+      <ConstantValue UId="307">FALSE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="308" />
+  <NewLine Num="1" UId="309" />
+  <Blank Num="8" UId="310" />
+  <Access Scope="GlobalVariable" UId="311">
+    <Symbol UId="312">
+      <Component Name="DB_HMI" UId="313">
+        <BooleanAttribute Name="HasQuotes" UId="314">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="315" />
+      <Component Name="System" UId="316" />
+      <Token Text="." UId="317" />
+      <Component Name="EStop_Pressed" UId="318" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="319" />
+  <Token Text=":=" UId="320" />
+  <Blank Num="1" UId="321" />
+  <Access Scope="LiteralConstant" UId="322">
+    <Constant UId="323">
+      <ConstantValue UId="325">FALSE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="326" />
+  <NewLine Num="1" UId="327" />
+  <Blank Num="8" UId="328" />
+  <Access Scope="GlobalVariable" UId="329">
+    <Symbol UId="330">
+      <Component Name="DB_HMI" UId="331">
+        <BooleanAttribute Name="HasQuotes" UId="332">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="333" />
+      <Component Name="System" UId="334" />
+      <Token Text="." UId="335" />
+      <Component Name="System_Alarm_Active" UId="336" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="337" />
+  <Token Text=":=" UId="338" />
+  <Blank Num="1" UId="339" />
+  <Access Scope="LiteralConstant" UId="340">
+    <Constant UId="341">
+      <ConstantValue UId="343">FALSE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="344" />
+  <NewLine Num="1" UId="345" />
+  <Blank Num="8" UId="346" />
+  <NewLine Num="1" UId="347" />
+  <Blank Num="8" UId="348" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="349">
+    <Text UId="350"> Táº¯t cÃ²i bÃ¡o Ä‘á»™ng lá»—i</Text>
+  </LineComment>
+  <NewLine Num="1" UId="351" />
+  <Blank Num="8" UId="352" />
+  <Access Scope="GlobalVariable" UId="353">
+    <Symbol UId="354">
+      <Component Name="DB_Operation" UId="355">
+        <BooleanAttribute Name="HasQuotes" UId="356">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="357" />
+      <Component Name="Coi_Bao_Dong" UId="358" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="359" />
+  <Token Text=":=" UId="360" />
+  <Blank Num="1" UId="361" />
+  <Access Scope="LiteralConstant" UId="362">
+    <Constant UId="363">
+      <ConstantValue UId="365">FALSE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="366" />
+  <NewLine Num="1" UId="367" />
+  <Blank Num="8" UId="368" />
+  <Access Scope="GlobalVariable" UId="369">
+    <Symbol UId="370">
+      <Component Name="DB_HMI" UId="371">
+        <BooleanAttribute Name="HasQuotes" UId="372">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="373" />
+      <Component Name="System" UId="374" />
+      <Token Text="." UId="375" />
+      <Component Name="Coi_Bao_Dong" UId="376" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="377" />
+  <Token Text=":=" UId="378" />
+  <Blank Num="1" UId="379" />
+  <Access Scope="LiteralConstant" UId="380">
+    <Constant UId="381">
+      <ConstantValue UId="383">FALSE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="384" />
+  <NewLine Num="1" UId="385" />
+  <Blank Num="8" UId="386" />
+  <NewLine Num="1" UId="387" />
+  <Blank Num="8" UId="388" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="389">
+    <Text UId="390"> XÃ³a mÃ£ lá»—i E-Stop trong Word lá»—i</Text>
+  </LineComment>
+  <NewLine Num="1" UId="391" />
+  <Blank Num="8" UId="392" />
+  <Access Scope="GlobalVariable" UId="393">
+    <Symbol UId="394">
+      <Component Name="DB_HMI" UId="395">
+        <BooleanAttribute Name="HasQuotes" UId="396">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="397" />
+      <Component Name="HMI" UId="398" />
+      <Token Text="." UId="399" />
+      <Component Name="System_Alarms" UId="400" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="401" />
+  <Token Text=":=" UId="402" />
+  <Blank Num="1" UId="403" />
+  <Access Scope="GlobalVariable" UId="404">
+    <Symbol UId="405">
+      <Component Name="DB_HMI" UId="406">
+        <BooleanAttribute Name="HasQuotes" UId="407">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="408" />
+      <Component Name="HMI" UId="409" />
+      <Token Text="." UId="410" />
+      <Component Name="System_Alarms" UId="411" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="412" />
+  <Token Text="AND" UId="413" />
+  <Blank Num="1" UId="414" />
+  <Access Scope="LiteralConstant" UId="415">
+    <Constant UId="416">
+      <ConstantValue UId="418">16#FFFE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="419" />
+  <NewLine Num="1" UId="420" />
+  <Blank Num="8" UId="421" />
+  <NewLine Num="1" UId="422" />
+  <Blank Num="8" UId="423" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="424">
+    <Text UId="425"> Äá»“ng bá»™ xung Reset ná»™i bá»™ trong chu ká»³ nÃ y</Text>
+  </LineComment>
+  <NewLine Num="1" UId="426" />
+  <Blank Num="8" UId="427" />
+  <Access Scope="GlobalVariable" UId="428">
+    <Symbol UId="429">
+      <Component Name="DB_Operation" UId="430">
+        <BooleanAttribute Name="HasQuotes" UId="431">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="432" />
+      <Component Name="System_Reset" UId="433" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="434" />
+  <Token Text=":=" UId="435" />
+  <Blank Num="1" UId="436" />
+  <Access Scope="LiteralConstant" UId="437">
+    <Constant UId="438">
+      <ConstantValue UId="440">TRUE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="441" />
+  <NewLine Num="1" UId="442" />
+  <Blank Num="4" UId="443" />
+  <Token Text="END_IF" UId="444" />
+  <Token Text=";" UId="445" />
+  <NewLine Num="1" UId="446" />
+  <Blank Num="4" UId="447" />
+  <NewLine Num="1" UId="448" />
+  <Blank Num="4" UId="449" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="450">
+    <Text UId="451"> Giáº£i trá»« lá»‡nh Reset áº£o tá»« HMI sau khi xá»­ lÃ½</Text>
+  </LineComment>
+  <NewLine Num="1" UId="452" />
+  <Blank Num="4" UId="453" />
+  <Access Scope="GlobalVariable" UId="454">
+    <Symbol UId="455">
+      <Component Name="DB_HMI" UId="456">
+        <BooleanAttribute Name="HasQuotes" UId="457">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="458" />
+      <Component Name="HMI" UId="459" />
+      <Token Text="." UId="460" />
+      <Component Name="Nut_Reset" UId="461" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="462" />
+  <Token Text=":=" UId="463" />
+  <Blank Num="1" UId="464" />
+  <Access Scope="LiteralConstant" UId="465">
+    <Constant UId="466">
+      <ConstantValue UId="468">FALSE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="469" />
+  <NewLine Num="1" UId="470" />
+  <Token Text="ELSE" UId="471" />
+  <NewLine Num="1" UId="472" />
+  <Blank Num="4" UId="473" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="474">
+    <Text UId="475"> Reset cá» xung ná»™i bá»™ sau 1 chu ká»³ quÃ©t</Text>
+  </LineComment>
+  <NewLine Num="1" UId="476" />
+  <Blank Num="4" UId="477" />
+  <Access Scope="GlobalVariable" UId="478">
+    <Symbol UId="479">
+      <Component Name="DB_Operation" UId="480">
+        <BooleanAttribute Name="HasQuotes" UId="481">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="482" />
+      <Component Name="System_Reset" UId="483" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="484" />
+  <Token Text=":=" UId="485" />
+  <Blank Num="1" UId="486" />
+  <Access Scope="LiteralConstant" UId="487">
+    <Constant UId="488">
+      <ConstantValue UId="490">FALSE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="491" />
+  <NewLine Num="1" UId="492" />
+  <Token Text="END_IF" UId="493" />
+  <Token Text=";" UId="494" />
+  <NewLine Num="2" UId="495" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="496">
+    <Text UId="497"> 3. LIÃŠN Äá»˜NG Báº¢O Vá»† CÆ¯á» NG Bá»¨C (Forced Safety Interlocks)</Text>
+  </LineComment>
+  <NewLine Num="1" UId="498" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="499">
+    <Text UId="500"> Náº¿u há»‡ thá»‘ng Ä‘ang cÃ³ lá»—i chá»‘t dá»«ng kháº©n (Safety_Estop_Active = TRUE):</Text>
+  </LineComment>
+  <NewLine Num="1" UId="501" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="502">
+    <Text UId="503"> CÆ°á»¡ng bá»©c ngáº¯t lá»‡nh cháº¡y cÃ¡nh khuáº¥y Bá»“n 2 vÃ  ngáº¯t contactor lá»±c láº­p tá»©c.</Text>
+  </LineComment>
+  <NewLine Num="1" UId="504" />
+  <Token Text="IF" UId="505" />
+  <Blank Num="1" UId="506" />
+  <Access Scope="GlobalVariable" UId="507">
+    <Symbol UId="508">
+      <Component Name="DB_Operation" UId="509">
+        <BooleanAttribute Name="HasQuotes" UId="510">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="511" />
+      <Component Name="Safety_Estop_Active" UId="512" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="513" />
+  <Token Text="THEN" UId="514" />
+  <NewLine Num="1" UId="515" />
+  <Blank Num="4" UId="516" />
+  <Access Scope="GlobalVariable" UId="517">
+    <Symbol UId="518">
+      <Component Name="DB_Operation" UId="519">
+        <BooleanAttribute Name="HasQuotes" UId="520">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="521" />
+      <Component Name="Bon2" UId="522" />
+      <Token Text="." UId="523" />
+      <Component Name="Khuay_Chay" UId="524" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="525" />
+  <Token Text=":=" UId="526" />
+  <Blank Num="1" UId="527" />
+  <Access Scope="LiteralConstant" UId="528">
+    <Constant UId="529">
+      <ConstantValue UId="531">FALSE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="532" />
+  <NewLine Num="1" UId="533" />
+  <Blank Num="4" UId="534" />
+  <Access Scope="GlobalVariable" UId="535">
+    <Symbol UId="536">
+      <Component Name="DB_RealIO_Map" UId="537">
+        <BooleanAttribute Name="HasQuotes" UId="538">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="539" />
+      <Component Name="VFD_Bon2_Contactor" UId="540" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="541" />
+  <Token Text=":=" UId="542" />
+  <Blank Num="1" UId="543" />
+  <Access Scope="LiteralConstant" UId="544">
+    <Constant UId="545">
+      <ConstantValue UId="547">FALSE</ConstantValue>
+    </Constant>
+  </Access>
+  <Token Text=";" UId="548" />
+  <NewLine Num="1" UId="549" />
+  <Token Text="END_IF" UId="550" />
+  <Token Text=";" UId="551" />
+  <NewLine Num="2" UId="552" />
+  <LineComment Inserted="false" NoClosingBracket="false" UId="553">
+    <Text UId="554"> Cáº­p nháº­t cá» Safety_Ok pháº£n há»“i tráº¡ng thÃ¡i an toÃ n lÃªn HMI WinCC</Text>
+  </LineComment>
+  <NewLine Num="1" UId="555" />
+  <Access Scope="GlobalVariable" UId="556">
+    <Symbol UId="557">
+      <Component Name="DB_HMI" UId="558">
+        <BooleanAttribute Name="HasQuotes" UId="559">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="560" />
+      <Component Name="HMI" UId="561" />
+      <Token Text="." UId="562" />
+      <Component Name="Safety_Ok" UId="563" />
+    </Symbol>
+  </Access>
+  <Blank Num="1" UId="564" />
+  <Token Text=":=" UId="565" />
+  <Blank Num="1" UId="566" />
+  <Token Text="NOT" UId="567" />
+  <Blank Num="1" UId="568" />
+  <Access Scope="GlobalVariable" UId="569">
+    <Symbol UId="570">
+      <Component Name="DB_Operation" UId="571">
+        <BooleanAttribute Name="HasQuotes" UId="572">true</BooleanAttribute>
+      </Component>
+      <Token Text="." UId="573" />
+      <Component Name="Safety_Estop_Active" UId="574" />
+    </Symbol>
+  </Access>
+  <Token Text=";" UId="575" />
+  <NewLine Num="2" UId="576" />
+</StructuredText></NetworkSource>
+          <ProgrammingLanguage>SCL</ProgrammingLanguage>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Comment">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+          <MultilingualText ID="6" CompositionName="Title">
+            <ObjectList>
+              <MultilingualTextItem ID="7" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text />
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </SW.Blocks.CompileUnit>
+      <MultilingualText ID="8" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="9" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.FC>
+</Document>

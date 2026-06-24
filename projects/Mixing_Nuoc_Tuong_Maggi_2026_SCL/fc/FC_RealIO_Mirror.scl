@@ -1,0 +1,48 @@
+FUNCTION "FC_RealIO_Mirror" : Void
+{ S7_Optimized_Access := 'True' }
+VERSION : 0.1
+// Khối chức năng ánh xạ ngõ vào/ra vật lý (Real_IO) cho hệ thống Maggi SCL
+
+BEGIN
+    // 1. ÁNH XẠ NGÕ VÀO VẬT LÝ (Từ DB_RealIO_Map sang DB_HMI / DB_Operation)
+    
+    // Nút dừng khẩn cấp E-Stop: Tiếp điểm Thường đóng (NC).
+    // Nếu hở mạch (FALSE) -> E-Stop bị nhấn.
+    // Ta cập nhật cờ giám sát EStop_Pressed trên HMI (TRUE = Bị nhấn).
+    "DB_HMI".System.EStop_Pressed := NOT "DB_RealIO_Map".Nut_EStop_Physical;
+    
+    // Nút dừng Stop vật lý: Tiếp điểm NO, tác động ở mức logic TRUE.
+    // Nếu nút Stop vật lý được nhấn hoặc có lệnh dừng từ HMI:
+    // Ta ngắt chế độ tự động và báo dừng hệ thống.
+    IF "DB_RealIO_Map".Nut_Stop_Physical OR "DB_HMI".HMI.Nut_Dung THEN
+        "DB_HMI".System.Auto_Active := FALSE;
+        "DB_HMI".HMI.System_Running := FALSE;
+        "DB_HMI".HMI.Nut_Dung := FALSE; // Xóa cờ lệnh HMI sau khi ghi nhận
+    END_IF;
+
+    // Nút nhấn chạy Start vật lý hoặc Start HMI:
+    // Chỉ cho phép kích hoạt Auto_Active khi E-Stop không bị nhấn và không có lỗi chốt an toàn.
+    IF ("DB_RealIO_Map".Nut_Start_Physical OR "DB_HMI".HMI.Nut_Khoi_Dong) 
+        AND (NOT "DB_HMI".System.EStop_Pressed) 
+        AND (NOT "DB_Operation".Safety_Estop_Active) THEN
+        "DB_HMI".System.Auto_Active := TRUE;
+        "DB_HMI".HMI.System_Running := TRUE;
+        "DB_HMI".HMI.Nut_Khoi_Dong := FALSE; // Xóa cờ lệnh HMI sau khi ghi nhận
+    END_IF;
+
+    // 2. ÁNH XẠ NGÕ RA VẬT LÝ (Từ DB_Operation / DB_HMI sang DB_RealIO_Map)
+    
+    // Contactor VFD Bồn 2 điều khiển cấp nguồn/enable động cơ cánh khuấy Bồn 2.
+    // Điều kiện an toàn để đóng contactor vật lý:
+    // - Có lệnh chạy cánh khuấy từ logic vận hành ("DB_Operation".Bon2.Khuay_Chay)
+    // - Hệ thống an toàn đang OK (Safety_Estop_Active = FALSE)
+    // - Nút Estop vật lý không bị tác động (EStop_Pressed = FALSE)
+    IF "DB_Operation".Bon2.Khuay_Chay 
+        AND (NOT "DB_Operation".Safety_Estop_Active) 
+        AND (NOT "DB_HMI".System.EStop_Pressed) THEN
+        "DB_RealIO_Map".VFD_Bon2_Contactor := TRUE;
+    ELSE
+        "DB_RealIO_Map".VFD_Bon2_Contactor := FALSE;
+    END_IF;
+
+END_FUNCTION

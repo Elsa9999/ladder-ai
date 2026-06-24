@@ -1,0 +1,64 @@
+FUNCTION "FC_Safety_Interlock" : Void
+{ S7_Optimized_Access := 'True' }
+VERSION : 0.1
+// Khối chức năng xử lý chốt lỗi dừng khẩn cấp (E-Stop Latch) và liên động an toàn Maggi SCL
+
+BEGIN
+    // 1. KIỂM TRA TÁC ĐỘNG DỪNG KHẨN CẤP (E-Stop)
+    // Tác động khi: E-Stop vật lý hở mạch (FALSE) OR HMI kích hoạt nút dừng khẩn ảo (TRUE)
+    IF (NOT "DB_RealIO_Map".Nut_EStop_Physical) OR "DB_HMI".HMI.Nut_EStop THEN
+        "DB_Operation".Safety_Estop_Active := TRUE;   // Chốt lỗi dừng khẩn hệ thống
+        "DB_HMI".System.EStop_Pressed := TRUE;        // Đồng bộ trạng thái HMI giám sát E-Stop
+        "DB_HMI".System.System_Alarm_Active := TRUE;   // Kích hoạt cờ báo lỗi tổng
+        
+        // Ngắt lập tức trạng thái vận hành tự động
+        "DB_HMI".System.Auto_Active := FALSE;
+        "DB_HMI".HMI.System_Running := FALSE;
+        
+        // Kích hoạt còi báo động lỗi
+        "DB_Operation".Coi_Bao_Dong := TRUE;
+        "DB_HMI".System.Coi_Bao_Dong := TRUE;
+        
+        // Ghi nhận mã lỗi vào Word lỗi hệ thống (bit 0 biểu thị lỗi dừng khẩn E-Stop)
+        "DB_HMI".HMI.System_Alarms := "DB_HMI".HMI.System_Alarms OR 16#0001;
+    END_IF;
+
+    // 2. GIẢI PHÓNG LỖI CHỐT AN TOÀN (Reset)
+    // Chỉ cho phép Reset lỗi khi nút nhấn E-Stop vật lý đã được nhả (TRUE) và nút E-Stop HMI đã OFF (FALSE)
+    IF "DB_RealIO_Map".Nut_Reset_Physical OR "DB_HMI".HMI.Nut_Reset THEN
+        IF "DB_RealIO_Map".Nut_EStop_Physical AND (NOT "DB_HMI".HMI.Nut_EStop) THEN
+            // Giải phóng trạng thái lỗi chốt
+            "DB_Operation".Safety_Estop_Active := FALSE;
+            "DB_HMI".System.EStop_Pressed := FALSE;
+            "DB_HMI".System.System_Alarm_Active := FALSE;
+            
+            // Tắt còi báo động lỗi
+            "DB_Operation".Coi_Bao_Dong := FALSE;
+            "DB_HMI".System.Coi_Bao_Dong := FALSE;
+            
+            // Xóa mã lỗi E-Stop trong Word lỗi
+            "DB_HMI".HMI.System_Alarms := "DB_HMI".HMI.System_Alarms AND 16#FFFE;
+            
+            // Đồng bộ xung Reset nội bộ trong chu kỳ này
+            "DB_Operation".System_Reset := TRUE;
+        END_IF;
+        
+        // Giải trừ lệnh Reset ảo từ HMI sau khi xử lý
+        "DB_HMI".HMI.Nut_Reset := FALSE;
+    ELSE
+        // Reset cờ xung nội bộ sau 1 chu kỳ quét
+        "DB_Operation".System_Reset := FALSE;
+    END_IF;
+
+    // 3. LIÊN ĐỘNG BẢO VỆ CƯỠNG BỨC (Forced Safety Interlocks)
+    // Nếu hệ thống đang có lỗi chốt dừng khẩn (Safety_Estop_Active = TRUE):
+    // Cưỡng bức ngắt lệnh chạy cánh khuấy Bồn 2 và ngắt contactor lực lập tức.
+    IF "DB_Operation".Safety_Estop_Active THEN
+        "DB_Operation".Bon2.Khuay_Chay := FALSE;
+        "DB_RealIO_Map".VFD_Bon2_Contactor := FALSE;
+    END_IF;
+
+    // Cập nhật cờ Safety_Ok phản hồi trạng thái an toàn lên HMI WinCC
+    "DB_HMI".HMI.Safety_Ok := NOT "DB_Operation".Safety_Estop_Active;
+
+END_FUNCTION
