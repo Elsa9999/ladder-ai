@@ -38,7 +38,7 @@ Chúng tôi đã kiểm tra tĩnh toàn bộ 12 tệp SCL trong dự án:
 *   *Giải pháp:* 
     1. Loại bỏ toàn bộ phần gán tĩnh của `MB_TCP_Client_Conn` và `MB_TCP_Server_Conn` khỏi khối `BEGIN` của `DB_Comms.scl`.
     2. Giữ nguyên khai báo kiểu dữ liệu `TCON_IP_v4` trong phần `STRUCT`.
-    3. Thêm chú thích chi tiết kèm mẫu mã nguồn gán động tại hàm khởi tạo `FirstScan` (OB1/OB100). Cách tiếp cận này đảm bảo 100% khả năng import thành công và biên dịch sạch trên TIA Portal, đồng bộ với tài liệu hướng dẫn kỹ thuật `SCL_LAD_TO_SCL_REFERENCE.md`.
+    3. Thêm chú thích chi tiết kèm mẫu mã nguồn gán động tại hàm khởi tạo `FirstScan` (OB1/OB100). Cách tiếp cận này giảm rủi ro lỗi parser khi import SCL, nhưng chưa được xác nhận compile thật trên TIA Portal. Bắt buộc import/compile/readback TIA để kết luận compile sạch.
 
 ---
 
@@ -54,6 +54,9 @@ Mặc dù các tệp SCL đã vượt qua hoàn toàn bộ lọc kiểm tra tĩn
     *   *Cần kiểm chứng:* Cần thực hiện compile và readback từ TIA Portal để xác nhận chính xác các byte offset của mảng `MB_Hold_Reg` và các struct liên quan không bị lệch do căn chỉnh dữ liệu tự động (data alignment) của CPU S7-1200.
 3.  **Tương thích UDT lồng trong DB:**
     *   *Cần lưu ý:* Các DB chứa các biến kiểu UDT (ví dụ: `Bon1 : "UDT_Tank"`). Thứ tự import vào TIA Portal bắt buộc phải là: **Import tất cả các UDT trước, sau đó mới import các DB**. Nếu import DB trước khi các UDT được định nghĩa trong hệ thống, TIA Portal sẽ báo lỗi biên dịch thiếu kiểu dữ liệu.
+4.  **Start value cho field lồng trong UDT ở DB_Recipe.scl:**
+    *   *Rủi ro:* `DB_Recipe.scl` hiện đang gán giá trị khởi tạo cho các thuộc tính con của struct `Default_Recipe` (kiểu `UDT_Recipe`) trong khối `BEGIN ... END_DATA_BLOCK` (ví dụ: `Default_Recipe.SP_Nuoc_Bon1 := 100.0;`).
+    *   *Cần kiểm chứng:* Cú pháp gán giá trị cho trường con của struct lồng trong DB thông qua khối `BEGIN` có thể được một số phiên bản TIA Portal chấp nhận, nhưng chưa được xác nhận qua việc compile thật trên TIA Portal V18. Cần thực hiện import thử các UDT trước DB, tiến hành compile và readback để xác nhận tính đúng đắn.
 
 ---
 
