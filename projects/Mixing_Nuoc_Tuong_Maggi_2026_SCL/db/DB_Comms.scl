@@ -20,29 +20,21 @@ VERSION : 0.1
       VFD_Bon2 : "UDT_VFD_ATV12";         // Trạng thái và dữ liệu điều khiển biến tần
    END_STRUCT;
 BEGIN
-   // Thiết lập giá trị khởi động mặc định (Start Values) để tránh lỗi truyền thông 16#80B6
-   
-   // --- CẤU HÌNH MODBUS TCP CLIENT (PLC1) ---
-   MB_TCP_Client_Conn.InterfaceId := 64;           // Cổng Ethernet X1 tích hợp của S7-1200
-   MB_TCP_Client_Conn.ID := 5;                     // Connection ID (Cố định trùng khớp giữa Client và Server)
-   MB_TCP_Client_Conn.ConnectionType := 11;        // Kiểu kết nối 11 = 16#0B (giao thức TCP)
-   MB_TCP_Client_Conn.ActiveEstablished := TRUE;   // PLC1 đóng vai trò chủ động kết nối (Client)
-   MB_TCP_Client_Conn.RemoteAddress.ADDR[1] := 192; // Địa chỉ IP đích (PLC2 Server) ADDR[1..4]
-   MB_TCP_Client_Conn.RemoteAddress.ADDR[2] := 168;
-   MB_TCP_Client_Conn.RemoteAddress.ADDR[3] := 0;
-   MB_TCP_Client_Conn.RemoteAddress.ADDR[4] := 2;   // PLC2 IP = 192.168.0.2
-   MB_TCP_Client_Conn.RemotePort := 502;           // Cổng dịch vụ Modbus TCP mặc định của PLC2
-   MB_TCP_Client_Conn.LocalPort := 0;             // Cổng local tự động cấp phát (0)
-   
-   // --- CẤU HÌNH MODBUS TCP SERVER (PLC2) ---
-   MB_TCP_Server_Conn.InterfaceId := 64;           // Cổng Ethernet X1 tích hợp của PLC2
-   MB_TCP_Server_Conn.ID := 5;                     // Connection ID (Cố định trùng khớp)
-   MB_TCP_Server_Conn.ConnectionType := 11;        // Kiểu kết nối TCP
-   MB_TCP_Server_Conn.ActiveEstablished := FALSE;  // PLC2 đóng vai trò thụ động lắng nghe kết nối (Server)
-   MB_TCP_Server_Conn.RemoteAddress.ADDR[1] := 192; // Chỉ chấp nhận kết nối từ IP này (PLC1 Client)
-   MB_TCP_Server_Conn.RemoteAddress.ADDR[2] := 168;
-   MB_TCP_Server_Conn.RemoteAddress.ADDR[3] := 0;
-   MB_TCP_Server_Conn.RemoteAddress.ADDR[4] := 1;   // PLC1 IP = 192.168.0.1
-   MB_TCP_Server_Conn.RemotePort := 0;             // Chấp nhận mọi cổng gửi từ Client
-   MB_TCP_Server_Conn.LocalPort := 502;           // Lắng nghe trên cổng Modbus TCP 502
+   // LƯU Ý QUAN TRỌNG: Các trường dữ liệu phức tạp của struct TCON_IP_v4 (như RemoteAddress.ADDR[1..4])
+   // bắt buộc phải được gán động 1 lần duy nhất trong hàm khởi tạo FirstScan / OB100 để tránh lỗi cú pháp 
+   // khi import file SCL tĩnh vào TIA Portal V18. Không khai báo gán tĩnh cho struct TCON_IP_v4 trong phần BEGIN của DB này.
+   //
+   // Mẫu mã nguồn gán tại FirstScan (OB1 / OB100):
+   // IF "FirstScan" THEN
+   //    "DB_Comms".MB_TCP_Client_Conn.InterfaceId := 64;
+   //    "DB_Comms".MB_TCP_Client_Conn.ID := 5;
+   //    "DB_Comms".MB_TCP_Client_Conn.ConnectionType := 11; // TCP
+   //    "DB_Comms".MB_TCP_Client_Conn.ActiveEstablished := TRUE;
+   //    "DB_Comms".MB_TCP_Client_Conn.RemoteAddress.ADDR[1] := 192;
+   //    "DB_Comms".MB_TCP_Client_Conn.RemoteAddress.ADDR[2] := 168;
+   //    "DB_Comms".MB_TCP_Client_Conn.RemoteAddress.ADDR[3] := 0;
+   //    "DB_Comms".MB_TCP_Client_Conn.RemoteAddress.ADDR[4] := 2; // IP PLC2
+   //    "DB_Comms".MB_TCP_Client_Conn.RemotePort := 502;
+   //    "DB_Comms".MB_TCP_Client_Conn.LocalPort := 0;
+   // END_IF;
 END_DATA_BLOCK
