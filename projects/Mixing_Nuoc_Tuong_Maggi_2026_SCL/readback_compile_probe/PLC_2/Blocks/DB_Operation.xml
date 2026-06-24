@@ -1,0 +1,431 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-06-24T04:39:41.1022132Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Professional</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.GlobalDB ID="0">
+    <AttributeList>
+      <AutoNumber>true</AutoNumber>
+      <DBAccessibleFromOPCUA>true</DBAccessibleFromOPCUA>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Static">
+    <Member Name="Bon1" Datatype="&quot;UDT_Tank&quot;" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Tráº¡ng thÃ¡i vÃ  biáº¿n Ä‘o lÆ°á»ng Bá»“n 1</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Khuay_Chay" Datatype="Bool" />
+          <Member Name="Khuay_Phan_Hoi" Datatype="Bool" />
+          <Member Name="Toc_Do_Cai_Dat" Datatype="Real" />
+          <Member Name="Toc_Do_Phan_Hoi" Datatype="Real" />
+          <Member Name="Khuay_Dao_Chieu" Datatype="Bool" />
+          <Member Name="Van_Cap_Nuoc" Datatype="Bool" />
+          <Member Name="Van_Cap_Nuoc_AO" Datatype="Real" />
+          <Member Name="Van_Xa_Day_1" Datatype="Bool" />
+          <Member Name="Van_Xa_Day_2" Datatype="Bool" />
+          <Member Name="Van_Xa_Day_3" Datatype="Bool" />
+          <Member Name="Van_Cap_Hoi" Datatype="Real" />
+          <Member Name="Van_Lam_Mat" Datatype="Real" />
+          <Member Name="Cam_Bien_Cao" Datatype="Bool" />
+          <Member Name="Muc_Dich_PV" Datatype="Real" />
+          <Member Name="Nhiet_Do_PV" Datatype="Real" />
+          <Member Name="Luu_Luong_PV" Datatype="Real" />
+          <Member Name="The_Tich_Luy_Ke" Datatype="Real" />
+          <Member Name="Sim_Active" Datatype="Bool" />
+          <Member Name="Sim_Muc_Dich_Tich_Luy" Datatype="Real" />
+          <Member Name="Sim_Nhiet_Do_Tich_Luy" Datatype="Real" />
+          <Member Name="Buoc_Grafcet" Datatype="Int" />
+          <Member Name="Me_Hoan_Thanh" Datatype="Bool" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Bon2" Datatype="&quot;UDT_Tank&quot;" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Tráº¡ng thÃ¡i vÃ  biáº¿n Ä‘o lÆ°á»ng Bá»“n 2</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Khuay_Chay" Datatype="Bool" />
+          <Member Name="Khuay_Phan_Hoi" Datatype="Bool" />
+          <Member Name="Toc_Do_Cai_Dat" Datatype="Real" />
+          <Member Name="Toc_Do_Phan_Hoi" Datatype="Real" />
+          <Member Name="Khuay_Dao_Chieu" Datatype="Bool" />
+          <Member Name="Van_Cap_Nuoc" Datatype="Bool" />
+          <Member Name="Van_Cap_Nuoc_AO" Datatype="Real" />
+          <Member Name="Van_Xa_Day_1" Datatype="Bool" />
+          <Member Name="Van_Xa_Day_2" Datatype="Bool" />
+          <Member Name="Van_Xa_Day_3" Datatype="Bool" />
+          <Member Name="Van_Cap_Hoi" Datatype="Real" />
+          <Member Name="Van_Lam_Mat" Datatype="Real" />
+          <Member Name="Cam_Bien_Cao" Datatype="Bool" />
+          <Member Name="Muc_Dich_PV" Datatype="Real" />
+          <Member Name="Nhiet_Do_PV" Datatype="Real" />
+          <Member Name="Luu_Luong_PV" Datatype="Real" />
+          <Member Name="The_Tich_Luy_Ke" Datatype="Real" />
+          <Member Name="Sim_Active" Datatype="Bool" />
+          <Member Name="Sim_Muc_Dich_Tich_Luy" Datatype="Real" />
+          <Member Name="Sim_Nhiet_Do_Tich_Luy" Datatype="Real" />
+          <Member Name="Buoc_Grafcet" Datatype="Int" />
+          <Member Name="Me_Hoan_Thanh" Datatype="Bool" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Bon3" Datatype="&quot;UDT_Tank&quot;" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Tráº¡ng thÃ¡i vÃ  biáº¿n Ä‘o lÆ°á»ng Bá»“n 3</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Khuay_Chay" Datatype="Bool" />
+          <Member Name="Khuay_Phan_Hoi" Datatype="Bool" />
+          <Member Name="Toc_Do_Cai_Dat" Datatype="Real" />
+          <Member Name="Toc_Do_Phan_Hoi" Datatype="Real" />
+          <Member Name="Khuay_Dao_Chieu" Datatype="Bool" />
+          <Member Name="Van_Cap_Nuoc" Datatype="Bool" />
+          <Member Name="Van_Cap_Nuoc_AO" Datatype="Real" />
+          <Member Name="Van_Xa_Day_1" Datatype="Bool" />
+          <Member Name="Van_Xa_Day_2" Datatype="Bool" />
+          <Member Name="Van_Xa_Day_3" Datatype="Bool" />
+          <Member Name="Van_Cap_Hoi" Datatype="Real" />
+          <Member Name="Van_Lam_Mat" Datatype="Real" />
+          <Member Name="Cam_Bien_Cao" Datatype="Bool" />
+          <Member Name="Muc_Dich_PV" Datatype="Real" />
+          <Member Name="Nhiet_Do_PV" Datatype="Real" />
+          <Member Name="Luu_Luong_PV" Datatype="Real" />
+          <Member Name="The_Tich_Luy_Ke" Datatype="Real" />
+          <Member Name="Sim_Active" Datatype="Bool" />
+          <Member Name="Sim_Muc_Dich_Tich_Luy" Datatype="Real" />
+          <Member Name="Sim_Nhiet_Do_Tich_Luy" Datatype="Real" />
+          <Member Name="Buoc_Grafcet" Datatype="Int" />
+          <Member Name="Me_Hoan_Thanh" Datatype="Bool" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Bon4" Datatype="&quot;UDT_Tank&quot;" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Tráº¡ng thÃ¡i vÃ  biáº¿n Ä‘o lÆ°á»ng Bá»“n 4 Tráº¡ng thÃ¡i váº­n hÃ nh cá»§a cÃ¡c bá»“n chá»©a phá»¥ trá»£</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Khuay_Chay" Datatype="Bool" />
+          <Member Name="Khuay_Phan_Hoi" Datatype="Bool" />
+          <Member Name="Toc_Do_Cai_Dat" Datatype="Real" />
+          <Member Name="Toc_Do_Phan_Hoi" Datatype="Real" />
+          <Member Name="Khuay_Dao_Chieu" Datatype="Bool" />
+          <Member Name="Van_Cap_Nuoc" Datatype="Bool" />
+          <Member Name="Van_Cap_Nuoc_AO" Datatype="Real" />
+          <Member Name="Van_Xa_Day_1" Datatype="Bool" />
+          <Member Name="Van_Xa_Day_2" Datatype="Bool" />
+          <Member Name="Van_Xa_Day_3" Datatype="Bool" />
+          <Member Name="Van_Cap_Hoi" Datatype="Real" />
+          <Member Name="Van_Lam_Mat" Datatype="Real" />
+          <Member Name="Cam_Bien_Cao" Datatype="Bool" />
+          <Member Name="Muc_Dich_PV" Datatype="Real" />
+          <Member Name="Nhiet_Do_PV" Datatype="Real" />
+          <Member Name="Luu_Luong_PV" Datatype="Real" />
+          <Member Name="The_Tich_Luy_Ke" Datatype="Real" />
+          <Member Name="Sim_Active" Datatype="Bool" />
+          <Member Name="Sim_Muc_Dich_Tich_Luy" Datatype="Real" />
+          <Member Name="Sim_Nhiet_Do_Tich_Luy" Datatype="Real" />
+          <Member Name="Buoc_Grafcet" Datatype="Int" />
+          <Member Name="Me_Hoan_Thanh" Datatype="Bool" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="BonChua1" Datatype="&quot;UDT_Tank&quot;" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Tráº¡ng thÃ¡i bá»“n chá»©a trung gian 1 (Bá»“n chá»©a giáº£i nhiá»‡t)</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Khuay_Chay" Datatype="Bool" />
+          <Member Name="Khuay_Phan_Hoi" Datatype="Bool" />
+          <Member Name="Toc_Do_Cai_Dat" Datatype="Real" />
+          <Member Name="Toc_Do_Phan_Hoi" Datatype="Real" />
+          <Member Name="Khuay_Dao_Chieu" Datatype="Bool" />
+          <Member Name="Van_Cap_Nuoc" Datatype="Bool" />
+          <Member Name="Van_Cap_Nuoc_AO" Datatype="Real" />
+          <Member Name="Van_Xa_Day_1" Datatype="Bool" />
+          <Member Name="Van_Xa_Day_2" Datatype="Bool" />
+          <Member Name="Van_Xa_Day_3" Datatype="Bool" />
+          <Member Name="Van_Cap_Hoi" Datatype="Real" />
+          <Member Name="Van_Lam_Mat" Datatype="Real" />
+          <Member Name="Cam_Bien_Cao" Datatype="Bool" />
+          <Member Name="Muc_Dich_PV" Datatype="Real" />
+          <Member Name="Nhiet_Do_PV" Datatype="Real" />
+          <Member Name="Luu_Luong_PV" Datatype="Real" />
+          <Member Name="The_Tich_Luy_Ke" Datatype="Real" />
+          <Member Name="Sim_Active" Datatype="Bool" />
+          <Member Name="Sim_Muc_Dich_Tich_Luy" Datatype="Real" />
+          <Member Name="Sim_Nhiet_Do_Tich_Luy" Datatype="Real" />
+          <Member Name="Buoc_Grafcet" Datatype="Int" />
+          <Member Name="Me_Hoan_Thanh" Datatype="Bool" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="BonChua2" Datatype="&quot;UDT_Tank&quot;" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Tráº¡ng thÃ¡i bá»“n chá»©a trung gian 2 (Bá»“n chá»©a thÃ nh pháº©m trÆ°á»›c chiáº¿t) Tráº¡ng thÃ¡i má»©c cá»§a Phá»…u rÃ³t (Filler Hopper)</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Khuay_Chay" Datatype="Bool" />
+          <Member Name="Khuay_Phan_Hoi" Datatype="Bool" />
+          <Member Name="Toc_Do_Cai_Dat" Datatype="Real" />
+          <Member Name="Toc_Do_Phan_Hoi" Datatype="Real" />
+          <Member Name="Khuay_Dao_Chieu" Datatype="Bool" />
+          <Member Name="Van_Cap_Nuoc" Datatype="Bool" />
+          <Member Name="Van_Cap_Nuoc_AO" Datatype="Real" />
+          <Member Name="Van_Xa_Day_1" Datatype="Bool" />
+          <Member Name="Van_Xa_Day_2" Datatype="Bool" />
+          <Member Name="Van_Xa_Day_3" Datatype="Bool" />
+          <Member Name="Van_Cap_Hoi" Datatype="Real" />
+          <Member Name="Van_Lam_Mat" Datatype="Real" />
+          <Member Name="Cam_Bien_Cao" Datatype="Bool" />
+          <Member Name="Muc_Dich_PV" Datatype="Real" />
+          <Member Name="Nhiet_Do_PV" Datatype="Real" />
+          <Member Name="Luu_Luong_PV" Datatype="Real" />
+          <Member Name="The_Tich_Luy_Ke" Datatype="Real" />
+          <Member Name="Sim_Active" Datatype="Bool" />
+          <Member Name="Sim_Muc_Dich_Tich_Luy" Datatype="Real" />
+          <Member Name="Sim_Nhiet_Do_Tich_Luy" Datatype="Real" />
+          <Member Name="Buoc_Grafcet" Datatype="Int" />
+          <Member Name="Me_Hoan_Thanh" Datatype="Bool" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Pheu_Filler_Cao" Datatype="Bool" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Phá»…u rÃ³t má»©c cao (LSH3310_Pheu_Cao) - Sim_IO</MultiLanguageText>
+      </Comment>
+      <StartValue>FALSE</StartValue>
+    </Member>
+    <Member Name="Pheu_Filler_Thap" Datatype="Bool" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Phá»…u rÃ³t má»©c tháº¥p (LSL3311_Pheu_Thap) - Sim_IO Tráº¡ng thÃ¡i cÃ¡c bá»™ Ä‘iá»u khiá»ƒn nhiá»‡t Ä‘á»™ PID</MultiLanguageText>
+      </Comment>
+      <StartValue>FALSE</StartValue>
+    </Member>
+    <Member Name="PID_Bon2" Datatype="&quot;UDT_PID_Channel&quot;" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">KÃªnh Ä‘iá»u phá»‘i PID nhiá»‡t Ä‘á»™ Bá»“n 2</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Enable" Datatype="Bool" />
+          <Member Name="Setpoint" Datatype="Real" />
+          <Member Name="PV" Datatype="Real" />
+          <Member Name="CV" Datatype="Real" />
+          <Member Name="Status" Datatype="Word" />
+          <Member Name="Manual_Mode" Datatype="Bool" />
+          <Member Name="Manual_Value" Datatype="Real" />
+          <Member Name="Mode" Datatype="Int" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="PID_Bon4" Datatype="&quot;UDT_PID_Channel&quot;" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">KÃªnh Ä‘iá»u phá»‘i PID nhiá»‡t Ä‘á»™ Bá»“n 4 PhÃ¢n bá»• vÃ  quáº£n lÃ½ khÃ³a liÃªn Ä‘á»™ng nhÃ¡nh xáº£ (Shared Resource Allocation) Äá»ƒ trÃ¡nh viá»‡c hai bá»“n xáº£ Ä‘á»“ng thá»i lÃ m trÃ n hoáº·c láº«n dÃ²ng cháº£y: Owner = 0: NhÃ¡nh trá»‘ng. Owner = 1: Bá»“n 1 Ä‘ang xáº£. Owner = 2: Bá»“n 2 Ä‘ang xáº£.</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Enable" Datatype="Bool" />
+          <Member Name="Setpoint" Datatype="Real" />
+          <Member Name="PV" Datatype="Real" />
+          <Member Name="CV" Datatype="Real" />
+          <Member Name="Status" Datatype="Word" />
+          <Member Name="Manual_Mode" Datatype="Bool" />
+          <Member Name="Manual_Value" Datatype="Real" />
+          <Member Name="Mode" Datatype="Int" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Owner_Nhanh1" Datatype="Int" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">PhÃ¢n quyá»n sá»­ dá»¥ng Ä‘Æ°á»ng xáº£ NhÃ¡nh 1 (Bá»“n 1 / Bá»“n 2) Owner = 0: NhÃ¡nh trá»‘ng. Owner = 3: Bá»“n 3 Ä‘ang xáº£. Owner = 4: Bá»“n 4 Ä‘ang xáº£.</MultiLanguageText>
+      </Comment>
+      <StartValue>0</StartValue>
+    </Member>
+    <Member Name="Owner_Nhanh2" Datatype="Int" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">PhÃ¢n quyá»n sá»­ dá»¥ng Ä‘Æ°á»ng xáº£ NhÃ¡nh 2 (Bá»“n 3 / Bá»“n 4) Äiá»u khiá»ƒn cÃ²i vÃ  há»‡ thá»‘ng an toÃ n</MultiLanguageText>
+      </Comment>
+      <StartValue>0</StartValue>
+    </Member>
+    <Member Name="Safety_Estop_Active" Datatype="Bool" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Tráº¡ng thÃ¡i Estop Ä‘ang tÃ¡c Ä‘á»™ng chá»‘t ngáº¯t há»‡ thá»‘ng</MultiLanguageText>
+      </Comment>
+      <StartValue>FALSE</StartValue>
+    </Member>
+    <Member Name="System_Reset" Datatype="Bool" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Cá» xung kÃ­ch hoáº¡t Reset há»‡ thá»‘ng</MultiLanguageText>
+      </Comment>
+      <StartValue>FALSE</StartValue>
+    </Member>
+    <Member Name="Coi_Bao_Dong" Datatype="Bool" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">false</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Tráº¡ng thÃ¡i cÃ²i bÃ¡o Ä‘á»™ng toÃ n há»‡ thá»‘ng</MultiLanguageText>
+      </Comment>
+      <StartValue>FALSE</StartValue>
+    </Member>
+  </Section>
+</Sections></Interface>
+      <IsOnlyStoredInLoadMemory>false</IsOnlyStoredInLoadMemory>
+      <IsRetainMemResEnabled>false</IsRetainMemResEnabled>
+      <IsWriteProtectedInAS>false</IsWriteProtectedInAS>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <MemoryReserve>100</MemoryReserve>
+      <Name>DB_Operation</Name>
+      <Namespace />
+      <Number>6</Number>
+      <ProgrammingLanguage>DB</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text> Khá»‘i dá»¯ liá»‡u váº­n hÃ nh chÃ­nh (Tráº¡ng thÃ¡i cá»§a cÃ¡c bá»“n, cÃ¡c bá»™ Ä‘iá»u khiá»ƒn PID nhiá»‡t Ä‘á»™ vÃ  cá» liÃªn Ä‘á»™ng quy trÃ¬nh)</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="3" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="4" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.GlobalDB>
+</Document>

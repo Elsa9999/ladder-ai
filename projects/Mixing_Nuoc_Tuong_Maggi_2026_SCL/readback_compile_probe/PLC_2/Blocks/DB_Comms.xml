@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-06-24T04:39:41.0271942Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Professional</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.GlobalDB ID="0">
+    <AttributeList>
+      <AutoNumber>true</AutoNumber>
+      <DBAccessibleFromOPCUA>true</DBAccessibleFromOPCUA>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Static">
+    <Member Name="MB_TCP_Client_Conn" Datatype="TCON_IP_v4" Version="1.0" Remanence="Retain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Cáº¥u trÃºc cáº¥u hÃ¬nh káº¿t ná»‘i TCP Client chuáº©n Siemens 2. Cáº¥u hÃ¬nh káº¿t ná»‘i Modbus TCP Server (Láº¯ng nghe tá»« PLC1, sá»­ dá»¥ng trÃªn PLC2)</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="InterfaceId" Datatype="HW_ANY" />
+          <Member Name="ID" Datatype="CONN_OUC" />
+          <Member Name="ConnectionType" Datatype="Byte" />
+          <Member Name="ActiveEstablished" Datatype="Bool" />
+          <Member Name="RemoteAddress" Datatype="IP_V4" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="ADDR" Datatype="Array[1..4] of Byte" />
+              </Section>
+            </Sections>
+          </Member>
+          <Member Name="RemotePort" Datatype="UInt" />
+          <Member Name="LocalPort" Datatype="UInt" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="MB_TCP_Server_Conn" Datatype="TCON_IP_v4" Version="1.0" Remanence="Retain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Cáº¥u trÃºc cáº¥u hÃ¬nh káº¿t ná»‘i TCP Server chuáº©n Siemens 3. Tráº¡ng thÃ¡i Ä‘iá»u phá»‘i vÃ  bá»™ Ä‘á»‡m giao tiáº¿p Modbus TCP Client</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="InterfaceId" Datatype="HW_ANY" />
+          <Member Name="ID" Datatype="CONN_OUC" />
+          <Member Name="ConnectionType" Datatype="Byte" />
+          <Member Name="ActiveEstablished" Datatype="Bool" />
+          <Member Name="RemoteAddress" Datatype="IP_V4" Version="1.0">
+            <Sections>
+              <Section Name="None">
+                <Member Name="ADDR" Datatype="Array[1..4] of Byte" />
+              </Section>
+            </Sections>
+          </Member>
+          <Member Name="RemotePort" Datatype="UInt" />
+          <Member Name="LocalPort" Datatype="UInt" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="TCP_Client" Datatype="&quot;UDT_ModbusTCP_Link&quot;" Remanence="Retain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Quáº£n lÃ½ tráº¡ng thÃ¡i, nhÃ£n báº¯t tay vÃ  bá»™ Ä‘á»‡m gá»­i nháº­n 4. Tráº¡ng thÃ¡i Ä‘iá»u phá»‘i vÃ  bá»™ Ä‘á»‡m giao tiáº¿p Modbus TCP Server</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Busy" Datatype="Bool" />
+          <Member Name="Done" Datatype="Bool" />
+          <Member Name="Error" Datatype="Bool" />
+          <Member Name="Status" Datatype="Word" />
+          <Member Name="CmdSeq" Datatype="Int" />
+          <Member Name="AckSeq" Datatype="Int" />
+          <Member Name="Heartbeat_Send" Datatype="Int" />
+          <Member Name="Heartbeat_Recv" Datatype="Int" />
+          <Member Name="Heartbeat_Last" Datatype="Int" />
+          <Member Name="Watchdog_Timer" Datatype="Time" />
+          <Member Name="Connection_Ok" Datatype="Bool" />
+          <Member Name="MB_Hold_Reg" Datatype="Array[0..19] of Word" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="TCP_Server" Datatype="&quot;UDT_ModbusTCP_Link&quot;" Remanence="Retain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Quáº£n lÃ½ tráº¡ng thÃ¡i, nhÃ£n báº¯t tay vÃ  bá»™ Ä‘á»‡m lÆ°u trá»¯ dá»¯ liá»‡u chia sáº» 5. Tráº¡ng thÃ¡i vÃ  bá»™ Ä‘á»‡m truyá»n thÃ´ng Modbus RTU RS485 vá»›i biáº¿n táº§n Altivar 12 Bá»“n 2 (Chá»‰ cháº¡y trÃªn PLC1)</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Busy" Datatype="Bool" />
+          <Member Name="Done" Datatype="Bool" />
+          <Member Name="Error" Datatype="Bool" />
+          <Member Name="Status" Datatype="Word" />
+          <Member Name="CmdSeq" Datatype="Int" />
+          <Member Name="AckSeq" Datatype="Int" />
+          <Member Name="Heartbeat_Send" Datatype="Int" />
+          <Member Name="Heartbeat_Recv" Datatype="Int" />
+          <Member Name="Heartbeat_Last" Datatype="Int" />
+          <Member Name="Watchdog_Timer" Datatype="Time" />
+          <Member Name="Connection_Ok" Datatype="Bool" />
+          <Member Name="MB_Hold_Reg" Datatype="Array[0..19] of Word" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="VFD_Bon2" Datatype="&quot;UDT_VFD_ATV12&quot;" Remanence="Retain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Tráº¡ng thÃ¡i vÃ  dá»¯ liá»‡u Ä‘iá»u khiá»ƒn biáº¿n táº§n</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="ControlWord" Datatype="Word" />
+          <Member Name="FreqSetpoint" Datatype="Int" />
+          <Member Name="StatusWord" Datatype="Word" />
+          <Member Name="FreqFeedback" Datatype="Int" />
+          <Member Name="Step" Datatype="Int" />
+          <Member Name="Comm_Active" Datatype="Bool" />
+          <Member Name="Comm_Ready" Datatype="Bool" />
+          <Member Name="MB_Req" Datatype="Bool" />
+          <Member Name="MB_Mode" Datatype="Byte" />
+          <Member Name="MB_DataAddr" Datatype="UDInt" />
+          <Member Name="MB_DataLen" Datatype="UInt" />
+          <Member Name="MB_DataBuffer" Datatype="Word" />
+          <Member Name="MB_Busy" Datatype="Bool" />
+          <Member Name="MB_Error" Datatype="Bool" />
+          <Member Name="MB_Status" Datatype="Word" />
+        </Section>
+      </Sections>
+    </Member>
+  </Section>
+</Sections></Interface>
+      <IsOnlyStoredInLoadMemory>false</IsOnlyStoredInLoadMemory>
+      <IsWriteProtectedInAS>false</IsWriteProtectedInAS>
+      <MemoryLayout>Standard</MemoryLayout>
+      <Name>DB_Comms</Name>
+      <Namespace />
+      <Number>4</Number>
+      <ProgrammingLanguage>DB</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text> Khá»‘i dá»¯ liá»‡u Ä‘á»‡m truyá»n thÃ´ng (Modbus TCP Client/Server vÃ  Modbus RTU ATV12)
+ Thiáº¿t káº¿ Standard (Non-Optimized) Ä‘á»ƒ Ä‘áº£m báº£o Ä‘á»™ lá»‡ch Ä‘á»‹a chá»‰ byte (byte offset) cá»‘ Ä‘á»‹nh cho con trá» Modbus</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="3" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="4" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.GlobalDB>
+</Document>

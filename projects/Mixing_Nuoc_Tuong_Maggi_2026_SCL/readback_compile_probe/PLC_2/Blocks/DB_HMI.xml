@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V18" />
+  <DocumentInfo>
+    <Created>2026-06-24T04:39:41.0698973Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>TIA Portal Openness</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>TIA Portal Version Control Interface</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Professional</DisplayName>
+        <DisplayVersion>V18</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <SW.Blocks.GlobalDB ID="0">
+    <AttributeList>
+      <AutoNumber>true</AutoNumber>
+      <DBAccessibleFromOPCUA>true</DBAccessibleFromOPCUA>
+      <HeaderAuthor />
+      <HeaderFamily />
+      <HeaderName />
+      <HeaderVersion>0.1</HeaderVersion>
+      <Interface><Sections xmlns="http://www.siemens.com/automation/Openness/SW/Interface/v5">
+  <Section Name="Static">
+    <Member Name="HMI" Datatype="&quot;UDT_HMI_Data&quot;" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Gom nhÃ³m nÃºt nháº¥n áº£o vÃ  biáº¿n hÃ¬nh Ä‘á»™ng</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Nut_Khoi_Dong" Datatype="Bool" />
+          <Member Name="Nut_Dung" Datatype="Bool" />
+          <Member Name="Nut_Reset" Datatype="Bool" />
+          <Member Name="Nut_EStop" Datatype="Bool" />
+          <Member Name="Che_Do_Manual" Datatype="Bool" />
+          <Member Name="Cho_Phep_Sua_Thong_So" Datatype="Bool" />
+          <Member Name="System_Running" Datatype="Bool" />
+          <Member Name="System_Alarms" Datatype="Word" />
+          <Member Name="Safety_Ok" Datatype="Bool" />
+          <Member Name="Anim_Bon1_MucDich" Datatype="Int" />
+          <Member Name="Anim_Bon2_MucDich" Datatype="Int" />
+          <Member Name="Anim_Bon3_MucDich" Datatype="Int" />
+          <Member Name="Anim_Bon4_MucDich" Datatype="Int" />
+          <Member Name="Anim_BonChua1_MucDich" Datatype="Int" />
+          <Member Name="Anim_BonChua2_MucDich" Datatype="Int" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="Recipe" Datatype="&quot;UDT_Recipe&quot;" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">CÃ¡c tham sá»‘ cÃ´ng thá»©c hiá»ƒn thá»‹/cÃ i Ä‘áº·t tá»« HMI</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="SP_Nuoc_Bon1" Datatype="Real" />
+          <Member Name="SP_Nuoc_Bon2" Datatype="Real" />
+          <Member Name="SP_Nuoc_Bon3" Datatype="Real" />
+          <Member Name="SP_Nuoc_Bon4" Datatype="Real" />
+          <Member Name="SP_Toc_Do_Bon1" Datatype="Real" />
+          <Member Name="SP_Toc_Do_Bon2" Datatype="Real" />
+          <Member Name="SP_Toc_Do_Bon3" Datatype="Real" />
+          <Member Name="SP_Toc_Do_Bon4" Datatype="Real" />
+          <Member Name="SP_Nhiet_Do_Bon2" Datatype="Real" />
+          <Member Name="SP_Nhiet_Do_Bon4" Datatype="Real" />
+          <Member Name="SP_Nhiet_Giai_Nhiet_BonChua1" Datatype="Real" />
+          <Member Name="SP_Thoi_Gian_Khuay_Bon1" Datatype="Real" />
+          <Member Name="SP_Thoi_Gian_Khuay_Bon3" Datatype="Real" />
+          <Member Name="SP_Thoi_Gian_Khuay_Thuan" Datatype="Real" />
+          <Member Name="SP_Thoi_Gian_Khuay_Nghich" Datatype="Real" />
+          <Member Name="SP_Thoi_Gian_Tiet_Trung" Datatype="Real" />
+          <Member Name="SP_Ap_Suat_Loc_Max" Datatype="Real" />
+        </Section>
+      </Sections>
+    </Member>
+    <Member Name="System" Datatype="&quot;UDT_SystemStatus&quot;" Remanence="NonRetain" Accessibility="Public">
+      <AttributeList>
+        <BooleanAttribute Name="ExternalAccessible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalVisible" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="ExternalWritable" SystemDefined="true">true</BooleanAttribute>
+        <BooleanAttribute Name="SetPoint" SystemDefined="true">true</BooleanAttribute>
+      </AttributeList>
+      <Comment>
+        <MultiLanguageText Lang="en-US">Tráº¡ng thÃ¡i váº­n hÃ nh vÃ  giÃ¡m sÃ¡t há»‡ thá»‘ng</MultiLanguageText>
+      </Comment>
+      <Sections>
+        <Section Name="None">
+          <Member Name="Auto_Active" Datatype="Bool" />
+          <Member Name="Manual_Active" Datatype="Bool" />
+          <Member Name="EStop_Pressed" Datatype="Bool" />
+          <Member Name="Safety_Gate_Closed" Datatype="Bool" />
+          <Member Name="System_Alarm_Active" Datatype="Bool" />
+          <Member Name="Coi_Bao_Dong" Datatype="Bool" />
+          <Member Name="Heartbeat_Counter" Datatype="DInt" />
+          <Member Name="First_Scan_Done" Datatype="Bool" />
+        </Section>
+      </Sections>
+    </Member>
+  </Section>
+</Sections></Interface>
+      <IsOnlyStoredInLoadMemory>false</IsOnlyStoredInLoadMemory>
+      <IsRetainMemResEnabled>false</IsRetainMemResEnabled>
+      <IsWriteProtectedInAS>false</IsWriteProtectedInAS>
+      <MemoryLayout>Optimized</MemoryLayout>
+      <MemoryReserve>100</MemoryReserve>
+      <Name>DB_HMI</Name>
+      <Namespace />
+      <Number>5</Number>
+      <ProgrammingLanguage>DB</ProgrammingLanguage>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text> Khá»‘i dá»¯ liá»‡u giao tiáº¿p vá»›i mÃ n hÃ¬nh WinCC HMI (SCADA)</Text>
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <MultilingualText ID="3" CompositionName="Title">
+        <ObjectList>
+          <MultilingualTextItem ID="4" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+    </ObjectList>
+  </SW.Blocks.GlobalDB>
+</Document>
